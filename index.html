@@ -5,9 +5,10 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#ECEEF1">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://dedesign.online/">
 <meta property="og:title" content="Denis Konobeyev — Product designer">
 <meta property="og:description" content="Senior UI/UX designer for checkout, paywall and purchase flows. Live prototypes of 10 product cases.">
-<meta property="og:image" content="og.png">
+<meta property="og:image" content="https://dedesign.online/og.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <title>Denis Konobeyev</title>
@@ -2218,10 +2219,6 @@ p{margin:0}
       <a href="#contact" data-t="navContact">Contact</a>
     </nav>
     <span class="status"><i aria-hidden="true"></i><span data-t="status">Open to remote roles</span></span>
-    <div class="lang" role="group" aria-label="Language">
-      <button type="button" data-lang="en" aria-pressed="true">EN</button>
-      <button type="button" data-lang="ru" aria-pressed="false">RU</button>
-    </div>
   </div>
 </header>
 
@@ -2306,10 +2303,6 @@ p{margin:0}
     <button class="cv-close" id="cvClose" type="button" data-t="back">← All work</button>
     <div class="cv-bar-r">
       <span class="mono" id="cvCount"></span>
-      <div class="lang" role="group" aria-label="Language">
-        <button type="button" data-lang="en" aria-pressed="true">EN</button>
-        <button type="button" data-lang="ru" aria-pressed="false">RU</button>
-      </div>
     </div>
   </div>
   <article class="wrap" id="cvBody"></article>
@@ -2907,7 +2900,7 @@ p{margin:0}
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const esc = s => String(s).replace(/[&<>"]/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[ch]));
   let lang = 'en';
-  try { const saved = localStorage.getItem('lang'); if (saved === 'en' || saved === 'ru') lang = saved; } catch(e){}
+  try { localStorage.removeItem('lang'); } catch(e){}
   const T = () => STR[lang];
   const cases = () => { const all = CASE_BASE.map((b,i) => Object.assign({}, b, CASE_TEXT[lang][i])); return ORDER.map(id => all.find(x => x.id === id)); };
   const pick = v => (v && typeof v === 'object') ? (v[lang] || v.en) : v;
