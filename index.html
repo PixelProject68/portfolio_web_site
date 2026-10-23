@@ -677,12 +677,12 @@ p{margin:0}
 .kk-grid{position:absolute;left:40px;right:40px;top:660px;height:948px;overflow:hidden;-webkit-mask:linear-gradient(#000 88%,transparent);mask:linear-gradient(#000 88%,transparent)}
 .kk-gin{transition:transform 1.6s cubic-bezier(.65,0,.35,1)}
 .kk-gin{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-.kk-p{position:relative;height:410px;border-radius:28px;background:var(--sf);box-shadow:inset 0 0 0 1px var(--ln);overflow:hidden;transition:box-shadow .3s}
+.kk-p{position:relative;height:426px;border-radius:28px;background:var(--sf);box-shadow:inset 0 0 0 1px var(--ln);overflow:hidden;transition:box-shadow .3s}
 .kk-p .ph{height:216px;margin:8px;border-radius:22px;background:var(--ph);overflow:hidden}
 .kk-p .ph img{width:100%;height:100%;object-fit:cover}
 .kk-p .in{padding:12px 20px 0}
-.kk-p b{display:block;font-size:24px;font-weight:700;line-height:30px;height:60px;letter-spacing:-.01em}
-.kk-p small{display:block;margin-top:6px;font-size:20px;color:var(--mu)}
+.kk-p b{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font-size:24px;font-weight:700;line-height:30px;height:60px;letter-spacing:-.01em}
+.kk-p small{display:block;margin-top:6px;font-size:20px;line-height:26px;color:var(--mu);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .kk-p .pr{position:absolute;left:20px;bottom:24px;font-size:30px;font-weight:800;letter-spacing:-.02em}
 .kk-p .pr em{font-style:normal;font-size:20px;font-weight:700;color:var(--mu);margin-left:4px}
 .kk-p .add{position:absolute;right:16px;bottom:16px;width:64px;height:64px;border-radius:50%;background:var(--ac);color:var(--ac-ink);display:grid;place-items:center;font-size:32px;overflow:hidden}
@@ -3451,9 +3451,9 @@ p{margin:0}
     nfc: svgI('M8.288 15.038a5.25 5.25 0 0 1 7.424 0M5.106 11.856c3.807-3.808 9.98-3.808 13.788 0M1.924 8.674c5.565-5.565 14.587-5.565 20.152 0M12.53 18.22l-.53.53-.53-.53a.75.75 0 0 1 1.06 0Z'), ticket: svgI('M16.5 6v.75m0 3v.75m0 3v.75m0 3V18m-9-5.25h5.25M7.5 15h3M3.375 5.25c-.621 0-1.125.504-1.125 1.125v3.026a2.999 2.999 0 0 1 0 5.198v3.026c0 .621.504 1.125 1.125 1.125h17.25c.621 0 1.125-.504 1.125-1.125v-3.026a2.999 2.999 0 0 1 0-5.198V6.375c0-.621-.504-1.125-1.125-1.125H3.375Z')
   };
   const KP = {
-    combo:['Комбо на двоих','Попкорн L и 2 напитка',18.90], popcorn:['Попкорн солёный','L · 120 г',8.90], caramel:['Попкорн карамельный','M · 90 г',8.50], rainbow:['Попкорн радужный','M · 90 г',9.50],
-    nachos:['Начос с сырным соусом','180 г',7.90], hotdog:['Хот-дог классический','160 г',6.90], cola:['Кола со льдом','0,5 л',4.50], mors:['Морс клюквенный','0,4 л',4.90],
-    coffee:['Капучино','0,3 л',5.50], icecream:['Мороженое в рожке','2 шарика',4.90], choco:['Драже и шоколад','100 г',3.90], juice:['Апельсиновый фреш','0,3 л',6.50]
+    combo:['Комбо на двоих','Попкорн L + 2 колы',18.90], popcorn:['Попкорн солёный','L · 120 г',8.90], caramel:['Попкорн карамельный','M · 90 г',8.50], rainbow:['Попкорн радужный','M · 90 г',9.50],
+    nachos:['Начос с сыром','180 г · соус',7.90], hotdog:['Хот-дог классический','160 г',6.90], cola:['Кола со льдом','0,5 л',4.50], mors:['Морс клюквенный','0,4 л',4.90],
+    coffee:['Капучино','0,3 л',5.50], icecream:['Мороженое в рожке','2 шарика',4.90], choco:['Драже и шоколад','100 г',3.90], juice:['Фреш апельсин','0,3 л',6.50]
   };
   const byn = v => v.toLocaleString('ru-RU', {minimumFractionDigits:2, maximumFractionDigits:2});
   const kImg = k => `assets/k-f-${k}.webp`;
@@ -3528,7 +3528,7 @@ p{margin:0}
         <p class="kk-sub">Номер появится на табло, когда заказ будет готов</p>
         <div class="kk-rcpt">
           <div class="r"><span>Комбо на двоих</span><b>18,90</b></div>
-          <div class="r"><span>Начос с сырным соусом</span><b>7,90</b></div>
+          <div class="r"><span>Начос с сыром</span><b>7,90</b></div>
           <div class="r"><span>Морс клюквенный × 2</span><b>9,80</b></div>
           <hr><div class="r g"><span>Подарочная карта •••• 4821</span><b>−25,00</b></div>
           <div class="r"><span>Банковская карта •••• 3307</span><b>11,60</b></div>
