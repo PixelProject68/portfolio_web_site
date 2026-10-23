@@ -2138,7 +2138,7 @@ p{margin:0}
 .ky-chat{position:absolute;left:300px;top:150px;width:800px;height:640px;z-index:22;display:flex;border-radius:22px;overflow:hidden;background:#121214;border:1px solid rgba(255,255,255,.12);box-shadow:0 50px 100px rgba(0,0,0,.7);visibility:hidden}
 .ky-chat.on{visibility:visible}
 .ky-chat .pf{position:relative;width:280px;flex:none}
-.ky-chat .pf img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ky-chat .pf img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:72% 50%}
 .ky-chat .pf::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(0,0,0,.9))}
 .ky-chat .pf .tt{position:absolute;left:20px;right:20px;bottom:20px;z-index:2}
 .ky-chat .pf b{display:block;font:600 24px/1 "Geist",var(--f-body)}
@@ -2166,9 +2166,15 @@ p{margin:0}
 .ky-in{display:flex;align-items:center;gap:10px;margin:0 20px 20px;height:50px;padding:0 6px 0 16px;border-radius:25px;background:var(--s1);border:1px solid var(--ln);font:400 14px/1 "Geist",var(--f-body);color:var(--mu2)}
 .ky-in .snd{margin-left:auto;width:38px;height:38px;border-radius:50%;background:var(--lime);color:var(--ink);display:grid;place-items:center}
 /* ---------- mobile ---------- */
-.ky-m .ky-nav{padding:0 12px;gap:10px;height:60px}
+.ky-sbar{position:absolute;left:0;right:0;top:0;height:48px;z-index:30;display:flex;align-items:center;justify-content:space-between;padding:4px 30px 0 34px;background:var(--bg);font:600 15px/1 "Geist",var(--f-body)}
+.ky-sbar span{display:flex;align-items:flex-end;gap:2px}
+.ky-sbar i{width:3px;border-radius:1px;background:var(--tx)}
+.ky-sbar i:nth-child(1){height:4px}.ky-sbar i:nth-child(2){height:6px}.ky-sbar i:nth-child(3){height:8px}.ky-sbar i:nth-child(4){height:10px}
+.ky-sbar em{width:22px;height:11px;margin-left:6px;border-radius:3px;border:1.5px solid var(--tx);position:relative}
+.ky-sbar em::after{content:"";position:absolute;inset:1.5px 5px 1.5px 1.5px;border-radius:1px;background:var(--tx)}
+.ky-m .ky-nav{padding:0 16px;gap:10px;height:56px;top:48px;border-bottom:0}
 .ky-m .ky-logo{font-size:24px}
-.ky-m .ky-main{left:0;top:60px}
+.ky-m .ky-main{left:0;top:104px}
 .ky-m .ky-car{height:150px;margin:14px 16px 0;border-radius:18px;overflow:hidden}
 .ky-m .ky-mtrack{display:flex;height:100%;transition:transform .8s cubic-bezier(.65,0,.25,1)}
 .ky-m .ky-sl{position:relative;flex:none;width:358px;height:150px;border-radius:0;transition:none}
@@ -2193,9 +2199,9 @@ p{margin:0}
 .ky-m .ky-fm .grab{display:block;width:44px;height:5px;margin:0 auto 14px;border-radius:3px;background:rgba(255,255,255,.25)}
 .ky-fm .grab{display:none}
 .ky-m .ky-fc{height:36px;line-height:36px;padding:0 14px;font-size:13.5px}
-.ky-m .ky-chat{left:0;top:0;width:100%;height:100%;border-radius:0;border:0;flex-direction:column}
+.ky-m .ky-chat{left:0;top:48px;width:100%;height:calc(100% - 48px);border-radius:0;border:0;flex-direction:column}
 .ky-m .ky-chat .pf{display:none}
-.ky-m .ky-ch{height:auto;padding:52px 14px 12px}
+.ky-m .ky-ch{height:auto;padding:12px 14px}
 .ky-m .ky-msgs{padding:14px}
 .ky-m .ky-b{font-size:14px;max-width:84%}
 .ky-m .ky-qr{padding:0 14px 10px}
@@ -5069,7 +5075,7 @@ p{margin:0}
       c9:['Rhys',38,'Starship pilot. Six moons, one rule: no goodbyes.','Sci-fi',1],
       c10:['Amara',26,'Literature teacher. Has a book for your mood.','Realistic',0]
     },
-    gridA:['c1','c2','c7','c5','c8','c3','c9','c4','c10','c6'],
+    gridA:['c1','c4','c7','c5','c8','c3','c9','c2','c10','c6'],
     gridB:['c4','c3','c6','c9','c8','c1','c7','c10','c2','c5'],
     chips:['All','Realistic','Anime','Fantasy','Romance','Mystery','Sci-fi','Slice of life'],
     flt:[['Main',['Popular','Trending','New']],['Who',['All','Female','Male','Non-binary']],['Roles',['Teacher','Doctor','Artist','Musician','Detective','Chef']],['Vibe',['Playful','Romantic','Mysterious','Caring','Witty','Bold']]]
@@ -5088,7 +5094,7 @@ p{margin:0}
     const nav = D ? `<header class="ky-nav"><span class="ky-ic" style="border:0">${I.menu}</span>${logo}<span class="sp"></span>
         <span class="ky-prem">Premium 75% OFF</span><span class="ky-xp"><b><span>3</span></b>120 XP</span><span class="ky-pill"><i class="ky-coin"></i>240 tokens</span>
         <span class="ky-ic">${I.bell}<i class="dot"></i></span><span class="ky-av">AM</span></header>`
-      : `<header class="ky-nav"><span class="ky-ic" style="border:0;width:28px">${I.menu}</span>${logo}<span class="sp" style="flex:1"></span><span class="ky-pill" style="height:32px;padding:0 11px"><i class="ky-coin"></i>240</span><span class="ky-av" style="width:34px;height:34px">AM</span></header>`;
+      : `<div class="ky-sbar"><b>9:41</b><span><i></i><i></i><i></i><i></i><em></em></span></div><header class="ky-nav"><span class="ky-ic" style="border:0;width:28px">${I.menu}</span>${logo}<span class="sp" style="flex:1"></span><span class="ky-pill" style="height:32px;padding:0 11px"><i class="ky-coin"></i>240</span><span class="ky-av" style="width:34px;height:34px">AM</span></header>`;
     const side = D ? `<aside class="ky-side"><span class="ky-btn">${I.wand}Create AI Character</span>
         <span class="ky-mi on">${I.home}Explore</span><span class="ky-mi">${I.film}Series</span><span class="ky-mi">${I.chat}Chat<em>new</em></span><span class="ky-mi">${I.fire}Trending</span><span class="ky-mi">${I.spark}Media Generate</span>
         <div class="ky-hr"></div><span class="ky-mp">${I.crown}Premium<span>75% OFF</span></span><div class="ky-hr"></div>
@@ -5200,27 +5206,12 @@ p{margin:0}
       // scroll to characters
       await Promise.all([scrollTo(D, 520), scrollTo(M, 560)]);
       await wait(stage, 500);
-      await click('flt');
-      await openFilters();
-      await wait(stage, 300);
-      await pick('Trending', 642);
-      await pick('Female', 391);
-      await pick('Mysterious', 48);
-      both('fok').forEach(o => o.classList.add('act'));
-      await wait(stage, 500);
-      await click('fok');
-      await closeFilters();
-      both('flt').forEach(f => { f.classList.add('act'); an(f, [{transform:'scale(1)'},{transform:'scale(1.12)', offset:.4},{transform:'scale(1)'}], 420, {fill:'none'}); });
-      both('chips').forEach(c => {
-        c.innerHTML = ['Trending','Female','Mysterious'].map(x => `<span class="ky-chip af">${x}${KYI.x}</span>`).join('') + KY.chips.slice(1).map(x => `<span class="ky-chip">${x}</span>`).join('');
-        [...c.children].slice(0, 3).forEach((x, i) => an(x, [{opacity:0, transform:'translateX(-12px) scale(.9)'},{opacity:1, transform:'none'}], 420, {delay:i*70*TEMPO, fill:'backwards'}));
-      });
-      await reshuffle();
-      await wait(stage, 1300);
+      const lc = dq('cc-c1-0'); await K.move(lc, 600); hov(lc, true);
+      await wait(stage, 900); hov(lc, false);
       // open Zara
-      const zc = dq('cc-c4-0'); await K.move(zc, 700); hov(zc, true);
+      const zc = dq('cc-c4-1'); await K.move(zc, 600); hov(zc, true);
       await wait(stage, 700);
-      await K.click(zc.querySelector('.go'), mq('cc-c4-0'));
+      await K.click(zc.querySelector('.go'), mq('cc-c4-1'));
       both('dim').forEach(d => d.classList.add('on'));
       await Promise.all([D, M].map(R => { const c = q(R,'chat'); c.classList.add('on');
         return done(R === D ? an(c, [{opacity:0, transform:'translateY(30px) scale(.96)'},{opacity:1, transform:'none'}], 560, {fill:'none', easing:'cubic-bezier(.22,1,.36,1)'}) : an(c, [{transform:'translateX(100%)'},{transform:'none'}], 560, {fill:'none', easing:'cubic-bezier(.22,1,.36,1)'})); }));
