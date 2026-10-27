@@ -7,7 +7,7 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://dedesign.online/">
 <meta property="og:title" content="Denis Konobeyev — Product Designer">
-<meta property="og:description" content="Senior UI/UX designer for checkout, paywall and AI-powered products. Live prototypes of 10 product cases.">
+<meta property="og:description" content="Senior UI/UX designer for checkout, paywall and AI-powered products. Live prototypes of 11 product cases.">
 <meta property="og:image" content="https://dedesign.online/og.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -15,7 +15,7 @@
 <meta name="description" content="Denis Konobeyev — Product Designer for checkout, paywall and purchase flows.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..800&family=Geist:wght@400..600&family=Geist+Mono:wght@400;500&family=Montserrat:wght@600;800&family=IBM+Plex+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Luckiest+Guy&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..800&family=Geist:wght@400..600&family=Geist+Mono:wght@400;500&family=Montserrat:wght@600;800&family=IBM+Plex+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Luckiest+Guy&family=Unbounded:wght@600;700&family=Onest:wght@400;500;600;700&display=swap">
 <style>
 /* Layout: a designer's canvas — cool paper, graphite ink, one selection-blue used only for "selected" states (hero frame, hovered case). Wide 12-col rhythm tuned for 2560px, stacks on phones. */
 :root{
@@ -2216,6 +2216,345 @@ p{margin:0}
 .ky-m .ky-qr{padding:0 14px 10px}
 .ky-m .ky-in{margin:0 14px 30px}
 
+/* ---------- bipbip: car service booking ---------- */
+.st-bb{--sx-bg:#0F1012;--sx-glow:radial-gradient(48cqw 40cqw at 24% 30%,rgba(255,176,32,.20),transparent 70%),radial-gradient(40cqw 34cqw at 88% 82%,rgba(255,176,32,.10),transparent 70%)}
+.bb{--bg:#F4F2ED;--sf:#FFFFFF;--sf2:#F8F7F3;--sf3:#F1EFE9;--sunk:#ECE9E2;--ln:#E7E3DA;--ln2:#D6D1C6;--tx:#141518;--tx2:#5E6168;--tx3:#8A8D94;--sig:#FFB020;--acc:#8A5600;--wbg:#FFF1D1;--asph:#141518;--asph3:#2A2C31;--star:#E59A00;--ok:#1F8F4E;--okbg:#E3F4EA;
+  position:relative;overflow:hidden;background:var(--bg);color:var(--tx);font:400 14px/1.4 "Onest",var(--f-body);-webkit-font-smoothing:antialiased}
+.bb *{box-sizing:border-box}
+.bb-d{width:1440px;height:900px}.bb-m{width:390px;height:844px}
+.bb svg.i{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.bb .u{font-family:"Unbounded",var(--f-display);letter-spacing:-.02em}
+.bb-logo{position:relative;display:inline-block;font:700 23px/1 "Unbounded",var(--f-display);letter-spacing:-.03em;color:var(--tx);white-space:nowrap}
+.bb-logo .i{position:relative;display:inline-block}
+.bb-logo .i b{position:absolute;left:50%;top:.02em;width:.26em;height:.26em;margin-left:-.13em;border-radius:50%;background:var(--sig)}
+.bb-logo.blink .i b{animation:bbBlink .5s steps(1) 3}
+@keyframes bbBlink{50%{background:transparent}}
+.bb-btn{position:relative;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;gap:8px;height:44px;padding:0 20px;border-radius:12px;background:var(--sig);color:var(--tx);font:600 15px/1 "Onest",var(--f-body);white-space:nowrap;transition:background .35s,color .35s,box-shadow .35s}
+.bb-btn.dk{background:var(--asph);color:#F4F2ED}
+.bb-btn.ghost{background:var(--sf);box-shadow:inset 0 0 0 1px var(--ln)}
+.bb-btn.off{background:var(--sunk);color:var(--tx3)}
+.bb-btn.loading>*{opacity:0}
+.bb-btn.loading::after{content:"";position:absolute;left:50%;top:50%;width:20px;height:20px;margin:-10px;border-radius:50%;border:2.5px solid rgba(20,21,24,.25);border-top-color:var(--tx);animation:bbSpin .8s linear infinite}
+@keyframes bbSpin{to{transform:rotate(360deg)}}
+.bb-chip{position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:6px;height:34px;padding:0 14px;border-radius:99px;background:var(--sf);box-shadow:inset 0 0 0 1px var(--ln);font:500 13px/1 "Onest",var(--f-body);white-space:nowrap;transition:background .35s,color .35s,box-shadow .35s}
+.bb-chip.on{background:var(--asph);color:#F4F2ED;box-shadow:none}
+.bb-v{position:absolute;left:0;right:0;top:72px;bottom:0;display:none}
+.bb-v.on{display:block}
+/* header */
+.bb-hd{position:absolute;left:0;right:0;top:0;height:72px;display:flex;align-items:center;gap:28px;padding:0 210px 0 60px;z-index:5;background:var(--bg)}
+.bb-hd nav{display:flex;gap:6px}
+.bb-hd nav span{display:flex;align-items:center;gap:7px;height:36px;padding:0 14px;border-radius:10px;font:500 14px/1 "Onest",var(--f-body);color:var(--tx2)}
+.bb-hd nav span.on{background:var(--sf);color:var(--tx);box-shadow:0 1px 2px rgba(20,21,24,.06)}
+.bb-hd nav svg.i{width:16px;height:16px}
+.bb-hd .r{margin-left:auto;display:flex;align-items:center;gap:16px;font:500 14px/1 "Onest",var(--f-body)}
+.bb-hd .city{display:flex;align-items:center;gap:6px}
+.bb-hd .city svg.i{width:16px;height:16px}
+.bb-hd .bb-btn{height:38px;padding:0 16px;font-size:14px;border-radius:10px}
+.bb-hd .ava{width:38px;height:38px;border-radius:50%;background:#DDE4F6;color:#2B4A9B;display:grid;place-items:center;font:600 13px/1 "Onest",var(--f-body)}
+/* home */
+.bb-hero{position:absolute;left:60px;top:8px;width:1180px;height:476px;border-radius:28px;background:var(--asph);overflow:hidden;padding:56px 56px 0;color:#F4F2ED}
+.bb-hero::before{content:"";position:absolute;inset:0;background:radial-gradient(520px 380px at 82% 28%,rgba(255,176,32,.22),transparent 70%),radial-gradient(400px 300px at 0% 100%,rgba(255,176,32,.08),transparent 70%)}
+.bb-hero>*{position:relative}
+.bb-eb{display:flex;align-items:center;gap:8px;font:600 11px/1 "Onest",var(--f-body);letter-spacing:.14em;color:var(--sig);text-transform:uppercase}
+.bb-eb i{display:flex;gap:4px}.bb-eb i::before,.bb-eb i::after{content:"";width:6px;height:6px;border-radius:50%;background:var(--sig)}
+.bb-hero h1{margin:20px 0 0;font:700 64px/1.02 "Unbounded",var(--f-display);letter-spacing:-.035em}
+.bb-hero h1 em{font-style:normal;color:var(--sig)}
+.bb-hero p{margin:18px 0 0;max-width:500px;font-size:16px;line-height:1.55;color:rgba(244,242,237,.62)}
+.bb-srch{display:flex;gap:8px;width:620px;height:64px;margin-top:28px;padding:8px;border-radius:18px;background:var(--sf);color:var(--tx);box-shadow:0 0 0 3px rgba(255,176,32,0);transition:box-shadow .4s}
+.bb-srch.focus{box-shadow:0 0 0 3px rgba(255,176,32,.55)}
+.bb-fld{position:relative;display:flex;align-items:center;gap:10px;min-width:0;flex:1;padding:0 14px;border-radius:12px;background:var(--sf3);font-size:15px}
+.bb-fld svg.i{color:var(--tx3)}
+.bb-fld .ph{color:var(--tx3);white-space:nowrap}
+.bb-fld .val{white-space:nowrap}
+.bb-fld .val:not(:empty)+.ph{display:none}
+.bb-fld.focus .val::after{content:"";display:inline-block;width:1.5px;height:17px;margin-left:1px;vertical-align:-3px;background:var(--tx);animation:bbCar 1s steps(1) infinite}
+@keyframes bbCar{50%{opacity:0}}
+.bb-fld.city{flex:none;width:168px}
+.bb-fld.city .x{margin-left:auto;color:var(--tx3);font-size:16px}
+.bb-srch .bb-btn{height:48px;width:118px}
+.bb-sugg{position:absolute;left:0;top:calc(100% + 10px);width:420px;padding:8px;border-radius:16px;background:var(--sf);box-shadow:0 20px 50px -16px rgba(20,21,24,.45),0 0 0 1px var(--ln);color:var(--tx);opacity:0;transform:translateY(-6px);pointer-events:none;transition:opacity .3s,transform .4s cubic-bezier(.2,.8,.2,1);z-index:4}
+.bb-sugg.on{opacity:1;transform:none}
+.bb-sugg div{display:flex;align-items:center;gap:12px;height:44px;padding:0 10px;border-radius:10px;font-size:14px}
+.bb-sugg div.hl{background:var(--sf3)}
+.bb-sugg small{margin-left:auto;color:var(--tx3);font-size:12px}
+.bb-sugg svg.i{color:var(--tx3);width:16px;height:16px}
+.bb-stats{display:flex;gap:56px;margin-top:30px}
+.bb-stats b{display:block;font:700 22px/1 "Unbounded",var(--f-display);letter-spacing:-.02em}
+.bb-stats small{display:block;margin-top:8px;font-size:12px;color:rgba(244,242,237,.5)}
+.bb-stack{position:absolute;right:44px;top:44px;width:380px}
+.bb-rem{padding:18px 18px 16px;border-radius:20px;background:var(--asph3);box-shadow:0 0 0 1px rgba(255,255,255,.06)}
+.bb-rem small{font:600 10px/1 "Onest",var(--f-body);letter-spacing:.12em;color:rgba(244,242,237,.45)}
+.bb-rem b{display:block;margin-top:8px;font:600 17px/1.3 "Onest",var(--f-body)}
+.bb-rem b em{font-style:normal;color:var(--sig)}
+.bb-rem .bb-btn{width:100%;height:42px;margin-top:14px;justify-content:space-between;font-size:14px}
+.bb-mini{margin-top:12px;padding:14px 16px;border-radius:18px;background:var(--sf);color:var(--tx);box-shadow:0 16px 40px -18px rgba(0,0,0,.6)}
+.bb-mini .t{display:flex;justify-content:space-between;font:600 15px/1.2 "Onest",var(--f-body)}
+.bb-mini .t span{font-weight:700}
+.bb-mini .s{display:flex;justify-content:space-between;margin-top:5px;font-size:12px;color:var(--tx3)}
+.bb-mini .sl{display:flex;gap:6px;margin-top:12px}
+.bb-sl{position:relative;overflow:hidden;display:inline-grid;place-items:center;height:34px;min-width:62px;padding:0 10px;border-radius:10px;background:var(--sf);box-shadow:inset 0 0 0 1px var(--ln);font:500 13px/1 "Onest",var(--f-body);font-variant-numeric:tabular-nums;transition:background .35s,box-shadow .35s,color .35s}
+.bb-sl.hot{background:var(--sig);box-shadow:none;font-weight:600}
+.bb-sl.on{background:var(--asph);color:#F4F2ED;box-shadow:none}
+.bb-sl.mu{color:var(--tx3)}
+.bb-sec{position:absolute;left:60px;width:1180px}
+.bb-sec h2{margin:0;font:700 24px/1.1 "Unbounded",var(--f-display);letter-spacing:-.02em}
+.bb-sec>p{margin:8px 0 0;font-size:14px;color:var(--tx2)}
+.bb-tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:20px}
+.bb-tile{position:relative;overflow:hidden;padding:18px;border-radius:18px;background:var(--sf);box-shadow:inset 0 0 0 1px var(--ln)}
+.bb-tile .ic{width:40px;height:40px;border-radius:12px;background:var(--sf3);display:grid;place-items:center}
+.bb-tile b{display:block;margin-top:16px;font:600 15px/1.2 "Onest",var(--f-body)}
+.bb-tile small{display:block;margin-top:6px;font-size:12px;color:var(--tx3)}
+/* search */
+.bb-flt{position:absolute;left:60px;top:12px;width:270px;padding:20px;border-radius:20px;background:var(--sf);box-shadow:inset 0 0 0 1px var(--ln)}
+.bb-flt .h{display:flex;justify-content:space-between;align-items:center;font:600 16px/1 "Onest",var(--f-body)}
+.bb-flt .h small{font:500 13px/1 "Onest",var(--f-body);color:var(--acc)}
+.bb-flt label{display:block;margin:16px 0 8px;font-size:12px;color:var(--tx2)}
+.bb-flt .fv{display:flex;align-items:center;gap:8px;height:42px;padding:0 12px;border-radius:12px;box-shadow:inset 0 0 0 1px var(--ln);font-size:14px}
+.bb-flt .fv .cv{margin-left:auto;color:var(--tx3)}
+.bb-flt .fv.sel{box-shadow:inset 0 0 0 1.5px var(--tx)}
+.bb-flt .fv .tg{display:inline-flex;align-items:center;gap:6px;height:26px;padding:0 10px;border-radius:8px;background:var(--wbg);color:var(--acc);font-weight:600;font-size:13px}
+.bb-seg{display:flex;padding:3px;border-radius:12px;box-shadow:inset 0 0 0 1px var(--ln)}
+.bb-seg span{flex:1;display:grid;place-items:center;height:34px;border-radius:9px;font-size:13px;color:var(--tx2)}
+.bb-seg span.on{background:var(--asph);color:#F4F2ED;font-weight:600}
+.bb-res{position:absolute;left:350px;top:12px;width:890px}
+.bb-res .rh{display:flex;align-items:baseline;gap:12px}
+.bb-res .rh h1{margin:0;font:700 28px/1.1 "Unbounded",var(--f-display);letter-spacing:-.025em}
+.bb-res .rh small{font-size:14px;color:var(--tx2)}
+.bb-res .rh span{margin-left:auto;display:flex;align-items:center;gap:6px;font-size:13px;color:var(--tx3)}
+.bb-res .rc{display:flex;gap:8px;margin-top:16px;align-items:center}
+.bb-res .rc .sort{margin-left:auto}
+.bb-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px}
+.bb-card{position:relative;border-radius:20px;background:var(--sf);box-shadow:inset 0 0 0 1px var(--ln);overflow:hidden;transition:transform .45s cubic-bezier(.2,.8,.2,1),box-shadow .45s}
+.bb-card .im{position:relative;height:150px;overflow:hidden;background:#222}
+.bb-card .im img{width:100%;height:100%;object-fit:cover;transition:transform .9s cubic-bezier(.2,.8,.2,1)}
+.bb-card .bd{position:absolute;top:10px;display:flex;align-items:center;gap:6px;height:24px;padding:0 9px;border-radius:8px;background:rgba(20,21,24,.62);backdrop-filter:blur(6px);color:#F4F2ED;font:500 11px/1 "Onest",var(--f-body)}
+.bb-card .bd i{width:6px;height:6px;border-radius:50%;background:#3DD08F}
+.bb-card .bd svg.i{width:12px;height:12px}
+.bb-card .bo{padding:14px 14px 14px}
+.bb-card .n{display:flex;justify-content:space-between;gap:8px;font:600 15px/1.25 "Onest",var(--f-body)}
+.bb-card .n span{display:flex;align-items:center;gap:4px;font-size:13px;font-weight:700;white-space:nowrap}
+.bb-card .n span small{font-weight:400;color:var(--tx3)}
+.bb-card .n span svg{width:13px;height:13px;fill:var(--star);stroke:none}
+.bb-card .sub{margin-top:5px;font-size:12px;line-height:1.4;color:var(--tx2);height:34px;overflow:hidden}
+.bb-card .pr{display:flex;justify-content:space-between;align-items:center;height:36px;margin-top:10px;padding:0 12px;border-radius:10px;background:var(--sf3);font-size:13px}
+.bb-card .pr b{font-weight:700}
+.bb-card .fs{margin-top:12px;font-size:11px;color:var(--tx3)}
+.bb-card .sls{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:6px}
+.bb-card .sls .bb-sl{min-width:0;height:32px}
+.bb-card .bb-btn{width:100%;height:38px;margin-top:10px;font-size:13px;border-radius:10px}
+.bb-card.hov{transform:translateY(-4px);box-shadow:inset 0 0 0 1.5px var(--tx),0 22px 40px -22px rgba(20,21,24,.6)}
+.bb-card.hov .im img{transform:scale(1.05)}
+/* sto */
+.bb-scr{position:absolute;left:0;right:0;top:0;will-change:transform}
+.bb-sh{position:absolute;left:60px;top:8px;width:1180px;height:300px;border-radius:24px;overflow:hidden;background:#000;color:#F4F2ED}
+.bb-sh img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.9}
+.bb-sh::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(14,15,17,.92) 0%,rgba(14,15,17,.55) 45%,rgba(14,15,17,.1) 75%),linear-gradient(0deg,rgba(14,15,17,.6),transparent 40%)}
+.bb-sh .c{position:absolute;left:40px;bottom:34px;z-index:1}
+.bb-sh .tags{display:flex;gap:6px}
+.bb-sh .tags span{display:inline-flex;align-items:center;gap:6px;height:26px;padding:0 10px;border-radius:8px;background:rgba(255,255,255,.1);backdrop-filter:blur(6px);font:500 12px/1 "Onest",var(--f-body)}
+.bb-sh .tags span.o{background:var(--sig);color:var(--tx);font-weight:600}
+.bb-sh .tags i{width:6px;height:6px;border-radius:50%;background:#1F8F4E}
+.bb-sh h1{margin:16px 0 0;font:700 40px/1.05 "Unbounded",var(--f-display);letter-spacing:-.03em}
+.bb-sh .meta{display:flex;align-items:center;gap:8px;margin-top:12px;font-size:14px;color:rgba(244,242,237,.75)}
+.bb-sh .meta b{color:#F4F2ED;display:flex;align-items:center;gap:4px}
+.bb-sh .meta svg.st{width:14px;height:14px;fill:var(--star)}
+.bb-sh .acts{display:flex;gap:8px;margin-top:20px}
+.bb-sh .acts .bb-btn.gl{background:rgba(255,255,255,.12);color:#F4F2ED;backdrop-filter:blur(8px)}
+.bb-tabs{position:absolute;left:60px;top:324px;display:flex;gap:6px}
+.bb-tabs .bb-chip{height:36px}
+.bb-col{position:absolute;left:60px;top:376px;width:756px}
+.bb-box{padding:22px 24px;border-radius:22px;background:var(--sf);box-shadow:inset 0 0 0 1px var(--ln)}
+.bb-box+.bb-box{margin-top:16px}
+.bb-box .bh{display:flex;align-items:center;justify-content:space-between}
+.bb-box .bh h3{margin:0;font:700 20px/1.1 "Unbounded",var(--f-display);letter-spacing:-.02em}
+.bb-box .bh small{font-size:12px;color:var(--tx3)}
+.bb-box .note{margin-top:6px;font-size:12px;color:var(--tx3)}
+.bb-grp{margin-top:16px;font:600 10px/1 "Onest",var(--f-body);letter-spacing:.12em;color:var(--tx3);text-transform:uppercase}
+.bb-svc{position:relative;display:flex;align-items:center;gap:14px;margin:8px -10px 0;padding:10px;border-radius:14px;transition:background .4s}
+.bb-svc .ic{width:40px;height:40px;border-radius:12px;background:var(--sf3);display:grid;place-items:center;flex:none}
+.bb-svc .tx{flex:1;min-width:0}
+.bb-svc .tx b{display:block;font:600 15px/1.25 "Onest",var(--f-body)}
+.bb-svc .tx small{display:block;margin-top:3px;font-size:13px;color:var(--tx2)}
+.bb-svc .tx em{display:flex;align-items:center;gap:4px;margin-top:5px;font-style:normal;font-size:12px;color:var(--tx3)}
+.bb-svc .tx em svg.i{width:13px;height:13px}
+.bb-svc .pr{text-align:right;flex:none}
+.bb-svc .pr b{display:block;font:700 15px/1 "Onest",var(--f-body);font-variant-numeric:tabular-nums}
+.bb-svc .pr span{display:inline-flex;align-items:center;gap:4px;margin-top:6px;height:22px;padding:0 8px;border-radius:7px;font-size:11px;font-weight:600;background:var(--sf3);color:var(--tx2)}
+.bb-svc .pr span.lo{background:var(--wbg);color:var(--acc)}
+.bb-add{position:relative;overflow:hidden;width:38px;height:38px;border-radius:50%;flex:none;display:grid;place-items:center;box-shadow:inset 0 0 0 1px var(--ln2);color:var(--tx);transition:background .35s,color .35s,box-shadow .35s,transform .35s}
+.bb-add svg.i{width:18px;height:18px;transition:transform .4s cubic-bezier(.3,1.5,.5,1)}
+.bb-svc.on{background:var(--sf2)}
+.bb-svc.on .bb-add{background:var(--asph);color:#F4F2ED;box-shadow:none}
+.bb-svc.on .bb-add svg.i{transform:rotate(45deg)}
+.bb-days{display:flex;gap:8px;margin-top:16px}
+.bb-day{position:relative;overflow:hidden;flex:1;height:76px;border-radius:14px;box-shadow:inset 0 0 0 1px var(--ln);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;transition:background .35s,color .35s,box-shadow .35s}
+.bb-day small{font-size:11px;color:var(--tx3)}
+.bb-day b{font:700 20px/1 "Unbounded",var(--f-display)}
+.bb-day.off{background:var(--sf3);color:var(--tx3)}
+.bb-day.on{background:var(--asph);color:#F4F2ED;box-shadow:none}
+.bb-day.on small{color:rgba(244,242,237,.6)}
+.bb-slots{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;margin-top:14px}
+.bb-slots .bb-sl{height:42px;min-width:0;font-size:14px}
+.bb-pan{position:absolute;left:836px;top:376px;width:364px;padding:22px;border-radius:22px;background:var(--sf);box-shadow:inset 0 0 0 1px var(--ln),0 24px 50px -30px rgba(20,21,24,.4);z-index:3}
+.bb-pan h3{margin:0;font:700 18px/1.1 "Unbounded",var(--f-display);letter-spacing:-.02em}
+.bb-step{display:flex;gap:12px;margin-top:18px}
+.bb-step>i{width:24px;height:24px;border-radius:50%;flex:none;display:grid;place-items:center;font:600 12px/1 "Onest",var(--f-body);font-style:normal;box-shadow:inset 0 0 0 1px var(--ln2);color:var(--tx2);transition:background .35s,color .35s,box-shadow .35s}
+.bb-step.done>i{background:var(--sig);color:var(--tx);box-shadow:none}
+.bb-step>div{flex:1;min-width:0}
+.bb-step b{display:block;font:600 14px/1.3 "Onest",var(--f-body)}
+.bb-step>div>small{display:block;margin-top:2px;font-size:12px;color:var(--tx3)}
+.bb-pl{margin-top:8px}
+.bb-pl div{display:flex;justify-content:space-between;gap:10px;padding:7px 0;font-size:13px;border-top:1px dashed var(--ln)}
+.bb-pl div b{font-size:13px;font-weight:700;font-variant-numeric:tabular-nums}
+.bb-when{margin-top:6px;font:700 15px/1.3 "Unbounded",var(--f-display);letter-spacing:-.01em}
+.bb-tot{display:flex;justify-content:space-between;align-items:baseline;margin-top:18px;padding-top:16px;border-top:1px solid var(--ln)}
+.bb-tot span{font-size:14px;color:var(--tx2)}
+.bb-tot b{font:700 26px/1 "Unbounded",var(--f-display);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.bb-pan .bb-btn{width:100%;height:52px;margin-top:16px;font-size:16px}
+.bb-pan .fine{margin-top:10px;text-align:center;font-size:12px;color:var(--tx3)}
+/* modal */
+.bb-dim{position:absolute;inset:0;z-index:20;background:rgba(20,21,24,.5);backdrop-filter:blur(3px);opacity:0;visibility:hidden;transition:opacity .4s,visibility 0s .4s}
+.bb-dim.on{opacity:1;visibility:visible;transition:opacity .4s}
+.bb-mod{position:absolute;left:50%;top:50%;width:460px;margin-left:-230px;transform:translateY(-50%);padding:30px;border-radius:26px;background:var(--sf);z-index:21;box-shadow:0 40px 80px -20px rgba(0,0,0,.5);visibility:hidden}
+.bb-mod.on{visibility:visible}
+.bb-mod .x{position:absolute;right:20px;top:20px;width:34px;height:34px;border-radius:50%;background:var(--sf3);display:grid;place-items:center}
+.bb-mod h3{margin:0;font:700 24px/1.15 "Unbounded",var(--f-display);letter-spacing:-.02em}
+.bb-mod p{margin:10px 0 0;font-size:14px;line-height:1.5;color:var(--tx2)}
+.bb-mod .bb-fld{height:54px;margin-top:22px;font-size:17px;font-variant-numeric:tabular-nums;flex:none;box-shadow:inset 0 0 0 0 var(--tx);transition:box-shadow .3s}
+.bb-mod .bb-fld.focus{box-shadow:inset 0 0 0 1.5px var(--tx)}
+.bb-mod .bb-btn{width:100%;height:52px;margin-top:14px;font-size:16px}
+.bb-code{display:flex;gap:10px;margin-top:22px}
+.bb-code span{flex:1;height:64px;border-radius:14px;background:var(--sf3);display:grid;place-items:center;font:700 26px/1 "Unbounded",var(--f-display);transition:box-shadow .3s,background .3s}
+.bb-code span.cur{box-shadow:inset 0 0 0 1.5px var(--tx);background:var(--sf)}
+.bb-code span.ok{background:var(--okbg);color:var(--ok)}
+.bb-mp{display:none}.bb-mp.on{display:block}
+.bb-okc{width:64px;height:64px;border-radius:50%;background:var(--sig);display:grid;place-items:center;margin-bottom:18px}
+.bb-okc svg.i{width:30px;height:30px;stroke-width:2.4}
+.bb-tk{margin-top:20px;padding:18px;border-radius:18px;background:var(--sf2);box-shadow:inset 0 0 0 1px var(--ln)}
+.bb-tk .w{font:700 20px/1.2 "Unbounded",var(--f-display);letter-spacing:-.02em}
+.bb-tk .w small{display:block;margin-top:6px;font:400 13px/1.3 "Onest",var(--f-body);color:var(--tx2);letter-spacing:0}
+.bb-tk hr{border:0;border-top:1px dashed var(--ln2);margin:14px 0}
+.bb-tk .ln{display:flex;justify-content:space-between;font-size:13px;padding:3px 0}
+.bb-tk .ln b{font-weight:700}
+.bb-tk .rm{display:flex;align-items:center;gap:8px;margin-top:12px;font-size:12px;color:var(--tx2)}
+.bb-tk .rm svg.i{width:16px;height:16px;color:var(--acc)}
+.bb-mod .two{display:flex;gap:8px}
+.bb-mod .two .bb-btn{flex:1}
+/* ---------- mobile ---------- */
+.bb-sbar{position:absolute;left:0;right:0;top:0;height:48px;z-index:30;display:flex;align-items:center;justify-content:space-between;padding:4px 30px 0 34px;background:var(--bg);font:600 15px/1 "Onest",var(--f-body)}
+.bb-sbar span{display:flex;align-items:flex-end;gap:2px}
+.bb-sbar i{width:3px;border-radius:1px;background:var(--tx)}
+.bb-sbar i:nth-child(1){height:4px}.bb-sbar i:nth-child(2){height:6px}.bb-sbar i:nth-child(3){height:8px}.bb-sbar i:nth-child(4){height:10px}
+.bb-sbar em{width:22px;height:11px;margin-left:6px;border-radius:3px;border:1.5px solid var(--tx);position:relative}
+.bb-sbar em::after{content:"";position:absolute;inset:1.5px 5px 1.5px 1.5px;border-radius:1px;background:var(--tx)}
+.bb-m .bb-hd{top:48px;height:56px;padding:0 16px;gap:0;justify-content:space-between}
+.bb-m .bb-hd .city{font:500 14px/1 "Onest",var(--f-body);display:flex;align-items:center;gap:5px;width:90px}
+.bb-m .bb-hd .bb-logo{font-size:21px}
+.bb-m .bb-hd .r{margin:0;width:90px;justify-content:flex-end}
+.bb-m .bb-hd .bb-btn{height:34px;padding:0 14px;font-size:13px}
+.bb-m .bb-v{top:104px;bottom:0}
+.bb-m .bb-v.full{top:48px}
+.bb-msc{position:absolute;left:0;right:0;top:0;will-change:transform}
+.bb-mh{padding:10px 16px 0}
+.bb-mh small{font-size:15px;color:var(--tx2)}
+.bb-mh h1{margin:6px 0 0;font:700 30px/1.08 "Unbounded",var(--f-display);letter-spacing:-.03em}
+.bb-m .bb-fld.mq{height:52px;margin:18px 16px 0;padding:0 16px;flex:none;border-radius:16px;background:var(--sf);box-shadow:inset 0 0 0 1px var(--ln)}
+.bb-m .bb-mbtn{display:flex;width:auto;margin:10px 16px 0;height:52px;border-radius:16px;font-size:16px}
+.bb-m .bb-rem{margin:16px 16px 0;display:flex;align-items:center;gap:12px;color:#F4F2ED;background:var(--asph)}
+.bb-m .bb-rem b{margin:0;font-size:15px}
+.bb-m .bb-rem small{display:block;margin-top:5px;font:400 12px/1.35 "Onest",var(--f-body);letter-spacing:0}
+.bb-m .bb-rem svg.i{color:var(--sig)}
+.bb-mt{display:flex;justify-content:space-between;align-items:baseline;margin:24px 16px 0}
+.bb-mt h3{margin:0;font:700 18px/1 "Unbounded",var(--f-display);letter-spacing:-.02em}
+.bb-mt small{font-size:13px;font-weight:600;color:var(--acc)}
+.bb-mtiles{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:12px 16px 0}
+.bb-mtiles div{position:relative;overflow:hidden;height:86px;border-radius:16px;background:var(--sf);box-shadow:inset 0 0 0 1px var(--ln);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;font:500 12px/1 "Onest",var(--f-body);transition:box-shadow .35s,background .35s}
+.bb-mtiles div .ic{width:36px;height:36px;border-radius:11px;background:var(--sf3);display:grid;place-items:center}
+.bb-mtiles div.on{box-shadow:inset 0 0 0 1.5px var(--tx);background:var(--sf2)}
+.bb-mcard{margin:12px 16px 0;border-radius:18px;background:var(--sf);box-shadow:inset 0 0 0 1px var(--ln);overflow:hidden}
+.bb-mcard .im{position:relative;height:150px;background:#222}
+.bb-mcard .im img{width:100%;height:100%;object-fit:cover}
+.bb-mcard .bd{position:absolute;top:10px;display:flex;align-items:center;gap:6px;height:24px;padding:0 9px;border-radius:8px;background:rgba(20,21,24,.62);color:#F4F2ED;font:500 11px/1 "Onest",var(--f-body)}
+.bb-mcard .bd i{width:6px;height:6px;border-radius:50%;background:#3DD08F}
+.bb-mcard .bo{padding:12px 14px 14px}
+.bb-mcard .n{display:flex;justify-content:space-between;font:600 15px/1.2 "Onest",var(--f-body)}
+.bb-mcard .n span{display:flex;align-items:center;gap:4px;font-size:13px;font-weight:700}
+.bb-mcard .n span svg{width:13px;height:13px;fill:var(--star);stroke:none}
+.bb-mcard .sub{margin-top:4px;font-size:12px;color:var(--tx2)}
+.bb-mcard .sls{display:flex;gap:6px;margin-top:10px}
+.bb-mcard .sls .bb-sl{flex:1;min-width:0;height:32px}
+.bb-mcard .bb-btn{width:100%;height:38px;margin-top:10px;font-size:13px;border-radius:10px}
+.bb-tabbar{position:absolute;left:0;right:0;bottom:0;height:78px;padding-bottom:20px;display:flex;background:rgba(244,242,237,.94);backdrop-filter:blur(10px);box-shadow:0 -1px 0 var(--ln);z-index:6}
+.bb-tabbar span{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;font:500 11px/1 "Onest",var(--f-body);color:var(--tx3);position:relative}
+.bb-tabbar span.on{color:var(--tx)}
+.bb-tabbar span.on::before{content:"";position:absolute;top:0;width:28px;height:3px;border-radius:0 0 3px 3px;background:var(--sig)}
+.bb-tabbar svg.i{width:22px;height:22px}
+.bb-mbar{display:flex;align-items:center;gap:10px;height:48px;margin:6px 16px 0}
+.bb-mbar .bk{width:40px;height:40px;border-radius:12px;background:var(--sf);box-shadow:inset 0 0 0 1px var(--ln);display:grid;place-items:center}
+.bb-mbar b{flex:1;font:700 17px/1 "Unbounded",var(--f-display);letter-spacing:-.02em}
+.bb-mchips{display:flex;gap:6px;margin:8px 16px 0}
+.bb-mchips .bb-chip{height:32px;font-size:12px}
+.bb-msh{position:relative;height:230px;margin:0 0 0;overflow:hidden;background:#000;color:#F4F2ED}
+.bb-msh img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:40% 50%}
+.bb-msh::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(14,15,17,.92),rgba(14,15,17,.2) 70%)}
+.bb-msh .c{position:absolute;left:16px;right:16px;bottom:16px;z-index:1}
+.bb-msh .tags span{display:inline-flex;align-items:center;gap:5px;height:24px;padding:0 9px;border-radius:8px;background:var(--sig);color:var(--tx);font:600 11px/1 "Onest",var(--f-body)}
+.bb-msh .tags i{width:6px;height:6px;border-radius:50%;background:var(--ok)}
+.bb-msh h1{margin:10px 0 0;font:700 26px/1.08 "Unbounded",var(--f-display);letter-spacing:-.03em}
+.bb-msh .meta{margin-top:8px;font-size:13px;color:rgba(244,242,237,.75)}
+.bb-msh .meta b{color:#F4F2ED}
+.bb-msh .bk{position:absolute;left:16px;top:14px;z-index:2;width:38px;height:38px;border-radius:12px;background:rgba(20,21,24,.5);backdrop-filter:blur(8px);display:grid;place-items:center;color:#fff}
+.bb-m .bb-box{margin:14px 16px 0;padding:16px 16px 10px;border-radius:20px}
+.bb-m .bb-box .bh h3{font-size:17px}
+.bb-m .bb-svc{gap:10px;margin:6px -8px 0;padding:8px}
+.bb-m .bb-svc .ic{width:36px;height:36px;border-radius:11px}
+.bb-m .bb-svc .tx b{font-size:14px}
+.bb-m .bb-svc .tx em{margin-top:3px}
+.bb-m .bb-svc .pr b{font-size:14px}
+.bb-m .bb-add{width:34px;height:34px}
+.bb-mfoot{position:absolute;left:0;right:0;bottom:0;padding:12px 16px 30px;background:var(--sf);box-shadow:0 -1px 0 var(--ln),0 -20px 40px -20px rgba(20,21,24,.2);display:flex;align-items:center;gap:12px;z-index:8;transform:translateY(100%);transition:transform .5s cubic-bezier(.22,1,.36,1)}
+.bb-mfoot.on{transform:none}
+.bb-mfoot div{flex:1}
+.bb-mfoot small{display:block;font-size:12px;color:var(--tx2)}
+.bb-mfoot b{display:block;margin-top:3px;font:700 20px/1 "Unbounded",var(--f-display);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.bb-mfoot .bb-btn{height:50px;border-radius:14px;padding:0 22px}
+.bb-sheet{position:absolute;left:0;right:0;bottom:0;padding:10px 16px 30px;border-radius:26px 26px 0 0;background:var(--sf);z-index:22;transform:translateY(105%);transition:transform .55s cubic-bezier(.22,1,.36,1)}
+.bb-sheet.on{transform:none}
+.bb-sheet .grab{width:40px;height:5px;margin:0 auto 14px;border-radius:3px;background:var(--ln2)}
+.bb-sheet h3{margin:0;font:700 20px/1.1 "Unbounded",var(--f-display);letter-spacing:-.02em}
+.bb-sheet .note{margin-top:6px;font-size:12px;color:var(--tx3)}
+.bb-sheet .bb-days{gap:6px;margin-top:14px}
+.bb-sheet .bb-day{height:66px;border-radius:12px}
+.bb-sheet .bb-day:nth-child(n+7){display:none}
+.bb-sheet .bb-day b{font-size:17px}
+.bb-sheet .bb-slots{grid-template-columns:repeat(4,1fr);gap:6px}
+.bb-sheet .bb-slots .bb-sl{height:42px}
+.bb-sheet .bb-btn{width:100%;height:52px;margin-top:16px;border-radius:14px;font-size:16px}
+.bb-mdone{padding:6px 16px 0}
+.bb-mdone .bkl{display:flex;align-items:center;gap:6px;font-size:14px;color:var(--tx2)}
+.bb-mdone .bkl svg.i{width:16px;height:16px}
+.bb-mdone .id{margin-top:14px;font-size:12px;color:var(--tx3)}
+.bb-mdone h1{margin:6px 0 0;font:700 26px/1.12 "Unbounded",var(--f-display);letter-spacing:-.03em}
+.bb-badge{display:inline-flex;align-items:center;gap:6px;height:28px;margin-top:12px;padding:0 12px;border-radius:99px;background:var(--okbg);color:var(--ok);font:600 13px/1 "Onest",var(--f-body)}
+.bb-badge svg.i{width:14px;height:14px;stroke-width:2.4}
+.bb-mtk{margin-top:16px;border-radius:22px;background:var(--sf);box-shadow:inset 0 0 0 1px var(--ln);overflow:hidden}
+.bb-mtk .top{padding:18px}
+.bb-mtk .w{font:700 22px/1.15 "Unbounded",var(--f-display);letter-spacing:-.02em}
+.bb-mtk .w small{display:block;margin-top:6px;font:400 13px/1 "Onest",var(--f-body);color:var(--tx2);letter-spacing:0}
+.bb-mtk .cut{position:relative;height:0;border-top:1.5px dashed var(--ln2);margin:0 14px}
+.bb-mtk .cut::before,.bb-mtk .cut::after{content:"";position:absolute;top:-10px;width:20px;height:20px;border-radius:50%;background:var(--bg)}
+.bb-mtk .cut::before{left:-24px}.bb-mtk .cut::after{right:-24px}
+.bb-mtk .sec{padding:16px 18px;border-top:1px solid var(--ln)}
+.bb-mtk .sec:first-of-type{border-top:0}
+.bb-mtk .lbl{font-size:12px;color:var(--tx3)}
+.bb-mtk .wh{display:flex;align-items:center;gap:12px;margin-top:10px}
+.bb-mtk .wh .lg{width:42px;height:42px;border-radius:12px;background:var(--sig);display:grid;place-items:center;font:700 18px/1 "Unbounded",var(--f-display)}
+.bb-mtk .wh b{display:block;font-size:15px}
+.bb-mtk .wh small{display:block;margin-top:3px;font-size:12px;color:var(--tx2)}
+.bb-mtk .ln{display:flex;justify-content:space-between;margin-top:8px;font-size:14px}
+.bb-mtk .tot{display:flex;justify-content:space-between;align-items:baseline;margin-top:12px;padding-top:12px;border-top:1px solid var(--ln)}
+.bb-mtk .tot b{font:700 22px/1 "Unbounded",var(--f-display)}
+
 </style>
 </head>
 <body>
@@ -2429,6 +2768,14 @@ p{margin:0}
   </div>
 </template>
 
+<template id="tpl-bipbip">
+  <div class="stage sx st-bb" data-engine="bipbip" role="img" aria-label="bipbip car service booking on desktop and mobile: search a service, open a service station, add services, pick a live time slot, confirm by SMS code">
+    <span class="sx-glow"></span><span class="sx-grain"></span>
+    <div class="scr desk" data-w="1440" data-h="900"><div class="vp"></div></div>
+    <div class="scr mob" data-w="390" data-h="844"><div class="vp"></div></div>
+  </div>
+</template>
+
 <template id="tpl-gift">
   <div class="stage sx solo st-ad" data-engine="gift" data-layout="solo" data-th="dark" role="img" aria-label="Gift card admin: add a card design, reorder occasions, add a new denomination">
     <span class="sx-glow"></span><span class="sx-grain"></span>
@@ -2488,7 +2835,7 @@ p{margin:0}
       m2k:"Domains", m2v:"Fintech, Cinema, Consumer Subscription Apps",
       m3k:"Method", m3v:"Figma and AI Tools, then HTML and React Prototypes",
       m4k:"Working", m4v:"Remote, GMT+3, Async-Friendly",
-      workH:"Selected work", workMeta:"10 case studies",
+      workH:"Selected work", workMeta:"11 case studies",
       labMeta:"Motion & AI",
       labIntro:"Motion and AI-assisted visuals I make alongside product work: paywall promos, series posters, interface animations and pitch concepts. Every piece says what I did and what the model did.",
       keyMe:"My work", keyAi:"Generated by a model", me:"Me", ai:"AI", slot:"slot", slotHere:"Loop goes here",
@@ -2526,7 +2873,7 @@ p{margin:0}
       m2k:"Сферы", m2v:"Финтех, кино, подписочные приложения",
       m3k:"Метод", m3v:"Figma и AI-инструменты, затем прототипы на HTML и React",
       m4k:"Формат", m4v:"Удалённо, GMT+3, асинхронно",
-      workH:"Избранные работы", workMeta:"10 кейсов",
+      workH:"Избранные работы", workMeta:"11 кейсов",
       labMeta:"Моушен и AI",
       labIntro:"Моушен и визуал с помощью AI, который я делаю вместе с продуктовой работой: промо пейволлов, постеры сериалов, анимации интерфейсов и концепты для питчей. У каждой работы указано, что сделал я, а что модель.",
       keyMe:"Моя работа", keyAi:"Сгенерировано моделью", me:"Я", ai:"AI", slot:"слот", slotHere:"Здесь будет ролик",
@@ -2721,7 +3068,22 @@ p{margin:0}
           ["Network switch changes everything","Switching TRC20 or ERC20 updates the QR and the address together, so a merchant cannot copy an address from the wrong network."],
           ["Exact amount, plainly","The warning says to send exactly 1 200 USDT in one payment and what happens otherwise. It sits right under the address."]
         ]
-      }
+      },
+      {
+        eyebrow:"bipbip · Marketplace · 2026",
+        title:"Car service booking for all of Belarus",
+        summary:"A redesign of a car service marketplace: drivers find a service station, see live free slots and fixed prices, and book in three steps without a single call.",
+        tags:["Marketplace","Booking flow","Design system"],
+        facts:[["Role","Product designer, brand and UI"],["Scope","Brand, style guide, 4 roles, desktop and mobile"],["Platform","Web, responsive"],["Year","2026"]],
+        context:"bipbip grows out of an existing product for car service stations, with four roles: guest, driver, station owner and admin. I received a handoff with flows, product notes and 46 screen cards. The task was a new brand, a new style guide and a new design for every screen.",
+        challenge:"In Belarus most people still book a car service by phone, and the price changes once you arrive. The product had to replace the call: show real free time, a price that holds, and confirm a booking without passwords.",
+        did:["Built the brand: the bipbip wordmark with signal-yellow dots that blink like hazard lights, asphalt and fog palette, Unbounded and Onest","Wrote the style guide: tokens, components, booking statuses, empty, loading and error states for every screen","Designed the driver side: home, search with filters, station page, booking, my bookings and the garage","Designed the station cabinet: today's schedule, booking management, services and prices","Designed the admin panel and the mobile version of every key screen","Prepared the handoff in Figma: annotations per screen, states and UX rules for developers"],
+        decisions:[
+          ["Live slots on every card","Search results show the next free times right on the card, so a driver compares stations by when they can come, not only by rating."],
+          ["Price checked against the market","Each service shows whether its price is below or at the market level, so a driver sees a fair price before booking."],
+          ["Phone code instead of an account","Booking ends with an SMS code. The account appears on its own after the first booking, so nobody has to register first."]
+        ]
+      },
     ],
     ru:[
       {
@@ -2888,7 +3250,22 @@ p{margin:0}
           ["Смена сети меняет всё","Переключение TRC20 или ERC20 обновляет QR и адрес одновременно, поэтому скопировать адрес не из той сети нельзя."],
           ["Точная сумма простыми словами","Предупреждение говорит перевести ровно 1 200 USDT одним платежом и что будет иначе. Оно стоит сразу под адресом."]
         ]
-      }
+      },
+      {
+        eyebrow:"bipbip · Маркетплейс · 2026",
+        title:"Онлайн-запись на СТО по всей Беларуси",
+        summary:"Редизайн маркетплейса автосервисов: водитель находит СТО, видит живые свободные окна и фиксированные цены и записывается в три шага без звонков.",
+        tags:["Маркетплейс","Флоу записи","Дизайн-система"],
+        facts:[["Роль","Продуктовый дизайнер, бренд и UI"],["Объём","Бренд, стайл-гайд, 4 роли, десктоп и мобайл"],["Платформа","Веб, адаптив"],["Год","2026"]],
+        context:"bipbip вырос из существующего продукта для автосервисов с четырьмя ролями: гость, водитель, владелец СТО и админ. Я получил хэндофф с флоу, описанием продукта и 46 карточками экранов. Задача — новый бренд, новый стайл-гайд и новый дизайн всех экранов.",
+        challenge:"В Беларуси на СТО до сих пор записываются по телефону, а цена меняется уже на месте. Продукт должен заменить звонок: показать реальное свободное время, цену, которая не меняется, и подтвердить запись без паролей.",
+        did:["Сделал бренд: вордмарк bipbip с жёлтыми точками-поворотниками, палитра «асфальт и туман», шрифты Unbounded и Onest","Собрал стайл-гайд: токены, компоненты, статусы записей, пустые, загрузочные и ошибочные состояния каждого экрана","Спроектировал сторону водителя: главная, поиск с фильтрами, страница СТО, запись, мои записи и гараж","Спроектировал кабинет СТО: расписание на сегодня, управление записями, услуги и цены","Спроектировал админку и мобильную версию всех ключевых экранов","Подготовил хэндофф в Figma: аннотации к каждому экрану, состояния и UX-правила для разработки"],
+        decisions:[
+          ["Живые окна на каждой карточке","В выдаче ближайшее свободное время видно прямо на карточке, и водитель сравнивает СТО по тому, когда сможет приехать, а не только по рейтингу."],
+          ["Цена в сравнении с рынком","У каждой услуги видно, ниже она рынка или на уровне, так что честную цену видно ещё до записи."],
+          ["Код из SMS вместо аккаунта","Запись завершается кодом из SMS. Аккаунт появляется сам после первой записи, регистрироваться заранее не нужно."]
+        ]
+      },
     ]
   };
   const CASE_BASE = [
@@ -2902,9 +3279,10 @@ p{margin:0}
     {id:"gift", tpl:"tpl-gift", frame:"Gift cards / Designs → Occasions → Amounts"},
     {id:"wisp", tpl:"tpl-wisp", frame:"WISP / Lobby → Check-in → Map bans → Bracket"},
     {id:"dao", tpl:"tpl-dao", frame:"DAOLama / NFT → Loan → Wallet"},
-    {id:"merch", tpl:"tpl-merch", frame:"TrxPay Merchant / Dashboard → Deposit"}
+    {id:"merch", tpl:"tpl-merch", frame:"TrxPay Merchant / Dashboard → Deposit"},
+    {id:"bipbip", tpl:"tpl-bipbip", frame:"bipbip / Search → Service station → Booking"}
   ];
-  const ORDER = ["casino","kissy","gateway","merch","mooon","kiosk","gift","wisp","portal","dao"];
+  const ORDER = ["bipbip","casino","kissy","gateway","merch","mooon","kiosk","gift","wisp","portal","dao"];
 
   /* Lab — add pieces to LAB. src: compressed mp4 (2–5 MB), muted loop. r: "9:16" or "16:9".
      Text fields take {en, ru}: {r:"9:16", src:"lab/promo.mp4", title:{en,ru}, task:{en,ru}, mine:{en,ru}, ai:{en,ru}, tools:["Kling","Figma"]} */
@@ -5244,6 +5622,267 @@ p{margin:0}
       await Promise.all([D, M].map(R => done(an(R, [{opacity:1},{opacity:0}], 500))));
       render(); bind(); bi = 0;
       await Promise.all([D, M].map(R => done(an(R, [{opacity:0},{opacity:1}], 500, {fill:'none'}))));
+    }
+  };
+
+  /* ---------- bipbip: search → STO page → booking ---------- */
+  const BBI = {
+    search:'<svg class="i" viewBox="0 0 24 24"><path d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"/></svg>', pin:'<svg class="i" viewBox="0 0 24 24"><path d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"/></svg>', cv:'<svg class="i" viewBox="0 0 24 24"><path d="M19.5 8.25l-7.5 7.5-7.5-7.5"/></svg>', x:'<svg class="i" viewBox="0 0 24 24"><path d="M6 18 18 6M6 6l12 12"/></svg>', ok:'<svg class="i" viewBox="0 0 24 24"><path d="M4.5 12.75l6 6 9-13.5"/></svg>', plus:'<svg class="i" viewBox="0 0 24 24"><path d="M12 4.5v15m7.5-7.5h-15"/></svg>',
+    clock:'<svg class="i" viewBox="0 0 24 24"><path d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>', arr:'<svg class="i" viewBox="0 0 24 24"><path d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>', back:'<svg class="i" viewBox="0 0 24 24"><path d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"/></svg>', l:'<svg class="i" viewBox="0 0 24 24"><path d="M15.75 19.5 8.25 12l7.5-7.5"/></svg>', to:'<svg class="i" viewBox="0 0 24 24"><path d="M11.35 3.836c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-.1-.664m-5.8 0A2.251 2.251 0 0 1 13.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m8.9-4.414c.376.023.75.05 1.124.08 1.131.094 1.976 1.057 1.976 2.192V16.5A2.25 2.25 0 0 1 18 18.75h-2.25m-7.5-10.5H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V18.75m-7.5-10.5h6.375c.621 0 1.125.504 1.125 1.125v9.375m-8.25-3 1.5 1.5 3-3.75"/></svg>',
+    oil:'<svg class="i" viewBox="0 0 24 24"><path d="M9.75 3.104v5.714a2.25 2.25 0 0 1-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 0 1 4.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0 1 12 15a9.065 9.065 0 0 0-6.23-.693L5 14.5m14.8.8 1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0 1 12 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5"/></svg>', tire:'<svg class="i" viewBox="0 0 24 24"><path d="M16.712 4.33a9.027 9.027 0 0 1 1.652 1.306c.51.51.944 1.064 1.306 1.652M16.712 4.33l-3.448 4.138m3.448-4.138a9.014 9.014 0 0 0-9.424 0M19.67 7.288l-4.138 3.448m4.138-3.448a9.014 9.014 0 0 1 0 9.424m-4.138-5.976a3.736 3.736 0 0 0-.88-1.388 3.737 3.737 0 0 0-1.388-.88m2.268 2.268a3.765 3.765 0 0 1 0 2.528m-2.268-4.796a3.765 3.765 0 0 0-2.528 0m4.796 4.796c-.181.506-.475.982-.88 1.388a3.736 3.736 0 0 1-1.388.88m2.268-2.268 4.138 3.448m0 0a9.027 9.027 0 0 1-1.306 1.652c-.51.51-1.064.944-1.652 1.306m0 0-3.448-4.138m3.448 4.138a9.014 9.014 0 0 1-9.424 0m5.976-4.138a3.765 3.765 0 0 1-2.528 0m0 0a3.736 3.736 0 0 1-1.388-.88 3.737 3.737 0 0 1-.88-1.388m2.268 2.268L7.288 19.67m0 0a9.024 9.024 0 0 1-1.652-1.306 9.027 9.027 0 0 1-1.306-1.652m0 0 4.138-3.448M4.33 16.712a9.014 9.014 0 0 1 0-9.424m4.138 5.976a3.765 3.765 0 0 1 0-2.528m0 0c.181-.506.475-.982.88-1.388a3.736 3.736 0 0 1 1.388-.88m-2.268 2.268L4.33 7.288m6.406 1.18L7.288 4.33m0 0a9.024 9.024 0 0 0-1.652 1.306A9.025 9.025 0 0 0 4.33 7.288"/></svg>', diag:'<svg class="i" viewBox="0 0 24 24"><path d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 0 0 2.25-2.25V6.75a2.25 2.25 0 0 0-2.25-2.25H6.75A2.25 2.25 0 0 0 4.5 6.75v10.5a2.25 2.25 0 0 0 2.25 2.25Zm.75-12h9v9h-9v-9Z"/></svg>', brake:'<svg class="i" viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0ZM9 9.563C9 9.252 9.252 9 9.563 9h4.874c.311 0 .563.252.563.563v4.874c0 .311-.252.563-.563.563H9.564A.562.562 0 0 1 9 14.437V9.564Z"/></svg>', align:'<svg class="i" viewBox="0 0 24 24"><path d="M7.5 21 3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5"/></svg>',
+    bell:'<svg class="i" viewBox="0 0 24 24"><path d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0"/></svg>', home:'<svg class="i" viewBox="0 0 24 24"><path d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"/></svg>', cal:'<svg class="i" viewBox="0 0 24 24"><path d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5"/></svg>', user:'<svg class="i" viewBox="0 0 24 24"><path d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"/></svg>', phone:'<svg class="i" viewBox="0 0 24 24"><path d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z"/></svg>', map:'<svg class="i" viewBox="0 0 24 24"><path d="M9 6.75V15m6-6v8.25m.503 3.498 4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 0 0-1.006 0L3.622 5.689C3.24 5.88 3 6.27 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0Z"/></svg>', filt:'<svg class="i" viewBox="0 0 24 24"><path d="M10.5 6h9.75M10.5 6a1.5 1.5 0 1 1-3 0m3 0a1.5 1.5 0 1 0-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-9.75 0h9.75"/></svg>',
+    star:'<svg class="i" viewBox="0 0 24 24" style="fill:currentColor;stroke:none"><path d="M10.79 3.21c.45-1.08 1.97-1.08 2.42 0l2.08 5 5.4.43c1.16.1 1.63 1.55.75 2.31l-4.12 3.53 1.26 5.27c.27 1.13-.96 2.03-1.96 1.42L12 18.35l-4.62 2.82c-1 .61-2.23-.29-1.96-1.42l1.26-5.27-4.12-3.53c-.88-.76-.41-2.21.75-2.31l5.4-.43 2.08-5z"/></svg>'
+  };
+  const BB = {
+    cards:[
+      ['lift','Мотор на Кальварийской','4,8','126','Ремонт и ТО легковых · ул. Кальварийская, 12','2,4 км','20:00','от 30 BYN',['12:00','13:00','14:30','16:00'],'Ещё 3 окна сегодня'],
+      ['tire','Шинный центр «Обод»','4,9','342','Шиномонтаж и хранение шин · ул. Тимирязева, 121','3,1 км','21:00','от 60 BYN',['12:00','13:30','14:00','14:30'],'Ещё 8 окон сегодня'],
+      ['detail','Глянец Детейлинг','4,7','88','Мойка, полировка, химчистка · пр-т Победителей, 84','2,2 км','21:00','от 35 BYN',['12:00','13:30','14:30','15:00'],'Ещё 7 окон сегодня'],
+      ['diag','АвтоЛаб Уручье','4,9','211','Диагностика и автоэлектрика · ул. Ложинская, 5','8,8 км','20:00','от 40 BYN',['12:00','12:30','13:00','14:00'],'Ещё 5 окон сегодня'],
+      ['brake','Кардан-Сервис','4,6','54','Ходовая, тормоза, развал · ул. Брикета, 7','5,6 км','20:00','от 25 BYN',['12:30','13:00','14:00','17:00'],'Ещё 1 окно сегодня'],
+      ['wash','Пена и Блеск','4,8','173','Мойка 24/7 и антидождь · ул. Притыцкого, 29','4,3 км','24/7','от 20 BYN',['12:00','12:20','12:40','13:00'],'Ещё 12 окон сегодня']
+    ],
+    svc:[
+      ['ТО по регламенту','to','Масло, фильтры, проверка по 40 пунктам и отчёт с фото','1 ч 30 мин',120,'','По рынку'],
+      ['Замена масла и фильтра','oil','Моторное масло и масляный фильтр. Можно привезти своё','40 мин',45,'lo','Ниже рынка −12%'],
+      ['Компьютерная диагностика','diag','Чтение ошибок всех блоков с расшифровкой','30 мин',35,'','По рынку'],
+      ['Замена тормозных колодок','brake','Одна ось: снятие, замена, проверка дисков','1 ч',50,'lo','Ниже рынка −8%'],
+      ['Развал-схождение','align','3D-стенд, распечатка до и после','45 мин',55,'','По рынку']
+    ],
+    grp:['То по регламенту','Замена масла','Диагностика','Тормозная система','Развал-схождение'],
+    days:[['Пт','23','2 окна'],['Сб','24','8 окон'],['Вс','25','выходной',1],['Пн','26','6 окон'],['Вт','27','9 окон'],['Ср','28','7 окон'],['Чт','29','10 окон'],['Пт','30','5 окон']],
+    slotsA:['16:30','18:00','—','—','—','—','—'],
+    slotsB:['09:00','10:30','12:00','13:30','15:00','16:30','18:00']
+  };
+  function bbHTML(dev){
+    const D = dev === 'd', I = BBI;
+    const logo = '<span class="bb-logo" data-a="logo">b<span class="i">ı<b></b></span>pb<span class="i">ı<b></b></span>p</span>';
+    const slot = (t, c='') => `<span class="bb-sl ${c}">${t}</span>`;
+    const card = (c, k) => `<div class="bb-card" data-a="card${k}"><div class="im"><img src="assets/bb-${c[0]}.webp" alt=""><span class="bd" style="left:10px"><i></i>${c[6]==='24/7'?'Круглосуточно':'Открыто до '+c[6]}</span><span class="bd" style="right:10px">${I.pin}${c[5]}</span></div>
+        <div class="bo"><div class="n">${c[1]}<span>${I.star}${c[2]} <small>${c[3]}</small></span></div><div class="sub">${c[4]}</div>
+        <div class="pr"><span>Замена масла</span><b>${c[7]}</b></div><div class="fs">Свободно сегодня</div><div class="sls">${c[8].map(t=>slot(t)).join('')}</div>
+        <span class="bb-btn">${c[9]}${I.arr}</span></div></div>`;
+    const svc = (s, k) => `<div class="bb-grp">${BB.grp[k]}</div><div class="bb-svc" data-a="svc${k}"><span class="ic">${I[s[1]]}</span><div class="tx"><b>${s[0]}</b>${D?`<small>${s[2]}</small>`:''}<em>${I.clock}${s[3]}</em></div><div class="pr"><b>${s[4]} BYN</b>${D?`<span class="${s[5]}">${s[6]}</span>`:''}</div><span class="bb-add" data-a="add${k}">${I.plus}</span></div>`;
+    const days = () => BB.days.map((d,k) => `<div class="bb-day ${d[3]?'off':''} ${k===0?'on':''}" data-a="day${k}"><small>${d[0]}</small><b>${d[1]}</b><small>${d[2]}</small></div>`).join('');
+    const slots = arr => arr.map((t,k) => `<span class="bb-sl ${t==='—'?'mu':''}" data-a="sl${k}">${t}</span>`).join('');
+    if (D) return `<div class="bb bb-d">
+      <header class="bb-hd">${logo}<nav><span class="on">${I.search}Найти СТО</span><span>Для автосервисов</span><span>Мои записи</span></nav>
+        <div class="r"><span class="city">${I.pin}Минск ${I.cv}</span><span class="bb-btn dk" data-a="login">Войти</span></div></header>
+      <section class="bb-v on" data-v="home">
+        <div class="bb-hero"><div class="bb-eb"><i></i>Запись на СТО по всей Беларуси</div>
+          <h1>Бип — и вы<br><em>записаны.</em></h1>
+          <p>Живые окна на шиномонтаж, ТО и детейлинг. Без звонков и «перезвоним», с ценой, которая не меняется на месте.</p>
+          <div style="position:relative"><div class="bb-srch" data-a="srch"><span class="bb-fld" data-a="q">${I.search}<span class="val"></span><span class="ph">Что нужно сделать? Например, замена масла</span></span><span class="bb-fld city">${I.pin}Минск<span class="x">×</span></span><span class="bb-btn" data-a="find">Найти</span></div>
+            <div class="bb-sugg" data-a="sugg"><div class="hl">${I.oil}Замена масла и фильтра<small>48 СТО · от 35 BYN</small></div><div>${I.oil}Замена масла в АКПП<small>21 СТО</small></div><div>${I.diag}Диагностика перед заменой<small>32 СТО</small></div></div></div>
+          <div class="bb-stats"><div><b>3 шага</b><small>услуга, время, код из SMS</small></div><div><b>Живые окна</b><small>реальное время СТО</small></div><div><b>0 BYN</b><small>для водителей — всегда</small></div></div>
+          <div class="bb-stack"><div class="bb-rem"><small>VOLKSWAGEN POLO · 1234 AB-7</small><b>Пора переобуваться. <em>Снег</em> обещают 28 октября</b><span class="bb-btn">Ближайшее окно — сегодня 16:30${I.arr}</span></div>
+            <div class="bb-mini" style="transform:rotate(-1.5deg) translateX(-6px)"><div class="t">Шинный центр «Обод»<span>от 60 BYN</span></div><div class="s"><span>★ 4,9 · 3,1 км · Шиномонтаж</span><span>40 мин</span></div><div class="sl">${slot('16:30','hot')}${slot('17:00')}${slot('18:30')}${slot('завтра','mu')}</div></div>
+            <div class="bb-mini" style="transform:rotate(1.2deg) translateX(10px)"><div class="t">Протектор 24/7<span>от 45 BYN</span></div><div class="s"><span>★ 4,5 · 5,6 км · Шиномонтаж</span><span>45 мин</span></div><div class="sl">${slot('19:00','hot')}${slot('21:30')}${slot('23:00')}${slot('завтра','mu')}</div></div></div>
+        </div>
+        <div class="bb-sec" style="top:520px"><h2>Популярные услуги</h2><p>Выберите услугу — покажем СТО, которые её делают, с ценами и свободным временем</p>
+          <div class="bb-tiles"><div class="bb-tile"><span class="ic">${I.to}</span><b>ТО по регламенту</b><small>от 90 BYN · 64 автосервиса</small></div><div class="bb-tile"><span class="ic">${I.tire}</span><b>Шиномонтаж</b><small>от 20 BYN · 118 автосервисов</small></div><div class="bb-tile"><span class="ic">${I.oil}</span><b>Замена масла</b><small>от 35 BYN · 48 автосервисов</small></div><div class="bb-tile"><span class="ic">${I.diag}</span><b>Компьютерная диагностика</b><small>от 35 BYN · 52 автосервиса</small></div></div></div>
+      </section>
+      <section class="bb-v" data-v="search">
+        <aside class="bb-flt"><div class="h">Фильтры<small>Сбросить</small></div>
+          <label>Услуга</label><div class="fv sel"><span class="tg">${I.oil}Замена масла</span><span class="cv">${I.x}</span></div>
+          <label>Город</label><div class="fv">Минск<span class="cv">${I.cv}</span></div>
+          <label>Марка авто</label><div class="fv">Volkswagen Polo<span class="cv">${I.cv}</span></div>
+          <label>Рейтинг</label><div class="bb-seg"><span>Любой</span><span>4+</span><span class="on">4,5+</span><span>4,8+</span></div>
+          <label>Расстояние</label><div class="bb-seg"><span class="on">Любое</span><span>3 км</span><span>5 км</span><span>10 км</span></div>
+          <label>Свободно в окне</label><div style="display:flex;gap:8px"><div class="fv" style="flex:1">с 12:00<span class="cv">${I.cv}</span></div><div class="fv" style="flex:1">до 18:00<span class="cv">${I.cv}</span></div></div></aside>
+        <div class="bb-res"><div class="rh"><h1>Автосервисы рядом</h1><small>48 автосервисов · замена масла</small><span>${I.pin}от центра Минска · время СТО (UTC+3)</span></div>
+          <div class="rc"><span class="bb-chip on">Сегодня</span><span class="bb-chip">Завтра</span><span class="bb-chip">Послезавтра</span><span class="bb-chip">${I.cal}Дата</span><span class="bb-chip sort">По ближайшему окну ${I.cv}</span></div>
+          <div class="bb-grid">${BB.cards.map(card).join('')}</div></div>
+      </section>
+      <section class="bb-v" data-v="sto">
+        <div class="bb-scr" data-a="scr">
+          <div class="bb-sh"><img src="assets/bb-hero.webp" alt=""><div class="c"><div class="tags"><span class="o"><i></i>Открыто · 09:00–20:00</span><span>Wi-Fi и кофе</span><span>Оригинал и аналоги</span><span>Гарантия 6 мес.</span></div>
+            <h1>Мотор на Кальварийской</h1><div class="meta"><b>${I.star.replace('class="i"','class="i st"')}4,8</b> 126 отзывов · ул. Кальварийская, 12 · 2,4 км от центра</div>
+            <div class="acts"><span class="bb-btn">${I.cal}Записаться онлайн</span><span class="bb-btn gl">${I.phone}+375 17 300-11-22</span><span class="bb-btn gl">${I.map}Маршрут</span></div></div></div>
+          <div class="bb-tabs"><span class="bb-chip on">Услуги</span><span class="bb-chip">Время</span><span class="bb-chip">О сервисе</span><span class="bb-chip">Фото</span><span class="bb-chip">Отзывы · 126</span><span class="bb-chip">Контакты</span></div>
+          <div class="bb-col"><div class="bb-box"><div class="bh"><h3>Услуги и цены</h3><span class="bb-fld" style="flex:none;width:220px;height:38px;font-size:13px">${I.search}<span class="ph">Поиск услуги</span></span></div>
+              <div class="note">Цена — по прайсу СТО на сегодня. Итоговую сумму сервис укажет в чеке после визита.</div>${BB.svc.map(svc).join('')}</div>
+            <div class="bb-box" data-a="timebox"><div class="bh"><h3>Свободное время</h3><small>По часовому поясу СТО (Минск, UTC+3)</small></div>
+              <div class="bb-days">${days()}</div><div class="bb-slots" data-a="slots">${slots(BB.slotsA)}</div></div></div>
+        </div>
+        <aside class="bb-pan" data-a="pan"><h3>Ваша запись</h3>
+          <div class="bb-step" data-a="st1"><i>1</i><div><b>Услуги</b><small data-a="st1s">Отметьте нужные в списке слева</small><div class="bb-pl" data-a="pl"></div></div></div>
+          <div class="bb-step" data-a="st2"><i>2</i><div><b>Когда</b><small data-a="st2s">Выберите день и свободное окно</small><div class="bb-when" data-a="when"></div></div></div>
+          <div class="bb-tot"><span>Итого по прайсу</span><b data-a="tot">0 BYN</b></div>
+          <span class="bb-btn off" data-a="book"><span>Записаться</span></span><div class="fine">Оплата на месте · отмена бесплатно</div></aside>
+      </section>
+      <div class="bb-dim" data-a="dim"></div>
+      <div class="bb-mod" data-a="mod"><span class="x">${I.x}</span>
+        <div class="bb-mp on" data-p="phone"><h3>Подтвердите номер</h3><p>Пришлём код — и запись готова. Без паролей и регистрации.</p><span class="bb-fld" data-a="ph">${I.phone}<span class="val"></span><span class="ph">+375 __ ___-__-__</span></span><span class="bb-btn" data-a="getc">Получить код</span></div>
+        <div class="bb-mp" data-p="code"><h3>Код из SMS</h3><p>Отправили на +375 29 614-27-08</p><div class="bb-code" data-a="code"><span></span><span></span><span></span><span></span></div></div>
+        <div class="bb-mp" data-p="ok"><span class="bb-okc" data-a="okc">${I.ok}</span><h3>Бип — и вы записаны</h3><p>СТО подтвердило запись. Детали — в «Моих записях» и в SMS.</p>
+          <div class="bb-tk"><div class="w">Сб, 24 октября · 10:30<small>Мотор на Кальварийской · ул. Кальварийская, 12</small></div><hr><div class="ln"><span>Замена масла и фильтра</span><b>45 BYN</b></div><div class="ln"><span>Компьютерная диагностика</span><b>35 BYN</b></div><div class="ln" style="margin-top:6px"><span>Итого по прайсу</span><b>80 BYN</b></div><div class="rm">${I.bell}Напомним за 2 часа · перенос в один клик</div></div>
+          <div class="two" style="margin-top:16px"><span class="bb-btn ghost">${I.cal}В календарь</span><span class="bb-btn dk">Мои записи</span></div></div>
+      </div>
+      <span class="sx-cur" style="transform:translate(1180px,760px)"><svg viewBox="0 0 22 22"><path d="M2 2l7.5 18 2.6-7.4L19.5 10z" fill="#fff" stroke="#0B0B12" stroke-width="1.4" stroke-linejoin="round"/></svg></span>
+    </div>`;
+    const mcard = (c, k) => `<div class="bb-mcard" data-a="mc${k}"><div class="im"><img src="assets/bb-${c[0]}.webp" alt=""><span class="bd" style="left:10px"><i></i>Открыто до ${c[6]}</span><span class="bd" style="right:10px">${c[5]}</span></div><div class="bo"><div class="n">${c[1]}<span>${I.star}${c[2]}</span></div><div class="sub">${c[4]}</div><div class="sls">${c[8].slice(0,4).map(t=>slot(t)).join('')}</div><span class="bb-btn">${c[9]}${I.arr}</span></div></div>`;
+    return `<div class="bb bb-m"><div class="bb-sbar"><b>9:41</b><span><i></i><i></i><i></i><i></i><em></em></span></div>
+      <header class="bb-hd"><span class="city">${I.pin}Минск</span>${logo}<span class="r"><span class="bb-btn dk">Войти</span></span></header>
+      <section class="bb-v on" data-v="home"><div class="bb-mh"><small>Привет!</small><h1>Куда<br>записываемся?</h1></div>
+        <span class="bb-fld mq">${I.search}<span class="ph">Услуга: масло, шины, ТО…</span></span><span class="bb-btn bb-mbtn">Найти автосервис</span>
+        <div class="bb-rem">${I.bell}<div><b>Пора переобуваться</b><small>Снег обещают 28 октября — шиномонтаж рядом, окна есть сегодня</small></div>${I.arr}</div>
+        <div class="bb-mt"><h3>Популярное</h3><small>Все</small></div>
+        <div class="bb-mtiles"><div><span class="ic">${I.to}</span>ТО</div><div><span class="ic">${I.tire}</span>Шины</div><div data-a="mt-oil"><span class="ic">${I.oil}</span>Масло</div><div><span class="ic">${I.diag}</span>Диагностика</div></div>
+        <div class="bb-mt"><h3>Свободно сегодня</h3><small>Все</small></div>${mcard(BB.cards[2],9)}
+        <nav class="bb-tabbar"><span class="on">${I.home}Главная</span><span>${I.search}Поиск</span><span>${I.cal}Записи</span><span>${I.user}Войти</span></nav></section>
+      <section class="bb-v" data-v="search"><div class="bb-msc" data-a="msc1"><div class="bb-mbar"><span class="bk">${I.l}</span><b>Замена масла</b><span class="bk">${I.filt}</span></div>
+        <div class="bb-mchips"><span class="bb-chip on">Сегодня</span><span class="bb-chip">Завтра</span><span class="bb-chip">4,5+</span><span class="bb-chip">До 5 км</span></div>
+        ${BB.cards.slice(0,3).map(mcard).join('')}<div style="height:120px"></div></div>
+        <nav class="bb-tabbar"><span>${I.home}Главная</span><span class="on">${I.search}Поиск</span><span>${I.cal}Записи</span><span>${I.user}Войти</span></nav></section>
+      <section class="bb-v full" data-v="sto"><div class="bb-msc" data-a="msc2"><div class="bb-msh"><img src="assets/bb-hero.webp" alt=""><span class="bk">${I.l}</span><div class="c"><div class="tags"><span><i></i>Открыто · до 20:00</span></div><h1>Мотор на<br>Кальварийской</h1><div class="meta"><b>★ 4,8</b> · 126 отзывов · 2,4 км</div></div></div>
+        <div class="bb-box"><div class="bh"><h3>Услуги и цены</h3></div>${BB.svc.slice(0,4).map(svc).join('')}</div><div style="height:140px"></div></div>
+        <div class="bb-mfoot" data-a="mfoot"><div><small data-a="mcnt">1 услуга</small><b data-a="mtot">0 BYN</b></div><span class="bb-btn" data-a="mtime">Выбрать время${I.arr}</span></div>
+        <div class="bb-dim" data-a="mdim"></div>
+        <div class="bb-sheet" data-a="sheet"><div class="grab"></div><h3>Когда удобно?</h3><div class="note">Время СТО · Минск, UTC+3</div><div class="bb-days">${days().replace(/data-a="day/g,'data-a="mday')}</div><div class="bb-slots" style="margin-top:12px" data-a="mslots">${slots(BB.slotsA.slice(0,4).concat(['—','—','—','—'])).replace(/data-a="sl/g,'data-a="msl')}</div><span class="bb-btn off" data-a="mbook"><span>Выберите время</span></span></div></section>
+      <section class="bb-v" data-v="done"><div class="bb-mdone"><div class="bkl">${I.back}К записям</div><div class="id">Запись №2481 · создана 23 окт, 19:42</div><h1>Замена масла + Диагностика</h1><span class="bb-badge" data-a="badge">${I.ok}Подтверждена</span>
+        <div class="bb-mtk"><div class="top"><div class="w">Сб, 24 октября · 10:30<small>1 ч 10 мин · до 11:40</small></div></div><div class="cut"></div>
+          <div class="sec"><div class="lbl">Где</div><div class="wh"><span class="lg">М</span><span><b>Мотор на Кальварийской</b><small>ул. Кальварийская, 12, Минск</small></span></div></div>
+          <div class="sec"><div class="lbl">Услуги</div><div class="ln"><span>Замена масла и фильтра</span><b>45 BYN</b></div><div class="ln"><span>Компьютерная диагностика</span><b>35 BYN</b></div><div class="tot"><span>Итого по прайсу</span><b>80 BYN</b></div></div></div></div>
+        <nav class="bb-tabbar"><span>${I.search}Поиск</span><span class="on">${I.cal}Записи</span><span>${I.home}Гараж</span><span>${I.user}Профиль</span></nav></section>
+      <span class="sx-tap"></span></div>`;
+  }
+
+  ENGINES.bipbip = async stage => {
+    const dW = stage.querySelector('.scr.desk'), mW = stage.querySelector('.scr.mob');
+    const render = () => { dW.firstElementChild.innerHTML = bbHTML('d'); mW.firstElementChild.innerHTML = bbHTML('m'); };
+    render(); sxFit(stage);
+    let D, M, K;
+    const bind = () => { D = dW.querySelector('.bb'); M = mW.querySelector('.bb'); K = sxKit(stage, D, M); };
+    bind();
+    if (reduce) return;
+    const E = 'cubic-bezier(.2,.8,.2,1)';
+    const an = (el, kf, ms, o={}) => el.animate(kf, Object.assign({duration:ms*TEMPO, easing:E, fill:'forwards'}, o));
+    const q = (R, s) => R.querySelector(`[data-a="${s}"]`);
+    const d = s => q(D, s), m = s => q(M, s);
+    const view = async (R, to) => {
+      const A = R.querySelector('.bb-v.on'), B = R.querySelector(`.bb-v[data-v="${to}"]`);
+      B.classList.add('on');
+      an(B, [{opacity:0, transform:'translateY(18px)'},{opacity:1, transform:'none'}], 560, {fill:'none'});
+      await done(an(A, [{opacity:1},{opacity:0}], 260));
+      A.classList.remove('on'); A.getAnimations().forEach(a => a.cancel());
+    };
+    const tapM = async el => { K.tap(el); K.ripple(el); await wait(stage, 200); };
+    const typeIn = async (el, t, sp=60) => { const v = el.querySelector('.val'); for (const ch of t){ v.textContent += ch; await wait(stage, sp*(.6+Math.random()*.8)); } };
+    const nf = v => Math.round(v) + ' BYN';
+    const addSvc = (R, k, name, price, from, to, isD) => {
+      const row = q(R, 'svc'+k); row.classList.add('on');
+      const ad = q(R, 'add'+k); an(ad, [{transform:'scale(1)'},{transform:'scale(.82)', offset:.35},{transform:'scale(1)'}], 380, {fill:'none'});
+      if (isD){
+        const pl = q(R,'pl'), li = document.createElement('div'); li.innerHTML = `<span>${name}</span><b>${price} BYN</b>`; pl.appendChild(li);
+        an(li, [{opacity:0, transform:'translateX(-10px)'},{opacity:1, transform:'none'}], 420, {fill:'none'});
+        q(R,'st1').classList.add('done'); q(R,'st1s').textContent = pl.children.length === 1 ? '1 услуга · 40 мин' : '2 услуги · 1 ч 10 мин';
+        K.count([q(R,'tot')], from, to, 600*TEMPO, nf);
+      } else {
+        K.count([q(R,'mtot')], from, to, 600*TEMPO, nf);
+        q(R,'mcnt').textContent = k === 1 ? '1 услуга · 40 мин' : '2 услуги · 1 ч 10 мин';
+      }
+    };
+    const fillSlots = (box, arr, pre) => {
+      [...box.children].forEach((s, i) => { s.textContent = arr[i] || '—'; s.classList.toggle('mu', !arr[i] || arr[i] === '—');
+        an(s, [{opacity:0, transform:'translateY(8px) scale(.96)'},{opacity:1, transform:'none'}], 380, {delay:i*40*TEMPO, fill:'backwards'}); });
+    };
+    const pickDay = (R, pre, k) => { R.querySelectorAll(`[data-a^="${pre}"]`).forEach(x => x.classList.toggle('on', x.dataset.a === pre + k)); };
+
+    const desk = async () => {
+      await wait(stage, 600);
+      const lg = d('logo'); lg.classList.add('blink'); setTimeout(() => lg.classList.remove('blink'), 1600);
+      await K.click(d('q'), null, {press:false, ms:620});
+      d('q').classList.add('focus'); d('srch').classList.add('focus');
+      await typeIn(d('q'), 'замена мас', 75);
+      d('sugg').classList.add('on');
+      await wait(stage, 600);
+      await K.click(d('sugg').firstElementChild, null, {ms:420});
+      d('q').querySelector('.val').textContent = 'Замена масла и фильтра'; d('sugg').classList.remove('on'); d('q').classList.remove('focus');
+      await K.click(d('find'), null, {ms:480}); d('find').classList.add('loading');
+      await wait(stage, 600);
+      await view(D, 'search');
+      D.querySelectorAll('.bb-card').forEach((c, i) => an(c, [{opacity:0, transform:'translateY(16px)'},{opacity:1, transform:'none'}], 520, {delay:i*60*TEMPO, fill:'backwards'}));
+      await wait(stage, 900);
+      const c0 = d('card0'); await K.move(c0, 620); c0.classList.add('hov');
+      await wait(stage, 700);
+      await K.click(c0.querySelector('.bb-btn'), null, {ms:420});
+      await view(D, 'sto');
+      await wait(stage, 700);
+    };
+    const mob = async () => {
+      await wait(stage, 1800);
+      const t = m('mt-oil'); t.classList.add('on'); await tapM(t);
+      await wait(stage, 400);
+      await view(M, 'search');
+      await wait(stage, 1100);
+      await done(an(m('msc1'), [{transform:'translateY(0)'},{transform:'translateY(-120px)'}], 800));
+      await wait(stage, 500);
+      await tapM(m('mc0').querySelector('.bb-btn'));
+      await view(M, 'sto');
+      await wait(stage, 500);
+    };
+    const desk2 = async () => {
+      await K.click(d('add1'), null, {ms:620}); addSvc(D, 1, 'Замена масла и фильтра', 45, 0, 45, true);
+      await wait(stage, 700);
+      await K.click(d('add2'), null, {ms:520}); addSvc(D, 2, 'Компьютерная диагностика', 35, 45, 80, true);
+      await wait(stage, 800);
+      const pan = d('pan');
+      an(d('scr'), [{transform:'translateY(0)'},{transform:'translateY(-520px)'}], 1000, {easing:'cubic-bezier(.65,0,.25,1)'});
+      await done(an(pan, [{top:'376px'},{top:'16px'}], 1000, {easing:'cubic-bezier(.65,0,.25,1)'}));
+      await wait(stage, 300);
+      await K.click(d('day1'), null, {ms:560}); pickDay(D, 'day', 1); fillSlots(d('slots'), BB.slotsB);
+      await wait(stage, 700);
+      const s = d('sl1'); await K.click(s, null, {ms:480}); s.classList.add('on');
+      d('st2').classList.add('done'); d('st2s').textContent = '1 ч 10 мин · до 11:40';
+      const w = d('when'); w.textContent = 'Сб, 24 октября · 10:30'; an(w, [{opacity:0, transform:'translateY(6px)'},{opacity:1, transform:'none'}], 420, {fill:'none'});
+      const b = d('book'); b.classList.remove('off'); an(b, [{transform:'scale(1)'},{transform:'scale(1.03)', offset:.4},{transform:'scale(1)'}], 500, {fill:'none'});
+      await wait(stage, 700);
+      await K.click(b, null, {ms:520});
+      d('dim').classList.add('on'); d('mod').classList.add('on');
+      await done(an(d('mod'), [{opacity:0, transform:'translateY(-46%) scale(.96)'},{opacity:1, transform:'translateY(-50%)'}], 480, {fill:'none'}));
+      d('ph').classList.add('focus'); await typeIn(d('ph'), '+375 29 614-27-08', 55); d('ph').classList.remove('focus');
+      await wait(stage, 300);
+      await K.click(d('getc'), null, {ms:480}); d('getc').classList.add('loading');
+      await wait(stage, 700);
+      const swapP = async to => { const A = d('mod').querySelector('.bb-mp.on'), B = d('mod').querySelector(`[data-p="${to}"]`); A.classList.remove('on'); B.classList.add('on'); an(B, [{opacity:0, transform:'translateX(16px)'},{opacity:1, transform:'none'}], 420, {fill:'none'}); };
+      await swapP('code');
+      const cs = d('code').children;
+      for (let i = 0; i < 4; i++){ cs[i].classList.add('cur'); await wait(stage, 260); cs[i].textContent = '4817'[i]; cs[i].classList.remove('cur'); }
+      [...cs].forEach((c,i) => setTimeout(() => c.classList.add('ok'), i*60));
+      await wait(stage, 700);
+      await swapP('ok');
+      an(d('okc'), [{transform:'scale(0)'},{transform:'scale(1.15)', offset:.6},{transform:'scale(1)'}], 560, {easing:'cubic-bezier(.3,1.5,.5,1)', fill:'none'});
+      const lg = d('logo'); lg.classList.add('blink'); setTimeout(() => lg.classList.remove('blink'), 1600);
+    };
+    const mob2 = async () => {
+      await wait(stage, 300);
+      const f = m('mfoot');
+      await tapM(m('add1')); addSvc(M, 1, '', 45, 0, 45, false); f.classList.add('on');
+      await wait(stage, 900);
+      await tapM(m('add2')); addSvc(M, 2, '', 35, 45, 80, false);
+      await wait(stage, 1100);
+      await tapM(m('mtime'));
+      m('mdim').classList.add('on'); m('sheet').classList.add('on');
+      await wait(stage, 900);
+      await tapM(m('mday1')); pickDay(M, 'mday', 1); fillSlots(m('mslots'), BB.slotsB);
+      await wait(stage, 800);
+      const s = m('msl1'); await tapM(s); s.classList.add('on');
+      const b = m('mbook'); b.classList.remove('off'); b.firstElementChild.textContent = 'Записаться на 10:30';
+      await wait(stage, 900);
+      await tapM(b); b.classList.add('loading');
+      await wait(stage, 3000);
+      m('mdim').classList.remove('on'); m('sheet').classList.remove('on'); m('mfoot').classList.remove('on');
+      await view(M, 'done');
+      an(m('badge'), [{transform:'scale(.6)', opacity:0},{transform:'scale(1.08)', opacity:1, offset:.6},{transform:'scale(1)', opacity:1}], 520, {fill:'none'});
+    };
+    for(;;){
+      await Promise.all([desk(), mob()]);
+      await Promise.all([desk2(), mob2()]);
+      await wait(stage, 3600);
+      await Promise.all([D, M].map(R => done(an(R, [{opacity:1},{opacity:0}], 450))));
+      render(); bind();
+      await Promise.all([D, M].map(R => done(an(R, [{opacity:0},{opacity:1}], 450, {fill:'none'}))));
     }
   };
 
