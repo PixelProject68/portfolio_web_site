@@ -2905,18 +2905,18 @@ p{margin:0}
   const CASE_TEXT = {
     en:[
       {
-        eyebrow:"mooon.by · Cinema · 2026",
+        eyebrow:"mooon · Cinema chain · 2026",
         title:"E-gift cards for a cinema chain",
-        summary:"An online gift card for mooon, a cinema chain in Belarus. Buying it takes five short steps. The recipient gets a sealed envelope and opens it on screen.",
-        tags:["Purchase flow","Motion design","Desktop + mobile"],
-        facts:[["Role","UI/UX design, motion, prototyping"],["Scope","Home, purchase wizard, delivery, opening"],["Platform","Web, responsive, light and dark"],["Year","2026"]],
-        context:"mooon sells gift cards for its cinemas: electronic, plastic and multi-visit passes. The electronic card is the fastest to buy and the hardest to make feel like a real present, because there is nothing to wrap.",
-        challenge:"Turn a form with an amount and an email into a gift. The buyer should finish in about a minute on a phone, and the person who receives it should feel that someone thought about them.",
-        did:["Designed the home page: one choice of format, then straight into the wizard","Designed a five-step wizard: design, recipient, wish, delivery, payment","Made the card the hero: a round illustration that changes with the design and stays on screen through every step","Added ready-made wishes and scheduled delivery, for birthdays and dates","Designed the packing animation after payment and the opening animation for the recipient","Designed light and dark themes and a mobile version for every screen","Wrote motion specs for development"],
+        summary:"A gift card shop for mooon cinemas: personal purchase, corporate orders and an account. The path went from six steps to five, and the card stays the hero of every screen.",
+        tags:["Purchase flow", "Design system", "Desktop + mobile"],
+        facts:[["Role", "UI/UX designer, HTML prototypes"], ["Scope", "Purchase wizard, B2B flow, account, admin"], ["Platform", "Web, responsive, light and dark"], ["Year", "2026"]],
+        context:"mooon is a cinema chain in Belarus. Gift cards were sold online through a plain form. The brief asked for a page people want to share, a “wow” landing that still gets to payment fast. I worked with the product team and the CEO, with reviews in Slack and Figma comments.",
+        challenge:"Make buying a gift feel like an occasion without making the flow longer. It had to work for one person buying one card on a phone and for a company ordering fifty.",
+        did:["Explored three concepts: Light, Dark Hall and Glass. The team chose Glass: paper-like background, glass cards, collections by occasion", "Designed 7 occasions with 2–3 card designs each and an amount picker built around a dial", "Cut the wizard from 6 steps to 5 by merging Recipient and Delivery time, on desktop and mobile", "Designed the summary step with processing, error and cancel states, plus 4 success states", "Added contact picking from the phone book, SMS delivery by default with email as a fallback, wish templates and Apple and Google Wallet", "Designed the corporate flow, a dark-theme account and the admin for card parameters", "Built a design system for the page: 14 colours, 9 text styles, 12 components", "Generated the home hero in Kling: one object for both themes with a light loop", "Closed two review rounds with about 47 and 29 comments in Figma"],
         decisions:[
-          ["The card never leaves the screen","Amount, design and occasion change the same round card on the left, so the buyer always sees the gift they are building, not a summary of fields."],
-          ["Packing is the confirmation","After payment the card drops into an envelope and the envelope seals and flies off. It replaces a plain success screen and makes clear that the gift is sent."],
-          ["Opening is part of the product","The recipient gets the same envelope and opens it with one tap. The wish and the card code appear only after that, so the moment belongs to the person who receives it."]
+          ["One failure state, not two", "“Payment failed” and “Payment cancelled” became one screen with one next step. For the buyer there is no difference, only a way back to paying."],
+          ["Fewer steps, same information", "Recipient and delivery time share one step, so the wizard got shorter without losing anything the cinema needs."],
+          ["Calm over themed", "Popcorn and projector beams were removed after client review. A neutral background lets the card designs carry the mood."]
         ]
       },
       {
@@ -2936,21 +2936,22 @@ p{margin:0}
       },
       {
         eyebrow:"Lumo · Consumer app · 2026",
-        title:"Explore for an AI characters and short-drama app",
-        summary:"The main page of Lumo, an app with AI characters to chat with and short vertical dramas. One screen has to sell both, and get people to their first chat fast.",
-        tags:["Discovery","Filters","Desktop + mobile"],
-        facts:[["Role","Lead product designer"],["Scope","Explore, filters, series, chat entry"],["Platform","Web app and PWA"],["Year","2026"]],
-        context:"Lumo has two products under one roof: a catalogue of AI characters people chat with, and short dramas watched one episode at a time. Both live on Explore, and most visitors land there first.",
-        challenge:"Thousands of characters and dozens of series compete for one screen. People should find a character they like in a few seconds and start a conversation without reading instructions.",
-        did:["Designed the Explore page for desktop and mobile","Designed the banner carousel with promos for series, chat and character creation","Designed series cards with premium, locked and new badges","Designed filters: a modal on desktop and a bottom sheet on mobile, with a live result count","Designed character cards with a hover state that opens a chat in one click","Designed the first chat screen with suggested replies"],
+        title:"AI characters and short dramas, end to end",
+        summary:"I am the only designer on Lumo, an app where people chat with AI characters and watch short vertical dramas. My work runs from a UX audit to paywalls, a redesign of every main section and the design system developers build from.",
+        tags:["Paywalls", "AI chat", "Design system"],
+        facts:[["Role", "Sole product designer"], ["Scope", "Audit, paywalls, Explore, chat, profile, design system"], ["Platform", "Web app and PWA, mobile first"], ["Year", "2026, ongoing"]],
+        context:"Lumo has two products under one roof: AI characters people talk to and short dramas watched episode by episode. I joined after a test task, a UX audit of the whole user journey, and since July 2026 I own design from flows to Figma, the design system and QA of the build. The product is shown under another name because of an NDA.",
+        challenge:"Turn curiosity into a paid habit in a niche with strict payment providers and chargeback risk. No backend changes in the first iterations, mobile and desktop only, and frequent changes of direction after reviews.",
+        did:["Audited production: 8 problems, 8 solutions, 5 hypotheses and funnel metrics, plus bugs like duplicate character bios, mismatched ages, consent on by default and a broken install page", "Mapped the user flow of the whole product for Guest, Free and Premium users", "Designed paywalls for mobile, a desktop modal, a Premium page, token purchase and a video paywall", "Redesigned Explore, Series, Create Character, Chat with welcome messages and a Truth or Dare mini-game, the character profile, Gallery, Achievements and notifications", "Designed sign-in, the PWA install page and a partner landing page", "Split the design system into Main for development and Draft, added about 15 profile components and moved everything to one icon set", "Ran design QA of the character profile on the dev build"],
         decisions:[
-          ["Filters count before you apply","The number of matching characters updates on every tap, so people see when a filter is too narrow before they close the panel."],
-          ["Active filters stay visible","After applying, each filter becomes a removable chip in the row, so the grid always explains why it shows these characters."],
-          ["The first message writes itself","A new chat opens with the character's line and two or three suggested replies, so nobody stares at an empty input."]
+          ["Paywall at the peak of desire", "The paywall appears when a person wants to continue a specific moment, not on first curiosity. Each section has its own paywall with one shared payment logic."],
+          ["Plans in a row, CTA above the fold", "The selected plan gets a soft fill, so it never competes with the lime button."],
+          ["Gallery without model chips", "Chips do not scale to 40–60 characters, so the gallery uses tabs, search and a dropdown."],
+          ["Reward coming back", "Bond and Mood are separate, and the relationship mechanic rewards returning instead of punishing time away."]
         ]
       },
       {
-        eyebrow:"mooon · Cinema retail",
+        eyebrow:"mooon · Cinema chain · 2026",
         title:"Self-service kiosk for cinema bars",
         summary:"A self-checkout kiosk for mooon cinema bars: pick or scan snacks, split the payment between a gift card and a bank card. Light and dark themes from one set of tokens.",
         tags:["Kiosk UI","Split payment","Light + dark"],
@@ -2965,18 +2966,18 @@ p{margin:0}
         ]
       },
       {
-        eyebrow:"Cinema chain · Back office",
-        title:"Back office for a cinema chain",
-        summary:"An admin portal for a cinema chain: revenue analytics across cinemas, loyalty metrics, bar menu setup and hall bookings. Dark and light themes from one component set.",
-        tags:["Dashboard","Data viz","Design system"],
-        facts:[["Role","UI/UX design"],["Scope","Analytics, loyalty, menu, bookings"],["Platform","Web app"],["Themes","Dark and light"]],
-        context:"Managers of a cinema chain track ticket, bar, restaurant and cafe revenue across several cinemas, run a loyalty program, configure the bar menu and manage hall bookings in one portal.",
-        challenge:"Show a lot of numbers without turning the screen into a spreadsheet, and keep dozens of screens consistent in dark and light.",
-        did:["Designed the analytics dashboard: revenue by source and by cinema, ticket and bar metrics","Designed loyalty analytics: revenue share, spend per head, members versus regular guests","Designed menu modifiers with a live preview of the waiter's screen and the kitchen ticket","Designed hall booking: seat map, client and staff reservations, booking card","Built every screen from one component set in dark and light themes"],
+        eyebrow:"Cinema chain · Back office · 2026",
+        title:"One design system for a cinema back office",
+        summary:"A CRM and POS portal for cinemas, restaurants and retail, moved onto one design system: 71 components and about 470 screens in two themes. Dashboards, loyalty and menu settings in this case are built on it.",
+        tags:["Design system", "B2B", "Light + dark"],
+        facts:[["Role", "UI/UX designer, design system"], ["Scope", "Audit, tokens, 71 components, ~470 screens"], ["Platform", "Web app, light and dark"], ["Year", "2026"]],
+        context:"The portal runs a cinema chain day to day: bar products and prices, menus and modifiers, loyalty, gift cards and events. Screens had grown over years with different patterns, and developers rebuilt the same table in different ways.",
+        challenge:"Move a large working file onto one system without stopping development, for software people use through a whole shift.",
+        did:["Moved the file onto one system in stages: audit, decisions, tokens, components, relinking screens, cleanup", "Built 71 components and moved 14 tables with 434 cells onto them", "Proposed 4 palettes in OKLCH with no pure black and a soft contrast around 12:1; management chose Slate with a Graphite menu", "Reworked the light-theme accent twice for readability", "Prepared state boards for developers", "Designed a loyalty dashboard for top management strictly by the metric mapping"],
         decisions:[
-          ["Number first, breakdown second","Each block opens with a headline number and its change against the previous period, then breaks it down. Managers see what changed before they read why."],
-          ["Preview next to the setting","When a manager sets up a modifier, the waiter's screen and the kitchen ticket update beside the form."],
-          ["One component set, two themes","Both themes are assembled from the same components, so the light theme is a token swap, not a second design."]
+          ["Our own system, not a kit", "Tables follow Material React Table, so developers build on a ready library, and the product card became the base pattern for the rest."],
+          ["Glass only where it floats", "Blur and glass appear only on floating layers. It is software for long shifts, so the base stays calm and readable."],
+          ["One navigation everywhere", "Every CRM section shares one navigation model, so staff never relearn where things are."]
         ]
       },
       {
@@ -3010,11 +3011,11 @@ p{margin:0}
         ]
       },
       {
-        eyebrow:"Cinema chain · Gift cards",
+        eyebrow:"mooon · Gift cards · 2026",
         title:"Gift card manager for a cinema chain",
         summary:"The admin side of cinema gift cards: card designs, occasions that act as filters on the website, and denominations. Managers launch a seasonal card in a minute, without a developer.",
         tags:["Admin UI","E-commerce","Content management"],
-        facts:[["Role","UI/UX design"],["Scope","Designs, occasions, denominations"],["Platform","Web app"],["Part of","Cinema back office"]],
+        facts:[["Role","UI/UX design"],["Scope","Designs, occasions, denominations"],["Platform","Web app, light and dark"],["Part of","mooon gift cards"]],
         context:"The chain sells gift cards online for birthdays, New Year, dates and just because. Marketing changes designs every season, and before this every change went through developers.",
         challenge:"Let a marketer add a design, tie it to an occasion and set prices on their own, and see right away how it will look on the website.",
         did:["Designed the design gallery with upload, naming, occasion tags and a visibility toggle","Designed occasions as an ordered list that mirrors the filters on the purchase page","Designed denominations with monthly sales and revenue next to each value","Added sales numbers to every design and occasion, so decisions rest on data","Built it on the back office component set, in dark and light themes"],
@@ -3072,16 +3073,17 @@ p{margin:0}
       {
         eyebrow:"bipbip · Marketplace · 2026",
         title:"Car service booking for all of Belarus",
-        summary:"A redesign of a car service marketplace: drivers find a service station, see live free slots and fixed prices, and book in three steps without a single call.",
-        tags:["Marketplace","Booking flow","Design system"],
-        facts:[["Role","Product designer, brand and UI"],["Scope","Brand, style guide, 4 roles, desktop and mobile"],["Platform","Web, responsive"],["Year","2026"]],
-        context:"bipbip grows out of an existing product for car service stations, with four roles: guest, driver, station owner and admin. I received a handoff with flows, product notes and 46 screen cards. The task was a new brand, a new style guide and a new design for every screen.",
-        challenge:"In Belarus most people still book a car service by phone, and the price changes once you arrive. The product had to replace the call: show real free time, a price that holds, and confirm a booking without passwords.",
-        did:["Built the brand: the bipbip wordmark with signal-yellow dots that blink like hazard lights, asphalt and fog palette, Unbounded and Onest","Wrote the style guide: tokens, components, booking statuses, empty, loading and error states for every screen","Designed the driver side: home, search with filters, station page, booking, my bookings and the garage","Designed the station cabinet: today's schedule, booking management, services and prices","Designed the admin panel and the mobile version of every key screen","Prepared the handoff in Figma: annotations per screen, states and UX rules for developers"],
+        summary:"A redesign of a car service marketplace under a new brand. Drivers see live slots and fair prices and book in three steps, without a call or a password.",
+        tags:["Brand", "Booking flow", "Design system"],
+        facts:[["Role", "Sole designer: brand, UX, UI"], ["Scope", "4 roles, 44 screens, ~189 states"], ["Platform", "Web, desktop and mobile"], ["Timeline", "2026 · 1.5 weeks"]],
+        context:"The product connects drivers with car service stations and has four roles: guest, driver, station and admin. I received a handoff with flows, product notes and 46 screen cards, and no live app. In about a week and a half I delivered a new name and brand, a style guide, an interactive prototype and a Figma handoff.",
+        challenge:"Most people in Belarus still book a car service by phone, and the price changes on site. The product had to replace the call while keeping everything the old service did: slots, booking without a time, visit receipts, packages and plans.",
+        did:["Named the product and built the identity: a geometric wordmark whose dots blink like hazard lights, and the same rhythm runs the loading indicator", "Set the tokens: asphalt, fog and a turn-signal yellow kept under 10% of any screen, with Unbounded and Onest", "Built an interactive prototype: 44 screens and a style guide, 50 routes, about 189 screen states, desktop and mobile", "Prepared the Figma handoff: about 195 frames, 110 icon components, a variables library and notes on every screen", "Added new modules: station staff with per-location rights, native ad slots, loyalty, VIN lookup, a box calendar and plans", "Worked AI-assisted: the prototype and the Figma transfer were built with Claude"],
         decisions:[
-          ["Live slots on every card","Search results show the next free times right on the card, so a driver compares stations by when they can come, not only by rating."],
-          ["Price checked against the market","Each service shows whether its price is below or at the market level, so a driver sees a fair price before booking."],
-          ["Phone code instead of an account","Booking ends with an SMS code. The account appears on its own after the first booking, so nobody has to register first."]
+          ["Phone and code instead of four sign-in screens", "No login or password. The account appears after the first booking."],
+          ["Three steps to book, two for returning drivers", "The SMS code is entered right in the booking window, so the cart is never lost."],
+          ["A garage as a service book", "Every visit lands in the driver’s garage. It brings people back and helps when they sell the car."],
+          ["Ads only as native cards", "At most one ad block per screen, so the marketplace never turns into a flea market."]
         ]
       },
     ],
@@ -3271,7 +3273,7 @@ p{margin:0}
   const CASE_BASE = [
     {id:"mooon", tpl:"tpl-mgift", frame:"mooon / E-gift card / Desktop + Mobile"},
     {id:"trax",  tpl:"tpl-trax",  frame:"TraX / Checkout + bank selection"},
-    {id:"kissy", tpl:"tpl-kissy2", frame:"Lumo / Explore → Filters → Chat"},
+    {id:"kissy", tpl:"tpl-kissy2", frame:"Lumo / Explore → Series → Chat"},
     {id:"kiosk", tpl:"tpl-kiosk", frame:"mooon kiosk / Cart → Gift card → Card"},
     {id:"portal", tpl:"tpl-admin", frame:"Back office / Dashboard → Loyalty → Menu"},
     {id:"gateway", tpl:"tpl-pay", frame:"TrxPay / Checkout / Desktop + Mobile"},
