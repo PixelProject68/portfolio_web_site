@@ -3,7 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#ECEEF1">
+<meta name="theme-color" content="#ECEEF1" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0E1013" media="(prefers-color-scheme: dark)">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://dedesign.online/">
 <meta property="og:title" content="Denis Konobeyev — Product Designer">
@@ -66,7 +67,9 @@ h1,h2,h3{margin:0;font-family:var(--f-display);font-variation-settings:"wdth" 11
 p{margin:0}
 
 /* Nav */
-.nav-shell{position:sticky;top:0;z-index:50;margin-left:calc(-1 * max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1 * max(16px,env(safe-area-inset-right,0px)));padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));background:color-mix(in srgb,var(--paper) 72%,transparent);-webkit-backdrop-filter:saturate(1.4) blur(8px);backdrop-filter:saturate(1.4) blur(8px);border-bottom:1px solid transparent;transition:border-color .3s,background .3s}
+.nav-shell{position:sticky;top:0;z-index:50;padding-top:env(safe-area-inset-top,0px);margin-left:calc(-1 * max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1 * max(16px,env(safe-area-inset-right,0px)));padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));background:color-mix(in srgb,var(--paper) 72%,transparent);-webkit-backdrop-filter:saturate(1.4) blur(8px);backdrop-filter:saturate(1.4) blur(8px);border-bottom:1px solid transparent;transition:border-color .3s,background .3s}
+@media (max-width:820px){.nav-shell,.nav-shell.is-stuck{background:var(--paper)!important;-webkit-backdrop-filter:none;backdrop-filter:none}}
+html{background:var(--paper)}
 .nav-shell.is-stuck{border-bottom-color:var(--line);background:color-mix(in srgb,var(--paper) 76%,transparent)}
 .nav{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-block:clamp(18px,1.6vw,40px);transition:padding .3s cubic-bezier(.2,.8,.2,1)}
 .nav-shell.is-stuck .nav{padding-block:clamp(12px,.9vw,22px)}
@@ -99,7 +102,7 @@ p{margin:0}
 .hero-h .rot .ch{display:inline-block}
 .hero-h .rot .ph{visibility:hidden}
 .hero-h .rot .ov{position:absolute;left:0;top:-.33em;display:flex;white-space:nowrap;pointer-events:none}
-.hero-h .rot .sl{display:block;height:1.6em;overflow:hidden;-webkit-mask-image:linear-gradient(transparent,#000 14%,#000 86%,transparent);mask-image:linear-gradient(transparent,#000 14%,#000 86%,transparent)}
+.hero-h .rot .sl{display:block;box-sizing:content-box;height:1.6em;padding:0 .22em;margin:0 -.22em;overflow:hidden;-webkit-mask-image:linear-gradient(transparent,#000 14%,#000 86%,transparent);mask-image:linear-gradient(transparent,#000 14%,#000 86%,transparent)}
 .hero-h .rot .st{display:block;will-change:transform}
 .hero-h .rot .st i{display:block;height:1.6em;line-height:1.6em;font-style:normal;text-align:left;white-space:pre}
 .lead .rA,.lead .rB{transition:opacity .38s var(--ease),filter .38s var(--ease)}
@@ -117,16 +120,21 @@ p{margin:0}
 .lead{font-size:var(--t-l);line-height:1.35;color:var(--ink-2);max-width:34ch;text-wrap:pretty}
 .lead strong{color:var(--ink);font-weight:500}
 .ctas{display:flex;gap:12px;justify-content:flex-end;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;gap:10px;height:clamp(46px,2.6vw,64px);padding-inline:clamp(18px,1.4vw,30px);border-radius:99px;font:500 var(--t-s)/1 var(--f-body);text-decoration:none;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer;transition:background .2s,transform .2s var(--ease)}
-.btn:hover{transform:translateY(-1px)}
+.btn{display:inline-flex;align-items:center;gap:10px;height:clamp(46px,2.6vw,64px);padding-inline:clamp(18px,1.4vw,30px);border-radius:99px;font:500 var(--t-s)/1 var(--f-body);text-decoration:none;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer;transition:background .25s,color .25s,border-color .25s,box-shadow .3s,transform .3s cubic-bezier(.3,1.4,.5,1)}
+.btn:hover{transform:translateY(-3px);background:var(--ink);color:var(--paper);border-color:var(--ink);box-shadow:0 14px 28px -14px rgba(0,0,0,.45)}
+.btn:active,.btn-ic:active{transform:translateY(0) scale(.96);transition-duration:.12s}
 .btn.primary{background:var(--ink);color:var(--paper);border-color:var(--ink)}
-.btn-ic{display:inline-grid;place-items:center;width:clamp(46px,2.6vw,64px);height:clamp(46px,2.6vw,64px);border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--ink);text-decoration:none;transition:background .2s,color .2s,border-color .2s,transform .2s var(--ease)}
-.btn-ic svg{width:42%;height:42%}
+.btn.primary:hover{background:var(--select);border-color:var(--select);color:var(--select-ink);box-shadow:0 16px 32px -12px color-mix(in srgb,var(--select) 70%,transparent)}
+.btn-ic{display:inline-grid;place-items:center;width:clamp(46px,2.6vw,64px);height:clamp(46px,2.6vw,64px);border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--ink);text-decoration:none;transition:background .25s,color .25s,border-color .25s,box-shadow .3s,transform .3s cubic-bezier(.3,1.4,.5,1)}
+.btn-ic svg{width:42%;height:42%;transition:transform .35s cubic-bezier(.3,1.6,.5,1)}
+.btn-ic:hover svg{transform:scale(1.12) rotate(-6deg)}
 .btn-ic svg[fill="currentColor"]{width:38%;height:38%}
-.btn-ic:hover{background:var(--ink);color:var(--paper);border-color:var(--ink);transform:translateY(-2px)}
+.btn-ic:hover{background:var(--select);color:var(--select-ink);border-color:var(--select);transform:translateY(-3px);box-shadow:0 14px 28px -12px color-mix(in srgb,var(--select) 70%,transparent)}
 .btn-ic:focus-visible{outline:2px solid var(--select);outline-offset:3px}
 .btn .arr{transition:transform .25s var(--ease)}
-.btn:hover .arr{transform:translateX(3px)}
+.btn:hover .arr{transform:translateY(3px)}
+.cv-next .btn:hover .arr,.cv-next:hover .btn .arr{transform:translateX(4px)}
+.btn .arr{display:inline-block}
 .meta{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin-top:clamp(40px,4.4vw,120px);border-top:1px solid var(--line)}
 .meta div{padding:clamp(16px,1.2vw,28px) clamp(0px,1vw,24px) 0 0;display:flex;flex-direction:column;gap:8px;min-width:0}
 .meta div+div{padding-left:clamp(14px,1.2vw,28px);border-left:1px solid var(--line)}
@@ -6043,7 +6051,7 @@ p{margin:0}
     const r = T().rot, from = r[rotI][0];
     rotI = (rotI + 1) % r.length;
     setLead(true); roll(tgt, from, r[rotI][0]);
-  }, 3000);
+  }, 5200);
   let dimW = 0, dimH = 0, dimRaf = 0;
   function countDim(w, h){
     const w0 = dimW, h0 = dimH, t0 = performance.now(); cancelAnimationFrame(dimRaf);
