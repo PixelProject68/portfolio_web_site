@@ -238,6 +238,7 @@ html{background:var(--paper)}
 @keyframes cvIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
 .cv-bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:clamp(16px,1.4vw,32px)}
 .cv-bar-r{display:flex;align-items:center;gap:clamp(12px,1.4vw,28px)}
+#caseView:focus{outline:none}
 .cv-close{position:relative;isolation:isolate;transition:color .25s,border-color .25s,background-color .25s,box-shadow .3s,transform .3s cubic-bezier(.3,1.4,.5,1);font:500 var(--t-s)/1 var(--f-body);background:var(--surface);border:1px solid var(--line);color:var(--ink);height:44px;padding-inline:18px;border-radius:99px;cursor:pointer}
 .cv-head{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:clamp(24px,4vw,120px);align-items:end;padding-block:clamp(24px,3vw,80px) clamp(28px,2.6vw,64px)}
 .cv-head h1{font-size:clamp(38px,4.6vw,140px);font-weight:700;line-height:.96;letter-spacing:-.04em;margin-top:14px}
@@ -2670,7 +2671,7 @@ html{background:var(--paper)}
   <span class="mono" data-t="foot">Every preview on this page is a live HTML prototype</span>
 </footer>
 
-<div class="case-view" id="caseView" role="dialog" aria-modal="true" aria-labelledby="cvTitle" hidden>
+<div class="case-view" id="caseView" role="dialog" aria-modal="true" aria-labelledby="cvTitle" tabindex="-1" hidden>
   <div class="wrap cv-bar">
     <button class="cv-close" id="cvClose" type="button" data-t="back">← All work</button>
     <div class="cv-bar-r">
@@ -6138,7 +6139,7 @@ html{background:var(--paper)}
       render(c);
       view.hidden = false; view.scrollTop = 0;
       document.documentElement.style.overflow = 'hidden';
-      if (wasHidden) $('#cvClose').focus({preventScroll:true});
+      if (wasHidden) $('#caseView').focus({preventScroll:true});
     } else if (!view.hidden){
       view.hidden = true;
       document.documentElement.style.overflow = '';
