@@ -313,11 +313,39 @@ html{background:var(--paper)}
 .sx-glow{position:absolute;inset:0;z-index:0;pointer-events:none;background:var(--sx-glow,none)}
 .sx .scr{position:absolute;z-index:1;overflow:hidden;isolation:isolate;background:#000;box-shadow:0 2.4cqw 5cqw -1.2cqw rgba(0,0,0,.75),0 .6cqw 1.6cqw rgba(0,0,0,.35)}
 .sx .scr.mob{z-index:2}
+/* iPhone body around every phone screen (not the kiosk stand): screen 40pt corners, 10pt black bezel,
+   3pt graphite edge, so the outer corner is concentric (53pt). Units are screen points × --sk (the screen scale). */
+.sx:not([data-layout="kiosk"]) .scr.mob{overflow:visible;box-shadow:none}
+.sx:not([data-layout="kiosk"]) .scr.mob::before{content:"";position:absolute;z-index:-1;pointer-events:none;inset:calc(var(--sk,1)*-13px);border-radius:calc(var(--sk,1)*53px);
+  border:calc(var(--sk,1)*3px) solid transparent;
+  background:linear-gradient(#050506,#050506) padding-box,linear-gradient(145deg,#8d929c 0%,#3b3f46 16%,#1c1e22 42%,#2a2d33 64%,#5d626b 86%,#a3a8b1 100%) border-box;
+  box-shadow:inset 0 0 0 calc(var(--sk,1)*1px) rgba(255,255,255,.05),0 .15cqw .35cqw rgba(0,0,0,.55),.2cqw 1cqw 1.6cqw -.4cqw rgba(0,0,0,.5),-3.2cqw 3.6cqw 7cqw -.6cqw rgba(0,0,0,.6),-5cqw 1cqw 12cqw 2cqw rgba(0,0,0,.32)}
+.sx-dev{position:absolute;inset:0;z-index:210;pointer-events:none}
+.sx-dev > b{position:absolute;display:block}
+.sx-dev .isl{left:50%;top:calc(var(--sk,1)*11px);width:calc(var(--sk,1)*120px);height:calc(var(--sk,1)*35px);margin-left:calc(var(--sk,1)*-60px);border-radius:99px;background:#000;box-shadow:inset 0 0 0 calc(var(--sk,1)*.5px) rgba(255,255,255,.04)}
+.sx-dev .isl::after{content:"";position:absolute;right:calc(var(--sk,1)*12px);top:50%;width:calc(var(--sk,1)*11px);height:calc(var(--sk,1)*11px);margin-top:calc(var(--sk,1)*-5.5px);border-radius:50%;background:radial-gradient(circle at 35% 35%,#2a3146,#0b0d14 60%)}
+.sx-dev .sb{display:none;left:0;right:0;top:0;height:calc(var(--sk,1)*46px);align-items:center;justify-content:space-between;padding:calc(var(--sk,1)*4px) calc(var(--sk,1)*30px) 0 calc(var(--sk,1)*34px);font:600 calc(var(--sk,1)*15px)/1 system-ui,-apple-system,"Geist",sans-serif;color:#0D0D0E}
+.sx-dev .sb span{display:flex;align-items:flex-end;gap:calc(var(--sk,1)*2px)}
+.sx-dev .sb i{width:calc(var(--sk,1)*3px);border-radius:1px;background:currentColor}
+.sx-dev .sb i:nth-child(1){height:calc(var(--sk,1)*4px)}.sx-dev .sb i:nth-child(2){height:calc(var(--sk,1)*6px)}.sx-dev .sb i:nth-child(3){height:calc(var(--sk,1)*8px)}.sx-dev .sb i:nth-child(4){height:calc(var(--sk,1)*10px)}
+.sx-dev .sb em{width:calc(var(--sk,1)*22px);height:calc(var(--sk,1)*11px);margin-left:calc(var(--sk,1)*6px);border-radius:calc(var(--sk,1)*3px);border:calc(var(--sk,1)*1.5px) solid currentColor;position:relative}
+.sx-dev .sb em::after{content:"";position:absolute;inset:calc(var(--sk,1)*1.5px) calc(var(--sk,1)*5px) calc(var(--sk,1)*1.5px) calc(var(--sk,1)*1.5px);border-radius:1px;background:currentColor}
+/* mooon gift cards have no status bar of their own: show one, and keep the header below it */
+.st-mg .sx-dev .sb{display:flex}
+.st-mg .scr.mob:has(.mg2[data-th="dark"]) .sx-dev .sb,.st-mg .scr.mob:has(.mg2-m[data-th="dark"]) .sx-dev .sb{color:#fff}
+.sx-dev .pw,.sx-dev .ac,.sx-dev .vu,.sx-dev .vd{width:calc(var(--sk,1)*3px);border-radius:calc(var(--sk,1)*2px);background:linear-gradient(90deg,#8a8f98,#3a3d43)}
+.sx-dev .pw{right:calc(var(--sk,1)*-16px);top:calc(var(--sk,1)*196px);height:calc(var(--sk,1)*92px);background:linear-gradient(90deg,#3a3d43,#9ca1aa)}
+.sx-dev .ac{left:calc(var(--sk,1)*-16px);top:calc(var(--sk,1)*150px);height:calc(var(--sk,1)*30px)}
+.sx-dev .vu{left:calc(var(--sk,1)*-16px);top:calc(var(--sk,1)*206px);height:calc(var(--sk,1)*58px)}
+.sx-dev .vd{left:calc(var(--sk,1)*-16px);top:calc(var(--sk,1)*276px);height:calc(var(--sk,1)*58px)}
 /* duo: the phone stands in front of the desktop — turned to the viewer, two-layer shadow, light edge, highlight on top */
 .sx:not([data-layout]):not(.sx-narrow) .scr.mob{transform:perspective(1800px) rotateY(-10deg) rotateX(2.5deg);transform-origin:50% 50%;
   box-shadow:0 .15cqw .35cqw rgba(0,0,0,.55),.2cqw 1cqw 1.6cqw -.4cqw rgba(0,0,0,.5),-3.2cqw 3.6cqw 7cqw -.6cqw rgba(0,0,0,.6),-5cqw 1cqw 12cqw 2cqw rgba(0,0,0,.32)}
+.sx:not([data-layout]):not(.sx-narrow) .scr.mob{box-shadow:none}
+.sx:not([data-layout]):not(.sx-narrow) .scr.mob::before{box-shadow:inset 0 0 0 calc(var(--sk,1)*1px) rgba(255,255,255,.05),calc(var(--sk,1)*2px) 0 0 #4a4e56,calc(var(--sk,1)*4px) calc(var(--sk,1)*1px) 0 #1d1f23,0 .15cqw .35cqw rgba(0,0,0,.55),.2cqw 1cqw 1.6cqw -.4cqw rgba(0,0,0,.5),-3.2cqw 3.6cqw 7cqw -.6cqw rgba(0,0,0,.6),-5cqw 1cqw 12cqw 2cqw rgba(0,0,0,.32)}
 .sx:not([data-layout]):not(.sx-narrow) .scr.desk::before{content:"";position:absolute;inset:0;z-index:190;pointer-events:none;border-radius:inherit;background:radial-gradient(26% 62% at 100% 60%,rgba(0,0,0,.34),rgba(0,0,0,.12) 55%,transparent 100%)}
-.sx:not([data-layout]):not(.sx-narrow) .scr.mob::after{box-shadow:inset 0 0 0 1px rgba(255,255,255,.2),inset 0 1px 0 rgba(255,255,255,.35);background:linear-gradient(172deg,rgba(255,255,255,.12),rgba(255,255,255,0) 14%)}
+.sx:not([data-layout]):not(.sx-narrow) .scr.mob::after{box-shadow:inset 0 0 0 1px rgba(255,255,255,.05);background:linear-gradient(172deg,rgba(255,255,255,.08),rgba(255,255,255,0) 14%)}
+.sx.sx-narrow:not([data-layout]) .scr.mob::after{box-shadow:inset 0 0 0 1px rgba(255,255,255,.05)}
 .sx .scr::after{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:inset 0 0 0 1px rgba(255,255,255,.12);pointer-events:none;z-index:200}
 .sx .vp{position:absolute;left:0;top:0;transform-origin:0 0;transform:scale(var(--k,1))}
 .sx .sx-cur{position:absolute;left:0;top:0;z-index:150;width:22px;pointer-events:none;will-change:transform}
@@ -1821,6 +1849,8 @@ html{background:var(--paper)}
 .mg2-ttl{position:absolute;left:0;right:0;top:109px;margin:0;text-align:center;font-size:40px;line-height:52px;font-weight:400;letter-spacing:-.025em;white-space:nowrap}
 .mg2-ttl i{display:inline-block;width:.62em;height:.62em;border-radius:50%;background:currentColor;vertical-align:-.02em;margin:0 .03em}
 .mg2-m .mg2-ttl{left:16px;right:16px;top:97px;font-size:28px;line-height:30px}
+/* the phone screen sits under the mockup's status bar: the whole layer moves down 40 and scales to keep its proportions (804/844) */
+.mg2-m .mg2-ui{transform-origin:50% 0;transform:translateY(40px) scale(.953)}
 /* e-card / plastic switch, styled like the prototype's format toggle */
 .mg2-sw{position:absolute;left:50%;top:194px;width:max-content;height:40px;padding:4px;border-radius:14px;background:var(--glass);border:1px solid var(--gline);display:grid;grid-template-columns:1fr 1fr;transform:translateX(-50%);box-shadow:0 10px 30px -18px var(--shadow);z-index:6}
 .mg2-sw b{position:absolute;left:4px;top:4px;bottom:4px;width:calc(50% - 4px);border-radius:10px;background:var(--sel);transition:transform calc(.55s*var(--tp)) var(--sp)}
@@ -3940,8 +3970,9 @@ html{background:var(--paper)}
     const place = (el, k, w, h, x, y, r) => {
       const s = el.style;
       s.width = w*k + 'px'; s.height = h*k + 'px'; s.left = x + 'px'; s.top = y + 'px'; s.borderRadius = r*k + 'px';
-      el.firstElementChild.style.setProperty('--k', k); el.firstElementChild.style.width = w + 'px'; el.firstElementChild.style.height = h + 'px'; el.firstElementChild.style.clipPath = `inset(0 round ${r}px)`; el.dataset.k = k;
+      el.style.setProperty('--sk', k); el.firstElementChild.style.setProperty('--k', k); el.firstElementChild.style.width = w + 'px'; el.firstElementChild.style.height = h + 'px'; el.firstElementChild.style.clipPath = `inset(0 round ${r}px)`; el.dataset.k = k;
     };
+    if (mob && lay !== 'kiosk' && !mob.querySelector('.sx-dev')) mob.insertAdjacentHTML('beforeend', '<i class="sx-dev" aria-hidden="true"><b class="sb"><b>9:41</b><span><i></i><i></i><i></i><i></i><em></em></span></b><b class="isl"></b><b class="ac"></b><b class="vu"></b><b class="vd"></b><b class="pw"></b></i>');
     const fit = () => {
       const W = stage.clientWidth, H = stage.clientHeight; if (!W || !H) return;
       const narrow = W < 640;
@@ -3976,11 +4007,11 @@ html{background:var(--paper)}
         const dw = +desk.dataset.w, dh = +desk.dataset.h, k = W*0.775/dw;
         desk.hidden = false;
         place(desk, k, dw, dh, W*0.035, H*0.115, 14);
-        if (mob) place(mob, k, +mob.dataset.w, +mob.dataset.h, W*0.758, H*0.2, 52);
+        if (mob) place(mob, k, +mob.dataset.w, +mob.dataset.h, W*0.758 + 13*k, H*0.2, 40);   // +13pt: the iPhone body, so it covers no more of the desktop than the bare screen did
       } else if (mob){
         if (desk) desk.hidden = true;
         const mw = +mob.dataset.w, mh = +mob.dataset.h, k = H*0.88/mh;
-        place(mob, k, mw, mh, (W - mw*k)/2, H*0.07, 52);
+        place(mob, k, mw, mh, (W - mw*k)/2, H*0.07, 40);
       }
     };
     if ('ResizeObserver' in window) new ResizeObserver(fit).observe(stage);
