@@ -656,20 +656,29 @@ html{background:var(--paper)}
 .kx-steps li.on{opacity:1}
 .kx-steps li.on i{background:#fff;color:#0A0A12;box-shadow:none}
 .sx-narrow .kx-side{display:none}
-/* floor-standing kiosk: thin black bezel, blank cabinet, flat wide base, floor shadow; turned like the phones in duo cases */
-.kx-rig{transform:perspective(1800px) rotateY(-10deg) rotateX(2.5deg)}
+/* floor-standing kiosk: one graphite slab with real depth (side face, plinth top), glass screen zone, card terminal and receipt slot below; turned like the phones, seen slightly from above */
 .st-kx .scr.mob{box-shadow:none}
-.st-kx .scr.mob::after{box-shadow:inset 0 0 0 1px rgba(255,255,255,.06);background:linear-gradient(166deg,rgba(255,255,255,.10),rgba(255,255,255,0) 18%)}
-.kx-rig{position:absolute;z-index:1;width:calc(1400*var(--u));height:calc(2476*var(--u));transform-origin:50% 50%;pointer-events:none}
-.kx-rig i{position:absolute;display:block}
-.kx-head{left:calc(126*var(--u));top:0;width:calc(1148*var(--u));height:calc(1988*var(--u));border-radius:calc(44*var(--u));background:linear-gradient(170deg,#1B1D23,#0A0B0E 30%,#08090B);
-  box-shadow:inset 0 0 0 1px rgba(255,255,255,.16),inset 0 1px 0 rgba(255,255,255,.3),0 .15cqw .35cqw rgba(0,0,0,.55),-3.2cqw 3.6cqw 7cqw -.6cqw rgba(0,0,0,.55)}
-.kx-cab{left:calc(186*var(--u));top:calc(1984*var(--u));width:calc(1028*var(--u));height:calc(436*var(--u));border-radius:0 0 calc(14*var(--u)) calc(14*var(--u));
-  background:linear-gradient(90deg,#0C0D10,#23262D 20%,#2C2F37 42%,#191B20 76%,#0C0D10),#16171B;box-shadow:inset 0 calc(10*var(--u)) calc(16*var(--u)) rgba(0,0,0,.55),inset 0 0 0 1px rgba(255,255,255,.06)}
-.kx-base{left:0;top:calc(2412*var(--u));width:calc(1400*var(--u));height:calc(64*var(--u));border-radius:calc(20*var(--u)) calc(20*var(--u)) calc(28*var(--u)) calc(28*var(--u));
-  background:linear-gradient(180deg,#2A2C33,#141519 38%,#0A0A0D);box-shadow:inset 0 1px 0 rgba(255,255,255,.22),inset 0 0 0 1px rgba(255,255,255,.07)}
-.kx-floor{position:absolute;z-index:0;width:calc(2100*var(--u));height:calc(170*var(--u));margin:calc(-100*var(--u)) 0 0 calc(-1160*var(--u));border-radius:50%;pointer-events:none;
-  background:radial-gradient(closest-side,rgba(0,0,0,.9),rgba(0,0,0,.5) 50%,transparent);filter:blur(calc(10*var(--u)))}
+.st-kx .scr.mob::after{box-shadow:inset 0 0 0 1px rgba(255,255,255,.05);background:linear-gradient(160deg,rgba(255,255,255,.09),rgba(255,255,255,0) 22%)}
+.kx-rig{position:absolute;z-index:1;width:calc(1400*var(--u));height:calc(2476*var(--u));transform-origin:50% 50%;transform-style:preserve-3d;pointer-events:none}
+.kx-rig i{position:absolute;display:block;backface-visibility:hidden}
+.kx-body{left:calc(126*var(--u));top:0;width:calc(1148*var(--u));height:calc(2412*var(--u));border-radius:calc(48*var(--u)) calc(48*var(--u)) calc(14*var(--u)) calc(14*var(--u));
+  background:linear-gradient(180deg,#24262C,#1A1C21 60%,#141519);box-shadow:inset 0 0 0 1px rgba(255,255,255,.08),inset calc(2*var(--u)) calc(2*var(--u)) 0 rgba(255,255,255,.10)}
+.kx-glass{left:calc(126*var(--u));top:0;width:calc(1148*var(--u));height:calc(1988*var(--u));border-radius:calc(48*var(--u)) calc(48*var(--u)) 0 0;
+  background:linear-gradient(165deg,#15161A,#060608 40%);box-shadow:inset 0 0 0 1px rgba(255,255,255,.12),inset 0 calc(2*var(--u)) 0 rgba(255,255,255,.16),0 calc(3*var(--u)) 0 rgba(0,0,0,.7)}
+.kx-flank{left:calc(1274*var(--u));top:calc(28*var(--u));width:calc(110*var(--u));height:calc(2378*var(--u));transform-origin:0 50%;transform:rotateY(90deg);
+  background:linear-gradient(90deg,#0E0F12,#07080A);border-radius:0 calc(20*var(--u)) calc(8*var(--u)) 0}
+.kx-term{left:calc(530*var(--u));top:calc(2072*var(--u));width:calc(340*var(--u));height:calc(196*var(--u));border-radius:calc(30*var(--u));
+  background:linear-gradient(180deg,#0E0F12,#08090B);box-shadow:inset 0 0 0 calc(2*var(--u)) rgba(255,255,255,.07),inset 0 calc(-3*var(--u)) 0 rgba(255,255,255,.05),0 calc(4*var(--u)) calc(10*var(--u)) rgba(0,0,0,.45)}
+.kx-term svg{position:absolute;left:50%;top:50%;width:calc(84*var(--u));height:calc(84*var(--u));margin:calc(-42*var(--u));fill:none;stroke:rgba(255,255,255,.42);stroke-width:1.6;stroke-linecap:round}
+.kx-term::after{content:"";position:absolute;right:calc(26*var(--u));top:calc(24*var(--u));width:calc(12*var(--u));height:calc(12*var(--u));border-radius:50%;background:#3DD08F;box-shadow:0 0 calc(12*var(--u)) #3DD08F}
+.kx-slot{left:calc(470*var(--u));top:calc(2334*var(--u));width:calc(460*var(--u));height:calc(14*var(--u));border-radius:99px;background:#050506;box-shadow:0 calc(2*var(--u)) 0 rgba(255,255,255,.07)}
+.kx-pl{left:calc(76*var(--u));top:calc(2412*var(--u));width:calc(1248*var(--u));height:calc(64*var(--u));transform:translateZ(calc(56*var(--u)));border-radius:0 0 calc(10*var(--u)) calc(10*var(--u));
+  background:linear-gradient(180deg,#1C1E23,#0B0C0E);box-shadow:inset 0 1px 0 rgba(255,255,255,.14)}
+.kx-pt{left:calc(76*var(--u));top:calc(2412*var(--u));width:calc(1248*var(--u));height:calc(236*var(--u));transform-origin:50% 0;transform:translateZ(calc(56*var(--u))) rotateX(-90deg);
+  background:linear-gradient(180deg,#2A2C32,#1C1E23);border-radius:0 0 calc(12*var(--u)) calc(12*var(--u))}
+.kx-ps{left:calc(1324*var(--u));top:calc(2412*var(--u));width:calc(236*var(--u));height:calc(64*var(--u));transform-origin:0 50%;transform:translateZ(calc(56*var(--u))) rotateY(90deg);background:#060607}
+.kx-floor{position:absolute;z-index:0;width:calc(2200*var(--u));height:calc(240*var(--u));margin:calc(-130*var(--u)) 0 0 calc(-1060*var(--u));border-radius:50%;pointer-events:none;
+  background:radial-gradient(closest-side,rgba(0,0,0,.85),rgba(0,0,0,.45) 45%,transparent);filter:blur(calc(14*var(--u)))}
 
 .st-kx .kx-side .kx-cap,.st-kx .kx-side .kx-theme{display:none}
 
@@ -682,8 +691,7 @@ html{background:var(--paper)}
 .kk svg.i{width:1em;height:1em;flex:none;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .kk .press{position:relative;overflow:hidden}
 .kk-head{position:absolute;left:40px;right:40px;top:40px;height:48px;display:flex;align-items:center;justify-content:space-between;z-index:5}
-.kk-logo{font:800 46px/1 "Montserrat",var(--f-body);letter-spacing:-.04em;color:var(--tx);display:inline-block;white-space:nowrap}
-.kk-logo i{display:inline-block;width:1.035ex;height:1.035ex;margin:0 .01em 0 .05em;border-radius:50%;background:var(--ac);vertical-align:-.02ex}
+.kk-logo{display:block;height:32px;width:auto;fill:var(--tx)}
 .kk-hr{display:flex;align-items:center;gap:16px;font-size:26px}
 .kk-hr .t{color:var(--mu)}
 .kk-hr .t b{color:var(--tx);font-weight:700;margin-left:8px}
@@ -790,8 +798,7 @@ html{background:var(--paper)}
 .kk-gc::before{content:"";position:absolute;right:-120px;top:-140px;width:420px;height:420px;border-radius:50%;background:rgba(255,255,255,.12)}
 .kk-gc::after{content:"";position:absolute;left:-60%;top:0;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.4),transparent);transform:skewX(-20deg);animation:kkShine 3.2s ease-in-out infinite}
 @keyframes kkShine{0%,60%{left:-60%}100%{left:140%}}
-.kk-gc .kk-logo{color:#fff;font-size:44px}
-.kk-gc .kk-logo i{background:#fff}
+.kk-gc .kk-logo{fill:#fff;height:30px}
 .kk-gc small{position:absolute;left:40px;bottom:84px;font-size:22px;opacity:.8;font-weight:600}
 .kk-gc b{position:absolute;left:40px;bottom:36px;font-size:36px;font-weight:800;letter-spacing:.06em}
 .kk-gc .chip{position:absolute;right:40px;bottom:40px;width:80px;height:60px;border-radius:12px;background:linear-gradient(135deg,#F7E3A3,#C9A64B);opacity:.9}
@@ -3282,7 +3289,7 @@ html{background:var(--paper)}
   <div class="stage sx st-kx" data-engine="kiosk" data-layout="kiosk" data-th="light" role="img" aria-label="mooon self-service kiosk: add snacks to the cart, switch the theme, pay part with a gift card and the rest by bank card">
     <span class="sx-glow"></span><span class="sx-grain"></span>
     <div class="kx-side"><div><span class="kx-cap"></span><div class="kx-theme"><i class="kx-knob"></i><span></span><span></span></div></div><ol class="kx-steps"></ol></div>
-    <span class="kx-floor" aria-hidden="true"></span><div class="kx-rig" aria-hidden="true"><i class="kx-head"></i><i class="kx-cab"></i><i class="kx-base"></i></div>
+    <span class="kx-floor" aria-hidden="true"></span><div class="kx-rig" aria-hidden="true"><i class="kx-pt"></i><i class="kx-ps"></i><i class="kx-flank"></i><i class="kx-body"></i><i class="kx-glass"></i><i class="kx-term"><svg viewBox="0 0 24 24"><path d="M8.5 7.5a6 6 0 0 1 0 9M12 5a9.5 9.5 0 0 1 0 14M15.5 2.8a12.5 12.5 0 0 1 0 18.4M5 10a2.6 2.6 0 0 1 0 4"/></svg></i><i class="kx-slot"></i><i class="kx-pl"></i></div>
     <div class="scr mob" data-w="1080" data-h="1920"><div class="vp"></div></div>
   </div>
 </template>
@@ -3948,18 +3955,20 @@ html{background:var(--paper)}
       if (lay === 'kiosk'){
         // floor-standing kiosk: the screen sits in a bezel on a blank cabinet and a flat base (units = kiosk screen px)
         stage.classList.toggle('sx-narrow', narrow);
+        const KX_TURN = 'perspective(1800px) rotateY(-10deg) rotateX(-2deg)';
         const mw = +mob.dataset.w, mh = +mob.dataset.h, RW = 1400, RH = 2476, BZ = 34, HX = (RW - mw - 2*BZ)/2;
         const k = Math.min(H*.88/RH, W*.9/RW), cx = narrow ? W/2 : W*.64, x = cx - RW*k/2, y = (H - RH*k)/2 - H*.015;
         stage.style.setProperty('--u', k + 'px');
         const rig = stage.querySelector('.kx-rig'), fl = stage.querySelector('.kx-floor');
         rig.style.left = x + 'px'; rig.style.top = y + 'px';
-        fl.style.left = cx + 'px'; fl.style.top = (y + RH*k) + 'px';
+        fl.style.left = (cx + 60*k) + 'px'; fl.style.top = (y + (RH - 20)*k) + 'px';
         // the screen turns around the rig's centre, so both share one 3D space. Chrome rasterises a perspective layer
         // at low resolution and the tiny kiosk type turns to mush: render the screen 2x and scale it down inside the transform
         const SS = 2, ox = (RW/2 - HX - BZ)*k, oy = (RH/2 - BZ)*k;
         place(mob, k*SS, mw, mh, x + (HX + BZ)*k, y + BZ*k, 16);
         mob.style.transformOrigin = '0 0';
-        mob.style.transform = `translate(${ox}px,${oy}px) perspective(1800px) rotateY(-10deg) rotateX(2.5deg) translate(${-ox}px,${-oy}px) scale(${1/SS})`;
+        rig.style.transform = KX_TURN;
+        mob.style.transform = `translate(${ox}px,${oy}px) ${KX_TURN} translate(${-ox}px,${-oy}px) scale(${1/SS})`;
         return;
       }
       stage.classList.toggle('sx-narrow', narrow || !desk);
@@ -4419,7 +4428,7 @@ html{background:var(--paper)}
   };
   const byn = v => v.toLocaleString('ru-RU', {minimumFractionDigits:2, maximumFractionDigits:2});
   const kImg = k => `assets/k-f-${k}.webp`;
-  const kLogo = '<span class="kk-logo">mo<i></i>on</span>';
+  const kLogo = '<svg class="kk-logo" viewBox="0 0 140 26" role="img" aria-label="mooon"><path d="M77.6049 25.9286C84.7649 25.9286 90.5693 20.1243 90.5693 12.9643C90.5693 5.80432 84.7649 0 77.6049 0C70.4449 0 64.6406 5.80432 64.6406 12.9643C64.6406 20.1243 70.4449 25.9286 77.6049 25.9286Z"/><path d="M38.1406 12.9809C38.1406 5.34138 43.8246 0 51.0617 0C58.2988 0 63.9828 5.34138 63.9828 12.9809C63.9828 20.6205 58.3022 25.9619 51.0617 25.9619C43.8246 25.9586 38.1406 20.6172 38.1406 12.9809ZM58.9906 12.9809C58.9906 7.9389 55.4053 4.59305 51.0617 4.59305C46.7181 4.59305 43.1328 7.9389 43.1328 12.9809C43.1328 18.023 46.7181 21.3688 51.0617 21.3688C55.4053 21.3688 58.9906 18.023 58.9906 12.9809Z"/><path d="M91.1719 12.9809C91.1719 5.34138 96.8525 0 104.093 0C111.33 0 117.014 5.34138 117.014 12.9809C117.014 20.6205 111.333 25.9619 104.093 25.9619C96.8525 25.9586 91.1719 20.6172 91.1719 12.9809ZM112.019 12.9809C112.019 7.9389 108.433 4.59305 104.09 4.59305C99.746 4.59305 96.1607 7.9389 96.1607 12.9809C96.1607 18.023 99.746 21.3688 104.09 21.3688C108.433 21.3688 112.019 18.023 112.019 12.9809Z"/><path d="M130.736 0C127.509 0 124.779 1.28379 123.033 3.90459H122.93V0.498883H117.938V25.4597H122.93V11.757C122.93 6.81475 125.567 4.39017 129.116 4.39017C132.861 4.39017 135.013 6.37906 135.013 11.3213V25.4564H140.005V10.4001C140.001 3.05982 136.197 0 130.736 0Z"/><path d="M28.2634 0C24.7014 0 21.9043 1.26384 20.0784 4.27709H19.9953C17.9066 1.13413 15.8811 0 12.3657 0C9.48877 0 6.50212 1.35031 5.05868 3.81147H4.99216V0.498883H0V25.4597H4.99216V11.1318C4.99216 6.63848 7.18392 4.3935 10.5298 4.3935C13.8756 4.3935 16.0641 6.34912 16.0641 10.8424V25.4597H21.0562V11.3513C21.0562 6.85798 23.248 4.3935 26.6437 4.3935C29.9896 4.3935 32.0583 6.34912 32.0583 10.8424V25.4597H37.0504V10.134C37.0504 3.29596 33.3055 0 28.2634 0Z"/></svg>';
   function kioskHTML(){
     const order = ['combo','popcorn','caramel','rainbow','nachos','hotdog','cola','mors','coffee','icecream','choco','juice'];
     const card = k => `<div class="kk-p" data-p="${k}"><div class="ph"><img src="${kImg(k)}" alt=""></div><span class="q">1</span><div class="in"><b>${KP[k][0]}</b><small>${KP[k][1]}</small></div><span class="pr">${byn(KP[k][2])}<em>BYN</em></span><span class="add press">${KI.plus}</span></div>`;
