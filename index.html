@@ -1881,7 +1881,7 @@ html{background:var(--paper)}
 .mg2-ui[data-m="p"] .mg2-ring{opacity:1;visibility:visible;transition:opacity calc(.5s*var(--tp)) var(--ez),visibility 0s}
 .mg2-pc{position:absolute;left:0;top:0;width:440px;height:277.57px;border-radius:18px;transform-origin:50% 50%;box-shadow:0 34px 60px -28px var(--shadow),0 6px 16px -8px rgba(0,0,0,.18);will-change:transform,opacity}
 .mg2-m .mg2-pc{width:358px;height:225.84px}
-.mg2-pc .w{position:absolute;inset:0;border-radius:inherit;overflow:hidden}
+.mg2-pc .w{position:absolute;inset:0;border-radius:inherit;overflow:hidden;transform:translateZ(0)}.mg2-pc .w::after{content:"";position:absolute;inset:0;background:var(--bg);opacity:var(--dm,0);pointer-events:none}
 .mg2-pc img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
 .mg2-pc svg{position:absolute;left:6.5%;bottom:8%;width:22%;aspect-ratio:117/22;height:auto}
 .mg2-pc .shn{position:absolute;inset:0;border-radius:inherit;box-shadow:inset 0 0 0 1px rgba(255,255,255,.22);background:linear-gradient(120deg,rgba(255,255,255,.16),rgba(255,255,255,0) 38%)}
@@ -6088,7 +6088,7 @@ ${S(p+'el',130,100.89,.606,-.796,7,'#fff',.22)}${S(p+'er',390,100.89,-.606,-.796
         if (S.mode === 'p') return {cx:G.cx, cy:G.cy, d:G.pd, op:0};
         if (S.mode === 'pack' && !a) return {...PK, op:1};
         if (!a) return {cx:G.cx, cy:G.cy, d:G.d0, op:1};
-        const t = a === 1 ? {cx:G.cx + r*G.x1, cy:G.cy, d:G.d1, op:1, ry:-Math.sign(r)*38} : {cx:G.cx + Math.sign(r)*G.x2, cy:G.cy, d:G.d2, op:G.op2, ry:-Math.sign(r)*52};
+        const t = a === 1 ? {cx:G.cx + r*G.x1, cy:G.cy, d:G.d1, op:1} : {cx:G.cx + Math.sign(r)*G.x2, cy:G.cy, d:G.d2, op:G.op2};   // flat discs, as in the prototype v34
         if (S.mode === 'pack') t.op = 0;   // side designs fade where they stand
         return t;
       };
@@ -6112,15 +6112,27 @@ ${S(p+'el',130,100.89,.606,-.796,7,'#fff',.22)}${S(p+'er',390,100.89,-.606,-.796
       S.rot = d => { S.design = ((S.design + d) % N + N) % N; S.layout(); };
       /* plastic ring: fractional slot position on a spring (response .62 s, ζ .8), sides tuck behind the centre card while hidden */
       const cards = [...q('ring').children], L = cards.length, PR = 540/856;
-      const P = big ? {cx:720, cy:470, w:440, h:440*PR, rx:370, sn:190/440, tuck:.5} : {cx:195, cy:301, w:358, h:358*PR, rx:350, sn:.8, tuck:1};
+      /* prototype v34: neighbours turn towards the centre card in perspective (P 1400) and sit under a veil of the background colour.
+         c = [angle, depth, gap] for the next card and the far card; cfS/cfE place a card so its edge lands at the gap */
+      const PP = 1400, rad = d => d*Math.PI/180;
+      const cfM = (X, z, th, s) => { const r = rad(th), k = Math.sin(r)/PP, c = Math.cos(r), w0 = 1 - z/PP, f = v => +v.toFixed(8);
+        return `matrix3d(${f(s*c)},0,0,${f(s*k)},0,${f(s)},0,0,0,0,1,0,${f(X)},0,0,${f(w0)})`; };
+      const cfS = (T, th, z, u) => T*(PP - z + u*Math.sin(rad(th)))/PP - u*Math.cos(rad(th));
+      const cfE = (X, th, z, u) => (X + u*Math.cos(rad(th)))*PP/(PP - (z - u*Math.sin(rad(th))));
+      const P = big ? {cx:720, cy:470, w:440, h:440*PR, tuck:.5} : {cx:195, cy:301, w:358, h:358*PR, tuck:1};
+      { const w = P.w, c = big ? [36,-300,18,46,-520,14] : [36,-300,Math.max(18, 390/2 - w/2 + 16),46,-520,14];
+        const x1 = -cfS(-(w/2) - c[2], c[0], c[1], w/2), x2 = -cfS(cfE(-x1, c[0], c[1], -w/2) - c[5], c[3], c[4], w/2);
+        Object.assign(P, {X:[0, x1, x2, x2 + (x2 - x1)*.8], A:[0, c[0], c[3], c[3] + 6], Z:[0, c[1], c[4], c[4] - 140], D:[0, .2, .5, .6]}); }
+      cards.forEach(el => { el.style.left = (P.cx - P.w/2).toFixed(2) + 'px'; el.style.top = (P.cy - P.h/2).toFixed(2) + 'px'; });
       const ring = {pos:0, tgt:0, vel:0, vis:0, visT:0, raf:0, last:0};
       const draw = () => cards.forEach((el, k) => {
         let o = ((k - ring.pos) % L + L) % L; if (o > L/2) o -= L;
-        const a = Math.abs(o), side = Math.min(1, a), th = Math.max(-2, Math.min(2, o))*Math.PI/2, cs = Math.cos(th);
-        const s = (cs >= 0 ? P.sn + (1 - P.sn)*cs : P.sn*(1 + .35*cs))*lerp(1, lerp(.8, 1, ring.vis), side);
-        const x = P.rx*Math.sin(th)*lerp(1, lerp(P.tuck, 1, ring.vis), side);
+        const a = Math.abs(o), side = Math.min(1, a), sg = o < 0 ? -1 : 1, i = Math.min(2, Math.floor(a)), t = Math.min(1, a - i), q = V => lerp(V[i], V[i + 1], t);
+        const cs = Math.cos(Math.max(-2, Math.min(2, o))*Math.PI/2);
+        const s = lerp(1, lerp(.8, 1, ring.vis), side), x = sg*q(P.X)*lerp(1, lerp(P.tuck, 1, ring.vis), side);
         const op = (a <= 1 ? 1 : Math.max(0, 1 - (a - 1)/.5))*lerp(1, ring.vis, side);
-        el.style.transform = `translate(${(P.cx - P.w/2 + x).toFixed(2)}px,${(P.cy - P.h/2).toFixed(2)}px) scale(${s.toFixed(4)}) perspective(1400px) rotateY(${(-Math.sin(th)*34).toFixed(2)}deg)`;
+        el.style.transform = cfM(x, q(P.Z), -sg*q(P.A), s);
+        el.style.setProperty('--dm', q(P.D).toFixed(3));
         el.style.opacity = op.toFixed(3); el.style.zIndex = Math.round(cs*10) + 10;
       });
       const tick = now => {
