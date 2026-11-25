@@ -374,9 +374,9 @@ html{background:var(--paper)}
 .cs .msg.err{color:var(--c-err)}
 .cs .msg.ok{color:var(--c-ok)}
 .cs .bars{display:flex;gap:4px;margin-left:auto}
-.cs .bars i{width:28px;height:4px;border-radius:2px;background:#2C303B;transition:background .3s}
-.cs .bars.f i{background:var(--c-ok)}
-.cs .bars.f i:nth-child(2){transition-delay:.1s}.cs .bars.f i:nth-child(3){transition-delay:.2s}.cs .bars.f i:nth-child(4){transition-delay:.3s}
+.cs .bars i{width:28px;height:4px;border-radius:2px;background:#2C303B linear-gradient(var(--c-ok),var(--c-ok)) no-repeat 0 0/0 100%;transition:background-size .12s linear}
+.cs .bars.f i{background-size:100% 100%}
+.cs .bars.f i:nth-child(2){transition-delay:.12s}.cs .bars.f i:nth-child(3){transition-delay:.24s}.cs .bars.f i:nth-child(4){transition-delay:.36s}
 .cs .promo{color:var(--c-pr);height:32px;display:flex;align-items:center}
 .cs .terms{display:flex;align-items:center;gap:8px;height:32px;color:var(--c-mu)}
 .cs .terms b{color:var(--c-tx);font-weight:500}
@@ -433,6 +433,7 @@ html{background:var(--paper)}
 .cs-banner{height:207px;border-radius:12px;overflow:hidden;box-shadow:inset 0 0 0 1px rgba(123,75,255,.5)}
 .cs-banner img{display:block;width:100%;height:100%;object-fit:cover}
 .cs-row2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:24px}
+.cs-row2.secs{column-gap:48px}
 .cs-box{display:flex;align-items:center;gap:12px;height:44px;padding:0 12px;border-radius:10px;background:var(--c-card);box-shadow:inset 0 0 0 1px var(--c-line);color:var(--c-mu);font-size:13px}
 .cs-box b{color:var(--c-tx);font-weight:500}
 .cs-box .kbd{margin-left:auto;display:inline-flex;align-items:center;height:24px;padding:0 8px;border-radius:6px;background:var(--c-el);font-size:13px;font-weight:600}
@@ -543,6 +544,9 @@ html{background:var(--paper)}
 .cm-scroll .cs-sec{margin-top:24px}
 .cm-scroll .cs-tiles{gap:8px}
 .cm-scroll .cs-tile .tn{font-size:16px;bottom:8px}
+.cs-tile.og::after{inset:62% 0 0;background:linear-gradient(transparent,rgba(5,3,12,.6))}
+.cs-tile.og .tn{font-size:27px;text-transform:uppercase;bottom:14px;text-shadow:0 3px 0 var(--tc),0 6px 14px rgba(0,0,0,.55)}
+.cm-scroll .cs-tile.og .tn{font-size:19px;bottom:10px}
 .cm-sheet{position:absolute;left:0;right:0;bottom:0;z-index:10;border-radius:24px 24px 0 0;background:var(--c-card);box-shadow:0 -12px 40px rgba(0,0,0,.5);overflow:hidden;transform:translateY(102%);transition:transform .55s cubic-bezier(.2,.8,.2,1)}
 .cm-sheet.on{transform:none}
 .cm-sheet::before{content:"";position:absolute;left:0;right:0;bottom:0;height:140px;background:radial-gradient(80% 100% at 50% 100%,rgba(123,75,255,.3),transparent 75%);pointer-events:none}
@@ -812,7 +816,7 @@ html{background:var(--paper)}
 .tp-card{padding:24px}
 .tp-card h4{display:flex;align-items:center;justify-content:space-between;margin:0 0 18px;font-size:18px;font-weight:800;letter-spacing:-.01em}
 .tp-brands{display:flex;gap:6px}
-.tp-brands span{height:24px;padding:0 8px;border-radius:6px;background:var(--gl2);box-shadow:inset 0 0 0 1px var(--ln);color:var(--mu);font:800 11px/24px "Manrope",var(--f-body);letter-spacing:.04em;transition:all .35s}
+.tp-brands span{height:24px;padding:0 8px;border-radius:6px;background:var(--gl2);box-shadow:inset 0 0 0 1px var(--ln);color:var(--mu);font:800 11px/24px "Manrope",var(--f-body);letter-spacing:.04em;transition:all .35s,visibility 0s}
 .tp-brands span.on{background:#fff;color:#0A7A3E;box-shadow:none;transform:translateY(-2px)}
 .tp-f{display:flex;flex-direction:column;gap:6px}
 .tp-f label{font-size:13px;color:var(--mu)}
@@ -852,7 +856,7 @@ html{background:var(--paper)}
 .tp-wait p{margin:0 auto;max-width:380px;color:var(--mu)}
 .tp-steps{display:flex;flex-direction:column;gap:12px;margin-top:28px;text-align:left}
 .tp-steps div{display:flex;align-items:center;gap:12px;color:var(--mu);transition:color .4s}
-.tp-steps i{width:24px;height:24px;border-radius:50%;box-shadow:inset 0 0 0 1.5px var(--ln);display:grid;place-items:center;flex:none;transition:all .4s}
+.tp-steps i{width:24px;height:24px;border-radius:50%;box-shadow:inset 0 0 0 1.5px var(--ln);display:grid;place-items:center;flex:none;transition:all .4s,visibility 0s}
 .tp-steps i svg{width:14px;height:14px;stroke:#081022;stroke-width:3;fill:none;opacity:0}
 .tp-steps .ok{color:var(--tx)}
 .tp-steps .ok i{background:var(--ok);box-shadow:none}
@@ -1078,7 +1082,7 @@ html{background:var(--paper)}
 @keyframes adIn{from{opacity:0;transform:translateY(-8px)}}
 .ad-add{display:flex;align-items:center;gap:8px;height:40px;padding:0 12px;border-radius:10px;color:var(--ac);font-weight:700;box-shadow:inset 0 0 0 1px dashed var(--ln);border:1px dashed var(--ln)}
 .ad-chs{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
-.ad-chs span{display:inline-flex;align-items:center;gap:6px;height:30px;padding:0 10px;border-radius:8px;background:var(--cd2);box-shadow:inset 0 0 0 1px var(--ln);font-size:13px;font-weight:600;transition:all .3s}
+.ad-chs span{display:inline-flex;align-items:center;gap:6px;height:30px;padding:0 10px;border-radius:8px;background:var(--cd2);box-shadow:inset 0 0 0 1px var(--ln);font-size:13px;font-weight:600;transition:all .3s,visibility 0s}
 .ad-chs span.on{background:var(--ac-s);color:var(--ac);box-shadow:inset 0 0 0 1px var(--ac)}
 .ad-prev{display:flex;flex-direction:column;gap:12px}
 .ad-pv{padding:16px;border-radius:14px;background:var(--cd2);box-shadow:inset 0 0 0 1px var(--ln)}
@@ -1116,7 +1120,7 @@ html{background:var(--paper)}
 .gc-c .ft{display:flex;align-items:center;margin:12px 4px 0;padding-top:12px;border-top:1px solid var(--ln);color:var(--mu);font-size:12px}
 .gc-c .ft .ad-sw{transform:scale(.85);transform-origin:right}
 .gc-tag{display:inline-flex;align-items:center;height:22px;padding:0 8px;border-radius:7px;background:var(--ac-s);color:var(--ac);font-size:11px;font-weight:800}
-.gc-new{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;min-height:278px;border-radius:14px;border:1.5px dashed var(--ln);color:var(--mu);font-weight:600;transition:all .3s}
+.gc-new{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;min-height:278px;border-radius:14px;border:1.5px dashed var(--ln);color:var(--mu);font-weight:600;transition:all .3s,visibility 0s}
 .gc-new .ic{width:44px;height:44px;border-radius:12px;background:var(--cd2);display:grid;place-items:center;color:var(--ac)}
 .gc-ed{display:none}
 .gc-ed.on{display:block;animation:adIn .5s cubic-bezier(.2,.8,.2,1)}
@@ -1237,7 +1241,7 @@ html{background:var(--paper)}
 .ws-step .ln{position:absolute;left:12px;right:12px;top:36px;height:2px;background:var(--ln)}
 .ws-step .ln b{display:block;height:100%;width:0;background:var(--bl);transition:width 1s cubic-bezier(.3,.7,.2,1)}
 .ws-step div{position:relative;font-size:13px;color:var(--mu);font-weight:600;transition:color .4s}
-.ws-step div i{position:absolute;left:0;top:24px;width:26px;height:26px;border-radius:50%;background:var(--bg);box-shadow:inset 0 0 0 2px var(--ln);display:grid;place-items:center;transition:all .4s}
+.ws-step div i{position:absolute;left:0;top:24px;width:26px;height:26px;border-radius:50%;background:var(--bg);box-shadow:inset 0 0 0 2px var(--ln);display:grid;place-items:center;transition:all .4s,visibility 0s}
 .ws-step div i svg{width:14px;height:14px;stroke:#fff;stroke-width:3;opacity:0}
 .ws-step div.on{color:var(--tx)}
 .ws-step div.on i{box-shadow:inset 0 0 0 2px var(--bl),0 0 0 5px rgba(47,123,255,.18)}
@@ -1283,7 +1287,7 @@ html{background:var(--paper)}
 .ws-vote{display:flex;align-items:center;gap:14px;margin-top:22px;padding:16px 20px;border-radius:14px;background:var(--pn);box-shadow:inset 0 0 0 1px var(--ln)}
 .ws-vote p{margin:0;color:#B3BBDB}
 .ws-vote b{color:var(--tx)}
-.ws-vote .pk{margin-left:auto;display:flex;align-items:center;gap:10px;height:36px;padding:0 14px;border-radius:10px;background:rgba(214,58,249,.14);color:#F08BFF;font-weight:800;opacity:0;transform:translateX(10px);transition:all .5s}
+.ws-vote .pk{margin-left:auto;display:flex;align-items:center;gap:10px;height:36px;padding:0 14px;border-radius:10px;background:rgba(214,58,249,.14);color:#F08BFF;font-weight:800;opacity:0;transform:translateX(10px);transition:all .5s,visibility 0s}
 .ws-vote .pk.on{opacity:1;transform:none}
 .ws-log{display:flex;flex-direction:column;gap:6px;margin-top:14px}
 .ws-log div{display:flex;align-items:center;gap:10px;height:34px;padding:0 14px;border-radius:9px;background:var(--pn);font-size:13px;color:#B3BBDB;animation:adIn .5s cubic-bezier(.2,.8,.2,1)}
@@ -1307,7 +1311,7 @@ html{background:var(--paper)}
 .ws-br svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
 .ws-br path{fill:none;stroke:var(--ln);stroke-width:2;transition:stroke .5s}
 .ws-br path.on{stroke:var(--gr)}
-.ws-champ{position:absolute;left:860px;top:150px;width:360px;padding:24px;border-radius:18px;background:radial-gradient(120% 100% at 50% 0%,rgba(242,178,62,.18),transparent 70%),var(--pn);box-shadow:inset 0 0 0 1px rgba(242,178,62,.4);text-align:center;opacity:0;transform:translateY(16px) scale(.97);transition:all .7s cubic-bezier(.2,.8,.2,1)}
+.ws-champ{position:absolute;left:860px;top:150px;width:360px;padding:24px;border-radius:18px;background:radial-gradient(120% 100% at 50% 0%,rgba(242,178,62,.18),transparent 70%),var(--pn);box-shadow:inset 0 0 0 1px rgba(242,178,62,.4);text-align:center;opacity:0;transform:translateY(16px) scale(.97);transition:all .7s cubic-bezier(.2,.8,.2,1),visibility 0s}
 .ws-champ.on{opacity:1;transform:none}
 .ws-champ .cup{width:76px;height:76px;margin:0 auto;border-radius:50%;background:linear-gradient(135deg,#FFE08A,#F2B23E);display:grid;place-items:center;color:#5A3A00;box-shadow:0 0 40px rgba(242,178,62,.45)}
 .ws-champ .cup svg{width:38px;height:38px;stroke-width:2}
@@ -1331,7 +1335,7 @@ html{background:var(--paper)}
 .dl-links .k{position:absolute;top:4px;bottom:4px;border-radius:99px;background:var(--bl);transition:left .45s cubic-bezier(.3,.7,.2,1),width .45s}
 .dl-nav .r{margin-left:auto;display:flex;align-items:center;gap:12px}
 .dl-tg{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:var(--pn);color:var(--tx)}
-.dl-cta{display:flex;align-items:center;gap:8px;height:40px;padding:0 18px;border-radius:99px;background:var(--bl);color:#fff;font-weight:700;position:relative;overflow:hidden;transition:all .4s}
+.dl-cta{display:flex;align-items:center;gap:8px;height:40px;padding:0 18px;border-radius:99px;background:var(--bl);color:#fff;font-weight:700;position:relative;overflow:hidden;transition:all .4s,visibility 0s}
 .dl-wal{display:none;align-items:center;gap:10px;height:40px;padding:0 6px 0 14px;border-radius:99px;background:var(--pn);box-shadow:inset 0 0 0 1px rgba(47,123,246,.5);font-weight:700;font-variant-numeric:tabular-nums}
 .dl-wal i{width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,#2F7BF6,#7C7CFF);display:grid;place-items:center;font-style:normal;font-size:12px}
 .dl-wal small{color:var(--mu);font-weight:600}
@@ -1399,7 +1403,7 @@ html{background:var(--paper)}
 .dl-nft .am span{display:block;color:var(--tx);font-size:14px;font-weight:700;font-variant-numeric:tabular-nums}
 .dl-nft.hov{transform:translateY(-4px);box-shadow:inset 0 0 0 1.5px var(--bl),0 16px 36px rgba(0,0,0,.45)}
 .dl-nft.hov .im img{transform:scale(1.06)}
-.dl-nft .lk{position:absolute;left:14px;top:14px;display:flex;align-items:center;gap:6px;height:26px;padding:0 10px;border-radius:99px;background:rgba(10,10,15,.7);backdrop-filter:blur(8px);color:#9BFFC8;font-size:12px;font-weight:700;opacity:0;transform:translateY(-6px);transition:all .5s}
+.dl-nft .lk{position:absolute;left:14px;top:14px;display:flex;align-items:center;gap:6px;height:26px;padding:0 10px;border-radius:99px;background:rgba(10,10,15,.7);backdrop-filter:blur(8px);color:#9BFFC8;font-size:12px;font-weight:700;opacity:0;transform:translateY(-6px);transition:all .5s,visibility 0s}
 .dl-nft.locked .lk{opacity:1;transform:none}
 .dl-nft.locked .im img{filter:saturate(.6) brightness(.8)}
 .dl-ov{position:absolute;inset:0;z-index:20;background:rgba(5,5,10,.6);backdrop-filter:blur(4px);opacity:0;pointer-events:none;transition:opacity .45s}
@@ -1425,7 +1429,7 @@ html{background:var(--paper)}
 .dl-sl .th{position:absolute;top:2px;width:24px;height:24px;margin-left:-12px;border-radius:50%;background:#fff;box-shadow:0 0 0 6px rgba(47,123,246,.25),0 4px 10px rgba(0,0,0,.4)}
 .dl-sl .tk{position:absolute;top:34px;font-size:12px;color:var(--mu);transform:translateX(-50%);font-variant-numeric:tabular-nums}
 .dl-terms{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
-.dl-terms span{display:grid;place-items:center;height:48px;border-radius:12px;background:var(--pn2);font-weight:700;transition:all .3s}
+.dl-terms span{display:grid;place-items:center;height:48px;border-radius:12px;background:var(--pn2);font-weight:700;transition:all .3s,visibility 0s}
 .dl-terms span.on{background:rgba(47,123,246,.16);color:#7DB0FF;box-shadow:inset 0 0 0 1.5px var(--bl)}
 .dl-sum{margin-top:22px;padding:6px 16px;border-radius:14px;background:var(--pn2)}
 .dl-how{margin-top:22px}
@@ -1445,7 +1449,7 @@ html{background:var(--paper)}
 .dl-go .sp{position:absolute;left:50%;top:50%;width:22px;height:22px;margin:-11px;border-radius:50%;border:3px solid rgba(255,255,255,.35);border-top-color:#fff;opacity:0}
 .dl-go.loading>*:not(.sp){opacity:0}
 .dl-go.loading .sp{opacity:1;animation:csSpin .7s linear infinite}
-.dl-wm{position:absolute;left:50%;top:50%;z-index:30;width:400px;padding:28px;border-radius:24px;background:#16161C;box-shadow:0 30px 80px rgba(0,0,0,.6),inset 0 0 0 1px var(--ln);text-align:center;opacity:0;transform:translate(-50%,-46%) scale(.96);pointer-events:none;transition:all .5s cubic-bezier(.2,.8,.2,1)}
+.dl-wm{position:absolute;left:50%;top:50%;z-index:30;width:400px;padding:28px;border-radius:24px;background:#16161C;box-shadow:0 30px 80px rgba(0,0,0,.6),inset 0 0 0 1px var(--ln);text-align:center;opacity:0;transform:translate(-50%,-46%) scale(.96);pointer-events:none;transition:all .5s cubic-bezier(.2,.8,.2,1),visibility 0s}
 .dl-wm.on{opacity:1;transform:translate(-50%,-50%)}
 .dl-wm .wl{width:64px;height:64px;margin:0 auto;border-radius:18px;background:linear-gradient(135deg,#0098EA,#2F7BF6);display:grid;place-items:center;color:#fff}
 .dl-wm .wl svg{width:32px;height:32px}
@@ -1524,7 +1528,7 @@ html{background:var(--paper)}
 .mc-bar i{display:block;width:100%;border-radius:10px 10px 4px 4px;background:linear-gradient(180deg,#3D86FF,#1E5BE0);transition:height .9s cubic-bezier(.3,.7,.2,1),opacity .4s}
 .mc-bar.dim i{opacity:.35}
 .mc-bar em{position:absolute;left:50%;bottom:-26px;transform:translateX(-50%);font-style:normal;font-size:12px;color:var(--mu);white-space:nowrap}
-.mc-tip{position:absolute;z-index:4;padding:10px 12px;border-radius:12px;background:#22262F;box-shadow:inset 0 0 0 1px var(--ln),0 12px 28px rgba(0,0,0,.4);font-size:12px;opacity:0;transform:translateY(6px);transition:all .3s;pointer-events:none;white-space:nowrap}
+.mc-tip{position:absolute;z-index:4;padding:10px 12px;border-radius:12px;background:#22262F;box-shadow:inset 0 0 0 1px var(--ln),0 12px 28px rgba(0,0,0,.4);font-size:12px;opacity:0;transform:translateY(6px);transition:all .3s,visibility 0s;pointer-events:none;white-space:nowrap}
 .mc-tip.on{opacity:1;transform:none}
 .mc-tip b{display:block;font-size:15px;margin-top:2px}
 .mc-g2{display:grid;grid-template-columns:1.55fr 1fr;gap:12px;margin-top:12px}
@@ -1597,7 +1601,7 @@ html{background:var(--paper)}
 .mc-ad div{flex:1;min-width:0}
 .mc-ad small{display:block;color:var(--mu);font-size:12px}
 .mc-ad b{display:block;font:500 13px/1.3 var(--f-mono);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.mc-ad .cp{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;color:var(--mu);position:relative;overflow:hidden;transition:all .3s}
+.mc-ad .cp{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;color:var(--mu);position:relative;overflow:hidden;transition:all .3s,visibility 0s}
 .mc-ad .cp.done{color:var(--gr);background:var(--gr-s)}
 .mc-wn{margin-top:10px;padding:12px 14px;border-radius:13px;background:var(--ye-s);color:#FFD48A;font-size:13px;line-height:1.5}
 .mc-wn b{color:#fff}
@@ -1610,7 +1614,7 @@ html{background:var(--paper)}
 .mc-ok .rw{margin-top:16px;padding:4px 14px;border-radius:12px;background:var(--pn2);text-align:left}
 .mc-ok .rw div{display:flex;justify-content:space-between;height:36px;align-items:center;font-size:13px}
 .mc-ok .rw span{color:var(--mu)}
-.mc-toast{position:absolute;left:50%;bottom:24px;z-index:40;display:flex;align-items:center;gap:10px;height:46px;padding:0 18px 0 12px;border-radius:13px;background:#23262E;box-shadow:inset 0 0 0 1px var(--ln),0 16px 36px rgba(0,0,0,.4);font-weight:700;opacity:0;transform:translate(-50%,12px);transition:all .35s cubic-bezier(.2,.8,.2,1)}
+.mc-toast{position:absolute;left:50%;bottom:24px;z-index:40;display:flex;align-items:center;gap:10px;height:46px;padding:0 18px 0 12px;border-radius:13px;background:#23262E;box-shadow:inset 0 0 0 1px var(--ln),0 16px 36px rgba(0,0,0,.4);font-weight:700;opacity:0;transform:translate(-50%,12px);transition:all .35s cubic-bezier(.2,.8,.2,1),visibility 0s}
 .mc-toast.on{opacity:1;transform:translate(-50%,0)}
 .mc-toast i{width:24px;height:24px;border-radius:50%;background:var(--gr-s);color:var(--gr);display:grid;place-items:center}
 .mc-toast i svg{width:14px;height:14px}
@@ -1653,331 +1657,147 @@ html{background:var(--paper)}
   *,*::before,*::after{animation:none!important;transition:none!important}
   .mo-chips span:nth-child(3){background:#F5891F;color:#151515;border-color:#F5891F}
 }
-/* ---------- mooon e-gift card (client purchase flow) ---------- */
+/* ---------- mooon gift cards: e-card carousel → plastic cards → envelope (client prototype) ---------- */
 .st-mg{--sx-bg:#0D0A10;--sx-glow:radial-gradient(48cqw 40cqw at 30% 40%,rgba(226,80,140,.26),transparent 70%),radial-gradient(40cqw 36cqw at 88% 78%,rgba(110,80,230,.26),transparent 70%)}
-.mg{--ac:#46297F;--acT:rgba(70,41,127,.12);--tx:#17131C;--mu:rgba(23,19,28,.58);--mu2:rgba(23,19,28,.4);--chip:rgba(255,255,255,.58);--chipb:rgba(255,255,255,.95);--field:rgba(255,255,255,.62);--line:rgba(23,19,28,.1);--bg:#F4EFEE;--g1:rgba(238,150,182,.62);--g2:rgba(246,200,166,.62);--g3:rgba(206,196,244,.6);--beam:rgba(255,232,206,.75);--card:rgba(255,255,255,.5);--cardb:rgba(255,255,255,.92);--art:#E0306E;--ok:#2E9D62;
-  position:relative;overflow:hidden;background:var(--bg);color:var(--tx);font-family:"Manrope",var(--f-body);-webkit-font-smoothing:antialiased;letter-spacing:-.005em}
-.mg[data-th="dark"]{--ac:#6A4DE0;--acT:rgba(120,96,240,.2);--tx:#F6F2FA;--mu:rgba(246,242,250,.64);--mu2:rgba(246,242,250,.42);--chip:rgba(255,255,255,.06);--chipb:rgba(255,255,255,.16);--field:rgba(255,255,255,.06);--line:rgba(255,255,255,.12);--bg:#141017;--g1:rgba(160,40,96,.5);--g2:rgba(130,62,40,.42);--g3:rgba(76,54,170,.45);--beam:rgba(255,196,130,.2);--card:rgba(255,255,255,.05);--cardb:rgba(255,255,255,.13);--ok:#4BD08A}
-.mg *{box-sizing:border-box}
-.mg-d{width:1440px;height:900px}
-.mg-m{width:390px;height:844px}
-.mg-bg{position:absolute;inset:0;pointer-events:none;background:
-  radial-gradient(520px 460px at 24% 46%,var(--g1),transparent 70%),
-  radial-gradient(560px 420px at 2% 96%,var(--g2),transparent 70%),
-  radial-gradient(520px 520px at 84% 32%,var(--g3),transparent 70%),
-  radial-gradient(420px 360px at 96% 92%,var(--g1),transparent 70%)}
-.mg-bg::before{content:"";position:absolute;width:260px;height:2400px;right:120px;top:-700px;transform:rotate(36deg);background:linear-gradient(90deg,transparent,var(--beam) 50%,transparent);filter:blur(30px)}
-.mg-bg::after{content:"";position:absolute;width:90px;height:2400px;right:250px;top:-700px;transform:rotate(36deg);background:linear-gradient(90deg,transparent,var(--beam) 50%,transparent);filter:blur(10px);opacity:.8}
-.mg-m .mg-bg{background:radial-gradient(300px 300px at 30% 30%,var(--g1),transparent 70%),radial-gradient(320px 300px at 0% 100%,var(--g2),transparent 70%),radial-gradient(300px 340px at 100% 60%,var(--g3),transparent 70%)}
-.mg-m .mg-bg::before{right:-40px;width:160px}.mg-m .mg-bg::after{right:30px;width:50px}
-.mg[data-th="dark"] .mg-dust{opacity:1}
-.mg-dust{position:absolute;inset:0;opacity:0;pointer-events:none;background-image:radial-gradient(1.5px 1.5px at 82% 8%,#fff,transparent),radial-gradient(1px 1px at 90% 14%,#fff,transparent),radial-gradient(1.5px 1.5px at 76% 22%,#fff,transparent),radial-gradient(1px 1px at 70% 4%,#fff,transparent),radial-gradient(1.5px 1.5px at 94% 3%,#fff,transparent),radial-gradient(1px 1px at 64% 30%,#fff,transparent)}
-.mg-v{position:absolute;inset:0;display:none}
-.mg-v.on{display:block}
-.mg-logo{display:inline-block;white-space:nowrap;font:600 37px/1 "Montserrat",var(--f-body);letter-spacing:-.05em;color:var(--tx)}
-.mg-logo i{display:inline-block;width:1.035ex;height:1.035ex;border-radius:50%;background:currentColor;margin:0 0 0 .05em;vertical-align:-.02ex}
-.mg-m .mg-logo{font-size:27px}
-.mg-chip,.mg-tags span,.mg-code .cp,.mg-opt,.mg-in,.mg-seg{position:relative;overflow:hidden}
-.mg .mg-seg span{overflow:hidden}
-.mg-btn{position:relative;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;gap:14px;height:64px;padding:0 38px;border-radius:32px;background:var(--ac);color:#fff;font:500 19px/1 "Manrope",var(--f-body);box-shadow:0 18px 40px -16px rgba(70,41,127,.75);white-space:nowrap}
-.mg-btn svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
-.mg-btn .lb{display:inline-block}
-.mg-btn.loading .lb,.mg-btn.loading svg{opacity:0}
-.mg-btn.loading::after{content:"";position:absolute;left:50%;top:50%;width:24px;height:24px;margin:-12px;border-radius:50%;border:2.5px solid rgba(255,255,255,.35);border-top-color:#fff;animation:mgSpin .8s linear infinite}
-@keyframes mgSpin{to{transform:rotate(360deg)}}
-.mg-chip{display:inline-flex;align-items:center;justify-content:center;height:36px;padding:0 22px;border-radius:12px;background:var(--chip);border:1px solid var(--chipb);font:500 14px/1 "Manrope",var(--f-body);color:var(--tx);white-space:nowrap;transition:background .45s,color .45s,border-color .45s,box-shadow .45s}
-.mg-chip.is-sel{background:var(--ac);border-color:var(--ac);color:#fff;box-shadow:0 10px 22px -12px rgba(70,41,127,.9)}
-.mg-chip.more{border-color:color-mix(in srgb,var(--ac) 40%,transparent);color:var(--ac)}
-.mg[data-th="dark"] .mg-chip.more{color:#B9A8FF}
-.mg-lbl{font:500 14px/1 "Manrope",var(--f-body);letter-spacing:.14em;color:var(--mu);margin:0 0 16px}
-/* home · desktop */
-.mg-hd{position:absolute;left:80px;right:86px;top:20px;height:40px;display:flex;align-items:center}
-.mg-hd nav{margin-left:auto;display:flex;gap:26px;font:400 17px/1 "Manrope",var(--f-body);color:var(--tx);opacity:.9}
-.mg-hd nav span:last-child{margin-left:10px}
-.mg-th{position:relative;margin-left:48px;width:72px;height:40px;border-radius:20px;background:var(--chip);border:1px solid var(--chipb);box-shadow:0 6px 16px -8px rgba(0,0,0,.25)}
-.mg-th i{position:absolute;top:10px;width:18px;height:18px;z-index:2;color:var(--tx);transition:color .4s}
-.mg-th i svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round}
-.mg-th .s{left:9px;color:#fff}.mg-th .m{right:9px}
-.mg-th .kn{position:absolute;left:3px;top:3px;width:32px;height:32px;border-radius:50%;background:#151515;transition:transform .6s cubic-bezier(.2,.8,.2,1)}
-.mg[data-th="dark"] .mg-th .kn{transform:translateX(32px);background:#fff}
-.mg[data-th="dark"] .mg-th .s{color:var(--tx)}.mg[data-th="dark"] .mg-th .m{color:#151515}
-.mg-th.flip .kn{transform:translateX(32px)}
-.mg[data-th="dark"] .mg-th.flip .kn{transform:none}
-.mg-eb{font:600 12px/1 "Manrope",var(--f-body);letter-spacing:.32em;color:var(--ac)}
-.mg[data-th="dark"] .mg-eb{color:#B9A8FF}
-.mg-h1{margin:22px 0 0;font:500 82px/.98 "Manrope",var(--f-body);letter-spacing:-.045em}
-.mg-h1 em{font-style:normal;font-weight:700;color:var(--ac)}
-.mg[data-th="dark"] .mg-h1 em{color:#A48CFF}
-.mg-lede{margin:22px 0 0;font:400 19px/1.55 "Manrope",var(--f-body);color:var(--mu)}
-.mg-hero{position:absolute;left:80px;top:128px;width:640px}
-.mg-photo{position:absolute;left:80px;top:440px;width:610px;height:380px;border-radius:32px;overflow:hidden;background:#1B1030;box-shadow:0 40px 70px -40px rgba(60,20,90,.8)}
-.mg-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.04)}
-.mg-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(28,12,52,.72),rgba(28,12,52,.08) 42%,rgba(20,8,40,.15) 62%,rgba(20,8,40,.82))}
-.mg-cap{position:absolute;left:28px;top:30px;z-index:2;width:440px;height:66px}
-.mg-cap span{position:absolute;left:0;top:0;font:500 23px/1.35 "Manrope",var(--f-body);color:#fff;opacity:0;transition:opacity .5s,transform .5s;transform:translateY(8px)}
-.mg-cap span.on{opacity:1;transform:none}
-.mg-tags{position:absolute;left:20px;bottom:20px;z-index:2;display:flex;gap:8px}
-.mg-tags span{height:36px;padding:0 16px;display:flex;align-items:center;border-radius:18px;border:1px solid rgba(255,255,255,.4);color:#fff;font:500 14px/1 "Manrope",var(--f-body);transition:background .4s,border-color .4s}
-.mg-tags span.is-sel{background:rgba(255,255,255,.2);border-color:rgba(255,255,255,.85)}
-.mg-arr{position:absolute;right:20px;bottom:20px;z-index:2;display:flex;gap:8px}
-.mg-arr span{width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.55);display:grid;place-items:center;color:#fff}
-.mg-arr svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.mg-fmt{position:absolute;left:736px;top:128px;width:500px;padding:32px 28px 30px;border-radius:40px;background:var(--card);border:1px solid var(--cardb);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);box-shadow:0 40px 80px -50px rgba(70,30,90,.6)}
-.mg-fmt h3{margin:4px 0 22px;font:500 30px/1.1 "Manrope",var(--f-body);letter-spacing:-.025em}
-.mg-opt{position:relative;display:flex;align-items:center;gap:20px;height:124px;padding:0 24px 0 16px;border-radius:24px;background:var(--chip);border:1px solid var(--chipb);margin-bottom:12px;transition:background .45s,border-color .45s,box-shadow .45s}
-.mg-opt img{width:92px;height:92px;object-fit:contain;flex:none}
-.mg-opt b{display:block;font:500 21px/1.2 "Manrope",var(--f-body)}
-.mg-opt small{display:block;margin-top:8px;font:400 14px/1.3 "Manrope",var(--f-body);color:var(--mu)}
-.mg-opt .rd{margin-left:auto;width:24px;height:24px;border-radius:50%;border:1.5px solid var(--mu2);flex:none;position:relative;transition:border-color .4s}
-.mg-opt .rd::after{content:"";position:absolute;inset:4px;border-radius:50%;background:var(--ac);transform:scale(0);transition:transform .45s cubic-bezier(.3,1.6,.5,1)}
-.mg-opt.is-sel{background:var(--acT);border-color:var(--ac);box-shadow:0 14px 30px -20px rgba(70,41,127,.8)}
-.mg-opt.is-sel .rd{border-color:var(--ac)}.mg-opt.is-sel .rd::after{transform:scale(1)}
-.mg-fmt .mg-btn{width:100%;margin-top:10px;height:62px}
-.mg-foot{position:absolute;left:80px;bottom:30px;font:400 14px/1 "Manrope",var(--f-body);color:var(--mu)}
-.mg-pc{position:absolute;pointer-events:none;animation:mgFloat 6s ease-in-out infinite}
-.mg-pc:nth-of-type(2n){animation-duration:7.5s;animation-delay:-2s}
-.mg-pc:nth-of-type(3n){animation-duration:8.5s;animation-delay:-4s}
-@keyframes mgFloat{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-10px) rotate(8deg)}}
-/* wizard · desktop */
-.mg-whd{position:absolute;left:90px;right:44px;top:40px;height:37px;display:flex;align-items:center}
-.mg-steps{list-style:none;margin:0 0 0 198px;padding:0;display:flex;align-items:center;gap:26px}
-.mg-steps li{display:flex;align-items:center;gap:9px;font:500 11px/1 "Manrope",var(--f-body);letter-spacing:.14em;text-transform:uppercase;color:var(--mu);transition:color .4s}
-.mg-steps li.cur,.mg-steps li.done{color:var(--tx)}
-.mg-steps li.sep{width:1px;height:14px;background:var(--line);margin:0 4px}
-.mg-steps i{position:relative;width:16px;height:16px;flex:none}
-.mg-steps i::before{content:"";position:absolute;inset:1px;border-radius:46% 54% 50% 50%/55% 50% 50% 45%;border:1.3px solid var(--mu2);transition:opacity .3s}
-.mg-steps i img{position:absolute;inset:-2px;width:20px;height:20px;opacity:0;transform:scale(.3);transition:opacity .35s,transform .55s cubic-bezier(.3,1.7,.5,1)}
-.mg-steps li.done i img,.mg-steps li.cur i img{opacity:1;transform:scale(1)}
-.mg-steps li.done i img{transform:scale(.8);opacity:.75}
-.mg-steps li.done i::before,.mg-steps li.cur i::before{opacity:0}
-.mg-close{margin-left:auto;font:500 11px/1 "Manrope",var(--f-body);letter-spacing:.14em;color:var(--mu)}
-.mg-art{position:absolute;left:90px;top:200px;width:470px;height:540px}
-.mg-disc{position:absolute;left:0;top:0;width:470px;height:470px;border-radius:50%;padding:7px;background:linear-gradient(150deg,rgba(255,255,255,.95),rgba(214,200,250,.7) 60%,rgba(255,255,255,.5));box-shadow:0 50px 80px -40px color-mix(in srgb,var(--art) 80%,transparent),0 0 0 1px rgba(255,255,255,.5);transition:box-shadow .8s}
-.mg[data-th="dark"] .mg-disc{background:linear-gradient(150deg,rgba(150,120,255,.75),rgba(80,60,170,.5))}
-.mg-disc .im{position:absolute;inset:7px;border-radius:50%;overflow:hidden}
-.mg-disc img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:50%}
-.mg-amt{position:absolute;left:50%;top:484px;transform:translateX(-50%);height:38px;padding:0 12px;display:flex;align-items:center;border-radius:10px;background:rgba(255,255,255,.75);border:1px solid rgba(255,255,255,.95);font:500 21px/1 "Manrope",var(--f-body);color:#46297F;box-shadow:0 10px 24px -14px rgba(0,0,0,.4);font-variant-numeric:tabular-nums}
-.mg[data-th="dark"] .mg-amt{background:rgba(40,28,60,.75);border-color:rgba(255,255,255,.18);color:#D6CBFF}
-.mg-spk{position:absolute;width:16px;height:16px;color:#8E78C8;opacity:0;pointer-events:none}
-.mg-spk svg{width:100%;height:100%;fill:currentColor}
-.mg-form{position:absolute;left:692px;top:150px;width:520px;height:600px}
-.mg-p{position:absolute;left:0;top:0;width:100%;display:none}
-.mg-p.on{display:block}
-.mg-h2{position:relative;margin:0;font:500 44px/1.05 "Manrope",var(--f-body);letter-spacing:-.035em;height:94px}
-.mg-h2 span{position:absolute;left:0;top:0;width:100%;transition:opacity .45s,transform .55s cubic-bezier(.2,.8,.2,1)}
-.mg-h2 span.out{opacity:0;transform:translateY(-12px)}
-.mg-h2 span.in{opacity:0;transform:translateY(14px)}
-.mg-p .mg-lede{position:relative;margin:14px 0 0;font-size:19px;line-height:1.42;height:54px}
-.mg-p .mg-lede span{position:absolute;left:0;top:0;transition:opacity .45s,transform .55s cubic-bezier(.2,.8,.2,1)}
-.mg-p .mg-lede span.out{opacity:0;transform:translateY(-8px)}.mg-p .mg-lede span.in{opacity:0;transform:translateY(10px)}
-.mg-row{display:flex;gap:8px;flex-wrap:wrap}
-.mg-row .mg-chip{min-width:100px}
-.mg-grp{margin-top:32px}
-.mg-sw{display:flex;gap:12px}
-.mg-sw span{position:relative;width:92px;height:92px;border-radius:50%;flex:none;transition:transform .4s cubic-bezier(.3,1.5,.5,1)}
-.mg-sw img{width:100%;height:100%;border-radius:50%;object-fit:cover;display:block}
-.mg-sw span::after{content:"";position:absolute;inset:-6px;border-radius:50%;border:2.5px solid var(--ac);opacity:0;transform:scale(.9);transition:opacity .4s,transform .45s cubic-bezier(.3,1.5,.5,1)}
-.mg-sw span.is-sel::after{opacity:1;transform:scale(1)}
-.mg-sw span.more{display:grid;place-items:center;background:var(--chip);border:1px solid var(--chipb);font:500 15px/1 "Manrope",var(--f-body);color:var(--ac)}
-.mg[data-th="dark"] .mg-sw span.more{color:#B9A8FF}
-.mg-seg{position:relative;display:flex;height:40px;padding:4px;border-radius:12px;background:var(--chip);border:1px solid var(--chipb)}
-.mg-seg span{position:relative;z-index:1;flex:1;display:grid;place-items:center;font:500 14px/1 "Manrope",var(--f-body);color:var(--mu);transition:color .4s}
-.mg-seg span.is-sel{color:#fff;font-weight:600}
-.mg-seg b{position:absolute;left:4px;top:4px;bottom:4px;width:calc(50% - 4px);border-radius:9px;background:var(--ac);transition:transform .55s cubic-bezier(.2,.8,.2,1);box-shadow:0 8px 18px -10px rgba(70,41,127,.9)}
-.mg-seg.r b{transform:translateX(100%)}
-.mg-f{display:block}
-.mg-f>small{display:block;margin:0 0 9px;font:500 14px/1 "Manrope",var(--f-body);color:var(--mu)}
-.mg-in{position:relative;display:flex;align-items:center;height:44px;padding:0 15px;border-radius:12px;background:var(--field);border:1px solid var(--chipb);font:400 15px/1 "Manrope",var(--f-body);transition:border-color .35s,box-shadow .35s}
-.mg-in .ph{color:var(--mu2)}
-.mg-in .val:not(:empty)+.ph{display:none}
-.mg-in.focus{border-color:var(--ac);box-shadow:0 0 0 4px var(--acT)}
-.mg-in.focus .val::after{content:"";display:inline-block;width:1.5px;height:17px;margin-left:1px;vertical-align:-3px;background:var(--ac);animation:mgCaret 1s steps(1) infinite}
-@keyframes mgCaret{50%{opacity:0}}
-.mg-in .okm{margin-left:auto;width:20px;height:20px;border-radius:50%;background:var(--ok);display:grid;place-items:center;transform:scale(0);transition:transform .45s cubic-bezier(.3,1.7,.5,1)}
-.mg-in .okm svg{width:12px;height:12px;fill:none;stroke:#fff;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
-.mg-in.ok .okm{transform:scale(1)}
-.mg-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.mg-ck{display:flex;align-items:center;gap:12px;font:400 14px/1.3 "Manrope",var(--f-body);color:var(--mu)}
-.mg-ck i{width:20px;height:20px;border-radius:6px;border:1.5px solid var(--mu2);flex:none}
-.mg-note{display:flex;gap:10px;align-items:flex-start;font:400 14px/1.45 "Manrope",var(--f-body);color:var(--mu);transition:opacity .5s,transform .5s}
-.mg-note svg{width:18px;height:18px;flex:none;margin-top:1px;fill:none;stroke:var(--ok);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.mg-note.hide{opacity:0;transform:translateY(6px)}
-.mg-wl{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.mg-w{position:relative;min-height:60px;padding:13px 32px 13px 16px;border-radius:16px;background:var(--chip);border:1px solid var(--chipb);font:400 15px/1.3 "Manrope",var(--f-body);display:flex;align-items:center;transition:background .45s,border-color .45s,box-shadow .45s}
-.mg-w svg{position:absolute;right:12px;top:12px;width:13px;height:13px;fill:var(--ac);opacity:0;transform:scale(0) rotate(-90deg);transition:opacity .4s,transform .6s cubic-bezier(.3,1.7,.5,1)}
-.mg-w.is-sel{background:var(--acT);border-color:var(--ac);box-shadow:0 12px 26px -18px rgba(70,41,127,.9)}
-.mg-w.is-sel svg{opacity:1;transform:none}
-.mg-or{display:flex;align-items:center;gap:14px;margin:14px 0 18px;font:400 15px/1 "Manrope",var(--f-body);color:var(--mu)}
-.mg-or::before,.mg-or::after{content:"";flex:1;height:1px;background:var(--line)}
-.mg-ta{position:relative;height:94px;padding:22px 16px;border-radius:16px;background:var(--field);border:1px solid var(--chipb);font:400 16px/1.4 "Manrope",var(--f-body);transition:border-color .35s,box-shadow .35s}
-.mg-ta.focus{border-color:var(--ac);box-shadow:0 0 0 4px var(--acT)}
-.mg-ta.focus .val::after{content:"";display:inline-block;width:1.5px;height:17px;margin-left:1px;vertical-align:-3px;background:var(--ac);animation:mgCaret 1s steps(1) infinite}
-.mg-ta .ph{color:var(--mu2)}.mg-ta .val:not(:empty)+.ph{display:none}
-.mg-ta em{position:absolute;right:14px;bottom:12px;font:400 11px/1 "Manrope",var(--f-body);font-style:normal;color:var(--mu);font-variant-numeric:tabular-nums}
-.mg-sum{display:flex;align-items:center;gap:14px;margin-top:30px;padding:16px 18px;border-radius:18px;background:var(--acT);border:1px solid color-mix(in srgb,var(--ac) 30%,transparent);font:400 15px/1.4 "Manrope",var(--f-body);opacity:0;transform:translateY(10px);transition:opacity .55s,transform .6s cubic-bezier(.2,.8,.2,1)}
-.mg-sum.on{opacity:1;transform:none}
-.mg-sum b{font-weight:600}
-.mg-sum .ic{width:40px;height:40px;border-radius:50%;background:var(--ac);display:grid;place-items:center;flex:none}
-.mg-sum .ic svg{width:20px;height:20px;fill:none;stroke:#fff;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.mg-back{position:absolute;left:102px;bottom:56px;font:500 11px/1 "Manrope",var(--f-body);letter-spacing:.14em;color:var(--mu)}
-.mg .mg-next{position:absolute;left:692px;bottom:52px}
-.mg-next .lb{transition:opacity .3s,transform .4s}
-.mg-next .lb.swap{opacity:0;transform:translateY(8px)}
-/* pack · success · recipient */
-.mg-scene{position:absolute;inset:0}
-.mg-env{position:absolute;left:510px;top:270px;width:420px;height:275px}
-.mg-env .eb{position:absolute;inset:0;border-radius:16px;background:linear-gradient(180deg,#3A2382,#23114F);box-shadow:0 34px 50px -26px rgba(38,16,90,.75)}
-.mg-env .esh{position:absolute;left:30px;right:30px;bottom:-30px;height:30px;border-radius:50%;background:radial-gradient(closest-side,rgba(60,30,120,.35),transparent);filter:blur(4px)}
-.mg-env .ein{position:absolute;left:0;right:0;top:-420px;bottom:0;overflow:hidden;z-index:3;pointer-events:none}
-.mg-env .ea{position:absolute;left:50%;width:250px;height:250px;margin-left:-125px;bottom:12px;border-radius:50%;overflow:hidden;border:4px solid rgba(255,255,255,.8);box-shadow:0 10px 30px -10px rgba(0,0,0,.5)}
-.mg-env .ea img{width:100%;height:100%;object-fit:cover;display:block}
-.mg-env .efr{position:absolute;inset:0;z-index:4;border-radius:16px;overflow:hidden;clip-path:polygon(0 0,50% 57%,100% 0,100% 100%,0 100%);background:linear-gradient(180deg,#3B2386 10%,#25124F)}
-.mg-env .efr::before{content:"";position:absolute;inset:0;background:linear-gradient(32deg,transparent 49.6%,rgba(160,130,255,.5) 50%,transparent 50.4%),linear-gradient(-32deg,transparent 49.6%,rgba(160,130,255,.5) 50%,transparent 50.4%);opacity:.6}
-.mg-env .efl{position:absolute;left:0;right:0;top:0;height:57%;z-index:2;transform-origin:50% 0;clip-path:polygon(0 0,100% 0,50% 100%);background:linear-gradient(180deg,#F45D93,#E73C7C);transform:scaleY(-1)}
-.mg-env .efl.closed{z-index:5;background:linear-gradient(180deg,#5A3BB3,#33197A);transform:scaleY(1)}
-.mg-env .seal{position:absolute;left:50%;top:57%;z-index:6;width:46px;height:46px;margin:-23px 0 0 -23px;transform:scale(0)}
-.mg-env .seal svg{width:100%;height:100%}
-.mg-ptx{position:absolute;left:0;right:0;top:612px;height:30px;text-align:center;font:400 21px/1.3 "Manrope",var(--f-body)}
-.mg-ptx span{position:absolute;left:0;right:0;transition:opacity .45s,transform .5s}
-.mg-ptx span.out{opacity:0;transform:translateY(-10px)}.mg-ptx span.in{opacity:0;transform:translateY(10px)}
-.mg-skip{position:absolute;right:90px;bottom:38px;font:500 11px/1 "Manrope",var(--f-body);letter-spacing:.14em;color:var(--mu)}
-.mg-star{position:absolute;width:20px;height:20px;color:#8E78C8;animation:mgTw 2.6s ease-in-out infinite}
-.mg-star svg{width:100%;height:100%;fill:currentColor}
-.mg-star:nth-child(2n){animation-delay:-1.2s;width:14px;height:14px}
-.mg-star:nth-child(3n){animation-delay:-.6s;width:24px;height:24px}
-@keyframes mgTw{0%,100%{opacity:.35;transform:scale(.8)}50%{opacity:1;transform:scale(1.1)}}
-.mg-ok{text-align:center}
-.mg-ok .ck{position:absolute;left:50%;top:286px;width:38px;height:38px;margin-left:-19px;border-radius:50%;background:var(--ac);display:grid;place-items:center;box-shadow:0 0 0 10px var(--acT),0 10px 30px rgba(70,41,127,.5)}
-.mg-ok .ck svg{width:20px;height:20px;fill:none;stroke:#fff;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:32;stroke-dashoffset:32}
-.mg-ok .ck.go svg{transition:stroke-dashoffset .6s .2s ease-out;stroke-dashoffset:0}
-.mg-ok h2{position:absolute;left:0;right:0;top:356px;margin:0;font:500 66px/1.02 "Manrope",var(--f-body);letter-spacing:-.04em}
-.mg-ok p{position:absolute;left:0;right:0;top:510px;margin:0;font:400 17px/1.5 "Manrope",var(--f-body);color:var(--mu)}
-.mg-ok p b{font-weight:600;color:var(--tx)}
-.mg-ok .mg-btn{position:absolute;left:50%;top:580px;transform:translateX(-50%);height:52px;padding:0 10px 0 26px;font-size:17px;gap:16px}
-.mg-ok .mg-btn .di{width:32px;height:32px;border-radius:50%;background:#fff;display:grid;place-items:center;color:var(--ac)}
-.mg-ok .mg-btn .di svg{width:16px;height:16px;stroke-width:2.2}
-.mg-ok .mg-btn .fill{position:absolute;left:0;top:0;bottom:0;width:0;background:rgba(255,255,255,.18)}
-.mg-ok .mg-btn.got .di{background:var(--ok);color:#fff}
-.mg-rcv-chip{position:absolute;left:50%;top:40px;transform:translateX(-50%);display:flex;align-items:center;gap:10px;height:38px;padding:0 18px 0 12px;border-radius:19px;background:var(--card);border:1px solid var(--cardb);backdrop-filter:blur(16px);font:500 13px/1 "Manrope",var(--f-body);color:var(--mu);white-space:nowrap}
-.mg-rcv-chip i{width:22px;height:22px;border-radius:50%;background:var(--ac);display:grid;place-items:center}
-.mg-rcv-chip svg{width:12px;height:12px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.mg-rcv .mg-logo{position:absolute;left:90px;top:40px;font-size:34px}
-.mg-rcv .mg-env{left:540px;top:180px;width:360px;height:236px}
-.mg-rcv .mg-env .ea{width:300px;height:300px;margin-left:-150px;bottom:-34px;transform:translateY(0) scale(.62)}
-.mg-rtx{position:absolute;left:0;right:0;top:440px;text-align:center}
-.mg-rtx h2{margin:0;font:500 50px/1.06 "Manrope",var(--f-body);letter-spacing:-.035em}
-.mg-rtx h2 b{font-weight:700;color:var(--ac);letter-spacing:-.01em}
-.mg[data-th="dark"] .mg-rtx h2 b{color:#A48CFF}
-.mg-rtx .fr{margin:12px 0 0;font:400 20px/1.3 "Manrope",var(--f-body);color:var(--mu)}
-.mg-rtx .ph1,.mg-rtx .ph2{position:absolute;left:0;right:0;top:150px}
-.mg-rtx .ph1 small{display:block;font:400 15px/1 "Manrope",var(--f-body);color:var(--mu)}
-.mg-rtx .ph1 .mg-btn{margin-top:22px;height:50px;padding:0 56px;font-size:16px;font-weight:600}
-.mg-rtx .ph2{visibility:hidden}
-.mg-q{display:inline-block;max-width:520px;padding:14px 22px;border-radius:18px;background:var(--card);border:1px solid var(--cardb);font:400 17px/1.45 "Manrope",var(--f-body);font-style:italic}
-.mg-code{display:flex;justify-content:center;gap:12px;margin-top:20px}
-.mg-code .cd{display:flex;align-items:center;gap:12px;height:50px;padding:0 10px 0 20px;border-radius:25px;border:1px dashed color-mix(in srgb,var(--ac) 55%,transparent);font:600 16px/1 "Geist Mono",monospace;letter-spacing:.06em}
-.mg-code .cd small{font:500 12px/1 "Manrope",var(--f-body);letter-spacing:.02em;color:var(--mu)}
-.mg-code .cp{width:32px;height:32px;border-radius:50%;background:var(--acT);display:grid;place-items:center;color:var(--ac)}
-.mg-code .cp svg,.mg-code .mg-btn svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.mg-code .mg-btn{height:50px;padding:0 26px;font-size:16px}
-.mg-rcv .mg-amt2{position:absolute;left:50%;top:344px;transform:translateX(-50%) scale(.6);opacity:0;height:36px;padding:0 12px;display:flex;align-items:center;border-radius:10px;background:rgba(255,255,255,.8);border:1px solid #fff;font:500 19px/1 "Manrope",var(--f-body);color:#46297F;box-shadow:0 10px 24px -14px rgba(0,0,0,.4);z-index:7}
-.mg[data-th="dark"] .mg-rcv .mg-amt2{background:rgba(40,28,60,.8);border-color:rgba(255,255,255,.18);color:#D6CBFF}
-.mg-toast{position:absolute;left:50%;bottom:40px;transform:translate(-50%,20px);opacity:0;display:flex;align-items:center;gap:10px;height:44px;padding:0 18px;border-radius:22px;background:#17131C;color:#fff;font:500 14px/1 "Manrope",var(--f-body);transition:opacity .4s,transform .5s cubic-bezier(.2,.8,.2,1);z-index:20}
-.mg[data-th="dark"] .mg-toast{background:#fff;color:#17131C}
-.mg-toast.on{opacity:1;transform:translate(-50%,0)}
-.mg-toast svg{width:16px;height:16px;fill:none;stroke:var(--ok);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
-/* ---------- mobile ---------- */
-.mg-m .mg-hd{left:16px;right:16px;top:50px;height:40px}
-.mg-m .mg-hd .bg{margin-left:auto;width:40px;height:40px;border-radius:12px;background:var(--chip);border:1px solid var(--chipb);display:grid;place-items:center}
-.mg-m .mg-hd .bg svg{width:18px;height:18px;fill:none;stroke:var(--tx);stroke-width:1.8;stroke-linecap:round}
-.mg-m .mg-hero{left:16px;top:114px;width:358px}
-.mg-m .mg-eb{font-size:11px;letter-spacing:.24em}
-.mg-m .mg-h1{margin-top:14px;font-size:46px;line-height:1}
-.mg-m .mg-lede{margin-top:12px;font-size:15px;line-height:1.45}
-.mg-m .mg-photo{left:16px;top:330px;width:358px;height:176px;border-radius:24px}
-.mg-m .mg-cap{left:18px;top:18px;width:300px}
-.mg-m .mg-cap span{font-size:16px}
-.mg-m .mg-tags{left:12px;bottom:12px;gap:6px}
-.mg-m .mg-tags span{height:28px;padding:0 11px;font-size:11.5px;border-radius:14px}
-.mg-m .mg-fmt{left:16px;top:522px;width:358px;padding:0;border:0;background:none;box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none}
-.mg-m .mg-fmt h3{display:none}
-.mg-m .mg-opt{height:66px;padding:0 16px 0 8px;gap:12px;border-radius:18px;margin-bottom:8px}
-.mg-m .mg-opt img{width:52px;height:52px}
-.mg-m .mg-opt b{font-size:16px}
-.mg-m .mg-opt small{margin-top:4px;font-size:12px}
-.mg-m .mg-opt .rd{width:20px;height:20px}
-.mg .mg-btnb{position:absolute;left:16px;right:16px;bottom:30px;height:56px;border-radius:28px;font-size:17px;padding:0}
-.mg-m .mg-whd{left:16px;right:16px;top:50px;height:36px;justify-content:space-between}
-.mg-m .mg-whd .ic{width:36px;height:36px;display:grid;place-items:center}
-.mg-m .mg-whd .ic svg{width:20px;height:20px;fill:none;stroke:var(--tx);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.mg-m .stl{position:relative;width:170px;height:16px;text-align:center;font:600 15px/1 "Manrope",var(--f-body);color:var(--ac)}
-.mg-m .stl span{position:absolute;left:0;right:0;top:0;transition:opacity .4s,transform .5s}
-.mg-m .stl span.out{opacity:0;transform:translateY(-8px)}.mg-m .stl span.in{opacity:0;transform:translateY(8px)}
-.mg-m[data-th="dark"] .stl{color:#B9A8FF}
-.mg-m .stl small{font-weight:500;color:var(--mu);margin-left:6px}
-.mg-prog{position:absolute;left:18px;right:18px;top:102px;height:4px;display:flex;gap:6px}
-.mg-prog i{position:relative;flex:1;border-radius:2px;background:var(--line);overflow:hidden}
-.mg-prog i b{position:absolute;inset:0;background:var(--ac);transform:scaleX(0);transform-origin:0 50%;transition:transform .7s cubic-bezier(.2,.8,.2,1)}
-.mg-prog i.on b{transform:scaleX(1)}
-.mg-prog img{position:absolute;top:-8px;left:0;width:20px;height:20px;margin-left:-10px;transition:left .7s cubic-bezier(.2,.8,.2,1)}
-.mg-m .mg-form{left:16px;top:124px;width:358px;height:620px}
-.mg-m .mg-mdisc{position:relative;width:206px;height:206px;margin:0 auto;border-radius:50%;padding:5px;background:linear-gradient(150deg,rgba(255,255,255,.95),rgba(214,200,250,.7) 60%,rgba(255,255,255,.5));box-shadow:0 30px 50px -26px color-mix(in srgb,var(--art) 85%,transparent)}
-.mg-m[data-th="dark"] .mg-mdisc{background:linear-gradient(150deg,rgba(150,120,255,.75),rgba(80,60,170,.5))}
-.mg-m .mg-mdisc .im{position:absolute;inset:5px;border-radius:50%;overflow:hidden}
-.mg-m .mg-mdisc img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.mg-m .mg-mdisc .mg-amt{top:auto;bottom:-14px;height:30px;font-size:15px;padding:0 10px;border-radius:8px}
-.mg-m .mg-h2{margin-top:30px;font-size:25px;height:32px;line-height:1.1}
-.mg-m .mg-p .mg-lede{margin-top:8px;font-size:14px;height:40px;line-height:1.4}
-.mg-m .mg-grp{margin-top:18px}
-.mg-m .mg-lbl{font-size:11px;margin-bottom:10px;letter-spacing:.14em}
-.mg-m .mg-row{flex-wrap:nowrap;gap:6px}
-.mg-m .mg-row .mg-chip{min-width:0;flex:1;padding:0 6px;font-size:13px;height:38px}
-.mg-m .mg-row.oc .mg-chip{flex:none;padding:0 14px}
-.mg-m .mg-sw{gap:9px}
-.mg-m .mg-sw span{width:52px;height:52px}
-.mg-m .mg-sw span::after{inset:-4px;border-width:2px}
-.mg-m .mg-sw span.more{font-size:12px}
-.mg-mini{display:flex;align-items:center;gap:12px;height:56px;padding:0 14px 0 8px;border-radius:18px;background:var(--chip);border:1px solid var(--chipb);margin-bottom:22px;font:500 14px/1.25 "Manrope",var(--f-body)}
-.mg-mini img{width:40px;height:40px;border-radius:50%;object-fit:cover}
-.mg-mini small{display:block;font-size:12px;font-weight:400;color:var(--mu)}
-.mg-mini em{margin-left:auto;font-style:normal;font-size:13px;color:var(--ac)}
-.mg-m[data-th="dark"] .mg-mini em{color:#B9A8FF}
-.mg-m .mg-p .mg-h2.t{margin-top:0;height:34px;font-size:28px}
-.mg-m .mg-f{margin-top:14px}
-.mg-m .mg-f>small{font-size:13px;margin-bottom:7px}
-.mg-m .mg-in{height:46px;font-size:15px}
-.mg-m .mg-seg{height:42px;margin-top:16px}
-.mg-m .mg-ck{margin-top:16px;font-size:13px}
-.mg-m .mg-wl{grid-template-columns:1fr;gap:8px}
-.mg-m .mg-w{min-height:52px;font-size:14px;padding:10px 32px 10px 14px}
-.mg-m .mg-or{margin:12px 0}
-.mg-m .mg-ta{height:84px;padding:14px;font-size:15px}
-.mg-m .mg-sum{margin-top:18px;font-size:14px}
-.mg-m .mg-btn.mg-next{left:16px;right:16px;bottom:30px;height:56px;border-radius:28px;font-size:17px;padding:0}
-.mg-m .mg-env{left:45px;top:300px;width:300px;height:196px}
-.mg-m .mg-env .ea{width:180px;height:180px;margin-left:-90px;bottom:8px;border-width:3px}
-.mg-m .mg-env .seal{width:36px;height:36px;margin:-18px 0 0 -18px}
-.mg-m .mg-ptx{top:560px;font-size:17px}
-.mg-m .mg-skip{right:24px;bottom:40px}
-.mg-m .mg-ok .ck{top:270px}
-.mg-m .mg-ok h2{top:336px;font-size:34px;line-height:1.08}
-.mg-m .mg-ok p{top:466px;font-size:14px;padding:0 30px}
-.mg-m .mg-ok .mg-btn{top:556px}
-.mg-m .mg-rcv-chip{top:56px;font-size:12px;height:34px}
-.mg-m .mg-rcv .mg-env{left:65px;top:150px;width:260px;height:170px}
-.mg-m .mg-rcv .mg-env .ea{width:220px;height:220px;margin-left:-110px;bottom:-26px;transform:scale(.62)}
-.mg-m .mg-rcv .mg-amt2{top:268px;height:30px;font-size:15px}
-.mg-m .mg-rtx{top:340px;padding:0 20px}
-.mg-m .mg-rtx h2{font-size:34px}
-.mg-m .mg-rtx .fr{font-size:16px}
-.mg-m .mg-rtx .ph1,.mg-m .mg-rtx .ph2{top:112px;left:20px;right:20px}
-.mg-m .mg-rtx .ph1 .mg-btn{height:52px;width:100%}
-.mg-m .mg-q{font-size:14.5px;padding:12px 16px}
-.mg-m .mg-code{flex-direction:column;align-items:stretch;gap:10px;margin-top:16px}
-.mg-m .mg-code .cd{justify-content:space-between;font-size:14px}
-.mg-m .mg-code .mg-btn{height:52px}
-.mg-m .mg-toast{bottom:100px}
-.mg-w{overflow:hidden}
+.mg2{--tp:.8;--sel:#442d7c;--on:#f2f0ec;--bg:#f3f0eb;--ink:#0d0d0e;--sec:#5f5d63;--glass:rgba(255,255,255,.38);--gline:rgba(255,255,255,.8);--chip:rgba(255,255,255,.55);--chipon:rgba(255,255,255,.92);--shadow:rgba(60,30,60,.16);--sp:cubic-bezier(.22,1.12,.36,1);--ez:cubic-bezier(.65,0,.15,1);--out:cubic-bezier(.16,1,.3,1);
+  position:relative;overflow:hidden;background:var(--bg);color:var(--ink);font-family:"Manrope",var(--f-body);-webkit-font-smoothing:antialiased;letter-spacing:-.005em}
+.mg2 *{box-sizing:border-box}
+.mg2-d{width:1440px;height:900px;--vm:14.4px}
+.mg2-m{width:390px;height:844px;--vm:8.44px}
+/* living background: five soft blobs, as in the prototype */
+.mg2-bg{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.mg2-bg b{position:absolute;display:block;border-radius:50%;background:radial-gradient(closest-side,var(--c) 0%,transparent 100%);transition:transform calc(2.2s*var(--tp)) var(--ez)}
+.mg2-bg b i{position:absolute;inset:0;border-radius:50%;background:inherit;animation:mg2Drift var(--d) ease-in-out infinite alternate}
+@keyframes mg2Drift{from{transform:translate3d(0,0,0) scale(1)}to{transform:translate3d(calc(3*var(--vm)),calc(-2*var(--vm)),0) scale(1.08)}}
+.mg2-d .k1{left:-173px;top:36px;width:1008px;height:893px;--c:#f3b2c6;opacity:.72;--d:19s;transform:translate(202px,18px)}
+.mg2-d .k2{left:547px;top:-108px;width:864px;height:749px;--c:#d9d2ee;opacity:.95;--d:23s;transform:translate(-86px,54px)}
+.mg2-d .k3{left:-202px;top:342px;width:893px;height:720px;--c:#f7d7b9;opacity:.7;--d:27s}
+.mg2-d .k4{left:749px;top:382px;width:806px;height:662px;--c:#f0bcc0;opacity:.85;--d:21s}
+.mg2-d .k5{left:950px;top:-90px;width:605px;height:490px;--c:#f9e6cf;opacity:.9;--d:25s}
+.mg2-d[data-bg="pack"] .k1{transform:translate(259px,0)}
+.mg2-d[data-bg="pack"] .k2{transform:translate(-144px,90px) scale(1.1)}
+.mg2-m .k1{left:-45px;top:20px;width:470px;height:450px;--c:#f3b2c6;opacity:.95;--d:19s}
+.mg2-m .k2{left:140px;top:470px;width:430px;height:420px;--c:#d9d2ee;opacity:.85;--d:23s}
+.mg2-m .k3{left:-310px;top:640px;width:620px;height:480px;--c:#f7d7b9;opacity:.85;--d:27s}
+.mg2-m .k4{left:100px;top:735px;width:430px;height:340px;--c:#f0bcc0;opacity:.75;--d:21s}
+.mg2-m .k5{left:-90px;top:420px;width:270px;height:270px;--c:#f9e6cf;opacity:.8;--d:25s}
+/* one screen; data-m = e (e-card) · p (plastic) · pack (envelope) */
+.mg2-ui{position:absolute;inset:0;z-index:1}
+.mg2-ui .fx{transition:opacity calc(.5s*var(--tp)) var(--out) calc(var(--i,0)*50ms),translate calc(.7s*var(--tp)) var(--out) calc(var(--i,0)*50ms),left calc(.9s*var(--tp)) var(--sp),visibility 0s}
+.mg2-ui[data-m="p"] .eo,.mg2-ui[data-m="e"] .po,.mg2-ui[data-m="pack"] .ui,.mg2-ui:not([data-m="pack"]) .ko{opacity:0;visibility:hidden;transition:opacity calc(.35s*var(--tp)) var(--ez),translate calc(.5s*var(--tp)) var(--ez),visibility 0s calc(.36s*var(--tp))}
+.mg2-ui.in0 .ui{opacity:0;translate:0 14px;transition:none}
+.mg2-logo{position:absolute;left:90px;top:47px;width:117px;height:22px;fill:var(--ink)}
+.mg2-st{position:absolute;left:0;right:0;top:47px;height:22px;display:flex;justify-content:center;align-items:center;gap:12px}
+.mg2-st span{height:22px;min-width:22px;border-radius:11px;display:flex;align-items:center;justify-content:center;gap:8px;font-size:12px;font-weight:500;border:1.2px solid rgba(13,13,14,.32)}
+.mg2-st span.on{border:0;background:var(--sel);color:var(--on);padding:0 13.2px}
+.mg2-st b{font-weight:600;letter-spacing:.09em;text-transform:uppercase}
+.mg2-x,.mg2-bk{position:absolute;display:grid;place-items:center;color:var(--ink)}
+.mg2-x{left:1331px;top:46px;width:24px;height:24px}
+.mg2 .mg2-x svg,.mg2 .mg2-bk svg,.mg2 .mg2-arr svg{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round}
+.mg2-x svg{width:26px;height:26px;stroke-width:1.2}
+.mg2-m .mg2-x{left:auto;right:12px;top:8px;width:44px;height:44px}
+.mg2-bk{left:12px;top:8px;width:44px;height:44px}
+.mg2-m .mg2-x svg{width:22px;height:22px;stroke-width:1.25}
+.mg2-bk svg{width:16px;height:16px;stroke-width:1.8}
+.mg2-htl{position:absolute;left:60px;right:60px;top:19px;height:22px;text-align:center;font-size:16px;line-height:22px;font-weight:600}
+.mg2-seg{position:absolute;left:16px;right:16px;top:60px;height:3px;display:flex;gap:4px}
+.mg2-seg i{flex:1;border-radius:2px;background:rgba(13,13,14,.14)}
+.mg2-seg i.on{background:var(--sel)}
+.mg2-ttl{position:absolute;left:0;right:0;top:109px;margin:0;text-align:center;font-size:40px;line-height:52px;font-weight:400;letter-spacing:-.025em;white-space:nowrap}
+.mg2-ttl i{display:inline-block;width:.62em;height:.62em;border-radius:50%;background:currentColor;vertical-align:-.02em;margin:0 .03em}
+.mg2-m .mg2-ttl{left:16px;right:16px;top:97px;font-size:28px;line-height:30px}
+/* e-card / plastic switch, styled like the prototype's format toggle */
+.mg2-sw{position:absolute;left:50%;top:194px;width:max-content;height:40px;padding:4px;border-radius:14px;background:var(--glass);border:1px solid var(--gline);display:grid;grid-template-columns:1fr 1fr;transform:translateX(-50%);box-shadow:0 10px 30px -18px var(--shadow);z-index:6}
+.mg2-sw b{position:absolute;left:4px;top:4px;bottom:4px;width:calc(50% - 4px);border-radius:10px;background:var(--sel);transition:transform calc(.55s*var(--tp)) var(--sp)}
+.mg2-ui[data-m="p"] .mg2-sw b{transform:translateX(100%)}
+.mg2-sw span{position:relative;z-index:1;overflow:hidden;border-radius:10px;display:grid;place-items:center;padding:0 18px;font-size:15px;font-weight:500;white-space:nowrap;color:var(--ink);transition:color calc(.35s*var(--tp))}
+.mg2-sw .se,.mg2-ui[data-m="p"] .mg2-sw .sp{color:var(--on)}
+.mg2-ui[data-m="p"] .mg2-sw .se{color:var(--ink)}
+.mg2-m .mg2-sw{top:136px;height:38px}
+.mg2-m .mg2-sw span{font-size:14px;padding:0 14px}
+/* round e-card designs */
+.mg2-discs{position:absolute;inset:0;z-index:2;pointer-events:none;visibility:visible;transition:visibility 0s}
+.mg2-ui[data-m="p"] .mg2-discs{visibility:hidden;transition:visibility 0s calc(.7s*var(--tp))}
+.mg2-it{position:absolute;left:0;top:0;width:380px;height:380px;transform-origin:0 0;transition:transform calc(.95s*var(--tp)) var(--sp),opacity calc(.6s*var(--tp)) var(--ez);z-index:2}
+.mg2-it.cur{z-index:4}
+.mg2-ui[data-m="pack"] .mg2-it{transition:transform calc(.6s*var(--tp)) var(--out),opacity calc(.3s*var(--tp)) var(--ez)}
+.mg2 .mg2-it.nt{transition:none}
+.mg2-it .fc{position:absolute;inset:0;border-radius:50%;overflow:hidden;box-shadow:0 0 0 4px rgba(255,255,255,.4),0 30px 70px -20px var(--shadow)}
+.mg2-it.cur .fc{box-shadow:0 0 0 1.5px rgba(255,255,255,.55)}
+.mg2-m .mg2-it:not(.cur) .fc{box-shadow:0 0 0 41px rgba(255,150,97,.12)}
+.mg2-it img{width:100%;height:100%;display:block;object-fit:cover}
+.mg2-it .gl{position:absolute;inset:-60px;opacity:0;transition:opacity calc(.8s*var(--tp)) var(--ez);z-index:-1}
+.mg2-it .gl img{border-radius:50%;filter:blur(70px);opacity:.3}
+.mg2-it.cur .gl{opacity:1}
+.mg2-ui[data-m="pack"] .mg2-it .gl{opacity:0}
+/* plastic cards: a ring that pages on a spring */
+.mg2-ring{position:absolute;inset:0;z-index:3;pointer-events:none;opacity:0;visibility:hidden;transition:opacity calc(.45s*var(--tp)) var(--ez),visibility 0s calc(.5s*var(--tp))}
+.mg2-ui[data-m="p"] .mg2-ring{opacity:1;visibility:visible;transition:opacity calc(.5s*var(--tp)) var(--ez),visibility 0s}
+.mg2-pc{position:absolute;left:0;top:0;width:440px;height:277.57px;border-radius:18px;transform-origin:50% 50%;box-shadow:0 34px 60px -28px var(--shadow),0 6px 16px -8px rgba(0,0,0,.18);will-change:transform,opacity}
+.mg2-m .mg2-pc{width:358px;height:225.84px}
+.mg2-pc .w{position:absolute;inset:0;border-radius:inherit;overflow:hidden}
+.mg2-pc img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.mg2-pc svg{position:absolute;left:6.5%;bottom:8%;width:22%;aspect-ratio:117/22;height:auto}
+.mg2-pc .shn{position:absolute;inset:0;border-radius:inherit;box-shadow:inset 0 0 0 1px rgba(255,255,255,.22);background:linear-gradient(120deg,rgba(255,255,255,.16),rgba(255,255,255,0) 38%)}
+.mg2-arr{position:absolute;top:444px;width:52px;height:52px;border-radius:50%;overflow:hidden;color:#fff;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.7);box-shadow:0 8px 24px -10px rgba(0,0,0,.35);display:grid;place-items:center;z-index:6}
+.mg2-arr svg{width:20px;height:20px;stroke-width:1.8}
+.mg2-arr.l{left:504px}.mg2-arr.r{left:884px}
+.mg2-ui[data-m="p"] .mg2-arr.l{left:474px}.mg2-ui[data-m="p"] .mg2-arr.r{left:914px}
+.mg2-m .mg2-arr{width:42px;height:42px;top:294px;background:rgba(255,255,255,.28);border-color:rgba(255,255,255,.6);color:var(--ink);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);box-shadow:none}
+.mg2-m .mg2-arr svg{width:17px;height:17px;stroke-width:1.9;opacity:.55}
+.mg2-m .mg2-arr.l{left:49px}.mg2-m .mg2-arr.r{left:299px}
+.mg2-dots{position:absolute;left:0;right:0;top:733px;display:flex;justify-content:center;gap:9px}
+.mg2-dots i{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.85);transition:background calc(.4s*var(--tp)),transform calc(.4s*var(--tp)) var(--sp)}
+.mg2-dots i.on{background:var(--ink);transform:scale(1.15)}
+.mg2-dots.p{top:640px;gap:8px}
+.mg2-dots.p i{width:6px;height:6px;background:rgba(13,13,14,.2)}
+.mg2-dots.p i.on{background:rgba(13,13,14,.6);transform:none}
+.mg2-m .mg2-dots{top:479px}
+.mg2-m .mg2-dots.p{top:430px}
+.mg2-chips{position:absolute;left:0;top:765px;width:100%;height:48px}
+.mg2-chips span{position:absolute;border-radius:12px;background:var(--chip);border:1px solid var(--gline);font-weight:500;display:grid;place-items:center;white-space:nowrap}
+.mg2-chips span.c{background:var(--chipon);box-shadow:0 10px 26px -10px var(--shadow)}
+.mg2-m .mg2-chips{top:538px}
+.mg2-m .mg2-chips span{font-weight:600}
+.mg2-m .mg2-chips span.c{box-shadow:0 8px 20px rgba(0,0,0,.1),inset 0 0 0 1px rgba(255,255,255,.8)}
+.mg2-next{position:absolute;left:1124px;top:740px;width:120px;height:120px;border-radius:50%;overflow:hidden;background:var(--sel);color:var(--on);font-size:18px;font-weight:500;letter-spacing:-.01em;display:grid;place-items:center;z-index:15;box-shadow:0 18px 40px -14px rgba(70,48,127,.55)}
+.mg2-m .mg2-next{left:28px;top:772px;width:334px;height:52px;border-radius:26px}
+.mg2-pact{position:absolute;left:490px;top:714px;width:460px;display:flex;gap:12px}
+.mg2-pact span{position:relative;overflow:hidden;flex:1;height:52px;border-radius:26px;display:grid;place-items:center;letter-spacing:-.01em;white-space:nowrap}
+.mg2-pact .g{border:1px solid rgba(13,13,14,.2);font-size:16px;font-weight:600}
+.mg2-pact .v{background:var(--sel);color:var(--on);font-size:18px;font-weight:500;box-shadow:0 14px 28px -12px rgba(68,45,124,.7)}
+.mg2-m .mg2-pact{left:28px;top:708px;width:334px;flex-direction:column-reverse}
+.mg2-m .mg2-pact span{flex:none}
+/* envelope: ported from the prototype (one contour for back, pocket and flap; paper grain; moon lining) */
+.mg2-ec{position:absolute;left:50%;top:270px;margin-left:-260px;width:520px;height:340px;transform-origin:50% 0;transform:scale(.8077);perspective:1500px;perspective-origin:50% 0;z-index:7;visibility:hidden}
+.mg2-m .mg2-ec{top:287px;transform:scale(.577)}
+.mg2-ec svg{position:absolute;inset:0;width:100%;height:100%;display:block}
+.mg2-ec .sh{position:absolute;left:56px;top:320px;width:408px;height:46px;border-radius:50%;background:rgba(40,16,100,.5);filter:blur(22px)}
+.mg2-ec .bk{position:absolute;inset:0}
+.mg2-ec .cw{position:absolute;left:0;top:-700px;width:520px;height:1034px;overflow:hidden;z-index:2}
+.mg2-ec .cd{position:absolute;left:110px;top:535px;width:300px;height:300px;opacity:0}
+.mg2-ec .cd i{position:absolute;inset:0;border-radius:50%;box-shadow:0 26px 50px -12px rgba(232,57,122,.5),0 0 0 1px rgba(255,255,255,.2);opacity:0}
+.mg2-ec .cd img{position:relative;width:100%;height:100%;display:block;object-fit:cover;border-radius:50%}
+.mg2-ec .fr{position:absolute;inset:0;z-index:3;filter:drop-shadow(0 -6px 14px rgba(20,8,60,.42))}
+.mg2-ec .fl{position:absolute;left:0;top:0;width:520px;height:202px;transform-origin:50% 0;transform-style:preserve-3d;z-index:5}
+.mg2-ec .ff,.mg2-ec .fb{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.mg2-ec .fb{transform:rotateY(180deg);visibility:hidden}
+.mg2-ec .shd{opacity:0}
+.mg2-ec .lg{position:absolute;left:208px;top:52.2px;width:104px;height:19.6px;filter:drop-shadow(0 1px 0 rgba(18,6,58,.5))}
+.mg2-ec .lg .gt{position:absolute;inset:0;overflow:hidden;-webkit-mask:var(--lm) 0 0/100% 100% no-repeat;mask:var(--lm) 0 0/100% 100% no-repeat}
+.mg2-ec .lg .gt i{position:absolute;top:-8px;bottom:-8px;left:0;width:30px;background:linear-gradient(90deg,rgba(255,255,255,0),rgba(255,255,255,.95) 50%,rgba(255,255,255,0));transform:translateX(-50px) skewX(-18deg)}
+.mg2-ec.shine .lg .gt i{animation:mg2Glint calc(.9s*var(--tp)) calc(.25s*var(--tp)) var(--ez) both}
+@keyframes mg2Glint{from{transform:translateX(-50px) skewX(-18deg)}to{transform:translateX(130px) skewX(-18deg)}}
+.mg2-ec .seal{position:absolute;left:228px;top:168px;width:64px;height:64px;border-radius:50%;background:#F6EFE0;box-shadow:0 0 0 1px rgba(255,255,255,.5),0 8px 18px -6px rgba(15,5,45,.45);z-index:6;opacity:0}
+.mg2-ec .seal::after{content:"";position:absolute;inset:0;border-radius:50%;background:var(--paper) 0 0/64px 64px;opacity:.5}
+.mg2-pk{position:absolute;left:0;right:0;top:620px;height:30px;text-align:center;font-size:20px;line-height:30px;letter-spacing:-.01em;z-index:7}
+.mg2-pk span{position:absolute;left:0;right:0;transition:opacity calc(.45s*var(--tp)),transform calc(.6s*var(--tp)) var(--out)}
+.mg2-pk .t2{opacity:0;transform:translateY(10px)}
+.mg2-pk.two .t1{opacity:0;transform:translateY(-10px)}
+.mg2-pk.two .t2{opacity:1;transform:none}
+.mg2-m .mg2-pk{top:552px}
+.mg2-skip{position:absolute;right:200px;bottom:34px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--sec)}
+.mg2-m .mg2-skip{right:0;left:0;text-align:center;bottom:36px}
 
 /* ---------- Lumo: explore → filters → chat ---------- */
 .st-ky{--sx-bg:#07080A;--sx-glow:radial-gradient(46cqw 36cqw at 22% 18%,rgba(214,240,90,.16),transparent 70%),radial-gradient(40cqw 34cqw at 90% 82%,rgba(160,40,200,.22),transparent 70%)}
@@ -2232,13 +2052,13 @@ html{background:var(--paper)}
 .bb-stats{display:flex;gap:56px;margin-top:30px}
 .bb-stats b{display:block;font:700 22px/1 "Unbounded",var(--f-display);letter-spacing:-.02em}
 .bb-stats small{display:block;margin-top:8px;font-size:12px;color:rgba(244,242,237,.5)}
-.bb-stack{position:absolute;right:44px;top:44px;width:380px}
+.bb-stack{position:absolute;right:44px;top:50%;width:380px;transform:translateY(-50%)}
 .bb-rem{padding:18px 18px 16px;border-radius:20px;background:var(--asph3);box-shadow:0 0 0 1px rgba(255,255,255,.06)}
 .bb-rem small{font:600 10px/1 "Onest",var(--f-body);letter-spacing:.12em;color:rgba(244,242,237,.45)}
 .bb-rem b{display:block;margin-top:8px;font:600 17px/1.3 "Onest",var(--f-body)}
 .bb-rem b em{font-style:normal;color:var(--sig)}
 .bb-rem .bb-btn{width:100%;height:42px;margin-top:14px;justify-content:space-between;font-size:14px}
-.bb-mini{margin-top:12px;padding:14px 16px;border-radius:18px;background:var(--sf);color:var(--tx);box-shadow:0 16px 40px -18px rgba(0,0,0,.6)}
+.bb-mini{margin-top:12px;padding:14px 16px;border-radius:18px;background:var(--sf);color:var(--tx);box-shadow:0 1px 0 rgba(255,255,255,.5) inset,0 18px 36px -16px rgba(0,0,0,.75),0 4px 10px -4px rgba(0,0,0,.35)}
 .bb-mini .t{display:flex;justify-content:space-between;font:600 15px/1.2 "Onest",var(--f-body)}
 .bb-mini .t span{font-weight:700}
 .bb-mini .s{display:flex;justify-content:space-between;margin-top:5px;font-size:12px;color:var(--tx3)}
@@ -2475,8 +2295,8 @@ html{background:var(--paper)}
 .bb-sheet h3{margin:0;font:700 20px/1.1 "Unbounded",var(--f-display);letter-spacing:-.02em}
 .bb-sheet .note{margin-top:6px;font-size:12px;color:var(--tx3)}
 .bb-sheet .bb-days{gap:6px;margin-top:14px}
-.bb-sheet .bb-day{height:66px;border-radius:12px}
-.bb-sheet .bb-day:nth-child(n+7){display:none}
+.bb-sheet .bb-day{height:70px;padding:0 6px;border-radius:12px}
+.bb-sheet .bb-day:nth-child(n+6){display:none}
 .bb-sheet .bb-day b{font-size:17px}
 .bb-sheet .bb-slots{grid-template-columns:repeat(4,1fr);gap:6px}
 .bb-sheet .bb-slots .bb-sl{height:42px}
@@ -2665,7 +2485,7 @@ html{background:var(--paper)}
 </template>
 
 <template id="tpl-mgift">
-  <div class="stage sx st-mg" data-engine="mgift" role="img" aria-label="mooon e-gift card on desktop and mobile: pick a design and amount, add a recipient and a wish, schedule delivery, the card is packed into an envelope, then the recipient opens it">
+  <div class="stage sx st-mg" data-engine="mgift" role="img" aria-label="mooon gift cards on desktop and mobile: a carousel of round e-card designs turns, the buyer switches to plastic cards and pages through them, goes back to an e-card design, and the card is packed into a branded envelope">
     <span class="sx-glow"></span><span class="sx-grain"></span>
     <div class="scr desk" data-w="1440" data-h="900"><div class="vp"></div></div>
     <div class="scr mob" data-w="390" data-h="844"><div class="vp"></div></div>
@@ -3145,7 +2965,7 @@ html{background:var(--paper)}
     ]
   };
   const CASE_BASE = [
-    {id:"mooon", tpl:"tpl-mgift", frame:"mooon / E-gift card / Desktop + Mobile"},
+    {id:"mooon", tpl:"tpl-mgift", frame:"mooon / Gift cards / Desktop + Mobile"},
     {id:"lumo", tpl:"tpl-lumo", frame:"Lumo / Explore → Series → Chat"},
     {id:"kiosk", tpl:"tpl-kiosk", frame:"mooon kiosk / Cart → Gift card → Card"},
     {id:"portal", tpl:"tpl-admin", frame:"Back office / Dashboard → Loyalty → Menu"},
@@ -3229,8 +3049,10 @@ html{background:var(--paper)}
       const W = stage.clientWidth, H = stage.clientHeight; if (!W || !H) return;
       const narrow = W < 640;
       if (lay === 'solo'){
-        const dw = +desk.dataset.w, dh = +desk.dataset.h, k = W*(narrow ? .96 : .84)/dw;
-        place(desk, k, dw, dh, W*(narrow ? .02 : .08), narrow ? H*.07 : Math.max(H*.065, (H - dh*k)/2), 16);
+        // fit by width, but never taller than the frame: equal margins, nothing cut at the bottom
+        const dw = +desk.dataset.w, dh = +desk.dataset.h, m = narrow ? .04 : .05;
+        const k = Math.min(W*(narrow ? .96 : .84)/dw, H*(1 - 2*m)/dh);
+        place(desk, k, dw, dh, (W - dw*k)/2, Math.max(H*m, (H - dh*k)/2), 16);
         return;
       }
       if (lay === 'kiosk'){
@@ -3315,16 +3137,16 @@ html{background:var(--paper)}
   const CS = {
     bonus:[
       {img:'sevens', t:'Lucky Sevens: pick your symbol, +$300 bonus'},
-      {img:'fox', t:'Cosmo Fox welcome pack: 150 free spins'},
+      {img:'fox', t:'Cosmo Fox welcome pack: 150\u00A0free\u00A0spins'},
       {img:'chest', t:'Treasure Drop: 100% match up to $500'}
     ],
-    top:['dice','mines','plinko'], orig:['limbo','keno','blackjack'],
+    top:[['dice','Dice','#0B7A45'],['mines','Mines','#B3122A'],['plinko','Plinko','#B0136E']], orig:[['limbo','Limbo','#D0560A'],['keno','Keno','#5A23C8'],['blackjack','Blackjack','#1A4FC4']],
     gen:[['pharaoh','Neon Pharaoh','#0FB5B5'],['dragon','Frost Dragon','#3D6BFF'],['candy','Candy Jar','#E8418F'],['buffalo','Wild Buffalo','#E8701A'],['panda','Lucky Panda','#D62F35'],['ocean','Deep Treasure','#0E8FA0']],
     provs:[['Novaplay','font-weight:700;letter-spacing:-.02em'],['POLAR','font-weight:300;letter-spacing:.3em'],['redline','font-weight:600;font-style:italic;color:#FF5A6A'],['kiwi.games','font-weight:500;color:#9BE15D'],['ATLAS','font-weight:700;letter-spacing:.12em'],['Lumen','font-weight:400;letter-spacing:.06em;color:#FFD66E']],
     wins:[['pharaoh','Neon Pharaoh','al***x','$1,284.50'],['dragon','Frost Dragon','mi***7','$642.00'],['panda','Lucky Panda','ka***s','$318.75']],
     email:'player@example.com', code:'4817'
   };
-  const gIMG = g => `assets/cs-g-${g}.webp`, sIMG = g => `assets/cs-s-${g}.webp`;
+  const gIMG = g => `assets/cs-o-${g}.webp`, sIMG = g => `assets/cs-s-${g}.webp`;
   const LOGOS = {
     google:'<svg class="lg" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.5 12.3c0-.8-.1-1.4-.2-2.1H12v3.9h5.9a5 5 0 01-2.2 3.3v2.7h3.5c2.1-1.9 3.3-4.7 3.3-7.8z"/><path fill="#34A853" d="M12 23c2.9 0 5.4-1 7.2-2.6l-3.5-2.7c-1 .7-2.2 1.1-3.7 1.1-2.8 0-5.2-1.9-6.1-4.5H2.3v2.8A11 11 0 0012 23z"/><path fill="#FBBC05" d="M5.9 14.3a6.6 6.6 0 010-4.2V7.3H2.3a11 11 0 000 9.8z"/><path fill="#EA4335" d="M12 5.4c1.6 0 3 .6 4.1 1.6l3.1-3.1A11 11 0 002.3 7.3l3.6 2.8C6.8 7.3 9.2 5.4 12 5.4z"/></svg>',
     tg:'<svg class="lg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="#2AABEE"/><path fill="#fff" d="M5.6 11.7l11.3-4.4c.5-.2 1 .1.8.9l-1.9 9c-.1.6-.5.8-1 .5l-2.9-2.1-1.4 1.3c-.2.2-.3.3-.6.3l.2-3 5.5-5c.2-.2 0-.3-.3-.1l-6.8 4.3-2.9-.9c-.6-.2-.6-.6.1-.9z"/></svg>',
@@ -3343,7 +3165,7 @@ html{background:var(--paper)}
   }
   const csTile = (g, gen) => gen
     ? `<div class="cs-tile gen" style="--tc:${g[2]}"><img src="${sIMG(g[0])}" alt=""><span class="tn">${esc(g[1])}</span></div>`
-    : `<div class="cs-tile"><img src="${gIMG(g)}" alt=""></div>`;
+    : `<div class="cs-tile gen og" style="--tc:${g[2]}"><img src="${gIMG(g[0])}" alt=""><span class="tn">${esc(g[1])}</span></div>`;
   function csFormCore(){
     return `
       <div class="tabs" data-a="tabs" data-i="0"><i class="pill"></i><span data-a="tEmail">Email</span><span data-a="tPhone">Phone</span></div>
@@ -3440,11 +3262,11 @@ html{background:var(--paper)}
               <div class="cs-box">${IC.search}<span><b>Search:</b> e.g. Neon Pharaoh or Frost Dragon</span><span class="kbd">⌘K</span></div>
               <div class="cs-box">${IC.fire}<b>Hot RTP</b><svg class="cs-spark" viewBox="0 0 160 24" preserveAspectRatio="none"><polyline fill="none" stroke="#2BD576" stroke-width="2" points="0,16 12,12 22,17 34,9 46,13 58,6 70,11 82,8 94,14 106,7 118,10 130,4 142,9 160,3"/></svg><span class="cs-pct up">▲ 97.4%</span><span class="cs-hot"><img src="${sIMG('dragon')}" alt="">Frost Dragon</span></div>
             </div>
-            <div class="cs-row2" style="margin-top:8px">
+            <div class="cs-row2 secs" style="margin-top:8px">
               <div class="cs-sec"><div class="cs-sh">${IC.pad}Top Games<em>View all</em></div><div class="cs-tiles">${CS.top.map(g=>csTile(g)).join('')}</div></div>
               <div class="cs-sec"><div class="cs-sh">${IC.grid}Originals<em>View all</em></div><div class="cs-tiles">${CS.orig.map(g=>csTile(g)).join('')}</div></div>
             </div>
-            <div class="cs-row2" style="margin-top:0">
+            <div class="cs-row2 secs" style="margin-top:0">
               <div class="cs-sec"><div class="cs-sh">${IC.fire}Popular now<em>View all</em></div><div class="cs-tiles">${CS.gen.slice(0,3).map(g=>csTile(g,1)).join('')}</div></div>
               <div class="cs-sec"><div class="cs-sh">${IC.star}New releases<em>View all</em></div><div class="cs-tiles">${CS.gen.slice(3).map(g=>csTile(g,1)).join('')}</div></div>
             </div>
@@ -3523,14 +3345,6 @@ html{background:var(--paper)}
       stage.querySelectorAll('.cs-timer').forEach(t => t.textContent = s);
     }, 1000);
 
-    const mScroll = (el, frac=.4) => {
-      const sheet = m('su'), sc = m('susc'); if (!el) return;
-      const k = K.kOf(M), sr = sheet.getBoundingClientRect(), er = el.getBoundingClientRect();
-      const curY = +(sc.dataset.y || 0), elTop = (er.top - sr.top)/k;
-      let y = curY - (elTop - sheet.offsetHeight*frac);
-      y = Math.max(Math.min(0, y), -(sc.offsetHeight - sheet.offsetHeight));
-      sc.dataset.y = y; sc.style.transform = `translateY(${y}px)`;
-    };
     const focus = (key, on=true) => both(key).forEach(e => e.classList.toggle('focus', on));
     const type = async (key, text, pw=false, speed=75) => {
       const vals = both(key).map(e => e.querySelector('.val'));
@@ -3547,7 +3361,7 @@ html{background:var(--paper)}
       both('tabs').forEach(t => t.dataset.i = 0); both('wtabs').forEach(t => t.dataset.i = 0);
       both('fsw').forEach(f => f.classList.remove('phone'));
       ['email','pw','cur','spend'].forEach(k => both(k).forEach(e => { e.classList.remove('focus','bad','is-open'); const v = e.querySelector('.val'); if (v && k !== 'cur') v.textContent = ''; }));
-      both('curv').forEach(v => v.innerHTML = '');
+      both('curv').forEach(v => v.innerHTML = '<b>USD</b> <span class="mu">US Dollar</span>');
       ['err','okm'].forEach(k => both(k).forEach(e => e.classList.remove('on')));
       both('bars').forEach(e => e.classList.remove('f'));
       both('chk').forEach(e => e.classList.remove('on'));
@@ -3576,92 +3390,57 @@ html{background:var(--paper)}
 
     for(;;){
       reset();
-      await wait(stage, 900);
+      await wait(stage, 700);
       // 1 open sign up
-      await clickBoth('signup');
+      await clickBoth('signup', {ms:500});
       [D, M].forEach(r => r.classList.add('dim'));
       both('su').forEach(e => e.classList.add('on'));
-      await wait(stage, 1000);
+      await wait(stage, 420);
       // 2 bonus carousel
-      await K.click(d('next'), M.querySelectorAll('.cm-bcard')[1]);
+      await K.click(d('next'), M.querySelectorAll('.cm-bcard')[1], {ms:450});
       D.querySelectorAll('.cs-bc').forEach(c => c.dataset.p = {c:'l', r:'c', l:'r'}[c.dataset.p]);
       m('btrack').style.transform = 'translateX(-312px)';
       M.querySelectorAll('.cm-bcard').forEach((c,i) => c.classList.toggle('on', i === 1));
-      await wait(stage, 1300);
-      // 3 tabs: phone and back
-      mScroll(m('tabs'), .3);
-      await K.click(d('tPhone'), m('tPhone'), {press:false});
-      both('tabs').forEach(t => t.dataset.i = 1); both('fsw').forEach(f => f.classList.add('phone'));
-      await wait(stage, 1100);
-      await K.click(d('tEmail'), m('tEmail'), {press:false, ms:450});
-      both('tabs').forEach(t => t.dataset.i = 0); both('fsw').forEach(f => f.classList.remove('phone'));
-      await wait(stage, 400);
-      // 4 email
-      await K.click(d('email'), m('email'), {press:false});
-      focus('email'); await type('email', CS.email); focus('email', false);
-      await wait(stage, 250);
-      // 5 currency
-      mScroll(m('cur'), .25);
-      await wait(stage, 300);
-      await K.click(d('cur'), m('cur'), {press:false});
-      both('cur').forEach(e => e.classList.add('is-open', 'focus'));
-      await wait(stage, 450);
-      const oD = d('oUSD'), oM = m('oUSD');
-      await K.move(oD, 450); oD.classList.add('hov'); oM.classList.add('hov');
-      await wait(stage, 250);
-      await K.click(oD, oM, {press:false, ms:120});
-      setUSD(); both('cur').forEach(e => e.classList.remove('is-open', 'focus')); oD.classList.remove('hov'); oM.classList.remove('hov');
-      await wait(stage, 300);
-      // 6 password with validation
-      mScroll(m('pw'), .32);
-      await K.click(d('pw'), m('pw'), {press:false});
-      focus('pw'); await type('pw', 'Orb1q', true, 110);
-      await wait(stage, 350);
-      both('pw').forEach(e => { e.classList.remove('focus'); e.classList.add('bad'); e.classList.remove('shake'); void e.offsetWidth; e.classList.add('shake'); });
-      both('err').forEach(e => e.classList.add('on'));
-      await wait(stage, 1300);
-      both('pw').forEach(e => e.classList.replace('bad', 'focus'));
-      await type('pw', 'Moo', true, 110);
-      both('err').forEach(e => e.classList.remove('on'));
-      both('okm').forEach(e => e.classList.add('on'));
-      await type('pw', 'n#7', true, 110);
-      both('bars').forEach(e => e.classList.add('f'));
-      await wait(stage, 700); focus('pw', false);
-      // 7 terms
-      mScroll(m('chk'), .45);
-      await K.click(d('chk'), m('chk'), {press:false});
+      await wait(stage, 480);
+      // 3 email (USD is preselected)
+      await K.click(d('email'), m('email'), {press:false, ms:400});
+      focus('email'); await type('email', CS.email, false, 22); focus('email', false);
+      // 4 password: strength fills in one go
+      await K.click(d('pw'), m('pw'), {press:false, ms:380});
+      focus('pw'); await type('pw', 'Orb1qMoon#7', true, 26);
+      both('okm').forEach(e => e.classList.add('on')); both('bars').forEach(e => e.classList.add('f'));
+      await wait(stage, 380); focus('pw', false);
+      // 5 terms
+      await K.click(d('chk'), m('chk'), {press:false, ms:380});
       both('chk').forEach(e => e.classList.add('on'));
-      await wait(stage, 450);
-      // 8 submit
-      mScroll(m('submit'), .55);
-      await wait(stage, 250);
-      await clickBoth('submit');
+      await wait(stage, 120);
+      // 6 submit, next screen right away
+      await clickBoth('submit', {ms:380});
       both('submit').forEach(e => e.classList.add('loading'));
-      await wait(stage, 1000);
+      await wait(stage, 450);
       both('su').forEach(e => e.classList.remove('on'));
-      await wait(stage, 200);
       both('code').forEach(e => e.classList.add('on'));
-      await wait(stage, 800);
+      await wait(stage, 650);
       // 9 code
       const sl = both('slots').map(s => [...s.querySelectorAll('.cs-slot')]);
-      await K.click(sl[0][0], sl[1] && sl[1][0], {press:false});
+      await K.click(sl[0][0], sl[1] && sl[1][0], {press:false, ms:450});
       for (let i = 0; i < 4; i++){
         sl.forEach(a => a[i].classList.add('cur'));
-        await wait(stage, 260);
+        await wait(stage, 150);
         sl.forEach(a => { a[i].textContent = CS.code[i]; a[i].classList.remove('cur'); a[i].classList.add('fill'); a[i].animate([{transform:'scale(.85)'},{transform:'scale(1.06)'},{transform:'scale(1)'}], {duration:280}); });
-        await wait(stage, 160);
+        await wait(stage, 90);
       }
-      await wait(stage, 300);
-      await clickBoth('enter');
+      await wait(stage, 200);
+      await clickBoth('enter', {ms:450});
       both('enter').forEach(e => e.classList.add('loading'));
-      await wait(stage, 900);
+      await wait(stage, 600);
       both('codeP').forEach(e => e.classList.add('out')); both('okP').forEach(e => e.classList.remove('out'));
       await wait(stage, 60);
       both('ok').forEach(e => e.classList.add('go'));
-      await K.count(both('bon'), 0, 300, 1100, v => '+$' + Math.round(v));
-      await wait(stage, 1100);
+      await K.count(both('bon'), 0, 300, 900, v => '+$' + Math.round(v));
+      await wait(stage, 800);
       // 10 start playing
-      await clickBoth('play');
+      await clickBoth('play', {ms:500});
       both('code').forEach(e => e.classList.remove('on'));
       [D, M].forEach(r => r.classList.remove('dim'));
       both('head').forEach(h => h.classList.add('in'));
@@ -4960,353 +4739,301 @@ html{background:var(--paper)}
   const io = 'IntersectionObserver' in window ? new IntersectionObserver(es => {
     es.forEach(e => e.target.classList.toggle('is-live', e.isIntersecting));
   }, {threshold:.15}) : null;
-  /* ---------- mooon e-gift card: purchase → packing → recipient opens ---------- */
-  const MGI = (() => {
-    const s = (d, w=1.8) => `<svg viewBox="0 0 24 24" style="fill:none;stroke:currentColor;stroke-width:${w};stroke-linecap:round;stroke-linejoin:round"><path d="${d}"/></svg>`;
-    return {
-      arr: s('M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3', 2), l: s('M15.75 19.5 8.25 12l7.5-7.5'), r: s('M8.25 4.5l7.5 7.5-7.5 7.5'), x: s('M6 18 18 6M6 6l12 12'),
-      sun: s('M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z'),
-      moon: s('M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z'), burger: s('M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5'), ok: s('M4.5 12.75l6 6 9-13.5', 2.4),
-      cal: s('M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5'), clock: s('M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z'), gift: s('M21 11.25v8.25a1.5 1.5 0 0 1-1.5 1.5H5.25a1.5 1.5 0 0 1-1.5-1.5v-8.25M12 4.875A2.625 2.625 0 1 0 9.375 7.5H12m0-2.625V7.5m0-2.625A2.625 2.625 0 1 1 14.625 7.5H12m0 0V21m-8.625-9.75h18c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125h-18c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z'),
-      dl: s('M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3', 2.2), copy: s('M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 0 1-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 0 1 1.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 0 0-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 0 1-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 0 0-3.375-3.375h-1.5a1.125 1.125 0 0 1-1.125-1.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H9.75', 2), eye: s('M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178ZM15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z', 2),
-      spark: '<svg viewBox="0 0 24 24"><path d="M12 0c.6 6.2 5.8 11.4 12 12-6.2.6-11.4 5.8-12 12C11.4 17.8 6.2 12.6 0 12 6.2 11.4 11.4 6.2 12 0z"/></svg>',
-      seal: '<svg viewBox="0 0 46 46"><circle cx="23" cy="23" r="15" fill="#D9C196"/><circle cx="29.5" cy="18.5" r="12.5" fill="#3A2180"/></svg>'
-    };
-  })();
-  const MG = {
-    designs:[['punk','#E0306E','Неон'],['knit','#C9E24E','Уютный'],['shades','#F2952F','Звезда'],['hearts','#9D82EE','Сердечки'],['3d','#3B3FD8','Попкорн-клуб']],
-    caps:['Фильм, попкорн и вечер, который запомнится','Кино с другом и разговоры до ночи','Два места рядом и один попкорн на двоих','Большой экран для всей семьи'],
-    tags:['В кино','С другом','С партнёром','С семьёй'],
-    wishes:['Для приятных кинопросмотров и ярких эмоций.','Попкорн с меня, фильм — на твой выбор.','Больше историй, которые хочется повторить.','Смотри, вдохновляйся, делись впечатлениями.','Это не просто билет, а повод увидеться.','Наше время вместе всегда особенное.'],
-    steps:['дизайн','получатель','пожелания','доставка','оплата'],
-    mt:['Дизайн','Получатель','Пожелание','Доставка','Оплата'],
-    next:['Выбрать получателя','Добавить тепла','К доставке','Оплатить 100 BYN'],
-    joy:['Вечер, который<br>запомнится','Фильмы, разговоры после титров<br>и время только для вас'],
-    date:['Кино на двоих','Два места рядом, один попкорн<br>и фильм, который выберете вместе'],
-    mjoy:['Вечер, который запомнится','Фильмы, разговоры после титров<br>и время только для вас'],
-    mdate:['Кино на двоих','Два места рядом, один попкорн<br>и фильм, который выберете вместе'],
-    wish:1
+  /* ---------- mooon gift cards: e-card carousel → plastic cards → envelope ---------- */
+  const MG2 = {
+    discs:['d1','d2','d3','d4','d5'], start:1,
+    cards:[['c1','#F2F0EC'],['c2','#442D7C'],['c3','#442D7C']],
+    occ:['8 марта','спасибо','годовщина','порадовать','свидание','новый год','день рождения'], occOn:3,
+    logo:'M42.1729 0.0253906C48.4222 0.0254363 52.9582 4.647 52.9609 11.0146C52.9608 14.0075 51.9071 16.7662 49.9951 18.7812C48.0252 20.8557 45.2465 21.9999 42.1758 22C38.9836 22 36.252 20.8866 34.2793 18.7783C32.4142 16.7858 31.3878 14.0301 31.3877 11.0117C31.3877 8.02149 32.4418 5.2631 34.3594 3.24512C36.3321 1.1706 39.1075 0.0253906 42.1729 0.0253906ZM64.5098 0.0283203C70.4327 0.0283203 75.2342 4.94653 75.2344 11.0137C75.2344 17.081 70.4328 22 64.5098 22C58.5868 22 53.7852 17.081 53.7852 11.0137C53.7854 4.94656 58.5869 0.0283684 64.5098 0.0283203ZM86.6387 0.0253906C92.8879 0.0254987 97.424 4.64704 97.4268 11.0146C97.4267 14.0075 96.3729 16.7662 94.4609 18.7812C92.491 20.8557 89.7123 21.9999 86.6416 22C83.4495 22 80.7179 20.8865 78.7451 18.7783C76.88 16.7858 75.8536 14.0301 75.8535 11.0117C75.8535 8.0217 76.9069 5.26306 78.8242 3.24512C80.797 1.1706 83.5733 0.0253906 86.6387 0.0253906ZM9.67578 0C12.3383 0 14.5929 1.26649 15.9062 3.47949C17.4872 1.33997 20.103 0.0145451 22.7959 0.0117188C25.1383 0.0117494 27.1001 0.765894 28.4658 2.1875C29.8095 3.58652 30.5186 5.56218 30.5186 7.90234V21.5537H26.7246V8.34082C26.7246 5.34223 25.0694 3.55288 22.2939 3.55273C19.4963 3.55273 17.131 5.86166 17.1309 8.5918V18.4814L17.1455 21.5566H16.9189L14.4551 21.582V21.5566H13.3545V8.34375C13.3545 5.43555 11.5663 3.55576 8.80176 3.55566C6.21923 3.55566 3.77441 5.93272 3.77441 8.44531V21.5537H0V0.438477H3.77441V2.37402C5.22286 0.879005 7.3914 0.000105755 9.67578 0ZM108.853 0.110352C113.88 0.110352 117.003 3.33531 117 8.52441V21.5566H113.231V9.04102C113.231 5.66953 111.38 3.65449 108.279 3.6543C104.988 3.6543 102.311 6.32225 102.311 9.60352V21.5537H98.5254V0.4375H102.3V2.69043C103.944 1.04557 106.306 0.110404 108.853 0.110352ZM42.1729 3.55859C38.1473 3.55859 35.2256 6.69322 35.2256 11.0146C35.2258 15.4037 38.084 18.4697 42.1729 18.4697C46.2617 18.4697 49.1172 15.4036 49.1201 11.0146C49.1201 8.95724 48.4471 7.07741 47.2305 5.72363C45.9585 4.30767 44.209 3.55862 42.1729 3.55859ZM86.6387 3.55859C82.6131 3.55859 79.6914 6.69322 79.6914 11.0146C79.6916 15.4037 82.5498 18.4697 86.6387 18.4697C90.7274 18.4696 93.583 15.4036 93.5859 11.0146C93.5859 8.95727 92.9129 7.07741 91.6963 5.72363C90.4244 4.3077 88.6748 3.55865 86.6387 3.55859Z',
+    ic:{x:'M6 18 18 6M6 6l12 12', l:'M15.75 19.5 8.25 12l7.5-7.5', r:'M8.25 4.5l7.5 7.5-7.5 7.5'}
   };
-  const mgImg = id => `assets/mg-${id}.webp`;
-  function mgHTML(dev, th){
-    const D = dev === 'd', I = MGI;
-    const logo = '<span class="mg-logo">mo<i></i>on</span>';
-    const pc = (x, y, w) => `<img class="mg-pc" src="assets/mg-pop.webp" alt="" style="left:${x}px;top:${y}px;width:${w}px">`;
-    const star = (x, y) => `<span class="mg-star" style="left:${x}px;top:${y}px">${I.spark}</span>`;
-    const opt = (k, img, b, sm) => `<div class="mg-opt" data-a="o-${k}"><img src="assets/mg-i-${img}.webp" alt=""><div><b>${b}</b><small>${sm}</small></div><span class="rd"></span></div>`;
-    const field = (a, lab, ph, extra='') => `<label class="mg-f"><small>${lab}</small><span class="mg-in" data-a="${a}"><span class="val">${extra}</span><span class="ph">${ph}</span><span class="okm">${I.ok}</span></span></label>`;
-    const env = (pre, closed) => `<div class="mg-env" data-a="${pre}env"><span class="esh"></span><span class="eb"></span><span class="efl${closed ? ' closed' : ''}" data-a="${pre}flap"></span><div class="ein"><div class="ea" data-a="${pre}ea"><img src="${mgImg('hearts')}" alt=""></div></div><span class="efr"></span><span class="seal" data-a="${pre}seal"${closed ? ' style="transform:scale(1)"' : ''}>${I.seal}</span></div>`;
-    const mini = `<div class="mg-mini" data-a="mini"><img src="${mgImg('hearts')}" alt=""><div>100 BYN · Кино на двоих<small>дизайн «Сердечки»</small></div><em>изменить</em></div>`;
-
-    /* home */
-    const home = D ? `
-      <div class="mg-v mg-home on" data-v="home">
-        <header class="mg-hd">${logo}<nav><span>электронная</span><span>пластиковая</span><span>для компаний</span><span>о картах</span></nav>
-          <span class="mg-th" data-a="th"><i class="s">${I.sun}</i><i class="m">${I.moon}</i><b class="kn"></b></span></header>
-        <div class="mg-hero"><div class="mg-eb">ПОДАРКИ MOOON</div><h1 class="mg-h1">Подари время<br><em>вместе</em></h1><p class="mg-lede">Для свиданий, встреч, семейных выходов<br>и моментов, которые запоминаются</p></div>
-        <div class="mg-photo"><img src="assets/mg-hero.webp" alt=""><div class="mg-cap">${MG.caps.map((c,i)=>`<span class="${i?'':'on'}">${c}</span>`).join('')}</div>
-          <div class="mg-tags">${MG.tags.map((t,i)=>`<span class="${i?'':'is-sel'}" data-a="tg${i}">${t}</span>`).join('')}</div><div class="mg-arr"><span>${I.l}</span><span>${I.r}</span></div></div>
-        <div class="mg-fmt"><h3>Выбери формат подарка</h3>${opt('e','e','Электронная карта','Придёт на почту за минуту')}${opt('p','p','Пластиковая карта','В фирменном конверте, с доставкой')}${opt('s','s','Абонемент','5 или 10 сеансов для киноманов')}
-          <span class="mg-btn" data-a="go"><span class="lb">Выбрать подарок</span>${I.arr}</span></div>
-        <div class="mg-foot">Для друзей. Для семьи. Для тех, кто важен.</div>
-        ${pc(1222,96,44)}${pc(668,402,42)}${pc(-14,612,66)}${pc(1210,700,48)}${pc(706,830,24)}
-      </div>` : `
-      <div class="mg-v mg-home on" data-v="home">
-        <header class="mg-hd">${logo}<span class="bg">${I.burger}</span></header>
-        <div class="mg-hero"><div class="mg-eb">ПОДАРКИ MOOON</div><h1 class="mg-h1">Подари время<br><em>вместе</em></h1><p class="mg-lede">Для свиданий, встреч, семейных выходов и моментов, которые запоминаются</p></div>
-        <div class="mg-photo"><img src="assets/mg-hero.webp" alt=""><div class="mg-cap">${MG.caps.map((c,i)=>`<span class="${i?'':'on'}">${c}</span>`).join('')}</div>
-          <div class="mg-tags">${MG.tags.map((t,i)=>`<span class="${i?'':'is-sel'}" data-a="tg${i}">${t}</span>`).join('')}</div></div>
-        <div class="mg-fmt">${opt('e','e','Электронная карта','Придёт на почту за минуту')}${opt('p','p','Пластиковая карта','В конверте, с доставкой')}${opt('s','s','Абонемент','5 или 10 сеансов')}</div>
-        <span class="mg-btn mg-btnb" data-a="go"><span class="lb">Выбрать подарок</span>${I.arr}</span>
-        ${pc(330,96,30)}${pc(352,300,22)}
-      </div>`;
-
-    /* wizard panes */
-    const chips = (pre, arr, sel, cls='') => arr.map(([k,t]) => `<span class="mg-chip${k===sel?' is-sel':''}${cls && k==='more'?' more':''}" data-a="${pre}${k}">${t}</span>`).join('');
-    const noms = chips('n', [['25','25 BYN'],['50','50 BYN'],['100','100 BYN'],['150','150 BYN']], '50');
-    const occ = chips('oc-', [['joy','порадовать'],['date','свидание'],['ny','новый год'],['more','еще']], 'joy', 1);
-    const sw = MG.designs.map(([id]) => `<span class="${id==='punk'?'is-sel':''}" data-a="sw-${id}"><img src="${mgImg(id)}" alt=""></span>`).join('') + '<span class="more">еще</span>';
-    const artIm = `<div class="im" data-a="im"><img src="${mgImg('punk')}" alt=""></div>`, amt = '<span class="mg-amt" data-a="amt">50 BYN</span>';
-    const pDesign = `<div class="mg-p on" data-p="design">
-        ${D ? '' : `<div class="mg-mdisc">${artIm}${amt}</div>`}
-        <h2 class="mg-h2" data-a="h"><span>${D ? MG.joy[0] : MG.mjoy[0]}</span></h2><p class="mg-lede" data-a="ld"><span>${MG.joy[1]}</span></p>
-        <div class="mg-grp"><div class="mg-lbl">номинал</div><div class="mg-row">${noms}</div></div>
-        <div class="mg-grp"><div class="mg-lbl">повод</div><div class="mg-row oc">${D ? occ : occ.replace(/<span class="mg-chip more"[^]*?<\/span>/, '')}</div></div>
-        <div class="mg-grp"><div class="mg-lbl">оформление</div><div class="mg-sw">${sw}</div></div></div>`;
-    const pTo = D ? `<div class="mg-p" data-p="to">
-        <h2 class="mg-h2"><span>Кому<br>отправляем?</span></h2>
-        <div class="mg-seg" style="margin-top:26px"><b></b><span class="is-sel">в подарок</span><span>себе</span></div>
-        <div class="mg-2" style="margin-top:20px">${field('se','email отправителя','name@email.by')}${field('ph','телефон','+375 __ ___-__-__')}</div>
-        <div class="mg-seg" style="margin-top:16px"><b></b><span class="is-sel">email</span><span>телефон</span></div>
-        <div style="margin-top:20px">${field('re','email получателя','name@email.by')}</div>
-        <div style="margin-top:16px">${field('fr','от кого','имя')}</div>
-        <div class="mg-ck" style="margin-top:16px"><i></i>Сюрприз — получатель не увидит, от кого подарок</div>
-        <div class="mg-note hide" data-a="note" style="margin-top:18px">${I.ok}<span>У получателя есть аккаунт mooon.by — карта появится<br>в его личном кабинете автоматически</span></div></div>`
-      : `<div class="mg-p" data-p="to">${mini}
-        <h2 class="mg-h2 t"><span>Кому отправляем?</span></h2>
-        <div class="mg-seg"><b></b><span class="is-sel">в подарок</span><span>себе</span></div>
-        ${field('se','email отправителя','name@email.by')}${field('ph','телефон','+375 __ ___-__-__')}${field('re','email получателя','name@email.by')}${field('fr','от кого','имя')}
-        <div class="mg-ck"><i></i>Сюрприз — не показывать отправителя</div></div>`;
-    const wl = (D ? [0,1,2,3,4,5] : [0,1,2,4]).map(i => `<div class="mg-w" data-a="wi${i}">${MG.wishes[i]}${I.spark}</div>`).join('');
-    const pWish = `<div class="mg-p" data-p="wish">${D ? '<div class="mg-eb" style="margin-bottom:14px">САМОЕ ВАЖНОЕ</div>' : mini}
-        <h2 class="mg-h2${D?'':' t'}"><span>${D ? 'О чём вы хотите<br>сказать?' : 'О чём хотите сказать?'}</span></h2>
-
-        <div class="mg-f" style="margin-top:${D?22:14}px"><small style="color:var(--tx)">Выберите готовое пожелание</small></div>
-        <div class="mg-wl">${wl}</div>
-        <div class="mg-or">или</div>
-        <div class="mg-f"><small style="color:var(--tx)">Напишите своё</small></div>
-        <div class="mg-ta" data-a="ta"><span class="val"></span><span class="ph">Пара слов от вас</span><em data-a="cnt">0/250</em></div></div>`;
-    const pWhen = `<div class="mg-p" data-p="when">${D ? '' : mini}
-        <h2 class="mg-h2${D?'':' t'}"><span>${D ? 'Когда<br>доставить?' : 'Когда доставить?'}</span></h2>
-        <div style="margin-top:${D?24:0}px;${D?'width:248px':''}">${field('rx','email получателя','','gift@example.com').replace('class="mg-in"','class="mg-in ok"')}</div>
-        <div class="mg-seg" style="margin-top:${D?24:16}px"><b></b><span class="is-sel">выбрать время</span><span>сейчас</span></div>
-        <div class="mg-2" style="margin-top:${D?20:0}px">${field('dt','дата','дд.мм.гггг')}${field('tm','время','чч:мм')}</div>
-        <div class="mg-sum" data-a="sum"><span class="ic">${I.gift}</span><span>Карта придёт <b>14 февраля в 18:30</b> — письмо с конвертом и вашим пожеланием</span></div></div>`;
-
-    const wiz = D ? `
-      <div class="mg-v mg-wiz" data-v="wiz">
-        <header class="mg-whd">${logo}<ol class="mg-steps">${MG.steps.map(t=>`<li><i><img src="assets/mg-pop.webp" alt=""></i>${t}</li>`).join('')}<li class="sep"></li><li><i></i>документы</li></ol><span class="mg-close">ЗАКРЫТЬ</span></header>
-        <div class="mg-art"><div class="mg-disc">${artIm}</div>${amt}
-          ${pc(350,18,43)}${pc(-6,106,36)}${pc(438,380,56)}${pc(-20,330,62)}
-          <span class="mg-spk" style="left:-28px;top:40px">${I.spark}</span><span class="mg-spk" style="left:440px;top:0">${I.spark}</span><span class="mg-spk" style="left:500px;top:210px">${I.spark}</span><span class="mg-spk" style="left:380px;top:440px">${I.spark}</span><span class="mg-spk" style="left:-50px;top:300px">${I.spark}</span></div>
-        <div class="mg-form">${pDesign}${pTo}${pWish}${pWhen}</div>
-        <span class="mg-back">НАЗАД</span>
-        <span class="mg-btn mg-next" data-a="next"><span class="lb">${MG.next[0]}</span>${I.arr}</span>
-      </div>` : `
-      <div class="mg-v mg-wiz" data-v="wiz">
-        <header class="mg-whd"><span class="ic">${I.l}</span><span class="stl" data-a="stl"><span>Дизайн<small>1/5</small></span></span><span class="ic">${I.x}</span></header>
-        <div class="mg-prog">${MG.steps.map(()=>'<i><b></b></i>').join('')}<img src="assets/mg-pop.webp" alt="" data-a="pk"></div>
-        <div class="mg-form">${pDesign}${pTo}${pWish}${pWhen}</div>
-        <span class="mg-btn mg-next" data-a="next"><span class="lb">${MG.next[0]}</span>${I.arr}</span>
-      </div>`;
-    const stars = (D ? [[330,250],[1092,232],[1158,518],[958,658],[258,638],[700,120]] : [[40,230],[330,210],[350,540],[54,600],[300,680]]).map(([x,y]) => star(x,y)).join('');
-    const pack = `<div class="mg-v mg-pack" data-v="pack">${stars}${env('', false)}<div class="mg-ptx" data-a="ptx"><span>Упаковываем подарок…</span></div><span class="mg-skip">ПРОПУСТИТЬ</span></div>`;
-    const ok = `<div class="mg-v mg-ok" data-v="ok"><span class="mg-close" style="position:absolute;right:${D?56:24}px;top:${D?52:62}px">ЗАКРЫТЬ</span>
-        <span class="ck" data-a="ck">${I.ok}</span><h2>Спасибо.<br>Оплата прошла${D?'':'<br>'} успешно!</h2>
-        <p>Конверт уже в пути — придёт на <b>gift@example.com</b>${D?'<br>':' '}14 февраля в 18:30. Чек отправили вам на почту</p>
-        <span class="mg-btn" data-a="dl"><span class="fill" data-a="fill"></span><span class="lb">скачать карту</span><span class="di">${I.dl}</span></span></div>`;
-    const rcv = `<div class="mg-v mg-rcv" data-v="rcv">${D ? logo : ''}${stars}
-        <span class="mg-rcv-chip"><i>${I.eye}</i>14 февраля, 18:30 · так подарок увидит получатель</span>
-        ${env('r', true)}<span class="mg-amt2" data-a="ramt">100 BYN</span>
-        <div class="mg-rtx"><h2>Вам <b>WOOOW</b> подарок</h2><p class="fr">от коллеги — с теплом ♡</p>
-          <div class="ph1" data-a="ph1"><small>кажется, внутри что-то особенное</small><span class="mg-btn" data-a="open"><span class="lb">открыть</span></span></div>
-          <div class="ph2" data-a="ph2"><div class="mg-q">«${MG.wishes[MG.wish]}»</div>
-            <div class="mg-code"><span class="cd"><small>код карты</small>MOON-7F4K-29QD<span class="cp" data-a="cp">${I.copy}</span></span><span class="mg-btn" data-a="ses"><span class="lb">Выбрать сеанс</span>${I.arr}</span></div></div></div>
-        <div class="mg-toast" data-a="toast">${I.ok}Код скопирован</div></div>`;
-    const cur = D ? '<span class="sx-cur" style="transform:translate(1180px,720px)"><svg viewBox="0 0 22 22"><path d="M2 2l7.5 18 2.6-7.4L19.5 10z" fill="#fff" stroke="#0B0B12" stroke-width="1.4" stroke-linejoin="round"/></svg></span>' : '<span class="sx-tap"></span>';
-    return `<div class="mg mg-${dev}" data-th="${th}" style="--art:#E0306E"><div class="mg-bg"></div><div class="mg-dust"></div>${home}${wiz}${pack}${ok}${rcv}${cur}</div>`;
+  const mg2Src = id => `assets/mg2-${id}.webp`;
+  let mg2Tex = null, mg2Uid = 0;
+  /* paper grain and logo mask for the envelope: generated once, the grain is a blob URL so each envelope stays light */
+  const mg2Paper = () => {
+    if (mg2Tex) return mg2Tex;
+    const n = 256, c = document.createElement('canvas'); c.width = c.height = n;
+    const x = c.getContext('2d'), d = x.createImageData(n, n);
+    for (let i = 0; i < d.data.length; i += 4){ const v = Math.random(), w = v > .5; d.data[i] = d.data[i+1] = d.data[i+2] = w ? 255 : 0; d.data[i+3] = Math.round(Math.pow(Math.abs(v - .5)*2, 2.4)*(w ? 70 : 60)); }
+    x.putImageData(d, 0, 0); x.lineCap = 'round';
+    for (let k = 0; k < 70; k++){
+      const x0 = Math.random()*n, y0 = Math.random()*n, L = 14 + Math.random()*46, a = Math.random()*6.283, b = (Math.random() - .5)*22;
+      const x1 = x0 + Math.cos(a)*L, y1 = y0 + Math.sin(a)*L, mx = (x0 + x1)/2 - Math.sin(a)*b, my = (y0 + y1)/2 + Math.cos(a)*b;
+      x.strokeStyle = Math.random() < .6 ? `rgba(255,255,255,${(.07 + Math.random()*.1).toFixed(3)})` : `rgba(0,0,0,${(.06 + Math.random()*.08).toFixed(3)})`; x.lineWidth = .5 + Math.random()*.7;
+      for (const ox of [-n, 0, n]) for (const oy of [-n, 0, n]){ x.beginPath(); x.moveTo(x0 + ox, y0 + oy); x.quadraticCurveTo(mx + ox, my + oy, x1 + ox, y1 + oy); x.stroke(); }
+    }
+    let paper = c.toDataURL('image/png');
+    try { const bin = atob(paper.split(',')[1]), u8 = new Uint8Array(bin.length); for (let i = 0; i < bin.length; i++) u8[i] = bin.charCodeAt(i); paper = URL.createObjectURL(new Blob([u8], {type:'image/png'})); } catch(e){}
+    const mask = `url("data:image/svg+xml,${encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 117 22"><path d="${MG2.logo}"/></svg>`)}")`;
+    return mg2Tex = {paper, mask};
+  };
+  function mg2Env(p, paper){
+    const S = (id, mx, my, nx, ny, len, col, a) => `<linearGradient id="${id}" gradientUnits="userSpaceOnUse" x1="${mx}" y1="${my}" x2="${(mx + nx*len).toFixed(2)}" y2="${(my + ny*len).toFixed(2)}"><stop offset="0" stop-color="${col}" stop-opacity="${a}"/><stop offset="1" stop-color="${col}" stop-opacity="0"/></linearGradient>`;
+    const EP = 'M0 0H520V322A18 18 0 0 1 502 340H18A18 18 0 0 1 0 322Z', PK = 'M0 0L260 198L520 0V322A18 18 0 0 1 502 340H18A18 18 0 0 1 0 322Z', FL = '0,0 520,0 520,1.89 260,199.89 0,1.89';
+    const MOON = 'M2-3.46A4 4 0 1 0 2 3.46A3.6 3.6 0 0 1 2-3.46Z', LT = 'M0 0L260 198L0 340Z', RT = 'M520 0L260 198L520 340Z', BT = 'M0 340L260 198L520 340Z';
+    return `<div class="sh"></div>
+<div class="bk"><svg viewBox="0 0 520 340" aria-hidden="true"><defs>
+<linearGradient id="${p}bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2c1a70"/><stop offset="1" stop-color="#1c0f4d"/></linearGradient>
+<linearGradient id="${p}bi" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#000" stop-opacity=".32"/><stop offset="1" stop-color="#000" stop-opacity="0"/></linearGradient>
+<pattern id="${p}ml" width="36" height="36" patternUnits="userSpaceOnUse"><circle cx="9" cy="9" r="3.2" fill="#fff"/><path transform="translate(27 27) rotate(-35)" d="${MOON}" fill="#fff"/></pattern>
+<pattern id="${p}pp" width="128" height="128" patternUnits="userSpaceOnUse"><image href="${paper}" width="128" height="128"/></pattern>
+</defs><path d="${EP}" fill="url(#${p}bg)"/><path d="${EP}" fill="url(#${p}ml)" opacity=".07"/><path d="${EP}" fill="url(#${p}pp)" opacity=".6"/><rect width="520" height="46" fill="url(#${p}bi)"/></svg></div>
+<div class="cw"><div class="cd"><i></i><img alt="" src=""></div></div>
+<div class="fr"><svg viewBox="0 0 520 340" aria-hidden="true"><defs>
+<clipPath id="${p}pk"><path d="${PK}"/></clipPath>
+<linearGradient id="${p}fg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#40298c"/><stop offset="1" stop-color="#22135a"/></linearGradient>
+<radialGradient id="${p}fv" cx="50%" cy="38%" r="75%"><stop offset=".55" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".22"/></radialGradient>
+${S(p+'sl',130,269,-.479,-.878,18,'#0c0330',.42)}${S(p+'sr',390,269,.479,-.878,18,'#0c0330',.42)}${S(p+'hl',130,269,.479,.878,4,'#fff',.2)}${S(p+'hr',390,269,-.479,.878,4,'#fff',.2)}
+${S(p+'vl',130,99,-.606,.796,3,'#fff',.16)}${S(p+'vr',390,99,.606,.796,3,'#fff',.12)}${S(p+'cl',130,99,-.606,.796,24,'#0c0330',.5)}${S(p+'cr',390,99,.606,.796,24,'#0c0330',.5)}
+</defs><g clip-path="url(#${p}pk)">
+<rect width="520" height="340" fill="url(#${p}fg)"/>
+<path d="${LT}" fill="#fff" fill-opacity=".06"/><path d="${RT}" fill="#000" fill-opacity=".14"/>
+<path d="${LT}" fill="url(#${p}sl)"/><path d="${RT}" fill="url(#${p}sr)"/>
+<path d="${BT}" fill="#fff" fill-opacity=".05"/><path d="${BT}" fill="url(#${p}hl)"/><path d="${BT}" fill="url(#${p}hr)"/>
+<path d="${LT}" fill="url(#${p}vl)"/><path d="${RT}" fill="url(#${p}vr)"/>
+<g class="fsh"><path d="${LT}" fill="url(#${p}cl)"/><path d="${RT}" fill="url(#${p}cr)"/></g>
+<rect width="520" height="340" fill="url(#${p}pp)" opacity=".7"/><rect width="520" height="340" fill="url(#${p}fv)"/>
+</g></svg></div>
+<div class="fl"><div class="ff"><svg viewBox="0 0 520 202" aria-hidden="true"><defs>
+<linearGradient id="${p}flg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5a3bb8"/><stop offset="1" stop-color="#3b2582"/></linearGradient>
+<radialGradient id="${p}fls" cx="28%" cy="0%" r="80%"><stop offset="0" stop-color="#fff" stop-opacity=".13"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+${S(p+'el',130,100.89,.606,-.796,7,'#fff',.22)}${S(p+'er',390,100.89,-.606,-.796,7,'#fff',.16)}
+<linearGradient id="${p}lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFBF2"/><stop offset=".5" stop-color="#EADBBF"/><stop offset="1" stop-color="#F6EFE0"/></linearGradient>
+</defs><polygon points="${FL}" fill="url(#${p}flg)"/><polygon points="${FL}" fill="url(#${p}fls)"/>
+<polygon points="0,0 260,0 260,199.89 0,1.89" fill="url(#${p}el)"/><polygon points="260,0 520,0 520,1.89 260,199.89" fill="url(#${p}er)"/>
+<polygon points="${FL}" fill="url(#${p}pp)" opacity=".7"/></svg>
+<span class="lg" aria-hidden="true"><svg viewBox="0 0 117 22"><path d="${MG2.logo}" fill="url(#${p}lg)"/></svg><span class="gt"><i></i></span></span>
+<svg class="shd" viewBox="0 0 520 202" aria-hidden="true"><polygon points="${FL}" fill="#000"/></svg></div>
+<div class="fb"><svg viewBox="0 0 520 202" aria-hidden="true"><defs><linearGradient id="${p}fbg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff63a0"/><stop offset="1" stop-color="#d93573"/></linearGradient></defs>
+<polygon points="${FL}" fill="url(#${p}fbg)"/><polygon points="${FL}" fill="url(#${p}ml)" opacity=".2"/><polygon points="${FL}" fill="url(#${p}pp)" opacity=".55"/></svg>
+<svg class="shd" viewBox="0 0 520 202" aria-hidden="true"><polygon points="${FL}" fill="#000"/></svg></div></div>
+<div class="seal"></div>`;
+  }
+  function mg2UI(dev, intro){
+    const D = dev === 'd', T = mg2Paper(), I = MG2.ic, logo = `<path d="${MG2.logo}"/>`;
+    const ic = (d, cls='') => `<svg${cls} viewBox="0 0 24 24" aria-hidden="true"><path d="${d}"/></svg>`;
+    const fx = (i, cls) => `${cls} fx" style="--i:${i}`;
+    const head = D
+      ? `<svg class="mg2-logo ${fx(0,'ui')}" viewBox="0 0 117 22" aria-hidden="true">${logo}</svg>
+         <div class="mg2-st ${fx(1,'eo ui')}"><span class="on">1<b>дизайн</b></span>${[2,3,4,5,6].map(n => `<span>${n}</span>`).join('')}</div>
+         <span class="mg2-x ${fx(1,'ui')}">${ic(I.x)}</span>`
+      : `<span class="mg2-bk ${fx(0,'ui')}">${ic(I.l)}</span><div class="mg2-htl ${fx(0,'eo ui')}">Дизайн 1/6</div>
+         <div class="mg2-seg ${fx(1,'eo ui')}">${[0,1,2,3,4,5].map(n => `<i${n ? '' : ' class="on"'}></i>`).join('')}</div>
+         <span class="mg2-x ${fx(0,'ui')}">${ic(I.x)}</span>`;
+    const discs = MG2.discs.map(id => `<div class="mg2-it"><div class="gl"><img src="${mg2Src(id)}" alt=""></div><div class="fc"><img src="${mg2Src(id)}" alt=""></div></div>`).join('');
+    const ring = [0,1,2,3,4,5].map(k => { const [id, ink] = MG2.cards[k % 3]; return `<div class="mg2-pc"><div class="w"><img src="${mg2Src(id)}" alt=""><svg viewBox="0 0 117 22" style="fill:${ink}" aria-hidden="true">${logo}</svg></div><i class="shn"></i></div>`; }).join('');
+    /* occasion strip: centre chip big, sides step down (prototype geometry) */
+    const CW = D ? [177,150,130,111,90] : [161,136,117,103,103], CH = D ? [38,34,30,26,22] : [38,34,30,26,26], CF = D ? [16,14,12.5,11,10] : [15,13,11.5,10.5,10.5], CO = D ? [1,.8,.5,0,0] : [1,.8,.5,.26,.26], CR = D ? [12,12,12,12,12] : [14,13,11,10,10], c0 = D ? 720 : 195, n = MG2.occ.length;
+    const chips = MG2.occ.map((t, i) => {
+      let o = ((i - MG2.occOn) % n + n) % n; if (o > n/2) o -= n;
+      const a = Math.abs(o), k = Math.min(a, 4); let x;
+      if (!o) x = c0 - CW[0]/2; else { let off = CW[0]/2 + 9; for (let j = 1; j < a; j++) off += CW[Math.min(j, 4)] + 9; x = o > 0 ? c0 + off : c0 - off - CW[k]; }
+      return CO[k] ? `<span class="${o ? '' : 'c'}" style="left:${x}px;top:${(38 - CH[k])/2}px;width:${CW[k]}px;height:${CH[k]}px;font-size:${CF[k]}px;border-radius:${CR[k]}px;opacity:${CO[k]}">${t}</span>` : '';
+    }).join('');
+    const arr = D ? 'ui' : 'eo ui';
+    return `<div class="mg2-ui${intro ? ' in0' : ''}" data-m="e">${head}
+      <h1 class="mg2-ttl ${fx(2,'ui')}">Вместо вещей – эмо<i></i>оции!</h1>
+      <div class="mg2-sw ${fx(3,'ui')}"><b></b><span class="se" data-a="swe">электронная</span><span class="sp" data-a="swp">пластиковая</span></div>
+      <div class="mg2-discs" data-a="discs">${discs}</div>
+      <div class="mg2-ring" data-a="ring">${ring}</div>
+      <span class="mg2-arr l ${fx(4,arr)}">${ic(I.l)}</span><span class="mg2-arr r ${fx(4,arr)}" data-a="aN">${ic(I.r)}</span>
+      <div class="mg2-dots e ${fx(4,'eo ui')}" data-a="dots">${MG2.discs.map(() => '<i></i>').join('')}</div>
+      <div class="mg2-dots p ${fx(1,'po ui')}" data-a="pdots"><i class="on"></i><i></i><i></i></div>
+      <div class="mg2-chips ${fx(5,'eo ui')}">${chips}</div>
+      <span class="mg2-next ${fx(6,'eo ui')}" data-a="next">Далее</span>
+      <div class="mg2-pact ${fx(2,'po ui')}"><span class="g">Уточнить наличие</span><span class="v">Где купить</span></div>
+      <div class="mg2-ec" data-a="ec" style="--lm:${T.mask.replace(/"/g, '&quot;')}">${mg2Env(`mg2e${++mg2Uid}`, T.paper)}</div>
+      <div class="mg2-pk ${fx(6,'ko')}" data-a="pk"><span class="t1">Упаковываем подарок…</span><span class="t2">Уже летит к получателю</span></div>
+      <span class="mg2-skip ${fx(9,'ko')}">Пропустить</span>
+    </div>`;
+  }
+  function mg2Root(dev){
+    const cur = dev === 'd' ? '<span class="sx-cur" style="transform:translate(1080px,650px)"><svg viewBox="0 0 22 22"><path d="M2 2l7.5 18 2.6-7.4L19.5 10z" fill="#fff" stroke="#0B0B12" stroke-width="1.4" stroke-linejoin="round"/></svg></span>' : '<span class="sx-tap"></span>';
+    return `<div class="mg2 mg2-${dev}" data-bg="e" style="--tp:${TEMPO};--paper:url(${mg2Paper().paper})"><div class="mg2-bg">${[1,2,3,4,5].map(k => `<b class="k${k}"><i></i></b>`).join('')}</div>${cur}</div>`;
   }
 
   ENGINES.mgift = async stage => {
     const dW = stage.querySelector('.scr.desk'), mW = stage.querySelector('.scr.mob');
-    let th = 'light';
-    const render = () => { dW.firstElementChild.innerHTML = mgHTML('d', th); mW.firstElementChild.innerHTML = mgHTML('m', th); };
-    render(); sxFit(stage);
-    let D, M, K;
-    const bind = () => { D = dW.querySelector('.mg'); M = mW.querySelector('.mg'); K = sxKit(stage, D, M); };
-    bind();
-    if (reduce) return;
-    const q = (R, s) => R.querySelector(`[data-a="${s}"]`);
-    const dq = s => q(D, s), mq = s => q(M, s);
-    const both = s => [dq(s), mq(s)].filter(Boolean);
-    const E = 'cubic-bezier(.2,.8,.2,1)';
-    const an = (el, kf, ms, o={}) => el.animate(kf, Object.assign({duration:ms*TEMPO, easing:E, fill:'forwards'}, o));
-    const click = (s, o) => K.click(dq(s), mq(s), o);
-    const sel = s => both(s).forEach(el => { [...el.parentElement.children].forEach(c => c.classList.remove('is-sel')); el.classList.add('is-sel'); });
-    const swapText = (el, html) => {
-      if (!el) return;
-      const old = el.querySelector('span:not(.out)'), n = document.createElement('span');
-      n.className = 'in'; n.innerHTML = html; el.appendChild(n); void n.offsetWidth; n.classList.remove('in');
-      if (old){ old.classList.add('out'); setTimeout(() => old.remove(), 700); }
-    };
-    const typeIn = async (el, text, speed) => { if (!el) return; const v = el.querySelector('.val'); for (const ch of text){ v.textContent += ch; await wait(stage, speed*(.6+Math.random()*.8)); } };
-    const field = async (s, text, speed=55) => {
-      await K.click(dq(s), mq(s), {press:false, ms:520});
-      both(s).forEach(e => e.classList.add('focus'));
-      await Promise.all(both(s).map(e => typeIn(e, text, speed)));
-      both(s).forEach(e => e.classList.remove('focus'));
-    };
-    const view = async (to) => {
-      await Promise.all([D, M].map(async R => {
-        const A = R.querySelector('.mg-v.on'), B = R.querySelector(`.mg-v[data-v="${to}"]`);
-        B.classList.add('on');
-        an(B, [{opacity:0, transform:'translateY(26px) scale(.99)'},{opacity:1, transform:'none'}], 760, {fill:'none'});
-        await done(an(A, [{opacity:1, transform:'none'},{opacity:0, transform:'translateY(-18px) scale(.99)'}], 420));
-        A.classList.remove('on'); A.getAnimations().forEach(a => a.cancel());
-      }));
-    };
-    const pane = async (to) => {
-      await Promise.all([D, M].map(async R => {
-        const A = R.querySelector('.mg-p.on'), B = R.querySelector(`.mg-p[data-p="${to}"]`);
-        B.classList.add('on');
-        [...B.children].forEach((c, i) => an(c, [{opacity:0, transform:'translateY(22px)'},{opacity:1, transform:'none'}], 620, {delay:(140 + i*50)*TEMPO, fill:'backwards'}));
-        await done(an(A, [{opacity:1, transform:'none'},{opacity:0, transform:'translateY(-14px)'}], 360));
-        A.classList.remove('on'); A.getAnimations().forEach(a => a.cancel());
-      }));
-    };
-    const setStep = k => {
-      D.querySelectorAll('.mg-steps li:not(.sep)').forEach((li, i) => { li.classList.toggle('done', i < k); li.classList.toggle('cur', i === k); });
-      M.querySelectorAll('.mg-prog i').forEach((s, i) => s.classList.toggle('on', i <= k));
-      const pk = mq('pk'); if (pk) pk.style.left = (Math.min(k, 4)*72 + 66) + 'px';
-      swapText(mq('stl'), `${MG.mt[Math.min(k,4)]}<small>${Math.min(k,4)+1}/5</small>`);
-    };
-    const setNext = t => both('next').forEach(b => { const lb = b.querySelector('.lb'); lb.classList.add('swap'); setTimeout(() => { lb.textContent = t; lb.classList.remove('swap'); }, 260); });
-    const nextStep = async (k, p) => {
-      await click('next'); setStep(k); setNext(MG.next[k] || ''); await pane(p);
-    };
-    const setTheme = async (R, to, x, y) => {
-      const c = R.cloneNode(true); c.querySelectorAll('.sx-cur,.sx-tap').forEach(n => n.remove()); c.dataset.th = to;
-      c.style.cssText += ';position:absolute;left:0;top:0;z-index:90;pointer-events:none';
-      R.parentElement.appendChild(c);
-      const r = Math.hypot(R.offsetWidth, R.offsetHeight);
-      await done(c.animate([{clipPath:`circle(0px at ${x}px ${y}px)`},{clipPath:`circle(${r}px at ${x}px ${y}px)`}], {duration:1150*TEMPO, easing:'cubic-bezier(.7,0,.25,1)', fill:'forwards'}));
-      R.dataset.th = to; c.remove();
-    };
-    const sparkle = R => R.querySelectorAll('.mg-spk').forEach((s, i) => an(s, [{opacity:0, transform:'scale(.2) rotate(0)'},{opacity:1, transform:'scale(1.15) rotate(45deg)', offset:.4},{opacity:0, transform:'scale(.5) rotate(90deg)'}], 1100, {delay:i*90*TEMPO, fill:'none'}));
-    const swapArt = (id, color) => {
-      [D, M].forEach(R => {
-        R.style.setProperty('--art', color);
-        const im = q(R, 'im'), img = document.createElement('img'); img.src = mgImg(id); img.alt = '';
-        im.appendChild(img);
-        const old = [...im.children].slice(0, -1);
-        done(an(img, [{opacity:0, transform:'rotate(-35deg) scale(.7)'},{opacity:1, transform:'none'}], 820, {easing:'cubic-bezier(.3,1.25,.5,1)', fill:'none'})).then(() => old.forEach(o => o.remove()));
-        an(im.parentElement, [{transform:'scale(1)'},{transform:'scale(.965)', offset:.3},{transform:'scale(1)'}], 700, {fill:'none'});
-        R.querySelectorAll('.mg-pc').forEach((p, i) => an(p, [{translate:'0 0'},{translate:'0 -22px', offset:.4},{translate:'0 0'}], 700, {delay:i*60*TEMPO, easing:'cubic-bezier(.3,1.6,.5,1)', fill:'none'}));
+    dW.firstElementChild.innerHTML = mg2Root('d'); mW.firstElementChild.innerHTML = mg2Root('m');
+    sxFit(stage);
+    const D = dW.querySelector('.mg2'), M = mW.querySelector('.mg2'), K = sxKit(stage, D, M);
+    const lerp = (a, b, p) => a + (b - a)*p;
+    const EZ = {out:t => 1 - Math.pow(1 - t, 3), inOut:t => t < .5 ? 4*t*t*t : 1 - Math.pow(-2*t + 2, 3)/2, in:t => t*t*t};
+    const spring = (r, z, t) => { if (t <= 0) return 0; const w = 2*Math.PI/r; if (z < 1){ const wd = w*Math.sqrt(1 - z*z); return 1 - Math.exp(-z*w*t)*(Math.cos(wd*t) + z*w/wd*Math.sin(wd*t)); } return 1 - Math.exp(-w*t)*(1 + w*t); };
+    const tSp = (t, t0, r, z) => spring(r, z, (t - t0)/1000);
+    const tSeg = (t, t0, d, e) => { const p = Math.min(1, Math.max(0, (t - t0)/d)); return e ? e(p) : p; };
+    const live = () => stage.classList.contains('is-live') && !document.hidden;
+    /* frame timeline in engine ms (×TEMPO in real time), paused while the stage is off-screen */
+    const tl = render => new Promise(res => {
+      let t = 0, last = performance.now();
+      const f = now => { if (!stage.isConnected) return res(false); const dt = Math.min(now - last, 100); last = now; if (live()) t += dt/TEMPO; if (render(t)) return res(true); requestAnimationFrame(f); };
+      requestAnimationFrame(f);
+    });
+
+    const mount = (R, dev, intro) => {
+      const big = dev === 'd', old = R.querySelector('.mg2-ui');
+      const tmp = document.createElement('div'); tmp.innerHTML = mg2UI(dev, intro);
+      const ui = tmp.firstElementChild; R.insertBefore(ui, old || R.querySelector('.sx-cur,.sx-tap'));
+      R.dataset.bg = 'e';
+      const q = s => ui.querySelector(`[data-a="${s}"]`);
+      const S = {ui, q, mode:'e', design:MG2.start};
+      /* discs: positions from the prototype (centre 380 / sides 150 at ±375 / far 105 at ±515; mobile 250 / 140 at ±200) */
+      const es = big ? .8077 : .577, ecTop = big ? 270 : 287;
+      const G = big ? {cx:720, cy:470, d0:380, d1:150, x1:375, d2:105, x2:515, op2:1, pd:300} : {cx:195, cy:315, d0:250, d1:140, x1:200, d2:105, x2:330, op2:0, pd:200};
+      const PK = {cx:G.cx, cy:ecTop - 15*es, d:300*es};
+      const items = [...q('discs').children].map(el => ({el, slot:0})), N = items.length;
+      const rel = i => { let d = ((i - S.design) % N + N) % N; return d > N/2 ? d - N : d; };
+      const target = i => {
+        const r = rel(i), a = Math.abs(r);
+        if (S.mode === 'p') return {cx:G.cx, cy:G.cy, d:G.pd, op:0};
+        if (S.mode === 'pack' && !a) return {...PK, op:1};
+        if (!a) return {cx:G.cx, cy:G.cy, d:G.d0, op:1};
+        const t = a === 1 ? {cx:G.cx + r*G.x1, cy:G.cy, d:G.d1, op:1} : {cx:G.cx + Math.sign(r)*G.x2, cy:G.cy, d:G.d2, op:G.op2};
+        if (S.mode === 'pack') t.op = 0;   // side designs fade where they stand
+        return t;
+      };
+      const put = (el, t, k=1) => { const d = t.d*k; el.style.transform = `translate(${(t.cx - d/2).toFixed(2)}px,${(t.cy - d/2).toFixed(2)}px) scale(${(d/380).toFixed(5)})`; };
+      const dots = () => [...q('dots').children].forEach((x, i) => x.classList.toggle('on', i === S.design));
+      S.layout = how => {
+        items.forEach((it, i) => {
+          const el = it.el, r = rel(i), t = target(i), wrap = Math.abs(r - it.slot) > 2;
+          it.slot = r; el.classList.toggle('cur', r === 0);
+          if (how === 'now' || how === 'intro'){
+            el.classList.add('nt'); el.style.opacity = how === 'now' ? t.op : 0; put(el, t, how === 'now' ? 1 : .82); void el.offsetWidth; el.classList.remove('nt');
+            if (how === 'now') return;
+            el.style.transitionDelay = `${((.12 + Math.abs(r)*.09)*TEMPO).toFixed(3)}s`; put(el, t); el.style.opacity = t.op; return;
+          }
+          el.style.transitionDelay = '';
+          if (wrap){ el.classList.add('nt'); el.style.opacity = 0; put(el, {...t, cx:t.cx + Math.sign(r)*40}); void el.offsetWidth; el.classList.remove('nt'); }
+          put(el, t); el.style.opacity = t.op;
+        });
+        dots();
+      };
+      S.rot = d => { S.design = ((S.design + d) % N + N) % N; S.layout(); };
+      /* plastic ring: fractional slot position on a spring (response .62 s, ζ .8), sides tuck behind the centre card while hidden */
+      const cards = [...q('ring').children], L = cards.length, PR = 540/856;
+      const P = big ? {cx:720, cy:470, w:440, h:440*PR, rx:370, sn:190/440, tuck:.5} : {cx:195, cy:301, w:358, h:358*PR, rx:350, sn:.8, tuck:1};
+      const ring = {pos:0, tgt:0, vel:0, vis:0, visT:0, raf:0, last:0};
+      const draw = () => cards.forEach((el, k) => {
+        let o = ((k - ring.pos) % L + L) % L; if (o > L/2) o -= L;
+        const a = Math.abs(o), side = Math.min(1, a), th = Math.max(-2, Math.min(2, o))*Math.PI/2, cs = Math.cos(th);
+        const s = (cs >= 0 ? P.sn + (1 - P.sn)*cs : P.sn*(1 + .35*cs))*lerp(1, lerp(.8, 1, ring.vis), side);
+        const x = P.rx*Math.sin(th)*lerp(1, lerp(P.tuck, 1, ring.vis), side);
+        const op = (a <= 1 ? 1 : Math.max(0, 1 - (a - 1)/.5))*lerp(1, ring.vis, side);
+        el.style.transform = `translate(${(P.cx - P.w/2 + x).toFixed(2)}px,${(P.cy - P.h/2).toFixed(2)}px) scale(${s.toFixed(4)})`;
+        el.style.opacity = op.toFixed(3); el.style.zIndex = Math.round(cs*10) + 10;
       });
-      sparkle(D);
-    };
-    const packAnim = async R => {
-      const big = R === D, env = q(R,'env'), ea = q(R,'ea'), fl = q(R,'flap'), seal = q(R,'seal');
-      const from = big ? -620 : -460, stick = big ? -140 : -96;
-      an(env, [{opacity:0, transform:'translateY(40px) scale(.94)'},{opacity:1, transform:'none'}], 700, {fill:'none'});
-      await done(an(ea, [{transform:`translateY(${from}px) rotate(-16deg)`},{transform:`translateY(${stick+16}px) rotate(3deg)`, offset:.72},{transform:`translateY(${stick}px) rotate(0)`}], 1000, {easing:'cubic-bezier(.45,0,.3,1)', delay:300*TEMPO, fill:'both'}));
-      await wait(stage, 600);
-      await done(an(ea, [{transform:`translateY(${stick}px)`},{transform:`translateY(${stick-12}px)`, offset:.25},{transform:'translateY(0)'}], 760, {easing:'cubic-bezier(.5,0,.3,1)'}));
-      setTimeout(() => fl.classList.add('closed'), 330*TEMPO);
-      await done(an(fl, [{transform:'scaleY(-1)'},{transform:'scaleY(1)'}], 700, {easing:'cubic-bezier(.6,0,.3,1)', fill:'none'}));
-      an(seal, [{transform:'scale(0) rotate(-40deg)'},{transform:'scale(1.25) rotate(8deg)', offset:.6},{transform:'scale(1)'}], 520);
-      an(env, [{transform:'none'},{transform:'translateY(5px) scale(1.01,.985)', offset:.4},{transform:'none'}], 420, {fill:'none'});
-      await wait(stage, 450);
-      swapText(q(R,'ptx'), 'Уже летит к получателю');
-      await wait(stage, 900);
-      await done(an(env, [{transform:'none', opacity:1},{transform:'translate(-20px,16px) rotate(4deg) scale(1.02)', offset:.22},{transform:`translate(${big?560:260}px,${big?-460:-420}px) rotate(-22deg) scale(.2)`, opacity:0}], 1150, {easing:'cubic-bezier(.55,0,.7,.4)'}));
-    };
-    const openAnim = async R => {
-      const big = R === D, fl = q(R,'rflap'), ea = q(R,'rea'), seal = q(R,'rseal'), env = q(R,'renv');
-      an(seal, [{transform:'scale(1)', opacity:1},{transform:'scale(1.25)', offset:.3},{transform:'scale(0) rotate(50deg)', opacity:0}], 460);
-      await wait(stage, 220);
-      setTimeout(() => fl.classList.remove('closed'), 330*TEMPO);
-      await done(an(fl, [{transform:'scaleY(1)'},{transform:'scaleY(-1)'}], 700, {easing:'cubic-bezier(.6,0,.3,1)', fill:'none'}));
-      an(ea, [{transform:'translateY(0) scale(.62)'},{transform:`translateY(${big?-70:-46}px) scale(.85)`}], 1000, {easing:'cubic-bezier(.3,1.15,.5,1)'});
-      env.querySelectorAll('.eb,.efr,.efl,.esh').forEach(p => an(p, [{opacity:1, transform:p.classList.contains('efl') ? 'scaleY(-1)' : 'none'},{opacity:0, transform:`translateY(70px)${p.classList.contains('efl') ? ' scaleY(-1)' : ''}`}], 800, {delay:380*TEMPO, easing:'cubic-bezier(.5,0,.75,0)'}));
-      await wait(stage, 900);
-      an(q(R,'ramt'), [{opacity:0, transform:'translateX(-50%) scale(.6)'},{opacity:1, transform:'translateX(-50%) scale(1)'}], 600, {easing:'cubic-bezier(.3,1.6,.5,1)'});
-      await done(an(q(R,'ph1'), [{opacity:1},{opacity:0, transform:'translateY(-8px)'}], 300));
-      q(R,'ph1').style.visibility = 'hidden';
-      const p2 = q(R,'ph2'); p2.style.visibility = 'visible';
-      [...p2.children].forEach((c, i) => an(c, [{opacity:0, transform:'translateY(16px)'},{opacity:1, transform:'none'}], 640, {delay:i*140*TEMPO, fill:'backwards'}));
+      const tick = now => {
+        if (!ui.isConnected){ ring.raf = 0; return; }
+        let dt = Math.min(.1, (now - ring.last)/1000) || .016; ring.last = now;
+        if (!live()){ ring.raf = requestAnimationFrame(tick); return; }
+        dt /= TEMPO;
+        const n = Math.max(1, Math.ceil(dt/.008)), kk = Math.pow(2*Math.PI/.62, 2), c = 2*.8*Math.sqrt(kk);
+        for (let i = 0; i < n; i++){ const h = dt/n; ring.vel += (-kk*(ring.pos - ring.tgt) - c*ring.vel)*h; ring.pos += ring.vel*h; }
+        let moving = true;
+        if (Math.abs(ring.pos - ring.tgt) < .0015 && Math.abs(ring.vel) < .02){ ring.pos = ring.tgt; ring.vel = 0; moving = false; }
+        ring.vis += (ring.visT - ring.vis)*(1 - Math.exp(-dt*7.5));
+        if (Math.abs(ring.visT - ring.vis) < .002) ring.vis = ring.visT; else moving = true;
+        draw(); ring.raf = moving ? requestAnimationFrame(tick) : 0;
+      };
+      const kick = () => { if (!ring.raf){ ring.last = performance.now(); ring.raf = requestAnimationFrame(tick); } };
+      S.page = d => { ring.tgt += d; const i = ((Math.round(ring.tgt) % 3) + 3) % 3; [...q('pdots').children].forEach((x, k) => x.classList.toggle('on', k === i)); kick(); };
+      S.setMode = m => { S.mode = ui.dataset.m = m; R.dataset.bg = m === 'pack' ? 'pack' : 'e'; S.layout(); ring.visT = m === 'p' ? 1 : 0; kick(); };
+      draw();
+      S.layout(intro ? 'intro' : 'now');
+      if (intro) requestAnimationFrame(() => requestAnimationFrame(() => ui.classList.remove('in0')));
+      /* envelope (prototype timeline, compressed): the disc lands where the envelope card sits, the envelope rises around it */
+      const ec = q('ec'), $e = s => ec.querySelector(s);
+      const E = {card:$e('.cd'), csh:$e('.cd i'), seal:$e('.seal'), fl:$e('.fl'), ff:$e('.ff'), fb:$e('.fb'), shd:[...ec.querySelectorAll('.shd')], fsh:$e('.fsh'), parts:[$e('.sh'), $e('.bk'), $e('.fr'), $e('.fl')]};
+      const envSet = ({x=0, y=0, k=1, r=0}={}) => { ec.style.transform = `translate3d(${x.toFixed(2)}px,${(y + 170*es*(1 - k)).toFixed(2)}px,0) rotate(${r.toFixed(3)}deg) scale(${(es*k).toFixed(5)})`; };
+      const envFlap = a => {
+        E.fl.style.transform = `rotateX(${(-a).toFixed(3)}deg)`; const bk = a > 90; E.fl.style.zIndex = bk ? '1' : '5';
+        E.ff.style.visibility = bk ? 'hidden' : 'inherit'; E.fb.style.visibility = bk ? 'inherit' : 'hidden';
+        const s = (.25*Math.sin(Math.max(0, Math.min(180, a))*Math.PI/180)).toFixed(3); E.shd.forEach(e => e.style.opacity = s); E.fsh.style.opacity = Math.max(0, 1 - a/40).toFixed(3);
+      };
+      const envCard = ty => { E.card.style.transform = `translateY(${ty.toFixed(2)}px)`; };
+      S.pack = async () => {
+        const cur = items.find(it => it.el.classList.contains('cur')).el;
+        E.card.querySelector('img').src = cur.querySelector('.fc img').src;
+        E.parts.forEach(p => { p.style.opacity = '0'; p.style.translate = '0 48px'; });
+        envFlap(180); envCard(0); envSet(); ec.style.visibility = 'visible';
+        E.card.style.opacity = '1'; cur.classList.add('nt'); cur.style.opacity = '0';
+        const T1 = 400, T2 = 1300, T3 = 2050; let stamped = false;
+        await tl(t => {
+          const rise = tSp(t, 0, .6, .86), fo = tSeg(t, 0, 320, EZ.out);
+          E.parts.forEach(p => { p.style.translate = `0 ${lerp(48, 0, rise).toFixed(2)}px`; p.style.opacity = fo.toFixed(3); });
+          E.csh.style.opacity = tSeg(t, 120, 420).toFixed(3);
+          envCard(lerp(0, 380, tSeg(t, T1, 950, EZ.inOut)));
+          envFlap(180*(1 - tSp(t, T2, .85, .9)));
+          let k = 1;
+          if (t >= T3){
+            if (!stamped){ stamped = true; q('pk').classList.add('two'); ec.classList.add('shine'); }
+            E.seal.style.opacity = tSeg(t, T3, 120).toFixed(3); E.seal.style.transform = `scale(${lerp(1.6, 1, tSp(t, T3, .42, .55)).toFixed(4)})`;
+            const hit = T3 + 110; k = 1 - .02*(tSeg(t, hit, 80, EZ.out) - tSp(t, hit + 80, .45, .6));
+          }
+          envSet({k});
+          return t >= T3 + 600;
+        });
+      };
+      /* loop exit: the envelope flies off on an arc, as in the prototype */
+      S.fly = async () => {
+        const u = es/.8077;
+        [q('pk'), ui.querySelector('.mg2-skip')].forEach(el => el.animate([{opacity:1},{opacity:0}], {duration:300*TEMPO, fill:'forwards'}));
+        await tl(t => {
+          const ant = tSeg(t, 0, 140, EZ.out) - tSeg(t, 140, 200, EZ.inOut), f = tSeg(t, 140, 760);
+          let x = 0, y = 8*u*ant, k = 1 - .012*ant, r = 0, op = 1;
+          if (f > 0){ x = 70*u*EZ.out(f); y -= (380*f*f + 40*f)*u; r = -4.5*EZ.out(f); k *= 1 - .34*EZ.in(f); op = 1 - tSeg(t, 440, 420, EZ.inOut); }
+          envSet({x, y, k, r}); ec.style.opacity = op.toFixed(3);
+          return t >= 900;
+        });
+      };
+      return S;
     };
 
+    const sc = [mount(D, 'd', false), mount(M, 'm', false)];
+    if (reduce) return;
+    const dq = s => sc[0].q(s), mq = s => sc[1].q(s);
+    const all = f => sc.forEach(f);
+    /* mobile: a finger swipe across the plastic card */
+    const swipe = () => {
+      const t = M.querySelector('.sx-tap'); if (!t) return;
+      t.style.left = '300px'; t.style.top = '301px';
+      t.animate([{opacity:0, transform:'translateX(0) scale(.6)'},{opacity:1, transform:'translateX(0) scale(1)', offset:.18},{opacity:1, transform:'translateX(-200px) scale(1)', offset:.82},{opacity:0, transform:'translateX(-220px) scale(.8)'}], {duration:520*TEMPO, easing:'cubic-bezier(.45,0,.25,1)'});
+    };
+    const page = async ms => {
+      const sw = (async () => { await wait(stage, Math.max(0, ms - 260)); swipe(); })();
+      await K.click(dq('aN'), null, {ms});
+      all(s => s.page(1));
+      await sw;
+    };
+    const untilLive = () => new Promise(r => { const f = () => !stage.isConnected || live() ? r() : requestAnimationFrame(f); f(); });
     const run = async () => {
-      const nth = th === 'light' ? 'dark' : 'light';
+      await untilLive();
+      all(s => s.rot(1));                                  // 0 s: the e-card carousel is already turning
       await wait(stage, 1000);
-      // home: theme, occasion tag, format
-      await K.click(dq('th'), null); dq('th').classList.add('flip');
-      await wait(stage, 260);
-      await Promise.all([setTheme(D, nth, 1318, 40), setTheme(M, nth, 360, 70)]);
-      th = nth;
-      await wait(stage, 500);
-      await click('tg2'); sel('tg2');
-      [D, M].forEach(R => R.querySelectorAll('.mg-cap span').forEach((s, i) => s.classList.toggle('on', i === 2)));
-      await wait(stage, 1300);
-      await click('o-e'); sel('o-e');
-      await wait(stage, 700);
-      await click('go');
-      setStep(0);
-      await view('wiz');
-      // design
-      await wait(stage, 700);
-      await click('n100'); sel('n100');
-      both('amt').forEach(a => an(a, [{transform:'translateX(-50%) scale(1)'},{transform:'translateX(-50%) scale(1.14)', offset:.35},{transform:'translateX(-50%) scale(1)'}], 620, {fill:'none'}));
-      await K.count(both('amt'), 50, 100, 700*TEMPO, v => `${Math.round(v)} BYN`);
+      all(s => s.rot(1));
+      await wait(stage, 160);
+      await K.click(dq('swp'), mq('swp'), {ms:560});       // switch to plastic
+      all(s => s.setMode('p'));
+      await page(520);                                     // plastic cards page twice
       await wait(stage, 600);
-      await click('oc-date'); sel('oc-date');
-      swapText(dq('h'), MG.date[0]); swapText(mq('h'), MG.mdate[0]);
-      swapText(dq('ld'), MG.date[1]); swapText(mq('ld'), MG.mdate[1]);
-      await wait(stage, 1000);
-      await click('sw-hearts', {press:false}); sel('sw-hearts');
-      both('sw-hearts').forEach(s => an(s, [{transform:'scale(1)'},{transform:'scale(.88)', offset:.3},{transform:'scale(1)'}], 420, {fill:'none'}));
-      swapArt('hearts', '#9D82EE');
-      await wait(stage, 1500);
-      await nextStep(1, 'to');
-      // recipient
-      await wait(stage, 450);
-      await field('se', 'sender@example.com', 34);
-      await field('ph', '+375 29 000-00-00', 50);
-      await field('re', 'gift@example.com', 38);
-      both('re').forEach(e => e.classList.add('ok'));
-      dq('note').classList.remove('hide');
-      await wait(stage, 400);
-      await field('fr', 'Коллега', 120);
-      await wait(stage, 700);
-      await nextStep(2, 'wish');
-      // wish
-      await wait(stage, 600);
-      await click(`wi${MG.wish}`); sel(`wi${MG.wish}`);
-      sparkle(D);
-      both('ta').forEach(t => t.classList.add('focus'));
-      const txt = MG.wishes[MG.wish];
-      for (let i = 1; i <= txt.length; i++){
-        both('ta').forEach(t => { t.querySelector('.val').textContent = txt.slice(0, i); });
-        both('cnt').forEach(c => c.textContent = `${i}/250`);
-        await wait(stage, 24);
-      }
-      both('ta').forEach(t => t.classList.remove('focus'));
-      await wait(stage, 900);
-      await nextStep(3, 'when');
-      // delivery + pay
-      await wait(stage, 600);
-      await field('dt', '14.02.2027', 80);
-      await field('tm', '18:30', 120);
-      both('sum').forEach(s => s.classList.add('on'));
-      await wait(stage, 1500);
-      await click('next'); both('next').forEach(b => b.classList.add('loading'));
-      setStep(4);
-      await wait(stage, 1700);
-      setStep(5);
-      await wait(stage, 300);
-      // pack
-      await view('pack');
-      await Promise.all([packAnim(D), packAnim(M)]);
-      await wait(stage, 200);
-      // success
-      await view('ok');
-      both('ck').forEach(c => { c.classList.add('go'); an(c, [{transform:'scale(0)'},{transform:'scale(1.2)', offset:.6},{transform:'scale(1)'}], 560, {fill:'none'}); });
-      await wait(stage, 1500);
-      await click('dl');
-      await Promise.all(both('fill').map(f => done(an(f, [{width:'0%'},{width:'100%'}], 900, {easing:'ease-in-out'}))));
-      both('dl').forEach(b => { b.classList.add('got'); b.querySelector('.di').innerHTML = MGI.ok; b.querySelector('.lb').textContent = 'карта в загрузках'; });
-      await wait(stage, 1500);
-      // recipient opens
-      await view('rcv');
-      await wait(stage, 1300);
-      await click('open');
-      await Promise.all([openAnim(D), openAnim(M)]);
-      await wait(stage, 1700);
-      await click('cp');
-      both('cp').forEach(c => c.innerHTML = MGI.ok);
-      both('toast').forEach(t => t.classList.add('on'));
-      await wait(stage, 1600);
-      both('toast').forEach(t => t.classList.remove('on'));
-      await wait(stage, 500);
-      await click('ses');
-      await wait(stage, 2400);
+      await page(120);
+      await wait(stage, 420);
+      await K.click(dq('swe'), mq('swe'), {ms:520});       // back to e-cards
+      all(s => s.setMode('e'));
+      await K.click(dq('next'), mq('next'), {ms:620});     // «Далее»
+      all(s => s.setMode('pack'));
+      await wait(stage, 640);                              // the disc lands on the envelope card spot
+      await Promise.all(sc.map(s => s.pack()));
+      await wait(stage, 1875);                             // pause on the sealed envelope
     };
     for(;;){
       await run();
-      await Promise.all([D, M].map(R => done(an(R, [{opacity:1},{opacity:0}], 500))));
-      render(); bind();
-      await Promise.all([D, M].map(R => done(an(R, [{opacity:0},{opacity:1}], 500, {fill:'none'}))));
+      if (!stage.isConnected) return;
+      const old = sc.slice();
+      sc[0] = mount(D, 'd', true); sc[1] = mount(M, 'm', true);
+      await Promise.all(old.map(s => s.fly()));
+      old.forEach(s => s.ui.remove());
     }
   };
 
@@ -5547,12 +5274,12 @@ html{background:var(--paper)}
         <div class="bb-hero"><div class="bb-eb"><i></i>Запись на СТО по всей Беларуси</div>
           <h1>Бип — и вы<br><em>записаны.</em></h1>
           <p>Живые окна на шиномонтаж, ТО и детейлинг. Без звонков и «перезвоним», с ценой, которая не меняется на месте.</p>
-          <div style="position:relative"><div class="bb-srch" data-a="srch"><span class="bb-fld" data-a="q">${I.search}<span class="val"></span><span class="ph">Что нужно сделать? Например, замена масла</span></span><span class="bb-fld city">${I.pin}Минск<span class="x">×</span></span><span class="bb-btn" data-a="find">Найти</span></div>
+          <div style="position:relative"><div class="bb-srch" data-a="srch"><span class="bb-fld" data-a="q">${I.search}<span class="val"></span><span class="ph">Например, замена масла</span></span><span class="bb-fld city">${I.pin}Минск<span class="x">×</span></span><span class="bb-btn" data-a="find">Найти</span></div>
             <div class="bb-sugg" data-a="sugg"><div class="hl">${I.oil}Замена масла и фильтра<small>48 СТО · от 35 BYN</small></div><div>${I.oil}Замена масла в АКПП<small>21 СТО</small></div><div>${I.diag}Диагностика перед заменой<small>32 СТО</small></div></div></div>
           <div class="bb-stats"><div><b>3 шага</b><small>услуга, время, код из SMS</small></div><div><b>Живые окна</b><small>реальное время СТО</small></div><div><b>0 BYN</b><small>для водителей — всегда</small></div></div>
-          <div class="bb-stack"><div class="bb-rem"><small>VOLKSWAGEN POLO · 1234 AB-7</small><b>Пора переобуваться. <em>Снег</em> обещают 28 октября</b><span class="bb-btn">Ближайшее окно — сегодня 16:30${I.arr}</span></div>
-            <div class="bb-mini" style="transform:rotate(-1.5deg) translateX(-6px)"><div class="t">Шинный центр «Обод»<span>от 60 BYN</span></div><div class="s"><span>★ 4,9 · 3,1 км · Шиномонтаж</span><span>40 мин</span></div><div class="sl">${slot('16:30','hot')}${slot('17:00')}${slot('18:30')}${slot('завтра','mu')}</div></div>
-            <div class="bb-mini" style="transform:rotate(1.2deg) translateX(10px)"><div class="t">Протектор 24/7<span>от 45 BYN</span></div><div class="s"><span>★ 4,5 · 5,6 км · Шиномонтаж</span><span>45 мин</span></div><div class="sl">${slot('19:00','hot')}${slot('21:30')}${slot('23:00')}${slot('завтра','mu')}</div></div></div>
+          <div class="bb-stack"><div class="bb-rem"><small>VOLKSWAGEN POLO · 1234 AB-7</small><b>Пора переобуваться. <em>Снег</em> обещают 28&nbsp;октября</b><span class="bb-btn">Ближайшее окно — сегодня 16:30${I.arr}</span></div>
+            <div class="bb-mini"><div class="t">Шинный центр «Обод»<span>от 60 BYN</span></div><div class="s"><span>★ 4,9 · 3,1 км · Шиномонтаж</span><span>40 мин</span></div><div class="sl">${slot('16:30','hot')}${slot('17:00')}${slot('18:30')}${slot('завтра','mu')}</div></div>
+            <div class="bb-mini"><div class="t">Протектор 24/7<span>от 45 BYN</span></div><div class="s"><span>★ 4,5 · 5,6 км · Шиномонтаж</span><span>45 мин</span></div><div class="sl">${slot('19:00','hot')}${slot('21:30')}${slot('23:00')}${slot('завтра','mu')}</div></div></div>
         </div>
         <div class="bb-sec" style="top:520px"><h2>Популярные услуги</h2><p>Выберите услугу — покажем СТО, которые её делают, с ценами и свободным временем</p>
           <div class="bb-tiles"><div class="bb-tile"><span class="ic">${I.to}</span><b>ТО по регламенту</b><small>от 90 BYN · 64 автосервиса</small></div><div class="bb-tile"><span class="ic">${I.tire}</span><b>Шиномонтаж</b><small>от 20 BYN · 118 автосервисов</small></div><div class="bb-tile"><span class="ic">${I.oil}</span><b>Замена масла</b><small>от 35 BYN · 48 автосервисов</small></div><div class="bb-tile"><span class="ic">${I.diag}</span><b>Компьютерная диагностика</b><small>от 35 BYN · 52 автосервиса</small></div></div></div>
@@ -5761,11 +5488,39 @@ html{background:var(--paper)}
     }
   };
 
-  function makeStage(c){
+  /* Solo screens: the frame must never stay empty. If the screen is not painted
+     (zero size, stuck at opacity 0, engine error), restart the stage from its first screen. */
+  function soloPainted(node){
+    const desk = node.querySelector('.scr.desk'); if (!desk) return false;
+    const r = desk.getBoundingClientRect();
+    if (r.width < 10 || r.height < 10) return false;
+    let seen = 0, hit = 0;
+    for (const fx of [.25,.5,.75]) for (const fy of [.25,.5,.75]){
+      const x = r.left + r.width*fx, y = r.top + r.height*fy;
+      if (x < 0 || y < 0 || x > innerWidth || y > innerHeight) continue;
+      const els = document.elementsFromPoint(x, y), i = els.indexOf(desk);
+      if (i < 0 || els.slice(0, i).some(e => !desk.contains(e))) continue; // covered by the header or the case view
+      seen++;
+      if (els.slice(0, i).some(e => { if (e === desk.firstElementChild || e.closest('.sx-cur')) return false; let o = 1; for (let n = e; n && n !== desk; n = n.parentElement){ const cs = getComputedStyle(n); if (cs.visibility === 'hidden' || cs.display === 'none') return false; o *= +cs.opacity; } return o > .2; })) hit++;
+    }
+    return !seen || hit > 0;
+  }
+  function makeStage(c, restarts=0){
     const node = $('#'+c.tpl).content.firstElementChild.cloneNode(true);
     if (io) io.observe(node); else node.classList.add('is-live');
     const eng = ENGINES[node.dataset.engine];
-    if (eng) setTimeout(() => eng(node), 0);
+    if (eng) setTimeout(() => { Promise.resolve().then(() => eng(node)).catch(() => { try { sxFit(node); } catch(e){} }); }, 0);
+    if (node.dataset.layout === 'solo' && restarts < 3){
+      let bad = 0;
+      const t = setInterval(() => {
+        if (!node.isConnected){ clearInterval(t); return; }
+        if (!node.classList.contains('is-live') || document.hidden || soloPainted(node)){ bad = 0; return; }
+        if (++bad < 2) return;
+        clearInterval(t);
+        if (io) io.unobserve(node);
+        node.replaceWith(makeStage(c, restarts + 1));
+      }, 1500);
+    }
     return node;
   }
 
