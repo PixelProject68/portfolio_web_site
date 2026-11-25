@@ -2818,7 +2818,7 @@ html{background:var(--paper)}
 .lv-pt{display:flex;align-items:center;gap:12px}
 .lv-pt i{display:grid;place-items:center;width:44px;height:44px;border-radius:14px;color:#fff;font:900 20px/1 "Onest",var(--f-body);font-style:normal}
 .lv-pt b{display:block;font:800 16px/1.25 "Onest",var(--f-body);letter-spacing:-.015em}
-.lv-pt small{display:flex;align-items:center;gap:4px;margin-top:2px;font:600 14px/1.4 "Onest",var(--f-body);color:var(--ink2)}
+.lv-pt small{display:flex;white-space:nowrap;align-items:center;gap:4px;margin-top:2px;font:600 14px/1.4 "Onest",var(--f-body);color:var(--ink2)}
 .lv-pt small svg.i{width:14px;height:14px;fill:var(--am);stroke:var(--am)}
 .lv-pt .lv-btn{margin-left:auto;height:36px;padding:0 14px;border-radius:12px;font-size:13px;background:var(--bg);color:var(--ink);box-shadow:none}
 .lv-sheet h1{margin:20px 0 0;font:900 34px/1.04 "Onest",var(--f-body);letter-spacing:-.04em}
@@ -7048,7 +7048,7 @@ ${S(p+'el',130,100.89,.606,-.796,7,'#fff',.22)}${S(p+'er',390,100.89,-.606,-.796
               <p class="ld">Еда к закрытию, отменённые записи у мастеров, кресла перед сеансом и горящие туры — со скидкой и таймером.</p>
               <div class="acts"><span class="lv-btn dk"><span>Хочу первым</span>${I.arr}</span><span class="lv-link">Стать партнёром${I.arr}</span></div>
               <div class="lv-proof"><div><span>${I.clock}</span>Таймер у каждого<br>предложения</div><div><span>${I.card}</span>Оплата прямо<br>в приложении</div><div><span>${X.qr}</span>Забираешь<br>по коду</div></div></div>
-            <div class="lv-brd" data-a="brd"><div class="bh"><b><i></i>Горит рядом с Немигой</b><small>обновлено сейчас</small></div>
+            <div class="lv-brd" data-a="brd"><div class="bh"><b><i></i>Горит рядом с Немигой</b></div>
               <div class="lv-rows" style="height:336px">
                 ${row('r0', 0, 'polish', '--c-bea', 'Окошко после отмены', 'Маникюр с покрытием', 'Студия «Лак» · 600 м', '33', '55', 3130, 1)}
                 ${row('r1', 0, 'croissant', '--c-bak', 'Еда к закрытию', 'Бокс выпечки', 'Корица · 450 м', '7,90', '24', 1122)}
@@ -7110,7 +7110,7 @@ ${S(p+'el',130,100.89,.606,-.796,7,'#fff',.22)}${S(p+'er',390,100.89,-.606,-.796
         <div class="lv-hro"><span class="nb l">${I.l}</span><span class="nb r">${I.heart}</span>
           ${lvStk('loaf', 30, 104, 150, -10)}${lvStk('croissant', 160, 84, 150, 8)}${lvStk('donut', 280, 150, 96, -6)}
           <span class="lv-pill"><i></i>Осталось 3 из 6</span><span class="lv-pill dc">−67%</span></div>
-        <div class="lv-sheet"><div class="lv-pt"><i style="background:#3B2416">К</i><div><b>Корица</b><small>Пекарня · ${I.star}4,8 · 312 оценок</small></div><span class="lv-btn">${I.pinm}Маршрут</span></div>
+        <div class="lv-sheet"><div class="lv-pt"><i style="background:#3B2416">К</i><div><b>Корица</b><small>Пекарня · ${I.star}4,8 (312)</small></div><span class="lv-btn">${I.pinm}Маршрут</span></div>
           <h1>Бокс выпечки</h1><p>Сюрприз из сегодняшней витрины: 3–5 позиций от 600 г. Точный состав зависит от того, что осталось к вечеру.</p>
           <div class="lv-win"><div class="r"><span>Забрать сегодня<b>19:30–20:00</b></span><span class="rt">Окно открыто<b>ещё 19 мин</b></span></div><div class="lv-bar"><i></i><em></em></div></div>
           <div class="lv-inc"><h3>Что обычно внутри</h3><div><span>Круассаны</span><span>Хлеб</span><span>Пончики</span><span>Слойки</span></div></div>
