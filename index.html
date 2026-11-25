@@ -2603,8 +2603,14 @@ html{background:var(--paper)}
 .sx-steps span.on b{color:#9CCBFF}
 @media (hover:hover){.sx-steps span:hover{color:#fff;background:rgba(255,255,255,.13)}}
 .sx-steps span:focus-visible{outline:2px solid #5C95FF;outline-offset:2px}
-.sx-narrow .sx-steps{left:50%;top:1.6%;transform:translateX(-50%);gap:4px}
+.sx-narrow .sx-steps{left:50%;transform:translateX(-50%)}
+.sx-narrow .sx-steps,.sx-narrow .lm-steps{top:10px;gap:4px;white-space:nowrap;font-size:11px}
+.sx-narrow .sx-steps span,.sx-narrow .lm-steps span{height:26px;min-height:0;padding:0 9px;gap:0}
 .sx-narrow .sx-steps span b{display:none}
+@container (max-width:640px){.sx-steps{left:50%;top:10px;transform:translateX(-50%);gap:4px;white-space:nowrap;font-size:11px}.sx-steps span{height:24px;min-height:0;padding:0 9px;gap:0}.sx-steps span b{display:none}}
+/* step tabs live in the case window only; on the home page the whole card opens the case */
+.case .sx-steps,.case .lm-steps{display:none}
+.case .kx-steps li{cursor:inherit}
 .kx-steps li{cursor:pointer}
 /* fast-forward to a step: nothing animates, the screens stay hidden until the step starts */
 .sx-ff *,.sx-ff *::before,.sx-ff *::after{transition:none!important;animation-duration:0s!important;animation-delay:0s!important}
@@ -4256,7 +4262,7 @@ html{background:var(--paper)}
       if (lay === 'solo'){
         // fit by width, but never taller than the frame: equal margins, nothing cut at the bottom
         const dw = +desk.dataset.w, dh = +desk.dataset.h, m = narrow ? .04 : .05;
-        const t = stage.__nav ? Math.max(H*.11, 44) : H*m;   // step tabs sit above the screen
+        const t = stage.__nav && !stage.closest('.case') ? (W < 640 ? 44 : Math.max(H*.11, 44)) : H*m;   // step tabs (case window only) sit above the screen
         const k = Math.min(W*(narrow ? .96 : .84)/dw, (H - t - H*m)/dh);
         place(desk, k, dw, dh, (W - dw*k)/2, Math.max(t, (H - dh*k)/2 + (t - H*m)/2), 16);
         return;
@@ -4288,8 +4294,10 @@ html{background:var(--paper)}
         if (mob) place(mob, k, +mob.dataset.w, +mob.dataset.h, W*0.758 + 13*k, H*0.2, 40);   // +13pt: the iPhone body, so it covers no more of the desktop than the bare screen did
       } else if (mob){
         if (desk) desk.hidden = true;
-        const mw = +mob.dataset.w, mh = +mob.dataset.h, k = H*0.88/mh;
-        place(mob, k, mw, mh, (W - mw*k)/2, H*0.07, 40);
+        // in the case window the step tabs sit on top: the phone starts below them
+        const tabs = (stage.__nav || stage.querySelector('.lm-steps')) && !stage.closest('.case'), t = tabs ? 50 : H*0.07;
+        const mw = +mob.dataset.w, mh = +mob.dataset.h, k = Math.min(H*0.88/mh, (H - t - H*0.04)/mh);
+        place(mob, k, mw, mh, (W - mw*k)/2, t, 40);
       }
     };
     if ('ResizeObserver' in window) new ResizeObserver(fit).observe(stage);
@@ -6626,6 +6634,7 @@ ${S(p+'el',130,100.89,.606,-.796,7,'#fff',.22)}${S(p+'er',390,100.89,-.606,-.796
     const setNav = i => { playing = i; [...nav.children].forEach((s, k) => { s.classList.toggle('on', k === i); s.lastElementChild.getAnimations().forEach(a => a.cancel()); }); };
     render(); sxFit(stage);
     setTimeout(() => {
+      if (stage.closest('.case')) return; // a card on the home page opens the case on click: tabs only in the case window
       nav.classList.add('go'); nav.setAttribute('role', 'group'); nav.setAttribute('aria-label', 'Jump to a step');
       [...nav.children].forEach(s => { s.setAttribute('role', 'button'); s.tabIndex = 0;
         const go = e => { e.preventDefault(); e.stopPropagation(); start(+s.dataset.s); };
@@ -7583,7 +7592,7 @@ ${S(p+'el',130,100.89,.606,-.796,7,'#fff',.22)}${S(p+'er',390,100.89,-.606,-.796
       node.appendChild(nav); node.__nav = [...nav.children];
     }
     // tabs (and the kiosk's own step list) jump to a step; on the home page the click must not open the case
-    node.addEventListener('click', e => { const s = e.target.closest('.sx-steps span, .kx-steps li'); if (!s) return; e.preventDefault(); e.stopPropagation(); jump([...s.parentElement.children].indexOf(s)); });
+    node.addEventListener('click', e => { if (node.closest('.case')) return; const s = e.target.closest('.sx-steps span, .kx-steps li'); if (!s) return; e.preventDefault(); e.stopPropagation(); jump([...s.parentElement.children].indexOf(s)); });
     node.addEventListener('keydown', e => { const s = e.target.closest('.sx-steps span'); if (s && (e.key === 'Enter' || e.key === ' ')){ e.preventDefault(); e.stopPropagation(); jump(+s.dataset.s); } });
     if (eng) setTimeout(() => { Promise.resolve().then(() => eng(node)).catch(() => { try { sxFit(node); } catch(e){} }); }, 0);
     if (node.dataset.layout === 'solo' && restarts < 3){
