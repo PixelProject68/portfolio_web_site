@@ -8,7 +8,7 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://dedesign.online/">
 <meta property="og:title" content="Denis Konobeyev · Senior Product Designer">
-<meta property="og:description" content="Senior Product Designer since 2019: product monetization in iGaming, FinTech and AI, plus complex internal systems. Live prototypes of 11 product cases.">
+<meta property="og:description" content="Senior Product Designer since 2019: product monetization in iGaming, FinTech and AI, plus complex internal systems. Live prototypes of 12 product cases.">
 <meta property="og:image" content="https://dedesign.online/og.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -322,6 +322,8 @@ html{background:var(--paper)}
 .sx .vp{position:absolute;left:0;top:0;transform-origin:0 0;transform:scale(var(--k,1))}
 .sx .sx-cur{position:absolute;left:0;top:0;z-index:150;width:22px;pointer-events:none;will-change:transform}
 .sx .sx-cur svg{display:block;width:22px;height:22px;filter:drop-shadow(0 2px 4px rgba(0,0,0,.5))}
+.st-sv{--sx-bg:#09090D;--sx-glow:radial-gradient(50cqw 40cqw at 34% 30%,rgba(84,99,245,.26),transparent 70%),radial-gradient(40cqw 34cqw at 86% 80%,rgba(84,99,245,.16),transparent 70%)}
+.sv-if{position:absolute;left:0;top:0;width:100%;height:100%;border:0;display:block;background:#0F0F0F;pointer-events:none}
 .sx .sx-tap{position:absolute;z-index:150;width:44px;height:44px;margin:-22px 0 0 -22px;border-radius:50%;background:rgba(255,255,255,.3);border:2px solid rgba(255,255,255,.9);opacity:0;pointer-events:none}
 .sx .rp{position:absolute;border-radius:50%;background:rgba(255,255,255,.35);pointer-events:none;transform:translate(-50%,-50%) scale(0)}
 .sx .sx-label{position:absolute;z-index:3;font:500 .9cqw/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.5)}
@@ -415,16 +417,18 @@ html{background:var(--paper)}
 .cs-nav a .i{color:var(--c-mu)}
 .cs-nav a.on{background:#1E1B36;color:#fff}
 .cs-nav a.on .i{color:#A889FF}
-.cs-nav a.gold{background:rgba(227,180,0,.08);box-shadow:inset 0 0 0 1px rgba(227,180,0,.45);color:var(--c-gold)}
+.cs-nav a.gold{background:rgba(227,180,0,.06);box-shadow:inset 0 0 0 1px rgba(227,180,0,.28);color:var(--c-gold)}
 .cs-nav a.gold .i{color:var(--c-gold)}
-.cs-new{margin-left:auto;padding:2px 8px;border-radius:4px;background:var(--c-gold);color:#121418;font-size:11px;font-weight:600}
+.cs .cs-new,.cs-tabs span.cs-new,.cm-chips span.cs-new{display:inline-flex;align-items:center;height:18px;padding:0 6px;border-radius:9px;background:var(--c-gold);box-shadow:none;color:#121418;font:700 10px/1 "IBM Plex Sans",var(--f-body);letter-spacing:.06em;flex:none}
+.cs-nav .cs-new{margin-left:auto}
 .cs-side .cs-sfoot{margin-top:auto;display:flex;flex-direction:column;gap:8px}
 .cs-main{position:absolute;left:304px;right:16px;top:0;bottom:0;overflow:hidden}
 .cs-head{position:absolute;left:0;right:0;top:0;height:68px;padding-top:12px;padding-bottom:12px;display:flex;align-items:center;justify-content:space-between;z-index:3;background:var(--c-bg)}
 .cs-tabs{display:flex;padding:4px;gap:4px;border-radius:10px;background:var(--c-card)}
 .cs-tabs span{display:flex;align-items:center;gap:8px;height:36px;padding:0 16px;border-radius:8px;color:#D8DCEA}
 .cs-tabs span.on{background:var(--c-pr);color:#fff}
-.cs-tabs span.gold{color:var(--c-gold);box-shadow:inset 0 0 0 1px rgba(227,180,0,.45)}
+.cs-tabs span.gold{color:var(--c-gold);box-shadow:inset 0 0 0 1px rgba(227,180,0,.28);padding-right:10px}
+.cs-tabs span.gold .cs-new{margin-left:2px}
 .cs-right{display:flex;align-items:center;gap:8px}
 .cs-lang{display:flex;align-items:center;gap:8px;height:36px;padding:0 12px;border-radius:8px;color:var(--c-mu)}
 .cs-guest,.cs-user{display:flex;align-items:center;gap:8px;transition:opacity .4s,transform .4s}
@@ -592,6 +596,7 @@ html{background:var(--paper)}
 .cm-chips{display:flex;gap:8px;margin-top:16px}
 .cm-chips span{display:flex;align-items:center;height:36px;padding:0 16px;border-radius:8px;background:var(--c-card);font-size:13px}
 .cm-chips span.on{background:var(--c-pr)}
+.cm-chips span.gold{gap:6px;padding:0 10px 0 14px;color:var(--c-gold);box-shadow:inset 0 0 0 1px rgba(227,180,0,.28)}
 .cm-scroll .cs-sec{margin-top:24px}
 .cm-scroll .cs-tiles{gap:8px}
 .cm-scroll .cs-tile .tn{font-size:16px;bottom:8px}
@@ -651,6 +656,21 @@ html{background:var(--paper)}
 .kx-steps li.on{opacity:1}
 .kx-steps li.on i{background:#fff;color:#0A0A12;box-shadow:none}
 .sx-narrow .kx-side{display:none}
+/* floor-standing kiosk: thin black bezel, blank cabinet, flat wide base, floor shadow; turned like the phones in duo cases */
+.kx-rig{transform:perspective(1800px) rotateY(-10deg) rotateX(2.5deg)}
+.st-kx .scr.mob{box-shadow:none}
+.st-kx .scr.mob::after{box-shadow:inset 0 0 0 1px rgba(255,255,255,.06);background:linear-gradient(166deg,rgba(255,255,255,.10),rgba(255,255,255,0) 18%)}
+.kx-rig{position:absolute;z-index:1;width:calc(1400*var(--u));height:calc(2476*var(--u));transform-origin:50% 50%;pointer-events:none}
+.kx-rig i{position:absolute;display:block}
+.kx-head{left:calc(126*var(--u));top:0;width:calc(1148*var(--u));height:calc(1988*var(--u));border-radius:calc(44*var(--u));background:linear-gradient(170deg,#1B1D23,#0A0B0E 30%,#08090B);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.16),inset 0 1px 0 rgba(255,255,255,.3),0 .15cqw .35cqw rgba(0,0,0,.55),-3.2cqw 3.6cqw 7cqw -.6cqw rgba(0,0,0,.55)}
+.kx-cab{left:calc(186*var(--u));top:calc(1984*var(--u));width:calc(1028*var(--u));height:calc(436*var(--u));border-radius:0 0 calc(14*var(--u)) calc(14*var(--u));
+  background:linear-gradient(90deg,#0C0D10,#23262D 20%,#2C2F37 42%,#191B20 76%,#0C0D10),#16171B;box-shadow:inset 0 calc(10*var(--u)) calc(16*var(--u)) rgba(0,0,0,.55),inset 0 0 0 1px rgba(255,255,255,.06)}
+.kx-base{left:0;top:calc(2412*var(--u));width:calc(1400*var(--u));height:calc(64*var(--u));border-radius:calc(20*var(--u)) calc(20*var(--u)) calc(28*var(--u)) calc(28*var(--u));
+  background:linear-gradient(180deg,#2A2C33,#141519 38%,#0A0A0D);box-shadow:inset 0 1px 0 rgba(255,255,255,.22),inset 0 0 0 1px rgba(255,255,255,.07)}
+.kx-floor{position:absolute;z-index:0;width:calc(2100*var(--u));height:calc(170*var(--u));margin:calc(-100*var(--u)) 0 0 calc(-1160*var(--u));border-radius:50%;pointer-events:none;
+  background:radial-gradient(closest-side,rgba(0,0,0,.9),rgba(0,0,0,.5) 50%,transparent);filter:blur(calc(10*var(--u)))}
+
 .st-kx .kx-side .kx-cap,.st-kx .kx-side .kx-theme{display:none}
 
 .kk{--bg:#F1F1F3;--bg2:#E7E7EC;--sf:#FFFFFF;--sf2:#F3F3F6;--ln:rgba(18,18,24,.08);--tx:#121218;--mu:#6E6E78;--ac:#5564F4;--ac-ink:#fff;--ac-soft:rgba(85,100,244,.12);--ok:#1FB46A;--ph:#ECEAE6;
@@ -868,7 +888,7 @@ html{background:var(--paper)}
 .tp-card h4{display:flex;align-items:center;justify-content:space-between;margin:0 0 18px;font-size:18px;font-weight:800;letter-spacing:-.01em}
 .tp-brands{display:flex;gap:6px}
 .tp-brands span{height:24px;padding:0 8px;border-radius:6px;background:var(--gl2);box-shadow:inset 0 0 0 1px var(--ln);color:var(--mu);font:800 11px/24px "Manrope",var(--f-body);letter-spacing:.04em;transition:all .35s,visibility 0s}
-.tp-brands span.on{background:#fff;color:#0A7A3E;box-shadow:none;transform:translateY(-2px)}
+.tp-brands span.on{background:#fff;color:#0A7A3E;box-shadow:none}
 .tp-f{display:flex;flex-direction:column;gap:6px}
 .tp-f label{font-size:13px;color:var(--mu)}
 .tp-in{position:relative;display:flex;align-items:center;gap:10px;height:52px;padding:0 16px;border-radius:14px;background:rgba(255,255,255,.04);box-shadow:inset 0 0 0 1px var(--ln);font-size:17px;font-weight:600;letter-spacing:.02em;font-variant-numeric:tabular-nums;transition:box-shadow .3s}
@@ -1165,27 +1185,28 @@ html{background:var(--paper)}
 .gc-c .im{position:relative;height:214px;border-radius:10px;overflow:hidden;background:var(--cd)}
 .gc-c .im img{width:100%;height:100%;object-fit:cover}
 .gc-c .im .lab{position:absolute;left:10px;bottom:10px;display:flex;align-items:center;gap:6px;height:24px;padding:0 8px;border-radius:7px;background:rgba(10,10,14,.55);backdrop-filter:blur(6px);color:#fff;font-size:11px;font-weight:700}
-.gc-c b{display:block;margin:12px 4px 0;font-size:14px}
-.gc-c .mt{display:flex;align-items:center;gap:8px;margin:8px 4px 0}
+.gc-c b{display:block;height:20px;margin:12px 4px 0;font-size:14px;line-height:20px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.gc-c .mt{display:flex;align-items:center;gap:8px;height:22px;margin:8px 4px 0}
 .gc-c .mt small{color:var(--mu);font-size:12px;font-variant-numeric:tabular-nums}
-.gc-c .ft{display:flex;align-items:center;margin:12px 4px 0;padding-top:12px;border-top:1px solid var(--ln);color:var(--mu);font-size:12px}
-.gc-c .ft .bx-sw{transform:scale(.85);transform-origin:right}
+.gc-c .ft,.gc-ed .acts{display:flex;align-items:center;height:38px;margin:12px 4px 0;padding-top:12px;border-top:1px solid var(--ln);color:var(--mu);font-size:12px}
+.gc-c .ft .bx-sw,.gc-ed .acts .bx-sw{margin-left:auto;margin-right:0;transform:scale(.85);transform-origin:right}
 .gc-tag{display:inline-flex;align-items:center;height:22px;padding:0 8px;border-radius:7px;background:var(--ac-s);color:var(--ac);font-size:11px;font-weight:800}
-.gc-new{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;min-height:278px;border-radius:14px;border:1.5px dashed var(--ln);color:var(--mu);font-weight:600;transition:all .3s,visibility 0s}
+.gc-slot{position:relative;display:flex;flex-direction:column}
+.gc-new{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;border-radius:14px;border:1.5px dashed var(--ln);color:var(--mu);font-weight:600;transition:all .3s,visibility 0s}
 .gc-new .ic{width:44px;height:44px;border-radius:12px;background:var(--cd2);display:grid;place-items:center;color:var(--ac)}
 .gc-ed{display:none}
-.gc-ed.on{display:block;animation:adIn .5s cubic-bezier(.2,.8,.2,1)}
-.gc-up{position:relative;height:150px;border-radius:10px;overflow:hidden;background:var(--cd);display:grid;place-items:center;color:var(--mu);font-size:12px;text-align:center}
+.gc-ed.on{display:block;flex:1;animation:gcIn .45s cubic-bezier(.2,.8,.2,1)}
+@keyframes gcIn{from{opacity:0}}
+.gc-up{position:relative;height:214px;border-radius:10px;overflow:hidden;background:var(--cd);display:grid;place-items:center;color:var(--mu);font-size:12px;text-align:center}
 .gc-up img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.06);transition:opacity .8s,transform 1.2s cubic-bezier(.2,.8,.2,1)}
 .gc-up.done img{opacity:1;transform:none}
 .gc-prog{position:absolute;left:16px;right:16px;bottom:16px;height:4px;border-radius:2px;background:var(--ln);overflow:hidden}
 .gc-prog i{display:block;height:100%;width:0;background:var(--ac);transition:width 1.4s cubic-bezier(.4,0,.2,1)}
-.gc-ed .bx-in{height:38px;margin-top:10px;font-size:13px}
-.gc-ed .bx-chs{margin-top:8px}
-.gc-ed .bx-chs span{height:26px;font-size:12px;padding:0 8px}
-.gc-ed .acts{display:flex;align-items:center;gap:8px;margin-top:12px}
-.gc-ed .acts .bx-btn{height:32px;padding:0 12px;font-size:13px}
-.gc-ed .acts .bx-sw{margin-left:0;margin-right:auto}
+.gc-ed .bx-in{height:30px;margin-top:8px;padding:0 10px;border-radius:8px;font-size:13px}
+.gc-ed .bx-chs{flex-wrap:nowrap;height:24px;margin-top:6px;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,#000 82%,transparent);mask-image:linear-gradient(90deg,#000 82%,transparent)}
+.gc-ed .bx-chs span{flex:none;height:24px;font-size:12px;padding:0 8px;border-radius:7px}
+.gc-ed .acts{gap:6px;margin-top:6px}
+.gc-ed .acts .bx-btn{height:26px;padding:0 10px;border-radius:8px;font-size:12px}
 .bx-tbl{width:100%;margin-top:12px;border-collapse:separate;border-spacing:0;font:inherit;font-size:13px;color:inherit}
 .bx-tbl td,.bx-tbl th{color:inherit;font-family:inherit}
 .bx-tbl td .bx-sw{display:inline-block;vertical-align:middle}
@@ -1293,20 +1314,20 @@ html{background:var(--paper)}
 .ws-pl span small{font-size:11px;font-weight:600;letter-spacing:.02em;color:var(--mu)}
 .ws-pl b{margin-left:auto;font-size:19px;font-weight:800;color:currentColor;font-variant-numeric:tabular-nums}
 .ws-step{grid-column:2/4;grid-row:2;position:relative;display:grid;grid-template-columns:repeat(4,1fr)}
-.ws-step .ln{position:absolute;left:12px;right:12px;top:36px;height:2px;background:var(--ln)}
+.ws-step .ln{position:absolute;left:12.5%;right:12.5%;top:34px;height:2px;border-radius:1px;background:#1A2550}
 .ws-step .ln b{display:block;height:100%;width:0;background:var(--bl);transition:width 1s cubic-bezier(.3,.7,.2,1)}
-.ws-step div{position:relative;font-size:13px;color:var(--mu);font-weight:600;transition:color .4s}
-.ws-step div i{position:absolute;left:0;top:24px;width:26px;height:26px;border-radius:50%;background:var(--bg);box-shadow:inset 0 0 0 2px #26335E;display:grid;place-items:center;color:#fff;transition:background .4s,box-shadow .4s,visibility 0s}
+.ws-step div{position:relative;height:48px;font-size:13px;line-height:16px;color:var(--mu);font-weight:600;text-align:center;white-space:nowrap;transition:color .4s}
+.ws-step div i{position:absolute;left:50%;top:22px;margin-left:-13px;width:26px;height:26px;border-radius:50%;background:var(--bg);box-shadow:inset 0 0 0 2px #26335E;display:grid;place-items:center;color:#fff;transition:background .4s,box-shadow .4s,visibility 0s}
 .ws-step div i svg.i{grid-area:1/1;width:14px;height:14px;stroke:#fff;stroke-width:3;opacity:0;transform:scale(.6);transition:opacity .3s,transform .4s cubic-bezier(.3,1.4,.5,1)}
 .ws-step div i::after{content:"";grid-area:1/1;width:10px;height:10px;border-radius:50%;background:var(--bl);transform:scale(0);transition:transform .4s cubic-bezier(.3,1.4,.5,1)}
 .ws-step div.on{color:var(--tx)}
+.ws-step div.ok{color:#B3BBDB}
 .ws-step div.on i{background:#0E1A40;box-shadow:inset 0 0 0 2px var(--bl)}
 @media (prefers-reduced-motion:no-preference){.ws-step div.on i{animation:wsPulse 1.8s ease-out infinite}}
 .ws-step div.on i::after{transform:scale(1);box-shadow:0 0 8px rgba(47,123,255,.8)}
 .ws-step div.ok i{background:linear-gradient(135deg,#5C95FF,#2F7BFF);box-shadow:0 0 0 3px rgba(47,123,255,.16)}
 .ws-step div.ok i svg.i{opacity:1;transform:none}
 @keyframes wsPulse{0%{box-shadow:inset 0 0 0 2px var(--bl),0 0 0 0 rgba(47,123,255,.45)}70%{box-shadow:inset 0 0 0 2px var(--bl),0 0 0 9px rgba(47,123,255,0)}100%{box-shadow:inset 0 0 0 2px var(--bl),0 0 0 0 rgba(47,123,255,0)}}
-.ws-step div em{position:absolute;right:16px;top:0;font-style:normal;font-size:11px;color:var(--mu);font-variant-numeric:tabular-nums}
 .ws-tabs{position:relative;display:flex;justify-content:center;gap:56px;height:44px;margin-top:20px}
 .ws-tabs span{color:#3D5590;font-weight:700;font-size:15px;transition:color .3s}
 .ws-tabs span.on{color:var(--bl)}
@@ -1353,10 +1374,13 @@ html{background:var(--paper)}
 .ws-log div{display:flex;align-items:center;gap:10px;height:34px;padding:0 14px;border-radius:9px;background:var(--pn);font-size:13px;color:#B3BBDB;animation:adIn .5s cubic-bezier(.2,.8,.2,1)}
 .ws-log div b{color:var(--tx)}
 .ws-log div .x{color:var(--rd);font-weight:800;margin-left:auto}
-.ws-br{position:relative;height:100%}
-.ws-rh{position:absolute;top:0;width:276px;padding:10px 14px;border-radius:10px;background:var(--pn);box-shadow:inset 0 0 0 1px var(--ln)}
-.ws-rh b{display:block;font-size:15px}
-.ws-rh small{font-size:11px;letter-spacing:.06em;color:var(--mu);text-transform:uppercase}
+.ws-br{position:relative;height:100%;margin-left:12px}
+.ws-rh{position:absolute;top:0;bottom:0;width:300px;margin-left:-12px;padding:14px 12px 0;border-radius:16px;background:linear-gradient(180deg,rgba(120,150,255,.045),rgba(120,150,255,.02));box-shadow:inset 0 0 0 1px rgba(120,150,255,.05)}
+.ws-rh b{display:block;height:20px;font-size:15px;line-height:20px;font-weight:800}
+.ws-rh small{display:block;height:24px;padding-top:4px;border-bottom:1px solid var(--ln);font:500 11px/16px var(--f-mono);letter-spacing:.08em;color:var(--mu);text-transform:uppercase}
+.ws-rh.fin{background:radial-gradient(120% 50% at 50% 0%,rgba(242,178,62,.09),transparent 70%),linear-gradient(180deg,rgba(120,150,255,.045),rgba(120,150,255,.02));box-shadow:inset 0 0 0 1px rgba(242,178,62,.16)}
+.ws-rh.fin b{color:var(--ye)}
+.ws-rh.fin small{border-bottom-color:rgba(242,178,62,.2)}
 .ws-m{position:absolute;width:276px}
 .ws-m small{display:block;height:18px;font-size:11px;color:var(--mu);letter-spacing:.06em}
 .ws-mt{display:flex;align-items:center;gap:10px;height:34px;padding:0 12px 0 4px;background:var(--pn);transition:background .5s,opacity .5s}
@@ -1371,7 +1395,7 @@ html{background:var(--paper)}
 .ws-br>svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
 .ws-br path{fill:none;stroke:var(--ln);stroke-width:2;transition:stroke .5s}
 .ws-br path.on{stroke:var(--gr)}
-.ws-champ{position:absolute;left:1000px;top:178px;width:304px;padding:26px 24px 24px;border-radius:18px;background:radial-gradient(120% 100% at 50% 0%,rgba(242,178,62,.18),transparent 70%),var(--pn);box-shadow:inset 0 0 0 1px rgba(242,178,62,.4);text-align:center;opacity:0;transform:translateY(16px) scale(.97);transition:all .7s cubic-bezier(.2,.8,.2,1),visibility 0s}
+.ws-champ{position:absolute;left:988px;top:178px;width:304px;padding:26px 24px 24px;border-radius:18px;background:radial-gradient(120% 100% at 50% 0%,rgba(242,178,62,.18),transparent 70%),var(--pn);box-shadow:inset 0 0 0 1px rgba(242,178,62,.4);text-align:center;opacity:0;transform:translateY(16px) scale(.97);transition:all .7s cubic-bezier(.2,.8,.2,1),visibility 0s}
 .ws-champ.on{opacity:1;transform:none}
 .ws-champ .ws-tl{width:64px;height:64px;margin:0 auto;border-radius:16px;font-size:24px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.14),0 0 0 4px rgba(242,178,62,.22),0 12px 32px rgba(242,178,62,.25)}
 .ws-champ small{display:block;margin-top:16px;color:var(--ye);font-weight:800;letter-spacing:.12em;font-size:11px}
@@ -2856,7 +2880,7 @@ html{background:var(--paper)}
   <section class="wrap sec" id="work" aria-labelledby="workH">
     <div class="sec-head">
       <h2 id="workH" data-t="workH">Selected work</h2>
-      <span class="mono" data-t="workMeta">10 case studies</span>
+      <span class="mono" data-t="workMeta">12 case studies</span>
     </div>
     <div class="cases" id="cases"></div>
   </section>
@@ -2955,6 +2979,7 @@ html{background:var(--paper)}
   <div class="stage sx st-kx" data-engine="kiosk" data-layout="kiosk" data-th="light" role="img" aria-label="mooon self-service kiosk: add snacks to the cart, switch the theme, pay part with a gift card and the rest by bank card">
     <span class="sx-glow"></span><span class="sx-grain"></span>
     <div class="kx-side"><div><span class="kx-cap"></span><div class="kx-theme"><i class="kx-knob"></i><span></span><span></span></div></div><ol class="kx-steps"></ol></div>
+    <span class="kx-floor" aria-hidden="true"></span><div class="kx-rig" aria-hidden="true"><i class="kx-head"></i><i class="kx-cab"></i><i class="kx-base"></i></div>
     <div class="scr mob" data-w="1080" data-h="1920"><div class="vp"></div></div>
   </div>
 </template>
@@ -3018,6 +3043,14 @@ html{background:var(--paper)}
   </div>
 </template>
 
+<template id="tpl-seat">
+  <div class="stage sx st-sv" data-engine="seat" role="img" aria-label="mooon seat view on desktop and mobile: pick a seat on the hall map, the camera flies from the plan into the chair, looks around the 3D hall, hops to another seat and returns to the map">
+    <span class="sx-glow"></span><span class="sx-grain"></span>
+    <div class="scr desk" data-w="1440" data-h="726"><div class="vp"></div></div>
+    <div class="scr mob" data-w="390" data-h="844"><div class="vp"></div></div>
+  </div>
+</template>
+
 <template id="tpl-casino">
   <div class="stage sx st-casino" data-engine="casino" role="img" aria-label="Orbiq casino walkthrough on desktop and mobile: pick a welcome bonus, sign up with validation, confirm the email code, get the bonus, deposit crypto">
     <span class="sx-glow"></span><span class="sx-grain"></span>
@@ -3041,7 +3074,7 @@ html{background:var(--paper)}
       m2k:"Domains", m2v:"iGaming, FinTech, AI",
       m3k:"Method", m3v:"Figma and AI Tools, then HTML and React Prototypes",
       m4k:"Working", m4v:"Remote, GMT+3, Async-Friendly",
-      workH:"Selected work", workMeta:"11 case studies",
+      workH:"Selected work", workMeta:"12 case studies",
       labMeta:"Motion & AI",
       labIntro:"Motion and AI-assisted visuals I make alongside product work: paywall promos, series posters, interface animations and pitch concepts. Every piece says what I did and what the model did.",
       keyMe:"My work", keyAi:"Generated by a model", me:"Me", ai:"AI", slot:"slot", slotHere:"Loop goes here",
@@ -3079,7 +3112,7 @@ html{background:var(--paper)}
       m2k:"Сферы", m2v:"Финтех, кино, подписочные приложения",
       m3k:"Метод", m3v:"Figma и AI-инструменты, затем прототипы на HTML и React",
       m4k:"Формат", m4v:"Удалённо, GMT+3, асинхронно",
-      workH:"Избранные работы", workMeta:"11 кейсов",
+      workH:"Избранные работы", workMeta:"12 кейсов",
       labMeta:"Моушен и AI",
       labIntro:"Моушен и визуал с помощью AI, который я делаю вместе с продуктовой работой: промо пейволлов, постеры сериалов, анимации интерфейсов и концепты для питчей. У каждой работы указано, что сделал я, а что модель.",
       keyMe:"Моя работа", keyAi:"Сгенерировано моделью", me:"Я", ai:"AI", slot:"слот", slotHere:"Здесь будет ролик",
@@ -3277,6 +3310,21 @@ html{background:var(--paper)}
           ["Ads only as native cards", "At most one ad block per screen, so the marketplace never turns into a flea market."]
         ]
       },
+      {
+        eyebrow:"mooon · Cinema chain · 2026",
+        title:"See the screen from your seat before you buy",
+        summary:"A seat picker for mooon cinemas where the hall map is a live 3D scene. Pick a seat, and the camera flies from the plan into the chair, so the buyer sees the screen from that seat before paying.",
+        tags:["Purchase flow", "3D in the browser", "Desktop + mobile"],
+        facts:[["Role", "UI/UX designer, 3D HTML prototype"], ["Scope", "Hall map, view from the seat, tickets"], ["Platform", "Web, desktop and mobile"], ["Year", "2026"]],
+        context:"mooon is a cinema chain in Belarus. Its mooon+ halls mix single seats and two-seat sofas at different prices, and on a flat seat map people can only guess how the screen will look from a row.",
+        challenge:"Show the real view from any seat without adding a step: the 3D view has to be an option next to the tickets, not a gate before paying.",
+        did:["Made the hall map and the 3D hall one model: the plan is the same scene seen from above, so every seat sits where it is in the room", "Designed the flight from the plan into the chosen seat: the camera drops, turns to the screen and lands at eye level", "Added looking around by dragging on desktop and by tilting the phone on mobile, with a short automatic look so people see that it moves", "Let buyers hop between seats from a mini map and take a seat without leaving the 3D view", "Kept the ticket panel, the total and the 5-minute hold timer in place, so the 3D view never blocks the purchase", "Built the prototype in three.js with a separate mobile layout"],
+        decisions:[
+          ["The plan is the 3D scene from above", "There is no separate drawing of the hall, so the seat you tap on the plan is exactly where the camera lands."],
+          ["3D only on request", "The map stays flat and fast. The view from the seat opens from the ticket panel when the buyer wants it."],
+          ["Change seats inside 3D", "The mini map lets people compare seats without going back to the plan and pick one right there."]
+        ]
+      },
     ],
     ru:[
       {
@@ -3444,6 +3492,21 @@ html{background:var(--paper)}
           ["Код из SMS вместо аккаунта","Запись завершается кодом из SMS. Аккаунт появляется сам после первой записи, регистрироваться заранее не нужно."]
         ]
       },
+      {
+        eyebrow:"mooon · Кино · 2026",
+        title:"Экран с вашего места ещё до покупки",
+        summary:"Выбор мест для mooon, где схема зала — живая 3D-сцена. Выбираешь место, и камера пролетает со схемы в кресло: экран видно с этого места ещё до оплаты.",
+        tags:["Покупка", "3D в браузере", "Десктоп + мобилка"],
+        facts:[["Роль", "UI/UX-дизайнер, 3D HTML-прототип"], ["Объём", "Схема зала, вид с места, билеты"], ["Платформа", "Веб, десктоп и мобилка"], ["Год", "2026"]],
+        context:"mooon — сеть кинотеатров в Беларуси. В залах mooon+ есть одиночные кресла и диваны на двоих по разной цене, а по плоской схеме можно только гадать, как будет виден экран из ряда.",
+        challenge:"Показать настоящий вид с любого места и не добавить шаг: 3D — возможность рядом с билетами, а не обязательный этап перед оплатой.",
+        did:["Схема и 3D-зал — одна модель: схема — та же сцена сверху, каждое место стоит там же, где в зале", "Пролёт камеры со схемы в выбранное кресло: камера опускается, разворачивается к экрану и встаёт на уровень глаз", "Осмотреться можно перетаскиванием на десктопе и наклоном телефона на мобилке; короткий автоосмотр показывает, что сцена живая", "Пересесть можно с мини-схемы и выбрать место, не выходя из 3D", "Панель билетов, итог и таймер брони на 5 минут остаются на месте: 3D не мешает покупке", "Прототип на three.js, мобильная версия свёрстана отдельно"],
+        decisions:[
+          ["Схема — это 3D-сцена сверху","Отдельной картинки зала нет, поэтому место, которое нажали на схеме, — ровно то, куда прилетает камера."],
+          ["3D только по желанию","Схема остаётся плоской и быстрой. Вид с места открывается из панели билетов, когда покупатель захочет."],
+          ["Пересесть внутри 3D","Мини-схема позволяет сравнить места, не возвращаясь к схеме, и сразу выбрать одно."]
+        ]
+      },
     ]
   };
   const CASE_BASE = [
@@ -3457,9 +3520,10 @@ html{background:var(--paper)}
     {id:"wisp", tpl:"tpl-wisp", frame:"WISP / Lobby → Check-in → Map bans → Bracket"},
     {id:"dao", tpl:"tpl-dao", frame:"DAOLama / NFT → Loan → Wallet"},
     {id:"merch", tpl:"tpl-merch", frame:"TrxPay Merchant / Dashboard → Deposit"},
-    {id:"bipbip", tpl:"tpl-bipbip", frame:"bipbip / Search → Service station → Booking"}
+    {id:"bipbip", tpl:"tpl-bipbip", frame:"bipbip / Search → Service station → Booking"},
+    {id:"seat", tpl:"tpl-seat", frame:"mooon / Seat view in 3D / Desktop + Mobile"}
   ];
-  const ORDER = ["lumo","casino","gateway","merch","mooon","portal","gift","kiosk","bipbip","wisp","dao"];
+  const ORDER = ["lumo","casino","seat","gateway","merch","mooon","portal","gift","kiosk","bipbip","wisp","dao"];
 
   /* Lab — add pieces to LAB. src: compressed mp4 (2–5 MB), muted loop. r: "9:16" or "16:9".
      Text fields take {en, ru}: {r:"9:16", src:"lab/promo.mp4", title:{en,ru}, task:{en,ru}, mine:{en,ru}, ai:{en,ru}, tools:["Kling","Figma"]} */
@@ -3538,9 +3602,20 @@ html{background:var(--paper)}
         return;
       }
       if (lay === 'kiosk'){
+        // floor-standing kiosk: the screen sits in a bezel on a blank cabinet and a flat base (units = kiosk screen px)
         stage.classList.toggle('sx-narrow', narrow);
-        const mw = +mob.dataset.w, mh = +mob.dataset.h, k = H*.9/mh;
-        place(mob, k, mw, mh, narrow ? (W - mw*k)/2 : W*.64 - mw*k/2, H*.05, 36);
+        const mw = +mob.dataset.w, mh = +mob.dataset.h, RW = 1400, RH = 2476, BZ = 34, HX = (RW - mw - 2*BZ)/2;
+        const k = Math.min(H*.88/RH, W*.9/RW), cx = narrow ? W/2 : W*.64, x = cx - RW*k/2, y = (H - RH*k)/2 - H*.015;
+        stage.style.setProperty('--u', k + 'px');
+        const rig = stage.querySelector('.kx-rig'), fl = stage.querySelector('.kx-floor');
+        rig.style.left = x + 'px'; rig.style.top = y + 'px';
+        fl.style.left = cx + 'px'; fl.style.top = (y + RH*k) + 'px';
+        // the screen turns around the rig's centre, so both share one 3D space. Chrome rasterises a perspective layer
+        // at low resolution and the tiny kiosk type turns to mush: render the screen 2x and scale it down inside the transform
+        const SS = 2, ox = (RW/2 - HX - BZ)*k, oy = (RH/2 - BZ)*k;
+        place(mob, k*SS, mw, mh, x + (HX + BZ)*k, y + BZ*k, 16);
+        mob.style.transformOrigin = '0 0';
+        mob.style.transform = `translate(${ox}px,${oy}px) perspective(1800px) rotateY(-10deg) rotateX(2.5deg) translate(${-ox}px,${-oy}px) scale(${1/SS})`;
         return;
       }
       stage.classList.toggle('sx-narrow', narrow || !desk);
@@ -3790,7 +3865,7 @@ html{background:var(--paper)}
         </div>
         <div class="cm-scroll" data-a="scroll">
           <div class="cs-banner"><img src="assets/cs-banner.webp" alt=""></div>
-          <div class="cm-chips"><span class="on">Casino</span><span>Slots</span><span>Live</span><span>Crash</span><span>Betting</span></div>
+          <div class="cm-chips"><span class="on">Casino</span><span class="gold">Betting<span class="cs-new">NEW</span></span><span>Slots</span><span>Live</span><span>Crash</span></div>
           <div class="cs-sec"><div class="cs-sh">${IC.pad}Top Games<em>View all</em></div><div class="cs-tiles">${CS.top.map(g=>csTile(g)).join('')}</div></div>
           <div class="cs-sec"><div class="cs-sh">${IC.fire}Popular now<em>View all</em></div><div class="cs-tiles">${CS.gen.map(g=>csTile(g,1)).join('')}</div></div>
           ${csWins()}
@@ -4498,8 +4573,8 @@ html{background:var(--paper)}
             <div class="gc-slot" data-a="slot"><div class="gc-new" data-a="gnew"><span class="ic">${AI.img}</span>Загрузите дизайн<small style="font-size:12px">PNG или JPG, от 1200 × 760</small></div>
               <div class="gc-c gc-ed" data-a="ged"><div class="gc-up" data-a="gup">${AI.img}<img src="assets/gc-home.webp" alt=""><span class="gc-prog"><i data-a="gprog"></i></span></div>
                 <div class="bx-in" data-a="gname"><span class="val" data-ph="Название дизайна"></span><i class="car"></i></div>
-                <div class="bx-chs">${['День рождения','Новый год','Свидание','Новоселье'].map(o=>`<span ${o==='Новоселье'?'data-a="gocc"':''}>${o}</span>`).join('')}</div>
-                <div class="acts"><span class="bx-sw" data-a="gsw"></span><span class="bx-btn out">Отмена</span><span class="bx-btn pri" data-a="gadd"><span>Добавить</span><i class="sp"></i></span></div></div></div>
+                <div class="bx-chs">${['Новоселье','День рождения','Новый год','Свидание'].map(o=>`<span ${o==='Новоселье'?'data-a="gocc"':''}>${o}</span>`).join('')}</div>
+                <div class="acts"><span class="bx-btn out">Отмена</span><span class="bx-btn pri" data-a="gadd"><span>Добавить</span><i class="sp"></i></span><span class="bx-sw" data-a="gsw"></span></div></div></div>
           </div>
         </div>
         <div class="bx-card gc-pane" data-gp="1" style="display:none">
@@ -4701,11 +4776,19 @@ html{background:var(--paper)}
       await wait(stage, 400);
       await click(a('gadd')); a('gadd').classList.add('loading');
       await wait(stage, 1000);
-      const slot = a('slot');
+      // editor and card share one geometry: cross-fade the card over the editor in the same cell, then swap
+      const slot = a('slot'), ed = a('ged');
       const card = document.createElement('div'); card.innerHTML = gcCard(['home','С новосельем','Новоселье',0,true]); const c = card.firstElementChild;
       c.querySelector('.mt small').textContent = 'Новый';
+      c.style.cssText = 'position:absolute;inset:0;z-index:1;opacity:0';
+      slot.appendChild(c);
+      const acc = getComputedStyle(R).getPropertyValue('--ac').trim() || '#FF7A45';
+      [...ed.children].slice(1).forEach(el => el.animate([{opacity:1},{opacity:0}], {duration:260, fill:'forwards'}));
+      await done(c.animate([{opacity:0},{opacity:1}], {duration:420, delay:120, easing:'cubic-bezier(.2,.8,.2,1)', fill:'forwards'}));
+      c.style.cssText = ''; c.getAnimations().forEach(x => x.cancel());
       slot.replaceWith(c);
-      c.animate([{transform:'scale(.92)', opacity:.4},{transform:'scale(1.03)', opacity:1},{transform:'scale(1)'}], {duration:620, easing:'cubic-bezier(.3,1.4,.5,1)'});
+      const bs0 = getComputedStyle(c).boxShadow;
+      c.animate([{boxShadow:`inset 0 0 0 1.5px ${acc}`},{boxShadow:`inset 0 0 0 1.5px ${acc}`, offset:.4},{boxShadow:bs0}], {duration:1400, easing:'ease-out'});
       await X.toast('Дизайн добавлен');
       // occasions
       await click(a('gt1'), {press:false});
@@ -4803,7 +4886,7 @@ html{background:var(--paper)}
               <div class="ws-pl" style="color:#C9D1EA">${wMedal(2,'#F4F6FF','#9EA9CC','#2A3352')}<span>2ND<small>Runner-up</small></span><b>$50</b></div>
               <div class="ws-pl" style="color:#E08A4E">${wMedal(3,'#F8CBA2','#C0702F','#4A2205')}<span>3RD<small>Bronze match</small></span><b>$25</b></div></div>
             <div class="ws-step" data-a="step"><span class="ln"><b data-a="sln"></b></span>
-              ${['Join','Confirmation','Map voting','Play'].map((s,i)=>`<div data-a="st${i}" style="${i===3?'text-align:right':''}">${s}<i style="${i===3?'left:auto;right:0':''}">${WI.check}</i>${i===1?'<em data-a="stc"></em>':''}</div>`).join('')}</div>
+              ${['Join','Confirmation','Map voting','Play'].map((s,i)=>`<div data-a="st${i}">${s}<i>${WI.check}</i></div>`).join('')}</div>
           </div>
           <div class="ws-tabs" data-a="tabs"><span class="on">Teams</span><span>Maps</span><span>Grid</span><i class="ul"></i></div>
           <div class="ws-area">
@@ -4819,8 +4902,8 @@ html{background:var(--paper)}
               <div class="ws-log" data-a="log"></div>
             </div>
             <div class="ws-pane" data-p="2"><div class="ws-br">
-              <div class="ws-rh" style="left:0"><b>Quarterfinals</b><small>4 matches · BO1</small></div><div class="ws-rh" style="left:330px"><b>Semifinals</b><small>2 matches · BO1</small></div><div class="ws-rh" style="left:660px"><b>Final</b><small>1 match · BO3</small></div>
-              <svg viewBox="0 0 1304 510"><path data-l="0" d="M276 129h27v55h27"/><path data-l="1" d="M276 239h27v-55h27"/><path data-l="2" d="M276 349h27v55h27"/><path data-l="3" d="M276 459h27v-55h27"/><path data-l="4" d="M606 184h27v110h27"/><path data-l="5" d="M606 404h27v-110h27"/><path data-l="6" d="M936 294h64"/></svg>
+              <div class="ws-rh" style="left:0"><b>Quarterfinals</b><small>4 matches · BO1</small></div><div class="ws-rh" style="left:330px"><b>Semifinals</b><small>2 matches · BO1</small></div><div class="ws-rh fin" style="left:660px"><b>Final</b><small>1 match · BO3</small></div>
+              <svg viewBox="0 0 1304 510"><path data-l="0" d="M276 129h27v55h27"/><path data-l="1" d="M276 239h27v-55h27"/><path data-l="2" d="M276 349h27v55h27"/><path data-l="3" d="M276 459h27v-55h27"/><path data-l="4" d="M606 184h27v110h27"/><path data-l="5" d="M606 404h27v-110h27"/><path data-l="6" d="M936 294h52"/></svg>
               ${m(0,76,0,7,'','','MATCH 1','q1')}${m(0,186,3,2,'','','MATCH 2','q2')}${m(0,296,4,1,'','','MATCH 3','q3')}${m(0,406,5,6,'','','MATCH 4','q4')}
               ${m(330,131,0,2,'','','MATCH 5','s1')}${m(330,351,1,5,'','','MATCH 6','s2')}${m(660,241,0,1,'','','GRAND FINAL','f')}
               <div class="ws-champ" data-a="champ">${wTeam(WT[0])}<small>CHAMPION</small><h4>NIGHTFALL</h4><p>Weekly Cup #14 · 2:1 in the final</p><div class="pr"><span class="ws-chip" style="background:rgba(242,178,62,.16);color:var(--ye)">+$100</span><span class="ws-chip">+240 rating</span></div></div>
@@ -4865,7 +4948,7 @@ html{background:var(--paper)}
       a('tmb').style.width = '75%'; a('tmn').textContent = '6/8';
       for (let i = 0; i < 6; i++){ const e = a('rs'+i); e.className = 'ws-st'; e.lastElementChild.textContent = 'Registered'; e.parentElement.classList.remove('me'); }
       const s1 = a('slot1'); s1.className = 'ws-row free'; s1.innerHTML = '<span class="ws-tl" style="background:var(--pn2)"></span><span class="ws-tn">Free slot</span><span class="ws-st fr"><i></i><span>Waiting for a team</span></span><span class="ws-cn"></span>';
-      step(0); a('stc').textContent = '';
+      step(0);
       R.querySelectorAll('.ws-pane').forEach(p => { p.classList.toggle('on', p.dataset.p === '0'); p.getAnimations().forEach(x => x.cancel()); });
       const tabs = a('tabs'); tabs.querySelectorAll('span').forEach((x,j) => x.classList.toggle('on', !j));
       requestAnimationFrame(() => { const s = tabs.querySelector('span'), u = tabs.querySelector('.ul'); u.style.left = s.offsetLeft + 'px'; u.style.width = s.offsetWidth + 'px'; });
@@ -4895,7 +4978,7 @@ html{background:var(--paper)}
       a('tmb').style.width = '87.5%'; a('tmn').textContent = '7/8';
       step(1);
       let ct = 20;
-      for (const i of [0,2,4,1]){ await wait(stage, 450); rs(i, 'ok', 'Checked in'); ct -= 1; a('rct').textContent = '00:' + String(ct).padStart(2,'0'); a('stc').textContent = '00:' + String(ct).padStart(2,'0'); }
+      for (const i of [0,2,4,1]){ await wait(stage, 450); rs(i, 'ok', 'Checked in'); ct -= 1; a('rct').textContent = '00:' + String(ct).padStart(2,'0'); }
       await click(a('ready'));
       a('ready').innerHTML = `<span>You are ready</span>${WI.check}`;
       rs(6, 'ok', 'Checked in');
@@ -5252,6 +5335,88 @@ html{background:var(--paper)}
   const io = 'IntersectionObserver' in window ? new IntersectionObserver(es => {
     es.forEach(e => e.target.classList.toggle('is-live', e.isIntersecting));
   }, {threshold:.15}) : null;
+  /* ---------- mooon seat view: the live three.js prototype (seat/) in same-origin iframes, driven from here ----------
+     The iframes load on first view and pause (window.__hold) while the stage is off screen.
+     The prototype's own flights run in real time, so the flow waits for its classes, not for fixed delays. */
+  ENGINES.seat = async stage => {
+    const dW = stage.querySelector('.scr.desk'), mW = stage.querySelector('.scr.mob');
+    const fr = t => `<iframe class="sv-if" title="${t}" tabindex="-1" aria-hidden="true"></iframe>`;
+    dW.firstElementChild.innerHTML = fr('mooon seat view, desktop') + '<span class="sx-cur"><svg viewBox="0 0 22 22"><path d="M2 2l7.5 18 2.6-7.4L19.5 10z" fill="#fff" stroke="#0B0B12" stroke-width="1.4" stroke-linejoin="round"/></svg></span>';
+    mW.firstElementChild.innerHTML = fr('mooon seat view, mobile') + '<span class="sx-tap"></span>';
+    sxFit(stage);
+    const fD = dW.querySelector('iframe'), fM = mW.querySelector('iframe'), cur = dW.querySelector('.sx-cur'), tapEl = mW.querySelector('.sx-tap');
+    const useD = !stage.classList.contains('sx-narrow');
+    await new Promise(res => { const chk = () => { if (!stage.isConnected) return; stage.classList.contains('is-live') ? res() : setTimeout(chk, 250); }; chk(); });
+    const pr = Math.max(.5, Math.min(1.75, (+dW.dataset.k || .6)*Math.min(devicePixelRatio || 1, 2))).toFixed(2);
+    if (useD) fD.src = `seat/index.html?pr=${pr}`;
+    fM.src = 'seat/m.html';
+    const ready = f => new Promise(res => { const chk = () => { if (!stage.isConnected) return; try { const d = f.contentDocument; if (d && d.body && d.body.classList.contains('ready')) return res(d); } catch(e){} setTimeout(chk, 150); }; chk(); });
+    const [dd, md] = await Promise.all([useD ? ready(fD) : null, ready(fM)]);
+    /* paused off screen, and in the list while the case window covers it */
+    const cv = $('#caseView');
+    const covered = () => !!cv && !cv.hidden && !cv.contains(stage);
+    const hold = () => { const off = !stage.classList.contains('is-live') || covered(); [fD, fM].forEach(f => { try { f.contentWindow.__hold && f.contentWindow.__hold(off); } catch(e){} }); };
+    const mo = new MutationObserver(hold); mo.observe(stage, {attributes:true, attributeFilter:['class']}); if (cv) mo.observe(cv, {attributes:true, attributeFilter:['hidden']}); hold();
+    if (reduce) return;
+
+    const narrow = () => stage.classList.contains('sx-narrow');
+    const dq = s => dd && dd.querySelector(s), mq = s => md.querySelector(s);
+    const mid = (el) => { const r = el.getBoundingClientRect(); return {x:r.left + r.width/2, y:r.top + r.height/2}; };
+    const move = async (el, ms=800) => {
+      if (el && useD && !narrow()){ const p = mid(el); cur.style.transition = `transform ${ms*TEMPO}ms ${EASE}`; cur.style.transform = `translate(${p.x-3}px,${p.y-2}px)`; }
+      await wait(stage, ms);
+    };
+    const tap = el => {
+      if (!el) return;
+      const p = mid(el); tapEl.style.left = p.x + 'px'; tapEl.style.top = p.y + 'px';
+      tapEl.animate([{opacity:0,transform:'scale(.5)'},{opacity:1,transform:'scale(1)',offset:.3},{opacity:0,transform:'scale(1.45)'}], {duration:650, easing:'ease-out'});
+    };
+    /* the cursor travels to the desktop target, then both screens get the same action */
+    const act = async (de, me, ms=800) => {
+      while (covered() && stage.isConnected) await wait(stage, 300);
+      await move(de, ms);
+      if (de && useD) cur.firstElementChild.animate([{transform:'scale(1)'},{transform:'scale(.8)'},{transform:'scale(1)'}], {duration:240});
+      tap(me);
+      if (de) de.click();
+      if (me) me.click();
+      await wait(stage, 260);
+    };
+    const until = async (ok, max=9000) => { for (let t = 0; t < max && !ok(); t += covered() ? 0 : 100) await wait(stage, 100); };
+    const dState = c => !dd || dq('#stage').classList.contains(c), mState = c => md.body.classList.contains(c);
+    /* mobile map seats have no data-id, but they come in the same order as the mini-map buttons, which do */
+    const mSeat = id => { const i = [...md.querySelectorAll('#mini .m')].findIndex(b => b.dataset.id === id); return md.querySelectorAll('#map .seat')[i] || md.querySelector('#map .seat.free'); };
+    const dSeat = id => dq(`#map .seat[data-id="${id}"]`);
+    const A = 'r6u3', B = 'r9u3';
+    if (useD){ const s = dq('#stage'), p = mid(s); cur.style.transform = `translate(${p.x}px,${p.y + 80}px)`; }
+
+    while (stage.isConnected){
+      await wait(stage, 1100);
+      /* 1. hover a seat for the price, pick it */
+      const sa = dSeat(A);
+      await move(sa, 900);
+      if (sa) sa.dispatchEvent(new MouseEvent('mouseenter'));
+      await wait(stage, 1100);
+      await act(sa, mSeat(A), 200);
+      await wait(stage, 900);
+      if (sa) sa.dispatchEvent(new MouseEvent('mouseleave'));
+      /* 2. fly from the plan into the chair */
+      await act(dq('#preview'), mq('#preview'), 900);
+      await until(() => dState('pov') && mState('pov'));
+      await wait(stage, 4600);          // the prototype looks around by itself here
+      /* 3. hop to a sofa at the back from the mini map, and take it */
+      await act(dq(`#mini .m[data-id="${B}"]`), mq(`#mini .m[data-id="${B}"]`), 1000);
+      await wait(stage, 2600);
+      await act(dq('#povAction'), mq('#povAction'), 900);
+      await wait(stage, 1600);
+      /* 4. back to the hall map with both seats */
+      await act(dq('#back'), mq('#toMap'), 900);
+      await until(() => !dState('gl-on') && !mState('gl-on'));
+      await wait(stage, 1800);
+      /* 5. clear the tickets so the next loop starts from an empty hall */
+      for (let i = 0; i < 2; i++){ await act(dq('#picked .prm'), mq('#picked .prm'), 700); await wait(stage, 500); }
+    }
+  };
+
   /* ---------- mooon gift cards: e-card carousel → plastic cards → envelope ---------- */
   const MG2 = {
     discs:['d1','d2','d3','d4','d5'], start:1,
