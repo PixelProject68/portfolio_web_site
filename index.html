@@ -3062,7 +3062,7 @@ html{background:var(--paper)}
     {id:"merch", tpl:"tpl-merch", frame:"TrxPay Merchant / Dashboard → Deposit"},
     {id:"bipbip", tpl:"tpl-bipbip", frame:"bipbip / Search → Service station → Booking"}
   ];
-  const ORDER = ["bipbip","casino","lumo","portal","gateway","merch","mooon","kiosk","gift","wisp","dao"];
+  const ORDER = ["lumo","casino","gateway","merch","mooon","portal","gift","kiosk","bipbip","wisp","dao"];
 
   /* Lab — add pieces to LAB. src: compressed mp4 (2–5 MB), muted loop. r: "9:16" or "16:9".
      Text fields take {en, ru}: {r:"9:16", src:"lab/promo.mp4", title:{en,ru}, task:{en,ru}, mine:{en,ru}, ai:{en,ru}, tools:["Kling","Figma"]} */
@@ -5108,6 +5108,7 @@ ${S(p+'el',130,100.89,.606,-.796,7,'#fff',.22)}${S(p+'er',390,100.89,-.606,-.796
       return S;
     };
 
+    D.dataset.th = M.dataset.th = 'dark';               // the loop opens in the dark theme and pours into light
     const sc = [mount(D, 'd', false), mount(M, 'm', false)];
     if (reduce) return;
     const dq = s => sc[0].q(s), mq = s => sc[1].q(s);
@@ -5126,7 +5127,7 @@ ${S(p+'el',130,100.89,.606,-.796,7,'#fff',.22)}${S(p+'er',390,100.89,-.606,-.796
     };
     const untilLive = () => new Promise(r => { const f = () => !stage.isConnected || live() ? r() : requestAnimationFrame(f); f(); });
     /* theme switch: the other theme is a second live screen on top, opened by a circle from the switch (desktop) and from the same corner on the phone */
-    let ov = [], th = 'light';
+    let ov = [], th = 'dark';
     const rot1 = () => { all(s => s.rot(1)); ov.forEach(s => s.rot(1)); };
     const theme = async () => {
       const to = th === 'light' ? 'dark' : 'light', roots = [D, M], dP = K.pt(D, dq('thm')), pts = [dP, {x:dP.x/1440*390, y:30}];
