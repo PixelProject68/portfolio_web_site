@@ -4112,6 +4112,46 @@ html{background:var(--paper)}
     requestAnimationFrame(tick);
   });
   const done = a => a.finished.catch(()=>{});
+  /* demo cursor: a hand-like glide. Soft arc (not a straight line), minimum-jerk speed with a longer settle into the target,
+     time grows with distance (Fitts: short hops are quick, long trips take a bit longer). Played as a sampled WAAPI animation,
+     so it runs on the compositor and stays smooth next to heavy scenes. The final position is written inline first, so when
+     the animation ends nothing jumps. Resolves on arrival; callers add a short aim pause before the click. */
+  const curXY = cur => {
+    if (cur._anim && cur._anim.playState === 'running'){ const k = new DOMMatrixReadOnly(getComputedStyle(cur).transform); return {x:k.m41, y:k.m42}; }
+    const m = /translate\(\s*(-?[\d.]+)px\s*,\s*(-?[\d.]+)px/.exec(cur.style.transform || ''); if (m) return {x:+m[1], y:+m[2]};
+    const t = getComputedStyle(cur).transform; if (t && t !== 'none'){ const k = new DOMMatrixReadOnly(t); return {x:k.m41, y:k.m42}; } return {x:0, y:0};
+  };
+  const glideMs = d => (150 + 120*Math.log2(1 + d/32))*TEMPO;
+  function glide(stage, cur, x, y, o={}){
+    if (!cur) return Promise.resolve();
+    const p0 = curXY(cur), dx = x - p0.x, dy = y - p0.y, d = Math.hypot(dx, dy);
+    if (cur._anim){ cur._anim.cancel(); cur._anim = null; }
+    const at = (px, py) => `translate(${px}px,${py}px)`;
+    cur.style.transition = 'none'; cur.style.transform = at(x, y);
+    if (reduce || o.jump || d < 2) return Promise.resolve();
+    const T = o.T || glideMs(d);
+    // arc: bow a little to one side, more on the way out, nearly straight on the approach; kept inside the start-target box (+28px)
+    // so a curve never swings under the phone or off the screen
+    const side = Math.abs(dx) > 6 ? Math.sign(dx) : 1, bend = o.drag ? 0 : Math.min(d*.1, 56) * side;
+    const nx = -dy/(d||1)*bend, ny = dx/(d||1)*bend;
+    const lo = {x:Math.min(p0.x, x) - 28, y:Math.min(p0.y, y) - 28}, hi = {x:Math.max(p0.x, x) + 28, y:Math.max(p0.y, y) + 28};
+    const cl = (v, a, b) => Math.max(a, Math.min(b, v));
+    const c1x = cl(p0.x + dx*.3 + nx, lo.x, hi.x), c1y = cl(p0.y + dy*.3 + ny, lo.y, hi.y), c2x = cl(p0.x + dx*.78 + nx*.35, lo.x, hi.x), c2y = cl(p0.y + dy*.78 + ny*.35, lo.y, hi.y);
+    const bez = (t, a, b, c, e) => { const u = 1 - t; return u*u*u*a + 3*u*u*t*b + 3*u*t*t*c + t*t*t*e; };
+    const mj = t => t*t*t*(10 + t*(-15 + 6*t));             // minimum-jerk: no snap at start, no snap at stop
+    const prof = o.drag ? (t => t < .5 ? 2*t*t : 1 - Math.pow(-2*t + 2, 2)/2) : (t => mj(Math.pow(t, .82)));   // peak speed early, longer settle
+    const N = Math.max(12, Math.min(48, Math.round(T/16))), kf = [];
+    for (let i = 0; i <= N; i++){ const s = prof(i/N); kf.push({transform: at(bez(s, p0.x, c1x, c2x, x), bez(s, p0.y, c1y, c2y, y))}); }
+    const an = cur._anim = cur.animate(kf, {duration:T, easing:'linear'});
+    return an.finished.then(() => { if (cur._anim === an) cur._anim = null; }, () => {});
+  }
+  /* move the cursor and wait: at least the caller's budget, and never less than the glide plus a short aim pause */
+  async function glideTo(stage, cur, x, y, ms, o={}){
+    const g = glide(stage, cur, x, y, o);
+    await Promise.all([wait(stage, ms), o.jump ? null : g.then(() => wait(stage, 110))]);
+  }
+  /* press: a quick dip and a soft spring back, like a real click */
+  const curPress = cur => cur && cur.firstElementChild && cur.firstElementChild.animate([{transform:'scale(1)'},{transform:'scale(.82)', offset:.3},{transform:'scale(1.04)', offset:.7},{transform:'scale(1)'}], {duration:300, easing:'cubic-bezier(.3,0,.3,1)'});
   function showOnly(layers, layer){
     layers.forEach(l => {
       l.getAnimations().forEach(a => a.cancel());
@@ -4202,8 +4242,8 @@ html{background:var(--paper)}
     const kit = {
       pt, kOf,
       async move(el, ms=700){
-        if (el && cur && !narrow()){ const p = pt(D, el); cur.style.transition = `transform ${ms*TEMPO}ms ${EASE}`; cur.style.transform = `translate(${p.x-3}px,${p.y-2}px)`; }
-        await wait(stage, ms);
+        if (el && cur && !narrow()){ const p = pt(D, el); await glideTo(stage, cur, p.x-3, p.y-2, ms); }
+        else await wait(stage, ms);
       },
       ripple(el){
         if (!el) return;
@@ -4221,7 +4261,7 @@ html{background:var(--paper)}
       },
       async click(de, me, {press=true, ms=700}={}){
         await kit.move(de, ms);
-        if (cur) cur.firstElementChild.animate([{transform:'scale(1)'},{transform:'scale(.8)'},{transform:'scale(1)'}], {duration:240});
+        if (cur && !narrow()) curPress(cur);
         kit.tap(me);
         if (press){ kit.ripple(de); kit.ripple(me); }
         await wait(stage, 220);
@@ -5258,10 +5298,7 @@ html{background:var(--paper)}
       a('bc').innerHTML = bc('Аналитика','Лояльность');
       await X.page('loy'); enterLoy();
       await wait(stage, 2600);
-      await click(a('moon'), {press:false});
-      await X.theme('dark', a('moon'));
-      await wait(stage, 600);
-      // modifiers
+      // modifiers (still light: the theme goes back to dark next to «Сохранить», no extra trip to the header)
       await click(a('nav-mod'));
       a('bc').innerHTML = bc('Справочники','Модификаторы','Сироп к кофе');
       await X.page('mod');
@@ -5288,6 +5325,9 @@ html{background:var(--paper)}
       await wait(stage, 1000);
       a('save').classList.remove('loading');
       await X.toast('Модификатор сохранён');
+      await click(a('moon'), {press:false, ms:520});
+      await X.theme('dark', a('moon'));
+      await wait(stage, 500);
       await click(a('nav-dash'));
       a('bc').innerHTML = bc('Аналитика','Дашборд');
       R.querySelectorAll('.bx-bar i').forEach(i => i.style.height = 0); R.querySelectorAll('.tr i').forEach(i => i.style.width = 0);
@@ -5540,9 +5580,10 @@ html{background:var(--paper)}
       reset();
       await wait(stage, 1100);
       const c0 = a('c0');
-      await K.move(c0.querySelector('.b h4'), 900); c0.classList.add('hov');
+      const h4 = c0.querySelector('.b h4');
+      await K.move(h4, 900); c0.classList.add('hov');
       await wait(stage, 900);
-      await click(c0, {press:false, ms:200});
+      await click(h4, {press:false, ms:200});
       await view('det');
       await wait(stage, 900);
       // join
@@ -5566,7 +5607,7 @@ html{background:var(--paper)}
       await tab(1);
       await wait(stage, 500);
       // map bans
-      const order = [[1,'Nightfall'],[6,'Pale Wolves'],[2,'Nightfall'],[0,'Pale Wolves'],[5,'Nightfall'],[4,'Pale Wolves']];
+      const order = [[0,'Nightfall'],[1,'Pale Wolves'],[2,'Nightfall'],[4,'Pale Wolves'],[5,'Nightfall'],[6,'Pale Wolves']];   // left to right: the cursor sweeps the row instead of zig-zagging, map 3 stays the decider
       let vt = 15;
       for (const [mi, who] of order){
         const mp = R.querySelector(`.ws-map[data-mp="${mi}"]`);
@@ -5693,7 +5734,7 @@ html{background:var(--paper)}
       await wait(stage, 800);
       // hover a couple, pick whale
       for (const i of [1,5]){ const n = R.querySelector(`.dl-nft[data-n="${i}"]`); R.querySelectorAll('.dl-nft').forEach(x => x.classList.remove('hov')); await K.move(n.querySelector('b'), 700); n.classList.add('hov'); await wait(stage, 600); }
-      await click(R.querySelector('.dl-nft[data-n="5"]'), {press:false, ms:200});
+      await click(R.querySelector('.dl-nft[data-n="5"] b'), {press:false, ms:200});   // click where the cursor already rests, no drift to the card centre
       a('ov').classList.add('on'); a('dr').classList.add('on');
       await wait(stage, 900);
       // drag slider
@@ -5940,8 +5981,8 @@ html{background:var(--paper)}
     const dq = s => dd && dd.querySelector(s), mq = s => md.querySelector(s);
     const mid = (el) => { const r = el.getBoundingClientRect(); return {x:r.left + r.width/2, y:r.top + r.height/2}; };
     const move = async (el, ms=800) => {
-      if (el && useD && !narrow()){ const p = mid(el); cur.style.transition = `transform ${ms*TEMPO}ms ${EASE}`; cur.style.transform = `translate(${p.x-3}px,${p.y-2}px)`; }
-      await wait(stage, ms);
+      if (el && useD && !narrow()){ const p = mid(el); await glideTo(stage, cur, p.x-3, p.y-2, ms); }
+      else await wait(stage, ms);
     };
     const tap = el => {
       if (!el) return;
@@ -5952,7 +5993,7 @@ html{background:var(--paper)}
     const act = async (de, me, ms=800) => {
       while (covered() && stage.isConnected) await wait(stage, 300);
       await move(de, ms);
-      if (de && useD) cur.firstElementChild.animate([{transform:'scale(1)'},{transform:'scale(.8)'},{transform:'scale(1)'}], {duration:240});
+      if (de && useD) curPress(cur);
       tap(me);
       if (de) de.click();
       if (me) me.click();
@@ -6510,11 +6551,12 @@ ${S(p+'el',130,100.89,.606,-.796,7,'#fff',.22)}${S(p+'er',390,100.89,-.606,-.796
       c.done = async a => { await done(a); chk(); };
       c.move = async (el, ms=700) => {
         chk(); const cur = D.querySelector('.sx-cur');
-        if (el && cur){ const p = K.pt(D, el); cur.style.transition = c.fast ? 'none' : `transform ${ms*TEMPO}ms ${EASE}`; cur.style.transform = `translate(${p.x-3}px,${p.y-2}px)`; }
+        if (el && cur && !c.fast){ const p = K.pt(D, el); await glideTo(stage, cur, p.x-3, p.y-2, ms); chk(); return; }
+        if (el && cur){ const p = K.pt(D, el); glide(stage, cur, p.x-3, p.y-2, {jump:true}); }
         await c.w(ms);
       };
-      c.moveXY = async (x, y, ms=600, ease=EASE) => { chk(); const cur = D.querySelector('.sx-cur'); if (cur){ cur.style.transition = c.fast ? 'none' : `transform ${ms*TEMPO}ms ${ease}`; cur.style.transform = `translate(${x-3}px,${y-2}px)`; } await c.w(ms); };
-      c.press = el => { if (c.fast || !el) return; const cur = D.querySelector('.sx-cur'); if (D.contains(el) && cur) cur.firstElementChild.animate([{transform:'scale(1)'},{transform:'scale(.8)'},{transform:'scale(1)'}], {duration:240}); K.ripple(el); };
+      c.moveXY = async (x, y, ms=600, ease=EASE) => { chk(); const cur = D.querySelector('.sx-cur'); const drag = ease !== EASE; if (cur && !c.fast && !drag){ await glideTo(stage, cur, x-3, y-2, ms); chk(); return; } if (cur) glide(stage, cur, x-3, y-2, {jump:c.fast, drag, T:ms*TEMPO}); await c.w(ms); };
+      c.press = el => { if (c.fast || !el) return; const cur = D.querySelector('.sx-cur'); if (D.contains(el) && cur) curPress(cur); K.ripple(el); };
       c.click = async (el, ms=700) => { await c.move(el, ms); if (el && el.classList.contains('lm-btn')) el.classList.add('hov'); c.press(el); await c.w(240); if (el) el.classList.remove('hov'); };
       c.tap = async (el, ms=500) => { await c.w(ms); if (!c.fast && el){ K.tap(el); K.ripple(el); } await c.w(260); };
       c.view = async (R, name, how='fade') => {
@@ -6610,12 +6652,12 @@ ${S(p+'el',130,100.89,.606,-.796,7,'#fff',.22)}${S(p+'er',390,100.89,-.606,-.796
         await c.w(900);
         await c.click(q(D, 'fr'), 800); flowSet(D, 'flow', '.lm-fc', 1); await c.w(1700);
         await c.click(q(D, 'fr'), 400); flowSet(D, 'flow', '.lm-fc', 2); await c.w(1300);
-        const ni = q(D, 'ni-dramas'); await c.move(ni, 700); ni.classList.add('hl'); await c.w(700); ni.classList.remove('hl');
-        const w = q(D, 'dr-1'); const wb = w.querySelector('.lm-btn'); await c.move(wb, 700); wb.classList.add('hov'); await c.w(800); wb.classList.remove('hov');
+        // straight down from the banner to the dramas: no detour to the header
+        const w = q(D, 'dr-1'); const wb = w.querySelector('.lm-btn'); await c.move(wb, 900); wb.classList.add('hov'); await c.w(900); wb.classList.remove('hov');
         const s = q(D, 'dr-3'); await c.move(s, 650); expand(D, s); await c.w(1500);
         const s2 = q(D, 'dr-5'); await c.move(s2, 650); expand(D, s2); await c.w(1300);
         await c.scroll(D, 'sc-explore', 660, 1100);
-        const v = q(D, 'cc-c4'); await c.move(v, 600); hov(v, true); await c.w(800); hov(v, false);
+        const v = q(D, 'cc-c7'); await c.move(v, 600);   // a card on the way to «Mira», not behind her hov(v, true); await c.w(800); hov(v, false);
         const m = q(D, 'cc-c1'); await c.move(m, 550); hov(m, true); await c.w(700);
         await c.click(m.querySelector('.go'), 450);
       };
