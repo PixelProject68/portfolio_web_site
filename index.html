@@ -259,7 +259,7 @@ html{background:var(--paper)}
 .dec{display:flex;flex-direction:column;gap:12px;padding:clamp(18px,1.6vw,36px);background:var(--surface);border:1px solid var(--line);border-radius:12px;min-width:0}
 .dec h3{font-size:var(--t-l);font-weight:640;letter-spacing:-.02em;line-height:1.1}
 .dec p{color:var(--ink-2);font-size:var(--t-s);line-height:1.55}
-.cv-next{display:flex;justify-content:space-between;align-items:center;gap:20px;padding-block:clamp(28px,2.6vw,64px);border-top:1px solid var(--ink);text-decoration:none;margin-bottom:40px}
+.cv-next{display:grid;grid-template-columns:1fr auto;align-items:center;gap:12px 20px;padding-block:clamp(28px,2.6vw,64px);border-top:1px solid var(--ink);text-decoration:none;margin-bottom:40px}
 .cv-next b{font:660 var(--t-xl)/1 var(--f-display);font-variation-settings:"wdth" 112;letter-spacing:-.035em}
 
 /* ================= STAGES (client brand surfaces, fixed colors on purpose) ================= */
@@ -351,7 +351,10 @@ html{background:var(--paper)}
 .sx .sx-cur{position:absolute;left:0;top:0;z-index:150;width:22px;pointer-events:none;will-change:transform}
 .sx .sx-cur svg{display:block;width:22px;height:22px;filter:drop-shadow(0 2px 4px rgba(0,0,0,.5))}
 .st-sv{--sx-bg:#09090D;--sx-glow:radial-gradient(50cqw 40cqw at 34% 30%,rgba(84,99,245,.26),transparent 70%),radial-gradient(40cqw 34cqw at 86% 80%,rgba(84,99,245,.16),transparent 70%)}
-.sv-if{position:absolute;left:0;top:0;width:100%;height:100%;border:0;display:block;background:#0F0F0F;pointer-events:none}
+.sv-if{position:absolute;left:0;top:0;width:100%;height:100%;border:0;display:block;background:#0F0F0F;pointer-events:none;opacity:0;transition:opacity .45s}
+.sv-if.on{opacity:1}
+.st-sv .scr.desk .vp{background:#0F0F0F url(assets/sv-first-d.jpg) center/100% 100% no-repeat}
+.st-sv .scr.mob .vp{background:#0F0F0F url(assets/sv-first-m.jpg) center/100% 100% no-repeat}
 .sx .sx-tap{position:absolute;z-index:150;width:44px;height:44px;margin:-22px 0 0 -22px;border-radius:50%;background:rgba(255,255,255,.3);border:2px solid rgba(255,255,255,.9);opacity:0;pointer-events:none}
 .sx .rp{position:absolute;border-radius:50%;background:rgba(255,255,255,.35);pointer-events:none;transform:translate(-50%,-50%) scale(0)}
 .sx .sx-label{position:absolute;z-index:3;font:500 .9cqw/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.5)}
@@ -2018,19 +2021,16 @@ html{background:var(--paper)}
 .lm-ni svg.i{width:18px;height:18px}
 .lm-ni.on{color:#fff;background:var(--grad);box-shadow:0 6px 18px -6px rgba(214,59,217,.9),inset 0 1px 0 rgba(255,255,255,.3)}
 .lm-ni.hl{color:var(--tx);background:rgba(255,255,255,.07)}
-.lm-ni .n{position:absolute;right:4px;top:2px;min-width:16px;height:16px;padding:0 4px;border-radius:8px;background:#FF4D8D;color:#fff;font:700 10px/16px "Geist",var(--f-body);text-align:center;box-shadow:0 0 0 2px var(--bg)}
 .lm-tok{display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 5px 0 12px;border-radius:20px;background:linear-gradient(var(--s1),var(--s1)) padding-box,linear-gradient(120deg,rgba(255,139,240,.75),rgba(123,59,255,.55)) border-box;border:1px solid transparent;font:700 14px/1 var(--H);font-variant-numeric:tabular-nums;transition:transform .35s cubic-bezier(.3,1.6,.5,1),box-shadow .35s}
 .lm-tok .pl{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:var(--grad);color:#fff}
 .lm-tok .pl svg.i{width:15px;height:15px}
 .lm-tok.bump{transform:scale(1.12);box-shadow:0 0 0 4px rgba(214,59,217,.18),0 0 26px rgba(214,59,217,.5)}
 .lm-ic{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;color:var(--tx);position:relative;background:rgba(255,255,255,.04);box-shadow:inset 0 0 0 1px var(--ln)}
 .lm-ic svg.i{width:19px;height:19px}
-.lm-ic .dot{position:absolute;right:9px;top:9px;width:7px;height:7px;border-radius:50%;background:var(--mg);border:1.5px solid var(--bg)}
 .lm-lang{display:inline-flex;align-items:center;gap:6px;height:40px;padding:0 12px;border-radius:20px;background:rgba(255,255,255,.04);box-shadow:inset 0 0 0 1px var(--ln);font:600 13px/1 var(--H);color:var(--mu)}
 .lm-lang .flg{width:20px;height:20px;border-radius:50%;box-shadow:0 0 0 1.5px rgba(255,255,255,.25)}
 .lm-av{position:relative;width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#FFB36B,#E0498E);display:grid;place-items:center;font:700 13px/1 var(--H);color:#fff;transition:box-shadow .3s}
 .lm-av.on{box-shadow:0 0 0 2px var(--bg),0 0 0 4px var(--mg)}
-.lm-av .dot{position:absolute;right:-1px;top:-1px;width:10px;height:10px;border-radius:50%;background:var(--mg);border:2px solid var(--bg)}
 .lm-menu{position:absolute;right:24px;top:66px;width:290px;padding:8px;border-radius:20px;background:#1A151E;box-shadow:inset 0 0 0 1px var(--ln2),0 30px 60px rgba(0,0,0,.6);z-index:30;opacity:0;visibility:hidden;transform:translateY(-8px) scale(.97);transform-origin:90% 0;transition:opacity .25s,transform .35s var(--E),visibility 0s .35s}
 .lm-menu.on{opacity:1;visibility:visible;transform:none;transition:opacity .25s,transform .35s var(--E)}
 .lm-menu .who{display:flex;align-items:center;gap:12px;padding:10px 10px 14px;border-bottom:1px solid var(--ln);margin-bottom:6px}
@@ -5964,12 +5964,22 @@ html{background:var(--paper)}
     sxFit(stage);
     const fD = dW.querySelector('iframe'), fM = mW.querySelector('iframe'), cur = dW.querySelector('.sx-cur'), tapEl = mW.querySelector('.sx-tap');
     const useD = !stage.classList.contains('sx-narrow');
-    await new Promise(res => { const chk = () => { if (!stage.isConnected) return; stage.classList.contains('is-live') ? res() : setTimeout(chk, 250); }; chk(); });
+    /* the first frame is a picture under the iframe (.vp background), so the stage is never black;
+       the prototype itself starts loading once the page has loaded or the stage comes near the screen */
+    await new Promise(res => {
+      let done = false; const go = () => { if (!done){ done = true; res(); } };
+      if ('IntersectionObserver' in window){ const n = new IntersectionObserver(es => { if (es.some(e => e.isIntersecting)){ n.disconnect(); go(); } }, {rootMargin:'150% 0px'}); n.observe(stage); }
+      const late = () => setTimeout(go, 1200);
+      document.readyState === 'complete' ? late() : addEventListener('load', late, {once:true});
+      const chk = () => { if (!stage.isConnected || done) return; stage.classList.contains('is-live') ? go() : setTimeout(chk, 250); }; chk();
+    });
     const pr = Math.max(.5, Math.min(1.75, (+dW.dataset.k || .6)*Math.min(devicePixelRatio || 1, 2))).toFixed(2);
     if (useD) fD.src = `seat/index.html?pr=${pr}`;
     fM.src = 'seat/m.html?frame';
     const ready = f => new Promise(res => { const chk = () => { if (!stage.isConnected) return; try { const d = f.contentDocument; if (d && d.body && d.body.classList.contains('ready')) return res(d); } catch(e){} setTimeout(chk, 150); }; chk(); });
     const [dd, md] = await Promise.all([useD ? ready(fD) : null, ready(fM)]);
+    /* show the live iframes once they have painted, the picture underneath fades out behind them */
+    await new Promise(r => setTimeout(r, 350)); [fD, fM].forEach(f => f.classList.add('on'));
     /* paused off screen, and in the list while the case window covers it */
     const cv = $('#caseView');
     const covered = () => !!cv && !cv.hidden && !cv.contains(stage);
@@ -6414,7 +6424,7 @@ ${S(p+'el',130,100.89,.606,-.796,7,'#fff',.22)}${S(p+'er',390,100.89,-.606,-.796
     const D = dev === 'd', I = LMI, C = LM.chars;
     const logo = '<span class="lm-logo">lum<span class="o"></span></span>';
     const tok = `<span class="lm-tok" data-a="tok"><i class="gem"></i><b data-a="tokn">1,240</b><span class="pl">${I.plus}</span></span>`;
-    const av = `<span class="lm-av" data-a="av">AM<i class="dot"></i></span>`;
+    const av = `<span class="lm-av" data-a="av">AM</span>`;
     const fc = LM.banners.map(([b, k, t, s], i) => `<div class="lm-fc" data-i="${i}"><img src="${lmImg(b)}" alt=""><div class="cap"><em>${k}</em><b>${t}</b><small>${s}</small></div></div>`).join('');
     const hero = `<div class="lm-hero" data-a="flow">${fc}${D ? `<span class="lm-arr l">${I.l}</span><span class="lm-arr r" data-a="fr">${I.r}</span>` : ''}<div class="lm-dots" data-a="dots">${LM.banners.map((_, i) => `<i class="${i ? '' : 'on'}"></i>`).join('')}</div></div>`;
     const drama = ([d, t, g, ep, n, w], k='') => `<div class="lm-dr${w ? ' w' : ''}" data-a="dr-${d}${k}"><img class="pp" src="${lmImg('d' + d)}" alt="${t}"><img class="pw" src="${lmImg('w' + d)}" alt=""><span class="bd">${n ? '<span class="lm-new">New</span>' : ''}</span>
@@ -6482,8 +6492,8 @@ ${S(p+'el',130,100.89,.606,-.796,7,'#fff',.22)}${S(p+'er',390,100.89,-.606,-.796
         <div class="lm-mr">${I.user}Profile</div><div class="lm-mr">${I.images}My gallery</div><div class="lm-mr" data-a="mach">${I.trophy}Rewards<em>1 to claim</em></div><div class="lm-mr">${I.flag}Language · EN</div><div class="lm-mr">${I.cog}Settings</div>`;
     const nav = [['explore', I.home, 'Explore'], ['dramas', I.film, 'Dramas'], ['chat', I.chat, 'Chats'], ['gen', I.sparkles, 'Generate'], ['ach', I.trophy, 'Rewards']];
     if (D) return `<div class="lm lm-d">
-      <header class="lm-nav">${logo}<nav class="lm-isl">${nav.map(([k, ic, t]) => `<span class="lm-ni${k === 'explore' ? ' on' : ''}" data-a="ni-${k}">${ic}${t}${k === 'chat' ? '<i class="n">2</i>' : ''}</span>`).join('')}</nav><span class="sp"></span>
-        <span class="lm-lang"><svg class="flg" viewBox="0 0 60 60" aria-hidden="true"><clipPath id="lmFc"><circle cx="30" cy="30" r="30"/></clipPath><g clip-path="url(#lmFc)"><rect width="60" height="60" fill="#012169"/><path d="M0 0l60 60M60 0L0 60" stroke="#fff" stroke-width="12"/><path d="M0 0l60 60M60 0L0 60" stroke="#C8102E" stroke-width="5"/><path d="M30 0v60M0 30h60" stroke="#fff" stroke-width="18"/><path d="M30 0v60M0 30h60" stroke="#C8102E" stroke-width="10"/></g></svg>EN</span>${tok}<span class="lm-ic">${I.bell}<i class="dot"></i></span>${av}</header>
+      <header class="lm-nav">${logo}<nav class="lm-isl">${nav.map(([k, ic, t]) => `<span class="lm-ni${k === 'explore' ? ' on' : ''}" data-a="ni-${k}">${ic}${t}</span>`).join('')}</nav><span class="sp"></span>
+        <span class="lm-lang"><svg class="flg" viewBox="0 0 60 60" aria-hidden="true"><clipPath id="lmFc"><circle cx="30" cy="30" r="30"/></clipPath><g clip-path="url(#lmFc)"><rect width="60" height="60" fill="#012169"/><path d="M0 0l60 60M60 0L0 60" stroke="#fff" stroke-width="12"/><path d="M0 0l60 60M60 0L0 60" stroke="#C8102E" stroke-width="5"/><path d="M30 0v60M0 30h60" stroke="#fff" stroke-width="18"/><path d="M30 0v60M0 30h60" stroke="#C8102E" stroke-width="10"/></g></svg>EN</span>${tok}<span class="lm-ic">${I.bell}</span>${av}</header>
       <main class="lm-main">
         <section class="lm-v on" data-v="explore"><div class="lm-sc" data-a="sc-explore">${explore}</div></section>
         <section class="lm-v" data-v="chat"><div class="lm-chat"><div class="lm-cl lm-pnl"><div class="hd"><b>Chats</b><span class="lm-ic">${I.search}</span></div>${list(true)}</div>
@@ -7669,7 +7679,7 @@ ${S(p+'el',130,100.89,.606,-.796,7,'#fff',.22)}${S(p+'er',390,100.89,-.606,-.796
       </div>
       <div class="sec-head" style="margin-bottom:clamp(20px,2vw,48px)"><h2 style="font-size:var(--t-l)">${esc(t.decisions)}</h2><span class="mono">${esc(t.decCount(c.decisions.length))}</span></div>
       <div class="decs">${c.decisions.map(([h,d])=>`<div class="dec"><h3>${esc(h)}</h3><p>${esc(d)}</p></div>`).join('')}</div>
-      <a class="cv-next" href="#${next.id}"><span><span class="mono">${esc(t.next)}</span><br><b>${esc(next.title)}</b></span><span class="btn">${esc(t.openShort)} <span class="arr" aria-hidden="true">→</span></span></a>`;
+      <a class="cv-next" href="#${next.id}"><span class="mono" style="grid-column:1/-1">${esc(t.next)}</span><b>${esc(next.title)}</b><span class="btn">${esc(t.openShort)} <span class="arr" aria-hidden="true">→</span></span></a>`;
     body.querySelector('.cv-stage').appendChild(makeStage(c));
   }
   let lastFocus = null;
