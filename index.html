@@ -1938,7 +1938,7 @@ html{background:var(--paper)}
 .lm-tg svg.i{width:13px;height:13px}
 .lm-va{display:inline-flex;align-items:center;gap:6px;height:34px;padding:0 14px;border-radius:17px;box-shadow:inset 0 0 0 1px var(--ln2);font:600 13px/1 var(--H);color:var(--tx);white-space:nowrap}
 .lm-va svg.i{width:14px;height:14px}
-.lm-sh{display:flex;align-items:flex-end;justify-content:space-between;margin:34px 0 16px}
+.lm-sh{display:flex;align-items:center;justify-content:space-between;margin:34px 0 16px}
 .lm-sh h3{margin:0;font:800 28px/1.05 var(--H);letter-spacing:-.035em}
 .lm-sh h3 em,.lm-ct em{font-style:normal;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
 .lm-sh small{display:block;margin-top:7px;font:400 14px/1 "Geist",var(--f-body);color:var(--mu)}
@@ -2131,7 +2131,7 @@ html{background:var(--paper)}
 /* profile (desktop) */
 .lm-pf{display:flex;gap:36px;padding:22px 64px 40px}
 .lm-pf .lc{width:410px;flex:none;display:flex;flex-direction:column;gap:16px}
-.lm-por{position:relative;height:560px;border-radius:26px;overflow:hidden;background:#000;box-shadow:0 30px 60px -30px rgba(214,59,217,.45)}
+.lm-por{position:relative;height:560px;flex:1 0 560px;border-radius:26px;overflow:hidden;background:#000;box-shadow:0 30px 60px -30px rgba(214,59,217,.45)}
 .lm-por img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 25%}
 .lm-por::after{content:"";position:absolute;left:0;right:0;bottom:0;height:42%;background:linear-gradient(180deg,transparent,rgba(8,4,10,.92))}
 .lm-por .bk{position:absolute;left:14px;top:14px;z-index:2}
@@ -2223,10 +2223,10 @@ html{background:var(--paper)}
 .lm-prop > svg.i{width:15px;height:15px;color:var(--mu2)}
 .lm-prop.flash{animation:lmFlash .9s var(--E)}
 @keyframes lmFlash{30%{box-shadow:inset 0 0 0 2px var(--mg),0 0 0 4px rgba(214,59,217,.15)}}
-.lm-gin{display:flex;align-items:flex-end;gap:10px;min-height:92px;padding:18px 10px 10px 24px;border-radius:30px;background:rgba(255,255,255,.04);box-shadow:inset 0 0 0 1px var(--ln2);transition:box-shadow .3s;margin-bottom:30px}
+.lm-gin{display:flex;align-items:center;gap:10px;min-height:76px;padding:12px 12px 12px 26px;border-radius:30px;background:rgba(255,255,255,.04);box-shadow:inset 0 0 0 1px var(--ln2);transition:box-shadow .3s;margin-bottom:30px}
 .lm-gin.foc{box-shadow:inset 0 0 0 1px var(--mgB),0 0 0 5px rgba(214,59,217,.1)}
-.lm-gin .f{position:relative;flex:1;align-self:flex-start;min-height:22px;font:400 16px/22px "Geist",var(--f-body);white-space:nowrap;overflow:hidden}
-.lm-gin .f .ph{position:absolute;left:0;top:0;color:var(--mu2)}
+.lm-gin .f{position:relative;flex:1;min-height:22px;font:400 16px/22px "Geist",var(--f-body);white-space:nowrap;overflow:hidden}
+.lm-gin .f .ph{position:absolute;left:0;top:0;color:var(--mu)}
 .lm-gin .f .t:not(:empty)+.ph{display:none}
 .lm-gin .wd{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;color:var(--tx);background:rgba(255,255,255,.05);box-shadow:inset 0 0 0 1px var(--ln)}
 .lm-gin .lm-btn{height:52px;border-radius:26px;padding:0 10px 0 22px}
@@ -2253,8 +2253,8 @@ html{background:var(--paper)}
 .lm-lvc.up .gl{opacity:.6}
 .lm-lvc .ltp{position:relative;display:flex;align-items:center;justify-content:space-between}
 .lm-lvc .ltp em{font:700 12px/1 var(--H);letter-spacing:.14em;text-transform:uppercase;font-style:normal;color:#FF8BF0}
-.lm-lvn{position:relative;height:172px;margin:4px 0 0;display:grid;place-items:center;overflow:hidden}
-.lm-lvn span{grid-area:1/1;padding:10px 14px 0;font:800 150px/1.05 var(--H);letter-spacing:-.08em;background:linear-gradient(180deg,#fff 20%,#FF8BF0 70%,#8B3BFF);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 10px 30px rgba(214,59,217,.5))}
+.lm-lvn{position:relative;height:172px;margin:4px 0 0;display:grid;place-items:center;overflow:hidden;filter:drop-shadow(0 10px 30px rgba(214,59,217,.5))}
+.lm-lvn span{grid-area:1/1;padding:10px 14px 0;font:800 150px/1.05 var(--H);letter-spacing:-.08em;background:linear-gradient(180deg,#fff 20%,#FF8BF0 70%,#8B3BFF);-webkit-background-clip:text;background-clip:text;color:transparent}
 .lm-lvc .nm{position:relative;text-align:center;font:800 26px/1 var(--H);letter-spacing:-.03em}
 .lm-xp{position:relative;margin-top:22px}
 .lm-xp .br{height:14px;border-radius:7px;background:rgba(255,255,255,.08);overflow:hidden;box-shadow:inset 0 1px 2px rgba(0,0,0,.4)}
@@ -2283,7 +2283,7 @@ html{background:var(--paper)}
 .lm-earn .tx{display:block;flex:1;min-width:0;padding:0;background:none;box-shadow:none;border-radius:0}
 .lm-earn .tx b,.lm-earn .tx small{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .lm-m .lm-earn{grid-template-columns:1fr;margin:0 16px 120px;gap:8px}
-.lm-m .lm-earnh{margin:0 16px 12px}
+.lm-m .lm-sh.lm-earnh{margin:0 16px 12px}
 .lm-m .lm-nxt{display:none}
 .lm-rr{flex:1;min-width:0;display:flex;flex-direction:column;gap:20px}
 .lm-stk{display:flex;align-items:center;gap:20px;padding:20px 22px}
@@ -2302,7 +2302,8 @@ html{background:var(--paper)}
 .lm-trk .ln{flex:1;height:3px;background:rgba(255,255,255,.1)}
 .lm-trk .ln.d{background:var(--mg)}
 .lm-stk .lm-btn{height:44px}
-.lm-qs{padding:8px}
+.lm-qs{flex:1;display:flex;flex-direction:column;padding:8px}
+.lm-d .lm-q{flex:1 0 84px;height:auto}
 .lm-qs .hd{display:flex;align-items:flex-end;justify-content:space-between;padding:14px 14px 10px}
 .lm-qs .hd b{font:800 22px/1 var(--H);letter-spacing:-.03em}
 .lm-qs .hd small{font:500 13px/1 "Geist",var(--f-body);color:var(--mu)}
@@ -2346,6 +2347,11 @@ html{background:var(--paper)}
 .lm-coin .gem{width:22px;height:22px;filter:drop-shadow(0 0 8px rgba(214,59,217,.8))}
 .lm-fly{position:absolute;z-index:61;font:800 15px/1 var(--H);color:#FF9BF6;pointer-events:none;white-space:nowrap}
 .lm-spark{position:absolute;z-index:59;width:7px;height:7px;border-radius:50%;pointer-events:none}
+.lm-ring{position:absolute;z-index:58;width:180px;height:180px;margin:-90px 0 0 -90px;border-radius:50%;pointer-events:none;box-shadow:inset 0 0 0 2px rgba(255,139,240,.8),0 0 30px rgba(214,59,217,.5)}
+.lm-mod .rw{position:relative;overflow:hidden}
+.lm-mod .rw::after{content:"";position:absolute;top:0;bottom:0;left:-40%;width:30%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.22),transparent);transform:skewX(-18deg);opacity:0}
+.lm-mod.on .rw::after{animation:lmSweep 1.1s cubic-bezier(.5,0,.3,1) 1.5s}
+@keyframes lmSweep{0%{left:-40%;opacity:1}100%{left:130%;opacity:1}}
 .lm-toast{position:absolute;left:50%;top:86px;z-index:45;display:flex;align-items:center;gap:12px;height:54px;padding:0 20px 0 10px;border-radius:27px;background:#1D1722;box-shadow:0 0 0 1px var(--mgB),0 20px 50px rgba(0,0,0,.6),0 0 40px rgba(214,59,217,.25);font:600 15px/1 var(--H);white-space:nowrap;opacity:0;transform:translate(-50%,-14px) scale(.96);transition:opacity .35s,transform .5s cubic-bezier(.3,1.5,.5,1);pointer-events:none}
 .lm-toast.on{opacity:1;transform:translate(-50%,0)}
 .lm-toast .ib{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:var(--grad)}
@@ -2420,6 +2426,10 @@ html{background:var(--paper)}
 .lm-m .lm-in .tl span{height:30px;padding:0 10px;font-size:12px}
 /* mobile profile */
 .lm-m .lm-por{height:470px;border-radius:0 0 28px 28px}
+.lm-m .lm-mpf{top:0}
+.lm-m .lm-mpf .lm-por{height:518px}
+.lm-m .lm-mpf .lm-por::before{content:"";position:absolute;left:0;right:0;top:0;height:120px;z-index:1;background:linear-gradient(180deg,rgba(8,4,10,.55),transparent)}
+.lm-m .lm-mpf .lm-por .bk,.lm-m .lm-mpf .lm-por .acts{top:62px}
 .lm-m .lm-por .bt .lm-nm b{font-size:30px}
 .lm-mpf .bd{padding:16px 16px 0;display:flex;flex-direction:column;gap:14px}
 .lm-m .lm-wdr{flex-direction:column;gap:12px;padding:12px}
@@ -2448,7 +2458,7 @@ html{background:var(--paper)}
 .lm-m .lm-gin .lm-btn{flex:1;height:48px}
 .lm-m .lm-gg{grid-template-columns:1fr 1fr;gap:10px}
 .lm-m .lm-gi{height:220px}
-.lm-m .lm-rw{flex-direction:column;gap:12px;padding:4px 16px 120px}
+.lm-m .lm-rw{flex-direction:column;gap:12px;padding:4px 16px 28px}
 .lm-m .lm-lvc{width:auto;padding:18px;display:grid;grid-template-columns:auto 1fr;column-gap:14px;align-items:center}
 .lm-m .lm-lvc .ltp{grid-column:1/-1}
 .lm-m .lm-lvn{height:84px;margin:4px 0 0}
@@ -6126,9 +6136,9 @@ ${S(p+'el',130,100.89,.606,-.796,7,'#fff',.22)}${S(p+'er',390,100.89,-.606,-.796
     const card = id => { const [n, a, p, tg, tags] = C[id]; return `<div class="lm-cc" data-a="cc-${id}"><img src="${lmImg(id)}" alt="${n}"><div class="bd">${id === 'c1' || id === 'c7' ? '<span class="lm-new">New</span>' : `<span class="lm-tg">${tg}</span>`}${id === 'c4' || id === 'c1' ? `<span class="lm-tg">${I.film}Drama</span>` : ''}</div><div class="tt"><b>${n}${a ? `<span>${a}</span>` : ''}</b><p>${p}</p><div class="tgs">${tags.map(t => `<span class="lm-tg">${t}</span>`).join('')}</div></div><span class="lm-btn go">${I.chat}Start chat</span></div>`; };
     const filters = `<div class="lm-fl">${LM.filters.map(([f, n], i) => `<span class="lm-fi${i ? '' : ' on'}">${f}<i>${n}</i></span>`).join('')}</div>`;
     const explore = `<div class="lm-pad">${hero}
-        <div class="lm-sh"><div><h3>Trending <em>dramas</em></h3><small>Short episodes, real cliffhangers</small></div>${D ? `<span class="lm-va">View all${I.arrow}</span>` : ''}</div>
+        <div class="lm-sh"><div><h3>Trending <em>dramas</em></h3></div>${D ? `<span class="lm-va">View all${I.arrow}</span>` : ''}</div>
         <div class="lm-rowv"><div class="lm-row" data-a="row">${LM.dramas.map(x => drama(x)).join('')}${soon}</div></div>
-        <div class="lm-ct" data-a="chh"><h3>Meet your <em>match</em></h3><small>Characters who remember every word</small></div>
+        <div class="lm-ct" data-a="chh"><h3>Meet your <em>match</em></h3></div>
         ${filters}
         <div class="lm-grid">${LM.grid.slice(0, D ? 10 : 4).map(card).join('')}</div><div style="height:${D ? 40 : 110}px"></div></div>`;
     const crow = ([id, n, m, t, u], on) => `<div class="lm-crow${on ? ' on' : ''}" data-a="row-${id}"><img src="${lmImg(id)}" alt=""><div class="tx"><b>${n}</b><small>${m}</small></div><div class="tm">${t}${u ? `<span class="n">${u}</span>` : ''}</div></div>`;
@@ -6152,9 +6162,9 @@ ${S(p+'el',130,100.89,.606,-.796,7,'#fff',.22)}${S(p+'er',390,100.89,-.606,-.796
         <div class="lm-ask lm-pnl"><small>Ask Mira for</small><div><span>${I.camera}A beach photo</span><span>${I.mic}A voice note</span><span>${I.moon}Tonight’s plan</span><span>${I.gift}Her wishlist</span></div></div>`;
     const rel = `<div class="lm-rel lm-pnl"><div class="hd">Relationship<span>Best friend · 62%</span></div><div class="br"><i></i></div><small>Chat 3 more days to unlock “Close”</small></div>`;
     const wdr = `<div class="lm-wdr lm-pnl"><div class="th"><img src="${lmImg('w2')}" alt="Salt &amp; Honey"><span class="lm-new">New</span></div><div class="tx"><em>Mira’s drama</em><b>Salt &amp; Honey</b><p>One summer on the coast, one photographer who never stays. Your choices decide if she does.</p><div class="rw"><span class="lm-btn">${I.play}Watch ep. 1</span>${I.film}10 episodes</div></div></div>`;
-    const media = `<div class="lm-sh"><div><h3>Media</h3><small>54 photos · 6 videos</small></div>${D ? `<span class="lm-va">See all${I.arrow}</span>` : ''}</div>
+    const media = `<div class="lm-sh"><div><h3>Media</h3></div>${D ? `<span class="lm-va">See all${I.arrow}</span>` : ''}</div>
         <div class="lm-media">${['m1','m5','m2','m6'].slice(0, D ? 4 : 4).map((m, i) => `<div class="lm-mi"><img src="${lmImg(m)}" alt="">${i === 1 ? `<span class="lm-tg">${I.play}0:24</span>` : ''}</div>`).join('')}</div>`;
-    const sets = `<div class="lm-sh" data-a="setsh"><div><h3>Unlock <em>photo sets</em></h3><small>Shoots Mira shares only here</small></div></div>
+    const sets = `<div class="lm-sh" data-a="setsh"><div><h3>Unlock <em>photo sets</em></h3></div></div>
         <div class="lm-sets" data-a="sets">${LM.sets.map(([m, t, n, p, a]) => `<div class="lm-set${a ? ' all' : ''}" data-a="set-${m}"><img src="${lmImg(m)}" alt=""><span class="bd">${a ? '<span class="lm-new">Best value</span>' : ''}</span><span class="lk">${I.lock}</span><div class="ft"><div><b>${t}</b><small>${n}</small></div><span class="pr"><i class="gem"></i>${p}</span></div></div>`).join('')}</div>`;
     const pst = LM.presets.map(([m, t], i) => `<div class="lm-pst" data-i="${i}" data-a="pst-${m}"><img src="${lmImg(m)}" alt=""><b>${t}</b></div>`).join('');
     const props = `<div class="lm-props"><div class="lm-prop"><img src="${lmImg('c1')}" alt=""><div><small>Character</small><b>Mira</b></div>${I.down}</div><div class="lm-prop" data-a="pchip"><img src="${lmImg('m4')}" alt="" data-a="pimg"><div><small>Preset</small><b data-a="pname">Neon Night</b></div>${I.down}</div>
@@ -6163,11 +6173,11 @@ ${S(p+'el',130,100.89,.606,-.796,7,'#fff',.22)}${S(p+'er',390,100.89,-.606,-.796
     const gen = `<div class="lm-g"><div class="lm-gt"><span class="on">${I.camera}Photo</span><span>${I.video}Video</span><span>${I.film}Episodes</span></div>
         <div class="lm-pfl" data-a="pflow">${pst}${D ? `<span class="lm-arr l">${I.l}</span><span class="lm-arr r">${I.r}</span>` : ''}</div>
         ${props}${gin}
-        <div class="lm-sh" data-a="ygh" style="margin-top:0"><div><h3>Gallery</h3><small>Everything you made with your characters</small></div></div>
+        <div class="lm-sh" data-a="ygh" style="margin-top:0"><div><h3>Gallery</h3></div></div>
         <div class="lm-gg" data-a="gg">${LM.gens.slice(0, D ? 10 : 6).map(m => `<div class="lm-gi"><img src="${lmImg(m)}" alt=""></div>`).join('')}</div></div>`;
     const nodes = [['d','Mon'],['d','Tue'],['d','Wed'],['t','Thu'],['','Fri'],['','Sat'],['g','Sun']];
     const trk = `<div class="lm-trk">${nodes.map(([c, d], i) => `${i ? `<span class="ln${c === 'd' || c === 't' ? ' d' : ''}"></span>` : ''}<span class="nd ${c}">${c === 'd' ? I.ok : c === 'g' ? `<img src="${lmImg('i5')}" alt="">` : `+${[5,6,8][i - 3] || 5}`}${D ? `<small>${d}</small>` : ''}</span>`).join('')}</div>`;
-    const quests = [['i1','First scene','Generate your first photo with any character',40,'rdy'],['i2','Seven-day streak','Come back every day for a week',20,'prog',4,7],['i3','Binge-watcher','Finish one episode of any drama',30,'lck',0,1],['i4','Night owl','Chat after midnight three times',15,'won']];
+    const quests = [['i1','First scene','Generate your first photo with any character',40,'rdy'],['i2','Seven-day streak','Come back every day for a week',20,'prog',4,7],['i3','Binge-watcher','Finish one episode of any drama',30,'lck',0,1],['i4','Night owl','Chat after midnight three times',15,'won'],['i5','First gift','Send any character a gift',25,'prog',0,1]];
     const q = ([ic, t, d, r, s, a, b]) => `<div class="lm-q ${s}" data-a="q-${ic}"><span class="ic"><img src="${lmImg(ic)}" alt=""><span class="mk">${I.ok}</span></span><div class="tx"><b>${t}</b><small>${d}</small></div>
         ${D ? `<div class="pb">${s === 'prog' || s === 'lck' ? `<div class="br"><i style="width:${a / b * 100}%"></i></div>${a} / ${b}` : ''}</div><span class="rwd"><i class="gem"></i>+${r}</span>` : ''}
         <div class="ac" data-a="qa-${ic}">${s === 'rdy' ? `<span class="lm-btn" data-a="claim">Claim +${r}</span>` : s === 'won' ? `<span class="ok">${I.ok}<span>Done</span></span>` : D ? '' : `<span class="ok" style="color:var(--mu2)">${a}/${b}</span>`}</div></div>`;
@@ -6178,9 +6188,9 @@ ${S(p+'el',130,100.89,.606,-.796,7,'#fff',.22)}${S(p+'er',390,100.89,-.606,-.796
           <div class="lm-nxt"><small>Next levels</small>${[['4','Insider','+15 tokens · private set'],['5','Muse','+25 tokens · video replies'],['6','Legend','Exclusive drama']].map(([n, t, r]) => `<div><span>${n}</span><b>${t}</b><em>${r}</em></div>`).join('')}</div></div>
         <div class="lm-rr"><div class="lm-stk lm-pnl"><img class="fl" src="${lmImg('i2')}" alt=""><div class="tx"><b>4-day streak</b><small>Next reward in 6h 12m</small></div>${D ? trk : ''}</div>${D ? '' : `<div class="lm-pnl" style="padding:14px 16px 0">${trk}</div>`}
           <div class="lm-qs lm-pnl"><div class="hd"><b>Quests</b><small data-a="achc">3 of 12 done · 85 tokens earned</small></div>${quests.map(q).join('')}</div></div></div>
-        <div class="lm-sh lm-earnh" style="margin-top:0"><div><h3>Earn <em>XP</em></h3><small>Daily limits reset in 6h 12m</small></div></div>
+        <div class="lm-sh lm-earnh" style="margin-top:0"><div><h3>Earn <em>XP</em></h3></div></div>
         <div class="lm-earn">${[[I.chat,'Send a message','264 XP left today','+3 XP'],[I.sparkles,'Generate a photo','390 XP left today','+10 XP'],[I.film,'Watch an episode','40 XP left today','+10 XP'],[I.gift,'Send a gift','400 XP left today','+10 XP']].map(([ic, t, s, x]) => `<div><span>${ic}</span><div class="tx"><b>${t}</b><small>${s}</small></div><em>${x}</em></div>`).join('')}</div>`;
-    const modal = `<div class="lm-dim" data-a="mdim"></div><div class="lm-mod" data-a="mod"><em>Level up</em><div class="lm-lvn" data-a="mlvn"><span>2</span></div><b class="t">Storyteller</b><p>Voice replies and a free photo set are yours.</p><div class="rw"><i class="gem"></i>+10 tokens</div><span class="lm-btn" data-a="mok">Nice!</span></div>`;
+    const modal = `<div class="lm-dim" data-a="mdim"></div><div class="lm-mod" data-a="mod"><em>Level up</em><div class="lm-lvn" data-a="mlvn"><span>2</span></div><b class="t">Regular</b><p>Voice replies and a free photo set are yours.</p><div class="rw"><i class="gem"></i>+10 tokens</div><span class="lm-btn" data-a="mok">Nice!</span></div>`;
     const menuRows = `<div class="who"><span class="lm-av">AM</span><div><b>Your account</b><small>Level 2 · 1,240 tokens</small></div></div>
         <div class="lm-mr">${I.user}Profile</div><div class="lm-mr">${I.images}My gallery</div><div class="lm-mr" data-a="mach">${I.trophy}Rewards<em>1 to claim</em></div><div class="lm-mr">${I.flag}Language · EN</div><div class="lm-mr">${I.cog}Settings</div>`;
     const nav = [['explore', I.home, 'Explore'], ['dramas', I.film, 'Dramas'], ['chat', I.chat, 'Chats'], ['gen', I.sparkles, 'Generate'], ['ach', I.trophy, 'Rewards']];
@@ -6275,7 +6285,7 @@ ${S(p+'el',130,100.89,.606,-.796,7,'#fff',.22)}${S(p+'er',390,100.89,-.606,-.796
         if (from){ from.classList.remove('on'); from.getAnimations().forEach(a => a.cancel()); }
         to.style.zIndex = '';
       };
-      c.scroll = async (R, a, y, ms=1100) => { const el = q(R, a); el.style.transform = `translateY(${-y}px)`; await c.w(ms); };
+      c.scroll = async (R, a, y, ms=1100) => { const el = q(R, a), max = Math.max(0, el.offsetHeight - el.parentElement.clientHeight); y = Math.min(y, max); el.style.transform = `translateY(${-y}px)`; await c.w(ms); };
       c.type = async (el, text, per=42) => { if (c.fast){ el.textContent = text; return; } for (let i = 1; i <= text.length; i++){ el.textContent = text.slice(0, i); await c.w(per + (text[i-1] === ' ' ? 30 : 0)); } };
       c.count = async (els, from, to, ms) => {
         const f = v => Math.round(v).toLocaleString('en-US');
@@ -6321,8 +6331,8 @@ ${S(p+'el',130,100.89,.606,-.796,7,'#fff',.22)}${S(p+'er',390,100.89,-.606,-.796
       const k = K.kOf(R), a = R.getBoundingClientRect(), b = el.getBoundingClientRect(), x = (b.left - a.left + b.width/2)/k, y = (b.top - a.top + b.height/2)/k;
       for (let i = 0; i < n; i++){
         const s = document.createElement('span'); s.className = 'lm-spark'; s.style.left = x + 'px'; s.style.top = y + 'px'; s.style.zIndex = 60; s.style.background = ['#FF8BF0','#D63BD9','#fff','#9B7BFF'][i % 4]; R.appendChild(s);
-        const ang = i/n*Math.PI*2, d = 80 + Math.random()*70;
-        c.an(s, [{transform:'translate(-50%,-50%) scale(1)', opacity:1},{transform:`translate(calc(-50% + ${Math.cos(ang)*d}px),calc(-50% + ${Math.sin(ang)*d}px)) scale(.2)`, opacity:0}], 950, {easing:'cubic-bezier(.2,.8,.3,1)'}).finished.then(() => s.remove(), () => s.remove());
+        const ang = i/n*Math.PI*2 + Math.random()*.3, d = 80 + Math.random()*80, sz = .6 + Math.random()*.8, dx = Math.cos(ang)*d, dy = Math.sin(ang)*d;
+        c.an(s, [{transform:`translate(-50%,-50%) scale(${sz})`, opacity:1},{transform:`translate(calc(-50% + ${dx*.8}px),calc(-50% + ${dy*.8}px)) scale(${sz})`, opacity:1, offset:.55},{transform:`translate(calc(-50% + ${dx}px),calc(-50% + ${dy + 34}px)) scale(.15)`, opacity:0}], 1100 + Math.random()*300, {easing:'cubic-bezier(.15,.7,.3,1)'}).finished.then(() => s.remove(), () => s.remove());
       }
     }
     const flip = (c, box, val) => {
@@ -6332,6 +6342,21 @@ ${S(p+'el',130,100.89,.606,-.796,7,'#fff',.22)}${S(p+'er',390,100.89,-.606,-.796
       c.an(nu, [{transform:'translateY(80%) scale(.7)', opacity:0},{transform:'none', opacity:1}], 650, {delay:300*TEMPO, fill:'backwards', easing:'cubic-bezier(.3,1.5,.5,1)'});
       setTimeout(() => old.remove(), 420*TEMPO);
     };
+
+    // level-up: the box dips and springs, the old digit blurs away, the new one rises with an overshoot, two rings and sparks, then the new title
+    function levelUp(c, R, box, val, title){
+      const old = box.firstElementChild, nu = document.createElement('span'), t = box.parentNode.querySelector('b.t'); nu.textContent = val; box.appendChild(nu);
+      if (c.fast){ old.remove(); if (t) t.textContent = title; return; }
+      c.an(box, [{transform:'scale(1)'},{transform:'scale(.9)', offset:.28},{transform:'scale(1.07)', offset:.68},{transform:'scale(1)'}], 1000, {easing:'cubic-bezier(.3,0,.3,1)', fill:'none'});
+      c.an(old, [{transform:'none', opacity:1, filter:'blur(0px)'},{transform:'translateY(-70%) scale(.7)', opacity:0, filter:'blur(8px)'}], 420, {easing:'cubic-bezier(.6,0,.8,.4)'});
+      c.an(nu, [{transform:'translateY(75%) scale(.6)', opacity:0, filter:'blur(10px)'},{transform:'translateY(-5%) scale(1.06)', opacity:1, filter:'blur(0px)', offset:.65},{transform:'none', opacity:1, filter:'blur(0px)'}], 860, {delay:260*TEMPO, fill:'backwards', easing:'cubic-bezier(.2,.8,.3,1)'});
+      setTimeout(() => old.remove(), 460*TEMPO);
+      const k = K.kOf(R), a = R.getBoundingClientRect(), b = box.getBoundingClientRect(), x = (b.left - a.left + b.width/2)/k, y = (b.top - a.top + b.height/2)/k;
+      [0, 1].forEach(i => { const r = document.createElement('span'); r.className = 'lm-ring'; r.style.left = x + 'px'; r.style.top = y + 'px'; R.appendChild(r);
+        c.an(r, [{transform:'scale(.3)', opacity:0},{transform:'scale(.65)', opacity:1, offset:.15},{transform:`scale(${2.1 + i*.7})`, opacity:0}], 1100 + i*250, {delay:(340 + i*170)*TEMPO, fill:'backwards', easing:'cubic-bezier(.2,.7,.3,1)'}).finished.then(() => r.remove(), () => r.remove()); });
+      setTimeout(() => sparks(c, R, box, 26), 380*TEMPO);
+      if (t) setTimeout(() => { t.textContent = title; c.an(t, [{opacity:0, transform:'translateY(10px)', letterSpacing:'.1em', filter:'blur(5px)'},{opacity:1, transform:'none', letterSpacing:'-.03em', filter:'blur(0px)'}], 650, {fill:'none'}); }, 560*TEMPO);
+    }
 
     /* ---- steps: every step runs desktop and mobile side by side ---- */
     const explore = async c => {
@@ -6474,15 +6499,18 @@ ${S(p+'el',130,100.89,.606,-.796,7,'#fff',.22)}${S(p+'er',390,100.89,-.606,-.796
       [D, M].forEach(R => { q(R, 'xpb').style.width = '100%'; q(R, 'xpl').innerHTML = '<b>200</b> / 200 XP'; q(R, 'xpr').textContent = 'Level up!'; });
       await c.w(1300);
       // level-up modal
-      [D, M].forEach(R => { q(R, 'mdim').classList.add('on'); q(R, 'mod').classList.add('on'); q(R, 'lvc').classList.add('up'); });
-      await c.w(450);
-      [D, M].forEach(R => { flip(c, q(R, 'mlvn'), '3'); sparks(c, R, q(R, 'mlvn')); flip(c, q(R, 'lvn'), '3');
+      [D, M].forEach(R => { q(R, 'mdim').classList.add('on'); const md = q(R, 'mod'); md.classList.add('on'); q(R, 'lvc').classList.add('up');
+        [...md.children].forEach((el, i) => c.an(el, [{opacity:0, transform:'translateY(14px)'},{opacity:1, transform:'none'}], 520, {delay:(140 + i*70)*TEMPO, fill:'backwards'})); });
+      await c.w(1000);
+      [D, M].forEach(R => { levelUp(c, R, q(R, 'mlvn'), '3', 'Storyteller'); flip(c, q(R, 'lvn'), '3');
         q(R, 'lvb').textContent = 'Storyteller'; q(R, 'pkh').textContent = 'Level 4 unlocks';
         const b = q(R, 'xpb'); b.style.transition = 'none'; b.style.width = '0%'; void b.offsetWidth; b.style.transition = ''; b.style.width = '10%';
         q(R, 'xpl').innerHTML = '<b>30</b> / 300 XP'; q(R, 'xpr').textContent = '270 XP to level 4'; });
       await c.w(900);
       c.count([D, M].flatMap(tokens), tokVal, tokVal + 10, 600); tokVal += 10;
-      await c.w(1500);
+      [D, M].forEach(R => { const rw = q(R, 'mod').querySelector('.rw'); c.an(rw, [{transform:'scale(1)'},{transform:'scale(1.06)'},{transform:'scale(1)'}], 460, {easing:'cubic-bezier(.3,1.6,.5,1)', fill:'none'});
+        const g = rw.querySelector('.gem'); if (g) c.an(g, [{transform:'none'},{transform:'rotate(-20deg) scale(1.3)'},{transform:'none'}], 560, {easing:'cubic-bezier(.3,1.6,.5,1)', fill:'none'}); });
+      await c.w(1700);
       await Promise.all([c.click(q(D, 'mok'), 700), c.tap(q(M, 'mok'), 700)]);
       [D, M].forEach(R => { q(R, 'mdim').classList.remove('on'); q(R, 'mod').classList.remove('on'); q(R, 'lvc').classList.remove('up'); });
       await Promise.all([D, M].map(R => toast(c, R, `<span class="ib">${LMI.star}</span>Level 3 · <b>Storyteller</b> unlocked`, 2200)));
