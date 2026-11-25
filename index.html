@@ -3506,33 +3506,33 @@ html{background:var(--paper)}
         ]
       },
       {
-        eyebrow:"TrxPay · Fintech",
+        eyebrow:"TrxPay · Fintech · 2026",
         title:"Hosted checkout for TrxPay",
-        summary:"A redesign of TrxPay's hosted payment page: card, bank transfer and pay-by-phone, with every status from waiting to expired. Desktop and mobile.",
-        tags:["Checkout","Fintech","Desktop + mobile"],
-        facts:[["Role","UI/UX design"],["Scope","Card, transfer, QR, statuses"],["Platform","Web, desktop and mobile"],["Style","Dark liquid glass"]],
-        context:"Merchants send buyers to TrxPay's payment page. The buyer has a few minutes, shown by a timer, to pay by card, by bank transfer to given details, or by continuing on a phone through a QR code.",
-        challenge:"A transfer to exact details is easy to get wrong: the wrong bank, the wrong amount, a split payment. The page had to prevent these mistakes and keep the buyer calm while the bank responds.",
-        did:["Redesigned the payment page in a dark glass style with the timer, amount and order ID always on top","Designed card payment, bank selection, transfer by details and pay-by-phone with a QR code","Designed every status: waiting for the bank, success, cancelled, expired, card error","Designed the mobile version with a bank grid and the main action at the bottom","Added receipt upload for transfer payments"],
+        summary:"The hosted payment page of TrxPay: the buyer has a few minutes to pay an exact amount, and the rules that break a payment are written right on the page. Desktop and mobile.",
+        tags:["Checkout", "Fintech", "Desktop + mobile"],
+        facts:[["Role", "UI/UX design"], ["Scope", "Payment page, QR, statuses, receipt"], ["Platform", "Web, desktop and mobile"], ["Year", "2026"]],
+        context:"Merchants send buyers to TrxPay's payment page to finish a purchase. The payment details stay valid for a few minutes, so the page counts down. The buyer pays from their own bank: by card, by a transfer to the given details, or by scanning a QR code in the bank app.",
+        challenge:"A transfer is easy to get wrong: another bank, a different amount, two payments instead of one, and the money can be lost. The page had to prevent these mistakes and keep the buyer calm while the payment is checked.",
+        did:["Built the page around a fixed header: timer, amount and payment ID always in view, each with a copy button where it helps", "Designed card payment, bank choice and payment by QR code in the bank app", "Wrote the How to pay steps and the Important block with three rules: one bank, the exact amount, one payment within the time", "Designed the states after paying: waiting for the bank and paid", "Added Already paid and Attach a receipt for transfer payments", "Designed light and dark themes and a language switch in the header", "Designed the mobile version with a bank grid and the main action at the bottom"],
         decisions:[
-          ["Rules right above the button","The Important block repeats the three rules that break transfers: the right bank, the exact amount, one payment. It sits right above the pay button."],
-          ["The timer sets the pace","A visible countdown shows how long the details stay valid, so an expired payment is never a surprise."],
-          ["Waiting is a screen, not a spinner","While the bank responds, the page says what is happening and asks the buyer not to close the browser, so the payment is not lost midway."]
+          ["Rules right above the action", "The Important block names the three rules that break transfers: the right bank, the exact amount, one payment within the time. It sits just above the buttons, where the buyer looks before paying."],
+          ["The timer sets the pace", "The countdown stays at the top of the page, so the buyer always knows how long the details are valid and an expired payment is never a surprise."],
+          ["Waiting is a screen, not a spinner", "While the transfer is checked, the page says what is happening and how long it usually takes, so the buyer does not close the page or pay twice."]
         ]
       },
       {
-        eyebrow:"Orbiq · iGaming · 2026",
+        eyebrow:"Orbiq · iGaming",
         title:"Sign-up and crypto wallet for an online casino",
-        summary:"Registration, login and a crypto wallet for an online casino. Players pick their welcome bonus right in the sign-up form. Desktop and mobile.",
-        tags:["Sign-up flow","Crypto payments","Desktop + mobile"],
-        facts:[["Role","UI/UX design"],["Scope","Sign up, sign in, recovery, wallet"],["Platform","Web, desktop and mobile"],["Market","iGaming"]],
-        context:"An online casino with slots, live games, betting and crypto deposits. Most players arrive from ads with a bonus in mind, and the first thing they meet is the registration form.",
-        challenge:"Turn registration into the first step of the game, not a barrier. Keep the form short, let players pick the bonus they came for, and make the first crypto deposit as simple as paying by card.",
-        did:["Designed sign up by email and by phone with inline validation","Put the welcome bonus choice inside the sign-up form, with a live countdown","Designed sign in, code confirmation and three-step password recovery","Designed the wallet: deposit by QR or address, and buying crypto in the same window","Designed the mobile version of every form","Designed the lobby: game rows, live wins and providers"],
+        summary:"Registration, sign-in, the lobby and a crypto wallet for an online casino. Players pick their welcome bonus right in the sign-up form. Desktop and mobile.",
+        tags:["Sign-up flow", "Crypto payments", "Desktop + mobile"],
+        facts:[["Role", "UI/UX design"], ["Scope", "Sign up, sign in, recovery, lobby, wallet"], ["Platform", "Web, desktop and mobile"], ["Market", "iGaming"]],
+        context:"An online casino with slots, live games, betting and crypto deposits. The welcome bonus is the main reason to sign up, and the registration form is the first screen a new player meets. The brand name Orbiq is made up for this case.",
+        challenge:"Turn registration into the first step of the game, not a barrier. Keep the form short, keep the bonus in view, and make the first crypto deposit as simple as paying by card.",
+        did:["Designed sign-up by email or phone with currency choice, an optional promo code and inline validation", "Put the welcome bonus choice inside the sign-up form, each offer with a live countdown", "Designed sign-in, the email code step and password recovery", "Designed the wallet: deposit by QR or address with a bonus code, and buying crypto in the next tab", "Designed the lobby: search, game rows, live games and latest releases, with responsible gambling links always at hand", "Designed the mobile version of every form"],
         decisions:[
-          ["The bonus lives in the form","Players choose their welcome offer while they sign up, so the reason to register stays in view at the moment of decision."],
-          ["Errors while typing, not after","Fields check input as the player types and explain the rule, like the 8-character password minimum, so the submit button never returns a wall of red."],
-          ["Deposit without leaving the lobby","The wallet opens over the games. QR, address with a copy button and the applied bonus fit in one window, and buying crypto is the next tab."]
+          ["The bonus lives in the form", "Players choose their welcome offer while they sign up, so the reason to register stays in view at the moment of decision."],
+          ["Errors while typing, not after", "Fields check input as the player types and explain the rule, like the 8-character password minimum, so the submit button never returns a wall of red."],
+          ["Deposit without leaving the lobby", "The wallet opens over the games. QR, address with a copy button and the applied bonus fit in one window, and buying crypto is the next tab."]
         ]
       },
       {
@@ -3551,48 +3551,48 @@ html{background:var(--paper)}
         ]
       },
       {
-        eyebrow:"WISP · Esports · 2023",
-        title:"Tournament platform for CS2 and Dota 2",
-        summary:"WISP runs amateur CS2 and Dota 2 tournaments with prize pools. I designed the whole player path: find a tournament, check in with the team, ban maps, follow the bracket.",
-        tags:["Esports","Real-time states","Web app"],
-        facts:[["Role","Lead product designer"],["Scope","Lobby, tournament page, voting, bracket, profile"],["Platform","Web app"],["Market","CIS, Europe"]],
-        context:"WISP launched in 2023 with about 40 tournaments a week for Dota 2 and CS. A tournament moves through strict phases: registration, check-in, map voting, matches. Players are on voice chat, in a hurry, and miss anything that is not obvious.",
-        challenge:"Show a live, time-boxed process so ten players always know what happens now and what they need to do, without reading rules.",
-        did:["Designed the lobby with filters by game, mode, grid and prize","Designed the tournament page around a four-step phase tracker","Designed team check-in with a countdown and per-team statuses","Designed captain map voting with turn-based bans","Designed the bracket and the profile with match history and stats"],
+        eyebrow:"WISP · Esports · 2023–2024",
+        title:"Web3 platform for esports tournaments",
+        summary:"WISP GAME runs amateur team tournaments with prize pools. I designed the player path, from finding a tournament to check-in, map voting and the bracket, plus the landing pages, the NFT community and the token sale.",
+        tags:["Esports", "Web3", "Web app"],
+        facts:[["Role", "Product designer"], ["Scope", "Tournaments, check-in, map voting, bracket, profile, Web3 pages"], ["Platform", "Web app, landing pages, Telegram mini-app"], ["Years", "2023–2024"]],
+        context:"WISP GAME is a Web3 platform for esports tournaments. Players connect Steam, gather a team and play free-to-enter 5v5 single elimination tournaments in Counter-Strike, with Valorant added later. A Prime subscription adds extra features, and the project also has an NFT collection and its own token.",
+        challenge:"A tournament moves through strict phases: registration, check-in, map voting, matches. Ten players have to know what happens now and what to do next, without reading the rules.",
+        did:["Designed the tournament list and the tournament page with prize pool, rules, map pool and servers", "Built the tournament page around a four-step phase tracker: join, confirmation, map voting, play", "Designed team check-in with a status for every player: confirmed, registered, profile blocked, phone disconnected, free slot", "Designed captain map voting: the map with most votes wins, a tie or no votes means a random map", "Designed the bracket and the player profile with match history, win rate and Steam stats", "Designed the landing pages, the NFT community page with holder perks and the token sale page with tokenomics", "Designed screens for the Telegram mini-app and built design system components in Figma"],
         decisions:[
-          ["One button tells you what to do","The main button changes with the phase: Join, Ready to play with a timer, Captain voting, Finished. Players never look for the next action."],
-          ["Phases on a single line","Join, Confirmation, Map voting, Play are one tracker with timers, so the whole lobby sees the same moment of the tournament."],
-          ["Problems on the team row","Blocked profiles and disconnected phones show right on the team row, before they break the check-in."]
+          ["One button tells you what to do", "The main button changes with the phase: Join, Ready to play with a timer, Captain voting, Finished. Players never look for the next action."],
+          ["Phases on a single line", "Join, Confirmation, Map voting and Play are one tracker with timers, so the whole lobby sees the same moment of the tournament."],
+          ["Problems on the team row", "Blocked profiles and disconnected phones show right on the team row, before they break the check-in."]
         ]
       },
       {
         eyebrow:"DAOLama · DeFi on TON · 2023",
         title:"NFT-backed loans on TON",
-        summary:"DAOLama lets NFT holders borrow TON against their NFTs instead of selling them. I designed the site and the borrowing flow: choose an NFT, set the amount and term, confirm in the wallet.",
-        tags:["DeFi","Web3","Lending"],
-        facts:[["Role","Product designer"],["Scope","Landing, NFT list, loan flow, wallet states"],["Platform","Web app"],["Chain","TON"]],
-        context:"DAOLama is a peer-to-pool lending protocol on TON. Collectors want liquidity without losing an NFT they believe in, but DeFi terms like LTV and floor price scare most of them.",
+        summary:"DAOLama lets NFT holders borrow TON against their NFTs instead of selling them. I designed the landing and the borrowing flow: choose an NFT, see how much it unlocks, set the amount and term, confirm in the wallet.",
+        tags:["DeFi", "Web3", "Lending"],
+        facts:[["Role", "UI/UX design"], ["Scope", "Landing, collections, loan flow, roadmap"], ["Platform", "Web app"], ["Chain", "TON"]],
+        context:"DAOLama is a lending protocol on TON. Its promise is simple: get TON without selling your NFT, right away, and pay back at any time. The 2023 roadmap added NFT rental, tools for investors and staking.",
         challenge:"Make a collateral loan feel as clear as a bank card payment: what I give, what I get, what I pay back and when.",
-        did:["Designed the landing with live protocol stats and supported collections","Designed the NFT list with the amount each NFT can unlock","Designed the loan panel: amount slider, term, rate and payback in one view","Designed wallet confirmation and the locked NFT state","Designed the roadmap and product blocks for DAOLama NFT and staking"],
+        did:["Designed the landing with protocol stats: total value locked, lent out, NFTs in escrow, available liquidity and utilization", "Designed the collection list and NFT cards with the amount each NFT can unlock", "Designed the loan panel: amount slider, term, rate and payback in one view", "Designed wallet confirmation and the locked NFT state", "Designed the 2023 roadmap and the DAOLama NFT block: lower fees, airdrops and early features for holders"],
         decisions:[
-          ["Show the money, not the ratio","The slider moves the TON amount in large type. LTV is a small label next to it for those who need it."],
-          ["Payback before the button","Rate, due date, fee and the total to return sit right above the main button, so nothing appears after signing."],
-          ["The NFT stays visible","A locked NFT keeps its place in the list with an In collateral badge, so the owner sees it is safe and comes back to repay."]
+          ["Show the money, not the ratio", "The slider moves the TON amount in large type. LTV is a small label next to it for those who need it."],
+          ["Payback before the button", "Rate, due date, fee and the total to return sit right above the main button, so nothing appears after signing."],
+          ["The NFT stays visible", "A locked NFT keeps its place in the list with an In collateral badge, so the owner sees it is safe and comes back to repay."]
         ]
       },
       {
         eyebrow:"TrxPay · Fintech · 2026",
         title:"Merchant dashboard for TrxPay",
-        summary:"The merchant side of TrxPay: turnover analytics, balance, transactions, appeals and topping up the balance in USDT. Same design language as the TrxPay checkout.",
-        tags:["Fintech","Dashboard","Crypto payments"],
-        facts:[["Role","UI/UX design"],["Scope","Dashboard, transactions, deposit flow"],["Platform","Web app"],["Pair","TrxPay checkout"]],
-        context:"Merchants accept card and SBP payments through TrxPay and top up their balance in USDT for payouts. They check the cabinet several times a day: did money come in, what is disputed, how much can be withdrawn.",
-        challenge:"Give a quick daily answer to how business is going, and make a crypto top-up safe for people who rarely use crypto.",
-        did:["Designed the dashboard: balance, profit and disputes with trends, turnover chart by period","Designed the transaction list with methods, statuses and amounts in both currencies","Designed a three-step USDT top-up with network choice, QR, timer and exact-amount warning","Designed appeals and their statuses","Kept tokens and components shared with the TrxPay checkout"],
+        summary:"The merchant side of TrxPay: balance, turnover and disputes, every deposit and withdrawal, appeals and a balance top-up in USDT.",
+        tags:["Fintech", "Dashboard", "Crypto payments"],
+        facts:[["Role", "UI/UX design"], ["Scope", "Dashboard, transactions, appeals, top-up"], ["Platform", "Web app, desktop"], ["Year", "2026"]],
+        context:"Merchants accept card and SBP payments through TrxPay and top up their balance in USDT. The cabinet covers transactions, webhooks, appeals, turnover by day and by month, balance, wallet, banks and tariffs. Merchants come to it to see whether money came in, what is disputed and what is left on the balance.",
+        challenge:"Give a quick answer to how business is going, and make a crypto top-up safe for people who rarely send crypto: a different amount may not be credited, and the money can be lost.",
+        did:["Designed the dashboard: balance, profit and disputed deals with trends, a turnover chart for 24 hours, 7 days, a month or a year, the exchange rate and the latest transactions", "Designed the transaction list with deposits and withdrawals, search, filters, export and statuses", "Designed a three-step USDT top-up: the amount, then the network, wallet address and timer, then the payment status", "Wrote the warning to send the exact amount in one payment and what happens otherwise", "Designed appeals and their statuses"],
         decisions:[
-          ["Three numbers first","Balance, profit and disputes open the page with their trend, so the merchant gets the day in one glance."],
-          ["Network switch changes everything","Switching TRC20 or ERC20 updates the QR and the address together, so a merchant cannot copy an address from the wrong network."],
-          ["Exact amount, plainly","The warning says to send exactly 1 200 USDT in one payment and what happens otherwise. It sits right under the address."]
+          ["Three numbers first", "Balance, profit and disputes open the page with their trend, so the merchant gets the day in one glance."],
+          ["Amount first, then the address", "The merchant enters a whole amount, for example 1 200, and only then gets a wallet address with a timer, so every address belongs to one payment."],
+          ["Exact amount, plainly", "The warning says to send exactly 1 200 USDT in one payment and what happens otherwise. It sits right under the address."]
         ]
       },
       {
@@ -3705,33 +3705,33 @@ html{background:var(--paper)}
         ]
       },
       {
-        eyebrow:"TrxPay · Финтех",
+        eyebrow:"TrxPay · Финтех · 2026",
         title:"Платёжная страница TrxPay",
-        summary:"Редизайн платёжной страницы TrxPay: оплата картой, переводом по реквизитам и по телефону, все статусы от ожидания до истечения. Десктоп и мобилка.",
-        tags:["Checkout","Финтех","Десктоп + мобилка"],
-        facts:[["Роль","UI/UX-дизайн"],["Объём","Карта, перевод, QR, статусы"],["Платформа","Веб, десктоп и мобилка"],["Стиль","Тёмное жидкое стекло"]],
-        context:"Мерчанты отправляют покупателей на платёжную страницу TrxPay. У покупателя есть несколько минут, их показывает таймер, чтобы оплатить картой, переводом по реквизитам или продолжить на телефоне через QR-код.",
-        challenge:"В переводе по реквизитам легко ошибиться: не тот банк, не та сумма, платёж частями. Страница должна была предотвращать эти ошибки и успокаивать покупателя, пока банк отвечает.",
-        did:["Переработал платёжную страницу в тёмном стеклянном стиле: таймер, сумма и номер заказа всегда сверху","Спроектировал оплату картой, выбор банка, перевод по реквизитам и оплату по телефону через QR-код","Спроектировал все статусы: ожидание банка, успех, отмена, истечение, ошибка карты","Спроектировал мобильную версию с сеткой банков и главным действием внизу","Добавил загрузку чека для оплаты переводом"],
+        summary:"Платёжная страница TrxPay: у покупателя несколько минут, чтобы оплатить точную сумму, а правила, из-за которых ломается платёж, написаны прямо на странице. Десктоп и мобилка.",
+        tags:["Checkout", "Финтех", "Десктоп + мобилка"],
+        facts:[["Роль", "UI/UX-дизайн"], ["Объём", "Страница оплаты, QR, статусы, чек"], ["Платформа", "Веб, десктоп и мобилка"], ["Год", "2026"]],
+        context:"Мерчанты отправляют покупателей на платёжную страницу TrxPay, чтобы завершить покупку. Реквизиты действуют несколько минут, поэтому страница ведёт отсчёт. Покупатель платит из своего банка: картой, переводом по реквизитам или по QR-коду в приложении банка.",
+        challenge:"В переводе легко ошибиться: другой банк, другая сумма, два платежа вместо одного, и деньги могут потеряться. Страница должна была предотвращать эти ошибки и успокаивать покупателя, пока платёж проверяется.",
+        did:["Построил страницу вокруг закреплённой шапки: таймер, сумма и номер платежа всегда на виду, с копированием там, где оно нужно", "Спроектировал оплату картой, выбор банка и оплату по QR-коду в приложении банка", "Написал шаги «Как оплатить» и блок «Важно» с тремя правилами: один банк, точная сумма, один платёж в срок", "Спроектировал состояния после оплаты: ожидание банка и успешная оплата", "Добавил «Уже оплатил» и загрузку чека для оплаты переводом", "Спроектировал светлую и тёмную темы и переключатель языка в шапке", "Спроектировал мобильную версию с сеткой банков и главным действием внизу"],
         decisions:[
-          ["Правила прямо над кнопкой","Блок «Важно» повторяет три правила, из-за которых ломаются переводы: тот банк, точная сумма, один платёж. Он стоит прямо над кнопкой оплаты."],
-          ["Таймер задаёт темп","Видимый отсчёт показывает, сколько ещё действуют реквизиты, поэтому истёкший платёж не становится сюрпризом."],
-          ["Ожидание — это экран, а не спиннер","Пока банк отвечает, страница объясняет, что происходит, и просит не закрывать браузер, чтобы платёж не потерялся."]
+          ["Правила прямо над действием", "Блок «Важно» называет три правила, из-за которых ломаются переводы: тот банк, точная сумма, один платёж в срок. Он стоит прямо над кнопками, куда покупатель смотрит перед оплатой."],
+          ["Таймер задаёт темп", "Отсчёт всегда вверху страницы: покупатель знает, сколько ещё действуют реквизиты, и истёкший платёж не становится сюрпризом."],
+          ["Ожидание — это экран, а не спиннер", "Пока перевод проверяется, страница объясняет, что происходит и сколько это обычно занимает, поэтому покупатель не закрывает страницу и не платит дважды."]
         ]
       },
       {
-        eyebrow:"Orbiq · iGaming · 2026",
+        eyebrow:"Orbiq · iGaming",
         title:"Регистрация и криптокошелёк для онлайн-казино",
-        summary:"Регистрация, вход и криптокошелёк для онлайн-казино. Игрок выбирает приветственный бонус прямо в форме регистрации. Десктоп и мобилка.",
-        tags:["Флоу регистрации","Криптоплатежи","Десктоп + мобилка"],
-        facts:[["Роль","UI/UX-дизайн"],["Объём","Регистрация, вход, восстановление, кошелёк"],["Платформа","Веб, десктоп и мобилка"],["Рынок","iGaming"]],
-        context:"Онлайн-казино со слотами, live-играми, ставками и криптодепозитами. Большинство игроков приходит из рекламы за бонусом, и первое, что они видят, — форма регистрации.",
-        challenge:"Сделать регистрацию первым шагом игры, а не барьером. Форма короткая, игрок выбирает бонус, ради которого пришёл, а первый криптодепозит не сложнее оплаты картой.",
-        did:["Спроектировал регистрацию по почте и по телефону с валидацией на лету","Встроил выбор приветственного бонуса в форму регистрации, с живым таймером","Спроектировал вход, подтверждение кодом и восстановление пароля в три шага","Спроектировал кошелёк: депозит по QR или адресу и покупка крипты в том же окне","Спроектировал мобильную версию всех форм","Спроектировал лобби: ряды игр, живые выигрыши и провайдеры"],
+        summary:"Регистрация, вход, лобби и криптокошелёк для онлайн-казино. Игрок выбирает приветственный бонус прямо в форме регистрации. Десктоп и мобилка.",
+        tags:["Флоу регистрации", "Криптоплатежи", "Десктоп + мобилка"],
+        facts:[["Роль", "UI/UX-дизайн"], ["Объём", "Регистрация, вход, восстановление, лобби, кошелёк"], ["Платформа", "Веб, десктоп и мобилка"], ["Рынок", "iGaming"]],
+        context:"Онлайн-казино со слотами, live-играми, ставками и криптодепозитами. Приветственный бонус — главная причина зарегистрироваться, а форма регистрации — первый экран, который видит новый игрок. Название Orbiq придумано для этого кейса.",
+        challenge:"Сделать регистрацию первым шагом игры, а не барьером. Форма короткая, бонус перед глазами, а первый криптодепозит не сложнее оплаты картой.",
+        did:["Спроектировал регистрацию по почте или телефону с выбором валюты, необязательным промокодом и валидацией на лету", "Встроил выбор приветственного бонуса в форму регистрации, у каждого предложения живой таймер", "Спроектировал вход, шаг с кодом из письма и восстановление пароля", "Спроектировал кошелёк: депозит по QR или адресу с бонус-кодом и покупка крипты в соседней вкладке", "Спроектировал лобби: поиск, ряды игр, live-игры и новинки, ссылки на ответственную игру всегда под рукой", "Спроектировал мобильную версию всех форм"],
         decisions:[
-          ["Бонус живёт в форме","Игрок выбирает приветственное предложение прямо при регистрации, поэтому причина зарегистрироваться остаётся перед глазами в момент решения."],
-          ["Ошибки при вводе, а не после","Поля проверяются по мере ввода и объясняют правило, например минимум 8 символов в пароле, поэтому кнопка не возвращает стену красного текста."],
-          ["Депозит, не выходя из лобби","Кошелёк открывается поверх игр. QR, адрес с кнопкой копирования и применённый бонус помещаются в одно окно, а покупка крипты — соседняя вкладка."]
+          ["Бонус живёт в форме", "Игрок выбирает приветственное предложение прямо при регистрации, поэтому причина зарегистрироваться остаётся перед глазами в момент решения."],
+          ["Ошибки при вводе, а не после", "Поля проверяются по мере ввода и объясняют правило, например минимум 8 символов в пароле, поэтому кнопка не возвращает стену красного текста."],
+          ["Депозит, не выходя из лобби", "Кошелёк открывается поверх игр. QR, адрес с кнопкой копирования и применённый бонус помещаются в одно окно, а покупка крипты — соседняя вкладка."]
         ]
       },
       {
@@ -3750,48 +3750,48 @@ html{background:var(--paper)}
         ]
       },
       {
-        eyebrow:"WISP · Киберспорт · 2023",
-        title:"Турнирная платформа для CS2 и Dota 2",
-        summary:"WISP проводит любительские турниры по CS2 и Dota 2 с призовыми. Я спроектировал весь путь игрока: найти турнир, подтвердить участие командой, забанить карты, следить за сеткой.",
-        tags:["Киберспорт","Состояния в реальном времени","Веб-приложение"],
-        facts:[["Роль","Ведущий продуктовый дизайнер"],["Объём","Лобби, турнир, голосование, сетка, профиль"],["Платформа","Веб-приложение"],["Рынок","СНГ, Европа"]],
-        context:"WISP запустился в 2023 году, около 40 турниров в неделю по Dota 2 и CS. Турнир идёт по жёстким фазам: регистрация, подтверждение, голосование за карту, матчи. Игроки в голосовом чате, торопятся и пропускают всё неочевидное.",
-        challenge:"Показать живой процесс с таймерами так, чтобы десять игроков всегда понимали, что происходит сейчас и что им нужно сделать, не читая правил.",
-        did:["Спроектировал лобби с фильтрами по игре, режиму, сетке и призу","Построил страницу турнира вокруг трекера из четырёх фаз","Спроектировал подтверждение участия с таймером и статусами команд","Спроектировал голосование капитанов с поочерёдными банами карт","Спроектировал турнирную сетку и профиль с историей матчей и статистикой"],
+        eyebrow:"WISP · Киберспорт · 2023–2024",
+        title:"Web3-платформа киберспортивных турниров",
+        summary:"WISP GAME проводит любительские командные турниры с призовыми. Я спроектировал путь игрока от поиска турнира до подтверждения, голосования за карту и сетки, а также лендинги, NFT-сообщество и продажу токена.",
+        tags:["Киберспорт", "Web3", "Веб-приложение"],
+        facts:[["Роль", "Продуктовый дизайнер"], ["Объём", "Турниры, подтверждение, голосование, сетка, профиль, Web3-страницы"], ["Платформа", "Веб-приложение, лендинги, Telegram mini-app"], ["Годы", "2023–2024"]],
+        context:"WISP GAME — Web3-платформа киберспортивных турниров. Игроки подключают Steam, собирают команду и играют бесплатные турниры 5×5 на выбывание по Counter-Strike, позже добавился Valorant. Подписка Prime открывает дополнительные возможности, у проекта есть NFT-коллекция и свой токен.",
+        challenge:"Турнир идёт по жёстким фазам: регистрация, подтверждение, голосование за карту, матчи. Десять игроков должны понимать, что происходит сейчас и что делать дальше, не читая правил.",
+        did:["Спроектировал список турниров и страницу турнира: призовой фонд, правила, пул карт и серверы", "Построил страницу турнира вокруг трекера из четырёх фаз: участие, подтверждение, голосование, игра", "Спроектировал подтверждение участия со статусом каждого игрока: подтвердил, зарегистрирован, профиль заблокирован, телефон отключён, свободное место", "Спроектировал голосование капитанов за карту: побеждает карта с большинством голосов, при ничьей или без голосов карта выбирается случайно", "Спроектировал турнирную сетку и профиль игрока с историей матчей, винрейтом и статистикой Steam", "Спроектировал лендинги, страницу NFT-сообщества с привилегиями держателей и страницу продажи токена с токеномикой", "Спроектировал экраны Telegram mini-app и компоненты дизайн-системы в Figma"],
         decisions:[
-          ["Одна кнопка говорит, что делать","Главная кнопка меняется по фазе: Участвовать, Готов с таймером, Голосование капитана, Турнир завершён. Игрок не ищет следующее действие."],
-          ["Фазы на одной линии","Участие, подтверждение, голосование и игра — один трекер с таймерами, поэтому всё лобби видит один и тот же момент турнира."],
-          ["Проблемы прямо в строке команды","Заблокированный профиль или отключённый телефон видны в строке команды до того, как сорвут подтверждение."]
+          ["Одна кнопка говорит, что делать", "Главная кнопка меняется по фазе: Участвовать, Готов с таймером, Голосование капитана, Турнир завершён. Игрок не ищет следующее действие."],
+          ["Фазы на одной линии", "Участие, подтверждение, голосование и игра — один трекер с таймерами, поэтому всё лобби видит один и тот же момент турнира."],
+          ["Проблемы прямо в строке команды", "Заблокированный профиль или отключённый телефон видны в строке команды до того, как сорвут подтверждение."]
         ]
       },
       {
         eyebrow:"DAOLama · DeFi на TON · 2023",
         title:"Займы в TON под залог NFT",
-        summary:"DAOLama даёт владельцам NFT занять TON под залог, а не продавать. Я спроектировал сайт и флоу займа: выбрать NFT, задать сумму и срок, подтвердить в кошельке.",
-        tags:["DeFi","Web3","Займы"],
-        facts:[["Роль","Продуктовый дизайнер"],["Объём","Лендинг, список NFT, займ, состояния кошелька"],["Платформа","Веб-приложение"],["Сеть","TON"]],
-        context:"DAOLama — протокол займов peer-to-pool на TON. Коллекционеры хотят ликвидность, не теряя NFT, в который верят, но термины вроде LTV и floor price пугают большинство.",
+        summary:"DAOLama даёт владельцам NFT занять TON под залог, а не продавать. Я спроектировал лендинг и флоу займа: выбрать NFT, увидеть, сколько под него дадут, задать сумму и срок, подтвердить в кошельке.",
+        tags:["DeFi", "Web3", "Займы"],
+        facts:[["Роль", "UI/UX-дизайн"], ["Объём", "Лендинг, коллекции, займ, дорожная карта"], ["Платформа", "Веб-приложение"], ["Сеть", "TON"]],
+        context:"DAOLama — протокол займов на TON. Обещание простое: получи TON без продажи NFT, сразу, и верни в любое время. Дорожная карта на 2023 год добавляла аренду NFT, инструменты для инвесторов и стейкинг.",
         challenge:"Сделать займ под залог таким же понятным, как оплата картой: что отдаю, что получаю, сколько и когда вернуть.",
-        did:["Спроектировал лендинг с живой статистикой протокола и коллекциями","Спроектировал список NFT с суммой, которую можно получить под каждый","Спроектировал панель займа: ползунок суммы, срок, ставка и возврат на одном экране","Спроектировал подтверждение в кошельке и состояние NFT в залоге","Спроектировал дорожную карту и блоки DAOLama NFT и стейкинга"],
+        did:["Спроектировал лендинг со статистикой протокола: заблокированная стоимость, выдано займов, NFT в залоге, доступная ликвидность и загрузка", "Спроектировал список коллекций и карточки NFT с суммой, которую можно получить под каждый", "Спроектировал панель займа: ползунок суммы, срок, ставка и возврат на одном экране", "Спроектировал подтверждение в кошельке и состояние NFT в залоге", "Спроектировал дорожную карту на 2023 год и блок DAOLama NFT: сниженная комиссия, эирдропы и ранний доступ для держателей"],
         decisions:[
-          ["Показываем деньги, а не коэффициент","Ползунок двигает сумму в TON крупным шрифтом. LTV — маленькая подпись рядом для тех, кому важно."],
-          ["Возврат до кнопки","Ставка, дата возврата, комиссия и сумма к возврату стоят прямо над главной кнопкой, поэтому после подписи ничего не всплывает."],
-          ["NFT остаётся на виду","NFT в залоге остаётся в списке с бейджем «В залоге»: владелец видит, что он в безопасности, и возвращается погасить займ."]
+          ["Показываем деньги, а не коэффициент", "Ползунок двигает сумму в TON крупным шрифтом. LTV — маленькая подпись рядом для тех, кому важно."],
+          ["Возврат до кнопки", "Ставка, дата возврата, комиссия и сумма к возврату стоят прямо над главной кнопкой, поэтому после подписи ничего не всплывает."],
+          ["NFT остаётся на виду", "NFT в залоге остаётся в списке с бейджем «В залоге»: владелец видит, что он в безопасности, и возвращается погасить займ."]
         ]
       },
       {
         eyebrow:"TrxPay · Финтех · 2026",
         title:"Кабинет мерчанта TrxPay",
-        summary:"Сторона мерчанта в TrxPay: аналитика оборотов, баланс, транзакции, апелляции и пополнение баланса в USDT. Тот же язык дизайна, что и в платёжной странице TrxPay.",
-        tags:["Финтех","Дашборд","Криптоплатежи"],
-        facts:[["Роль","UI/UX-дизайн"],["Объём","Дашборд, транзакции, пополнение"],["Платформа","Веб-приложение"],["В паре с","Платёжной страницей TrxPay"]],
-        context:"Мерчанты принимают оплату картой и через СБП и пополняют баланс в USDT для выплат. Кабинет открывают несколько раз в день: пришли ли деньги, что в споре, сколько можно вывести.",
-        challenge:"Быстро отвечать на вопрос «как идут дела» и сделать криптопополнение безопасным для тех, кто редко работает с криптой.",
-        did:["Спроектировал дашборд: баланс, прибыль и споры с динамикой, график оборотов по периодам","Спроектировал список транзакций с методами, статусами и суммами в двух валютах","Спроектировал пополнение в USDT в три шага: сеть, QR, таймер и предупреждение о точной сумме","Спроектировал апелляции и их статусы","Сохранил общие токены и компоненты с платёжной страницей TrxPay"],
+        summary:"Сторона мерчанта в TrxPay: баланс, обороты и споры, каждый ввод и вывод, апелляции и пополнение баланса в USDT.",
+        tags:["Финтех", "Дашборд", "Криптоплатежи"],
+        facts:[["Роль", "UI/UX-дизайн"], ["Объём", "Дашборд, транзакции, апелляции, пополнение"], ["Платформа", "Веб-приложение, десктоп"], ["Год", "2026"]],
+        context:"Мерчанты принимают оплату картой и через СБП и пополняют баланс в USDT. В кабинете транзакции, вебхуки, апелляции, обороты по дням и по месяцам, баланс, кошелёк, банки и тарифы. Мерчант заходит, чтобы понять, пришли ли деньги, что в споре и что осталось на балансе.",
+        challenge:"Быстро отвечать на вопрос «как идут дела» и сделать криптопополнение безопасным для тех, кто редко переводит крипту: другая сумма может не зачислиться, а деньги — потеряться.",
+        did:["Спроектировал дашборд: баланс, прибыль и спорные сделки с динамикой, график оборотов за 24 часа, 7 дней, месяц или год, курс и последние транзакции", "Спроектировал список транзакций: ввод и вывод, поиск, фильтры, экспорт и статусы", "Спроектировал пополнение в USDT в три шага: сумма, затем сеть, адрес кошелька и таймер, затем статус платежа", "Написал предупреждение перевести точную сумму одним платежом и что будет иначе", "Спроектировал апелляции и их статусы"],
         decisions:[
-          ["Сначала три цифры","Баланс, прибыль и споры открывают страницу вместе с динамикой: мерчант понимает день с одного взгляда."],
-          ["Смена сети меняет всё","Переключение TRC20 или ERC20 обновляет QR и адрес одновременно, поэтому скопировать адрес не из той сети нельзя."],
-          ["Точная сумма простыми словами","Предупреждение говорит перевести ровно 1 200 USDT одним платежом и что будет иначе. Оно стоит сразу под адресом."]
+          ["Сначала три цифры", "Баланс, прибыль и споры открывают страницу вместе с динамикой: мерчант понимает день с одного взгляда."],
+          ["Сначала сумма, потом адрес", "Мерчант вводит целую сумму, например 1 200, и только после этого получает адрес кошелька с таймером, поэтому каждый адрес относится к одному платежу."],
+          ["Точная сумма простыми словами", "Предупреждение говорит перевести ровно 1 200 USDT одним платежом и что будет иначе. Оно стоит сразу под адресом."]
         ]
       },
       {
