@@ -953,6 +953,8 @@ html{background:var(--paper)}
 .tp-sec{display:flex;align-items:center;justify-content:center;gap:8px;color:var(--mu);font-size:13px}
 .tp-sec svg.i{width:15px;height:15px}
 .tp-v{position:absolute;inset:0;visibility:hidden}
+/* the receipt is short: centre it in the window instead of leaving half the page empty */
+.tp-v[data-v="done"] .tp-col{top:50%;transform:translateY(-54%)}
 .tp-v.on{visibility:visible}
 .tp-wait{padding:36px 32px;text-align:center}
 .tp-ring{position:relative;width:96px;height:96px;margin:0 auto}
@@ -1215,6 +1217,32 @@ html{background:var(--paper)}
 .bx-toast i svg{width:14px;height:14px}
 /* gift cards */
 .gc-pane{min-height:728px}
+.gc-pane[data-gp="1"],.gc-pane[data-gp="2"]{display:flex;flex-direction:column}
+.gc-sub{margin-top:auto;padding:18px 18px 20px;border-radius:14px;background:var(--cd2);box-shadow:inset 0 0 0 1px var(--ln)}
+.gc-sh{display:flex;align-items:baseline;gap:10px;font-size:14px;font-weight:700}
+.gc-sh small{color:var(--mu);font-size:12px;font-weight:500}
+.gc-sh .tot{margin-left:auto;font-size:20px;font-weight:800;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.gc-site{margin-top:14px;padding:14px;border-radius:12px;background:var(--cd)}
+.gc-chips{display:flex;gap:6px;height:28px;overflow:hidden}
+.gc-chips span{flex:none;display:inline-flex;align-items:center;height:28px;padding:0 12px;border-radius:14px;box-shadow:inset 0 0 0 1px var(--ln);font-size:12px;font-weight:600;color:var(--mu);transition:opacity .4s,transform .4s}
+.gc-chips span.on{background:var(--ac);box-shadow:none;color:#fff}
+.gc-chips span.off{display:none}
+.gc-chips span.in{animation:gcChip .5s cubic-bezier(.3,1.4,.5,1)}
+@keyframes gcChip{from{opacity:0;transform:scale(.7)}}
+.gc-th{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:12px}
+.gc-th div{height:74px;border-radius:9px;overflow:hidden;background:var(--cd2)}
+.gc-th img{width:100%;height:100%;object-fit:cover}
+.gc-bar{display:flex;gap:3px;height:14px;margin-top:16px}
+.gc-bar i{display:block;height:100%;border-radius:4px;background:var(--ac);transition:opacity .5s,filter .5s}
+.gc-bar i.dim{opacity:.18}
+.gc-lg{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:14px}
+.gc-lg div{padding:10px 12px;border-radius:10px;background:var(--cd);transition:opacity .5s}
+.gc-lg div.dim{opacity:.4}
+.gc-lg b{display:flex;align-items:center;gap:7px;font-size:13px;font-weight:700}
+.gc-lg b i{width:8px;height:8px;border-radius:3px;background:var(--ac)}
+.gc-lg small{display:block;margin-top:6px;color:var(--mu);font-size:12px;font-variant-numeric:tabular-nums}
+.gc-st{display:flex;gap:22px;margin-top:14px;color:var(--mu);font-size:12px}
+.gc-st b{color:var(--tx,inherit);font-weight:700;font-variant-numeric:tabular-nums}
 .gc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:16px}
 .gc-c{position:relative;padding:10px 10px 14px;border-radius:14px;background:var(--cd2);box-shadow:inset 0 0 0 1px var(--ln);transition:box-shadow .3s}
 .gc-c .im{position:relative;height:214px;border-radius:10px;overflow:hidden;background:var(--cd)}
@@ -5083,7 +5111,7 @@ html{background:var(--paper)}
   const gcCard = (g, cls='') => `<div class="gc-c ${cls}"><div class="im"><img src="assets/gc-${g[0]}.webp" alt=""><span class="lab">25–200 BYN</span></div><b>${g[1]}</b><div class="mt"><span class="gc-tag">${g[2]}</span><small>${nf(g[3])} продаж</small></div><div class="ft">Показывать на сайте<span class="bx-sw ${g[4]?'on':''}"></span></div></div>`;
   function giftHTML(){
     const occ = [['День рождения',3,1284,true],['Новый год',2,2410,true],['Свидание',2,642,true],['Порадовать',4,918,true],['8 марта',1,455,false],['Новоселье',1,0,true]];
-    const val = [[25,312,true],[50,1040,true],[100,1386,true],[150,512,true],[200,268,true]];
+    const val = [[25,312,true],[50,1040,true],[100,1386,true],[150,512,true],[200,268,true]], VREV = val.reduce((s,v)=>s+v[0]*v[1],0);
     return `<section class="bx-page on" data-pg="gift">
       <div class="bx-tabs" data-a="gtabs"><span class="on" data-a="gt0">Оформление</span><span data-a="gt1">Поводы</span><span data-a="gt2">Номиналы</span><i class="ul" style="left:0;width:120px"></i></div>
       <div style="position:relative;margin-top:16px">
@@ -5101,12 +5129,19 @@ html{background:var(--paper)}
           <div class="bx-ct" style="font-size:18px">Поводы<small style="margin-left:4px">Фильтры на странице покупки. Порядок совпадает с сайтом</small><span class="r"><span class="bx-btn pri">${AI.plus}<span>Добавить повод</span></span></span></div>
           <table class="bx-tbl"><thead><tr><th style="width:36px"></th><th>Повод</th><th class="n">Дизайнов</th><th class="n">Продаж за месяц</th><th style="width:140px;padding-left:40px">Показывать</th><th style="width:80px"></th></tr></thead>
             <tbody data-a="otb">${occ.map((o,i)=>`<tr data-i="${i}" ${o[0]==='Новоселье'?'class="fresh"':''}><td>${AI.drag.replace('class="i"','class="i hd"')}</td><td><b style="font-weight:700">${o[0]}</b></td><td class="n">${o[1]}</td><td class="n">${o[2]?nf(o[2]):'—'}</td><td style="padding-left:40px"><span class="bx-sw ${o[3]?'on':''}" ${o[0]==='8 марта'?'data-a="o8"':''} style="margin-left:0"></span></td><td><span class="ac">${AI.edit}${AI.trash}</span></td></tr>`).join('')}</tbody></table>
+          <div class="gc-sub"><div class="gc-sh">Так видит покупатель<small>Фильтры на странице покупки</small></div>
+            <div class="gc-site"><div class="gc-chips" data-a="ochips"><span class="on">Все</span>${occ.map(o=>`<span data-o="${o[0]}" class="${o[3]?'':'off'}">${o[0]}</span>`).join('')}</div>
+              <div class="gc-th">${['birthday','newyear','date','cheer','home'].map(k=>`<div><img src="assets/gc-${k}.webp" alt=""></div>`).join('')}</div></div></div>
         </div>
         <div class="bx-card gc-pane" data-gp="2" style="display:none">
           <div class="bx-ct" style="font-size:18px">Номиналы<small style="margin-left:4px">Суммы, которые можно выбрать при покупке</small><span class="r"><span class="bx-btn pri" data-a="addval">${AI.plus}<span>Добавить номинал</span></span></span></div>
           <table class="bx-tbl"><thead><tr><th>Номинал</th><th class="n">Продаж за месяц</th><th class="n">Выручка</th><th style="width:140px;padding-left:40px">Показывать</th><th style="width:80px"></th></tr></thead>
             <tbody data-a="vtb">${val.map(v=>`<tr><td><b style="font-weight:700">${v[0]} BYN</b></td><td class="n">${nf(v[1])}</td><td class="n">${nf(v[0]*v[1])} BYN</td><td style="padding-left:40px"><span class="bx-sw ${v[2]?'on':''}" ${v[0]===25?'data-a="v25"':''} style="margin-left:0"></span></td><td><span class="ac">${AI.edit}${AI.trash}</span></td></tr>`).join('')}
               <tr data-a="vnew" style="display:none"><td><span class="bx-ninp" data-a="vin"><span class="val"></span><i class="car" style="width:1.5px;height:16px;background:var(--ac);animation:csBlink 1s steps(1) infinite"></i><span style="color:var(--mu);margin-left:auto">BYN</span></span></td><td class="n">—</td><td class="n">—</td><td style="padding-left:40px"><span class="bx-sw on" style="margin-left:0"></span></td><td></td></tr></tbody></table>
+          <div class="gc-sub"><div class="gc-sh">Выручка за месяц<small>Доли номиналов</small><span class="tot">${nf(VREV)} BYN</span></div>
+            <div class="gc-bar">${val.map(v=>`<i ${v[0]===25?'data-a="vseg"':''} style="flex:${v[0]*v[1]};opacity:${(.45+.55*v[0]*v[1]/138600).toFixed(2)}"></i>`).join('')}</div>
+            <div class="gc-lg">${val.map(v=>`<div ${v[0]===25?'data-a="vlg"':''}><b><i style="opacity:${(.45+.55*v[0]*v[1]/138600).toFixed(2)}"></i>${v[0]} BYN</b><small>${Math.round(v[0]*v[1]/VREV*100) || '<1'}% · ${nf(v[1])} шт.</small></div>`).join('')}</div>
+            <div class="gc-st"><span>Продано карт <b>${nf(val.reduce((s,v)=>s+v[1],0))}</b></span><span>Средний номинал <b>${Math.round(VREV/val.reduce((s,v)=>s+v[1],0))} BYN</b></span></div></div>
         </div>
       </div>
     </section>`;
@@ -5264,6 +5299,15 @@ html{background:var(--paper)}
       B.style.display = '';
       await done(B.animate([{opacity:0, transform:'translateY(12px)'},{opacity:1, transform:'none'}], {duration:480*TEMPO, easing:'cubic-bezier(.2,.8,.2,1)'}));
     };
+    // buyer-facing filter chips follow the table: same order, hidden when the switch is off
+    const syncChips = (anim=true) => {
+      const box = a('ochips'), chips = [...box.querySelectorAll('[data-o]')], first = new Map(chips.map(c => [c, c.getBoundingClientRect().left]));
+      [...a('otb').children].forEach(r => { const n = r.querySelector('b').textContent, c = chips.find(x => x.dataset.o === n), on = r.querySelector('.bx-sw').classList.contains('on');
+        box.appendChild(c); const was = c.classList.contains('off'); c.classList.toggle('off', !on); c.classList.remove('in'); if (anim && was && on){ void c.offsetWidth; c.classList.add('in'); } });
+      if (!anim) return;
+      const k = K.kOf ? K.kOf(R) : 1;
+      chips.forEach(c => { if (c.classList.contains('off') || c.classList.contains('in')) return; const dx = (first.get(c) - c.getBoundingClientRect().left)/k; if (dx) c.animate([{transform:`translateX(${dx}px)`},{transform:'none'}], {duration:520, easing:'cubic-bezier(.3,.7,.2,1)'}); });
+    };
     const reset = () => {
       a('ggrid').innerHTML = GCD.map(g=>gcCard(g)).join('') + SLOT;
       a('gnew').style.display = ''; a('ged').classList.remove('on');
@@ -5273,6 +5317,7 @@ html{background:var(--paper)}
       X.ul(a('gtabs'), 0);
       const tb = a('otb'); [...tb.children].sort((x,y) => x.dataset.i - y.dataset.i).forEach(r => { r.style.transform = ''; r.classList.remove('lift'); tb.appendChild(r); });
       a('o8').classList.remove('on'); a('v25').classList.add('on');
+      syncChips(false); a('vseg').classList.remove('dim'); a('vlg').classList.remove('dim');
       a('vnew').style.display = 'none'; a('vnew').classList.remove('fresh');
       a('vnew').children[0].innerHTML = `<span class="bx-ninp" data-a="vin"><span class="val"></span><i class="car" style="width:1.5px;height:16px;background:var(--ac);animation:csBlink 1s steps(1) infinite"></i><span style="color:var(--mu);margin-left:auto">BYN</span></span>`;
     };
@@ -5324,14 +5369,15 @@ html{background:var(--paper)}
       await wait(stage, 700);
       r1.classList.remove('lift'); r1.style.transition = 'none'; r0.style.transition = 'none'; r1.style.transform = ''; r0.style.transform = '';
       tb.insertBefore(r1, r0); void r1.offsetWidth; r1.style.transition = ''; r0.style.transition = '';
+      syncChips();
       await wait(stage, 600);
-      await click(a('o8'), {press:false}); a('o8').classList.add('on');
+      await click(a('o8'), {press:false}); a('o8').classList.add('on'); syncChips();
       await X.toast('Порядок поводов сохранён');
       // values
       await click(a('gt2'), {press:false});
       await pane(2);
       await wait(stage, 700);
-      await click(a('v25'), {press:false}); a('v25').classList.remove('on');
+      await click(a('v25'), {press:false}); a('v25').classList.remove('on'); a('vseg').classList.add('dim'); a('vlg').classList.add('dim');
       await wait(stage, 600);
       await click(a('addval'));
       a('vnew').style.display = ''; a('vnew').animate([{opacity:0, transform:'translateY(-6px)'},{opacity:1, transform:'none'}], {duration:400});
