@@ -1,0 +1,965 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<title>Денис Конобеев — UI/UX для AI-companion</title>
+<meta name="description" content="Отклик на вакансию UI/UX Designer в AI-companion web app: чат, каталог персонажей, пейволлы, AI-визуал в одном стиле, моушн и прототипы кодом.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Денис Конобеев — UI/UX Designer для AI-companion">
+<meta property="og:description" content="6 шагов, 2 минуты: опыт в AI-companion, пейволлы, AI-визуал в одном стиле, моушн и прототипы кодом.">
+<meta property="og:image" content="https://dedesign.online/assets/lm-w1.webp">
+<meta name="theme-color" content="#0D0E11">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Manrope:wght@600;700;800&display=swap">
+<style>
+:root{
+  --bg:#0D0E11;--bg2:#121317;--sf:#16171C;--sf2:#1C1E24;--fg:#EEEEEA;--fg2:#C3C4C9;--mut:#8D8F96;--line:#25272D;--line2:#34363D;
+  --acc:#9DB8FF;--grad:linear-gradient(118deg,#9CCBFF 0%,#5C95FF 46%,#5B6CFF 100%);
+  --mag:#D63BD9;--mag2:#7E2A86;--mgrad:linear-gradient(135deg,#F06BF2 0%,#D63BD9 45%,#8A3BE0 100%);--ok:#5BD08F;
+  --f:'Golos Text',system-ui,-apple-system,sans-serif;--m:'JetBrains Mono',ui-monospace,monospace;--pf:'Manrope',var(--f);
+  --pad:clamp(20px,4.7vw,120px);--gap:clamp(16px,1.25vw,32px);
+  --t-xs:clamp(11px,.55vw,14px);--t-s:clamp(13px,.7vw,18px);--t-b:clamp(16px,.9vw,23px);--t-l:clamp(18px,1.15vw,29px);
+  --t-h3:clamp(22px,1.6vw,40px);--t-h2:clamp(34px,3.4vw,88px);--t-h1:clamp(40px,min(4.8vw,9vh),124px);
+  --r-s:clamp(10px,.6vw,14px);--r-m:clamp(14px,.9vw,22px);--r-l:clamp(18px,1.2vw,28px);
+  --ease:cubic-bezier(.2,.7,.1,1);--spring:cubic-bezier(.3,1.4,.5,1);
+  --hd:clamp(64px,4.4vw,104px);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--hd) + 8px);-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--f);font-size:var(--t-b);line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+:focus-visible{outline:2px solid var(--acc);outline-offset:3px;border-radius:8px}
+.wrap{max-width:2200px;margin:0 auto;padding-left:max(var(--pad),env(safe-area-inset-left,0px));padding-right:max(var(--pad),env(safe-area-inset-right,0px))}
+.mono{font-family:var(--m);font-size:var(--t-xs);letter-spacing:.1em;text-transform:uppercase;color:var(--mut)}
+.gt{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.mt{background:var(--mgrad);-webkit-background-clip:text;background-clip:text;color:transparent}
+svg.i{width:1.15em;height:1.15em;flex:none;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+
+/* ── шапка с прогрессом ── */
+.hd{position:fixed;inset:0 0 auto;z-index:50;background:rgba(13,14,17,.82);backdrop-filter:blur(16px) saturate(1.3);-webkit-backdrop-filter:blur(16px) saturate(1.3);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0px)}
+.hd-in{height:var(--hd);display:grid;grid-template-columns:auto 1fr;align-items:center;gap:clamp(20px,3vw,80px)}
+.me{display:flex;flex-direction:column;line-height:1.15;font-weight:600;font-size:clamp(15px,.85vw,21px);white-space:nowrap}
+.me i{font-style:normal;font-family:var(--m);font-weight:400;font-size:var(--t-xs);letter-spacing:.08em;text-transform:uppercase;color:var(--mut);margin-top:4px}
+.pg{display:grid;grid-template-columns:repeat(6,1fr);gap:clamp(6px,.6vw,14px)}
+.pg a{display:flex;flex-direction:column;gap:clamp(8px,.5vw,12px);padding:10px 0;min-width:0}
+.pg .bar{height:3px;border-radius:3px;background:var(--line2);overflow:hidden;display:block}
+.pg .bar i{display:block;height:100%;background:var(--grad);transform-origin:left;transform:scaleX(var(--p,0));border-radius:inherit}
+.pg .lb{font-size:var(--t-s);color:var(--mut);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:color .3s}
+.pg .lb em{font-style:normal;font-family:var(--m);font-size:.82em;margin-right:.6em;color:var(--mut)}
+.pg a.on .lb{color:var(--fg)}
+.pg a.on .lb em{color:var(--acc)}
+@media (hover:hover){.pg a:hover .lb{color:var(--fg)}}
+.pg-now{display:none}
+
+/* ── плавающая панель ── */
+.dk{position:fixed;left:50%;bottom:calc(clamp(14px,1.2vw,28px) + env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:60;display:flex;gap:4px;padding:6px;border-radius:999px;background:rgba(24,25,31,.78);backdrop-filter:blur(18px) saturate(1.4);-webkit-backdrop-filter:blur(18px) saturate(1.4);border:1px solid rgba(255,255,255,.09);box-shadow:inset 0 1px 0 rgba(255,255,255,.07),0 20px 50px rgba(0,0,0,.5)}
+.dk>a,.dk>button{display:inline-flex;align-items:center;gap:9px;height:clamp(44px,2.6vw,56px);padding:0 clamp(16px,1vw,24px);border-radius:999px;font-size:var(--t-s);font-weight:500;color:var(--fg2);white-space:nowrap;transition:background .3s,color .3s}
+@media (hover:hover){.dk>a:hover,.dk>button:hover{background:rgba(255,255,255,.07);color:var(--fg)}}
+.dk .cv{background:var(--fg);color:#0D0F14;font-weight:600}
+@media (hover:hover){.dk .cv:hover{background:#fff;color:#0D0F14}}
+.dk-note{position:fixed;left:50%;bottom:calc(clamp(80px,5vw,110px) + env(safe-area-inset-bottom,0px));transform:translate(-50%,10px);z-index:61;background:var(--fg);color:var(--bg);font-size:var(--t-s);font-weight:600;padding:10px 18px;border-radius:999px;opacity:0;pointer-events:none;transition:opacity .3s,transform .4s var(--ease)}
+.dk-note.on{opacity:1;transform:translate(-50%,0)}
+
+/* ── шаги ── */
+.st{position:relative;padding-block:clamp(110px,8vw,200px) clamp(70px,6vw,160px);border-top:1px solid var(--line)}
+.st:first-of-type{border-top:0}
+.st-h{display:grid;grid-template-columns:repeat(12,1fr);column-gap:var(--gap);align-items:start;margin-bottom:clamp(36px,3.4vw,88px)}
+.st-h .mono{grid-column:1/4;padding-top:1.1em}
+.st-h h2{grid-column:4/12;margin:0;font-weight:600;font-size:var(--t-h2);line-height:1;letter-spacing:-.035em;text-wrap:balance}
+.st-b{display:grid;grid-template-columns:repeat(12,1fr);column-gap:var(--gap);row-gap:clamp(36px,3vw,72px);align-items:start}
+.st-l{grid-column:1/5;display:grid;gap:clamp(28px,2.4vw,56px);position:sticky;top:calc(var(--hd) + clamp(24px,2vw,48px))}
+.st-r{grid-column:5/13;min-width:0}
+.blk h4{margin:0 0 clamp(10px,.8vw,18px);font-family:var(--m);font-weight:500;font-size:var(--t-xs);letter-spacing:.1em;text-transform:uppercase;color:var(--mut);display:flex;align-items:center;gap:10px}
+.blk h4::before{content:"";width:18px;height:1px;background:currentColor}
+.ask p{margin:0;font-size:var(--t-l);line-height:1.4;font-weight:500;color:var(--fg);padding-left:clamp(14px,1vw,24px);border-left:2px solid;border-image:var(--grad) 1}
+.why ul{margin:0;padding:0;list-style:none;display:grid;gap:clamp(12px,.9vw,20px);color:var(--fg2)}
+.why li{padding-left:24px;position:relative}
+.why li::before{content:"";position:absolute;left:0;top:.72em;width:12px;height:1px;background:var(--acc)}
+.why b{color:var(--fg);font-weight:600}
+.note{font-size:var(--t-s);color:var(--mut);margin:0}
+.lnk{display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:var(--t-b);color:var(--fg);padding:clamp(12px,.8vw,18px) clamp(20px,1.3vw,30px);border-radius:999px;border:1px solid var(--line2);background:rgba(255,255,255,.03);transition:border-color .3s,background .3s}
+.lnk .ar{transition:transform .4s var(--ease)}
+@media (hover:hover){.lnk:hover{border-color:var(--acc);background:rgba(157,184,255,.07)}.lnk:hover .ar{transform:translateX(4px)}}
+.lnk.pri{border:0;color:#0B0D12;background:var(--grad);box-shadow:0 12px 34px -10px rgba(92,149,255,.6)}
+.cap{margin-top:clamp(12px,.9vw,20px);font-size:var(--t-s);color:var(--mut)}
+
+/* появление */
+.rv{transition:transform 1s var(--ease),opacity 1s var(--ease)}
+.js .rv:not(.in){transform:translateY(26px);opacity:0}
+.mask{display:block;overflow:hidden;padding-bottom:.08em;margin-bottom:-.08em}
+.mask>span{display:inline-block;transform:translateY(105%);transition:transform 1.1s var(--ease);transition-delay:var(--d,0s)}
+.ready .mask>span{transform:none}
+.st:not(.vis) *{animation-play-state:paused!important}
+
+/* ── 01 · кто я ── */
+.hero{min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding-top:calc(var(--hd) + clamp(32px,3vw,80px));padding-bottom:clamp(110px,7vw,160px);overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background-image:radial-gradient(#23252B 1px,transparent 1px);background-size:28px 28px;-webkit-mask:radial-gradient(ellipse 70% 60% at 30% 45%,#000 20%,transparent 75%);mask:radial-gradient(ellipse 70% 60% at 30% 45%,#000 20%,transparent 75%);pointer-events:none}
+.hero .wrap{position:relative;display:grid;grid-template-columns:repeat(12,1fr);column-gap:var(--gap);align-items:center;width:100%}
+.h-tx{grid-column:1/8}
+.h-tx .mono{display:block;margin-bottom:clamp(20px,1.6vw,40px)}
+.hero h1{margin:0;font-weight:600;font-size:var(--t-h1);line-height:1;letter-spacing:-.045em;text-wrap:balance}
+.hero h1 em{font-style:normal;color:var(--mut)}
+.h-sub{margin:clamp(24px,2vw,48px) 0 0;font-size:var(--t-l);line-height:1.45;color:var(--fg2);max-width:34em}
+.h-sub b{color:var(--fg);font-weight:500}
+.facts{display:grid;grid-template-columns:repeat(4,auto);justify-content:start;gap:clamp(20px,2.4vw,64px);margin:clamp(32px,2.8vw,72px) 0 0;padding:0;list-style:none}
+.facts b{display:block;font-size:var(--t-h3);font-weight:600;letter-spacing:-.02em;line-height:1}
+.facts span{display:block;margin-top:8px;font-size:var(--t-s);color:var(--mut);max-width:11em;line-height:1.35}
+.h-go{display:flex;align-items:center;gap:clamp(16px,1.4vw,32px);flex-wrap:wrap;margin-top:clamp(32px,2.8vw,72px)}
+.h-go .note{max-width:24em}
+.fan{grid-column:8/13;position:relative;aspect-ratio:4/5;perspective:1400px}
+.fan-in{position:absolute;inset:0;transform-style:preserve-3d;transform:rotateY(var(--ry,0deg)) rotateX(var(--rx,0deg));transition:transform .8s var(--ease)}
+.fc{position:absolute;width:48%;aspect-ratio:3/4;left:26%;top:12%;border-radius:var(--r-l);overflow:hidden;box-shadow:0 30px 70px rgba(0,0,0,.55),0 0 0 1px rgba(255,255,255,.08);transform:translateX(var(--x)) translateY(var(--y)) rotate(var(--r)) translateZ(var(--z));opacity:0;transition:transform 1.2s var(--ease),opacity .8s var(--ease);transition-delay:var(--d)}
+.ready .fc{opacity:1}
+.js:not(.ready) .fc{transform:translateY(40px) rotate(0) translateZ(0)}
+.fc img{width:100%;height:100%;object-fit:cover}
+.fc .tg{position:absolute;left:10px;bottom:10px;right:10px;display:flex;justify-content:space-between;align-items:end;font-family:var(--pf);font-weight:700;font-size:clamp(13px,.8vw,19px);text-shadow:0 2px 10px rgba(0,0,0,.6)}
+.fc .tg small{font-family:var(--f);font-weight:500;font-size:.75em;padding:3px 8px;border-radius:999px;background:rgba(0,0,0,.45);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.bub{position:absolute;z-index:5;left:0;bottom:20%;max-width:66%;padding:clamp(12px,.8vw,18px) clamp(14px,1vw,22px);border-radius:20px 20px 20px 6px;background:rgba(32,24,40,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(214,59,217,.35);box-shadow:0 20px 50px rgba(0,0,0,.5);font-size:var(--t-s);line-height:1.4;transform:translateZ(80px)}
+.bub b{display:block;font-size:.85em;color:#F3A6F5;margin-bottom:4px}
+.bub .ty{display:inline-flex;gap:4px;padding:4px 0}
+.dots i{width:6px;height:6px;border-radius:50%;background:currentColor;opacity:.4;animation:dot 1.2s infinite}
+.dots i:nth-child(2){animation-delay:.15s}.dots i:nth-child(3){animation-delay:.3s}
+@keyframes dot{0%,60%,100%{opacity:.3;transform:none}30%{opacity:1;transform:translateY(-3px)}}
+.gem{display:inline-block;width:.9em;height:.9em;vertical-align:-.1em;background:linear-gradient(135deg,#FFB3F7,#D63BD9 50%,#7E2A86);clip-path:polygon(50% 0,100% 38%,50% 100%,0 38%)}
+.chip-p{position:absolute;z-index:5;right:-2%;top:6%;display:flex;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;background:var(--mgrad);color:#fff;font-weight:600;font-size:var(--t-s);box-shadow:0 16px 40px -8px rgba(214,59,217,.6);transform:translateZ(120px);animation:bob 4s ease-in-out infinite}
+@keyframes bob{50%{translate:0 -8px}}
+
+/* ── окно продукта (02) ── */
+.app{border-radius:var(--r-l);background:#0A0A0F;border:1px solid rgba(255,255,255,.08);box-shadow:0 40px 100px rgba(0,0,0,.5);overflow:hidden;font-family:var(--f)}
+.app-bar{display:flex;align-items:center;gap:8px;padding:clamp(10px,.6vw,14px) clamp(12px,.8vw,18px);border-bottom:1px solid #1C1B24;background:#101016}
+.app-bar>i{width:10px;height:10px;border-radius:50%;background:#2A2934}
+.app-bar .u{margin-left:10px;font-family:var(--m);font-size:var(--t-xs);color:#6E6A7C;letter-spacing:.02em}
+.app-bar .lg{margin-left:auto;font-family:var(--pf);font-weight:800;font-size:clamp(14px,.85vw,20px);letter-spacing:-.02em}
+.app-bar .lg span{color:var(--mag)}
+.panes{display:grid;grid-template-columns:1.25fr 1.15fr .9fr;min-height:clamp(440px,32vw,820px)}
+.pane{min-width:0;padding:clamp(14px,1vw,24px);border-right:1px solid #1C1B24;display:flex;flex-direction:column;gap:clamp(10px,.7vw,16px)}
+.pane:last-child{border-right:0}
+.pane-h{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.pane-h b{font-family:var(--pf);font-weight:800;font-size:clamp(15px,.95vw,23px);letter-spacing:-.02em}
+.pane-h b em{font-style:normal;color:var(--mag)}
+.pane-h small{font-family:var(--m);font-size:clamp(10px,.5vw,12px);color:#6E6A7C;letter-spacing:.08em;text-transform:uppercase}
+.flt{display:flex;gap:6px;flex-wrap:wrap}
+.flt span{font-size:clamp(11px,.6vw,14px);padding:5px 10px;border-radius:8px;background:#17161F;color:#A9A4B8;border:1px solid #23212D}
+.flt span.on{background:rgba(214,59,217,.16);border-color:rgba(214,59,217,.5);color:#fff}
+.cat{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(6px,.5vw,12px)}
+.cc{position:relative;border-radius:var(--r-s);overflow:hidden;aspect-ratio:3/4;outline:2px solid transparent;outline-offset:-2px;transition:outline-color .4s,transform .5s var(--ease)}
+.cc img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+.cc::after{content:"";position:absolute;inset:40% 0 0;background:linear-gradient(transparent,rgba(5,5,10,.85))}
+.cc b{position:absolute;z-index:1;left:8px;bottom:7px;font-family:var(--pf);font-weight:700;font-size:clamp(12px,.7vw,16px)}
+.cc b small{font-family:var(--f);font-weight:400;color:#B8B3C6;margin-left:5px}
+.cc.hot{outline-color:var(--mag);transform:translateY(-3px)}
+.cc.hot img{transform:scale(1.06)}
+@media (hover:hover){.cc:hover img{transform:scale(1.06)}}
+.chat{flex:1;display:flex;flex-direction:column;gap:8px;justify-content:flex-end;overflow:hidden;min-height:0}
+.who{display:flex;align-items:center;gap:10px;padding-bottom:10px;border-bottom:1px solid #1C1B24}
+.who img{width:clamp(32px,2vw,44px);height:clamp(32px,2vw,44px);border-radius:50%;object-fit:cover}
+.who b{font-family:var(--pf);font-weight:700;font-size:clamp(14px,.8vw,18px);display:block;line-height:1.2}
+.who small{font-size:clamp(11px,.6vw,13px);color:var(--ok)}
+.msg{max-width:84%;padding:9px 13px;border-radius:18px 18px 18px 6px;background:#1D1B26;font-size:clamp(12px,.68vw,16px);line-height:1.4;color:#E9E6F0;animation:pop .5s var(--spring) both}
+.msg.me{align-self:flex-end;border-radius:18px 18px 6px 18px;background:linear-gradient(135deg,#C93ACD,#8A3BE0);color:#fff}
+.msg em{color:#C9A7D9}
+.msg.ty{display:inline-flex;gap:4px;padding:12px 14px;color:#B8B3C6}
+@keyframes pop{from{opacity:0;transform:translateY(10px) scale(.96)}to{opacity:1;transform:none}}
+.inp{display:flex;align-items:center;gap:8px;padding:8px 8px 8px 14px;border-radius:999px;background:#15141C;border:1px solid #24222E;font-size:clamp(12px,.66vw,15px);color:#6E6A7C;min-height:40px}
+.inp .t{flex:1;color:#E9E6F0;white-space:nowrap;overflow:hidden}
+.inp .t:empty::before{content:"Message Mira…";color:#6E6A7C}
+.inp .snd{width:28px;height:28px;border-radius:50%;background:var(--mgrad);flex:none}
+.prof .ph{position:relative;border-radius:var(--r-m);overflow:hidden;aspect-ratio:4/5}
+.prof .ph img{width:100%;height:100%;object-fit:cover}
+.prof .ph .nm{position:absolute;left:12px;bottom:10px;font-family:var(--pf);font-weight:800;font-size:clamp(18px,1.1vw,26px);text-shadow:0 2px 12px rgba(0,0,0,.5)}
+.prof .ph .nm small{font-weight:600;color:#D9D4E4;font-size:.7em;margin-left:6px}
+.tags{display:flex;gap:6px;flex-wrap:wrap}
+.tags span{font-size:clamp(10px,.58vw,13px);padding:4px 9px;border-radius:999px;background:#17161F;color:#C9C4D6;border:1px solid #23212D}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;text-align:center}
+.stats div{padding:8px 4px;border-radius:10px;background:#15141C;border:1px solid #1F1D28}
+.stats b{display:block;font-family:var(--pf);font-weight:800;font-size:clamp(14px,.85vw,20px)}
+.stats small{font-size:clamp(9px,.5vw,12px);color:#8B869A}
+.rel{padding:10px 12px;border-radius:12px;background:#15141C;border:1px solid #1F1D28;font-size:clamp(11px,.6vw,14px);color:#B8B3C6}
+.rel .br{height:6px;border-radius:6px;background:#26232F;margin-top:8px;overflow:hidden}
+.rel .br i{display:block;height:100%;width:62%;background:var(--mgrad);border-radius:inherit;transform-origin:left;animation:grow 2.4s var(--ease) both}
+@keyframes grow{from{transform:scaleX(0)}}
+.ds{margin-top:clamp(16px,1.2vw,28px);display:grid;grid-template-columns:auto auto 1fr;gap:clamp(16px,1.6vw,40px);align-items:center;padding:clamp(16px,1.2vw,28px);border:1px solid var(--line);border-radius:var(--r-m);background:var(--bg2)}
+.ds .mono{grid-column:1/-1;margin-bottom:-4px}
+.sw{display:flex;gap:6px}
+.sw i{width:clamp(28px,1.8vw,44px);aspect-ratio:1;border-radius:10px;border:1px solid rgba(255,255,255,.1)}
+.sw-t{font-family:var(--pf);font-weight:800;font-size:clamp(22px,1.6vw,40px);letter-spacing:-.03em;line-height:1}
+.sw-t small{display:block;font-family:var(--m);font-weight:400;font-size:var(--t-xs);color:var(--mut);letter-spacing:.04em;margin-top:6px}
+.btns{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.btns span{font-size:clamp(11px,.62vw,14px);font-weight:600;padding:8px 14px;border-radius:999px;background:var(--mgrad);color:#fff;white-space:nowrap}
+.btns span.h{filter:brightness(1.15);box-shadow:0 0 0 3px rgba(214,59,217,.3)}
+.btns span.g{background:#1D1B26;color:#C9C4D6;border:1px solid #2B2836}
+.btns span.d{background:#1A1922;color:#5D596B}
+.flow{display:flex;gap:8px;flex-wrap:wrap;margin-top:clamp(16px,1.2vw,28px);align-items:center}
+.flow span{font-size:var(--t-s);color:var(--fg2);padding:7px 14px;border-radius:999px;border:1px solid var(--line2)}
+.flow i{color:var(--mut);font-style:normal}
+
+/* ── 03 · пейволл ── */
+.pw{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(20px,2.4vw,64px);align-items:start}
+.phone{position:relative;width:min(100%,380px,calc((100svh - var(--hd) - 210px) * .4875));margin:0 auto;aspect-ratio:390/800;border-radius:clamp(36px,2.4vw,52px);background:#08080C;padding:10px;box-shadow:0 40px 100px rgba(0,0,0,.55),0 0 0 1px rgba(255,255,255,.1),inset 0 0 0 2px #1B1B22}
+.scr{position:relative;width:100%;height:100%;border-radius:clamp(28px,1.9vw,42px);overflow:hidden;background:#0A0A0F;display:flex;flex-direction:column}
+.sb{display:flex;justify-content:space-between;padding:14px 26px 6px;font-size:13px;font-weight:600}
+.sb span:last-child{letter-spacing:2px;font-size:10px}
+.scr .who{padding:8px 16px 12px}
+.scr .chat{padding:0 14px 10px;font-size:14px}
+.scr .msg{font-size:14px}
+.lk{position:relative;width:62%;border-radius:18px 18px 18px 6px;overflow:hidden;aspect-ratio:3/4;animation:pop .5s var(--spring) both}
+.lk img{width:100%;height:100%;object-fit:cover;filter:blur(18px) saturate(1.2);transform:scale(1.15);transition:filter 1s var(--ease),transform 1s var(--ease)}
+.lk .lc{position:absolute;inset:0;display:grid;place-items:center;align-content:center;gap:8px;color:#fff;font-weight:600;font-size:13px;text-align:center;transition:opacity .5s}
+.lk .lc span{display:inline-flex;align-items:center;gap:6px;padding:7px 12px;border-radius:999px;background:rgba(0,0,0,.45);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.lk .lc svg{width:28px;height:28px;stroke:#fff;fill:none;stroke-width:1.6}
+.phone[data-s="paid"] .lk img,.phone[data-s="done"] .lk img{filter:none;transform:none}
+.phone[data-s="paid"] .lk .lc,.phone[data-s="done"] .lk .lc{opacity:0}
+.tapr{position:absolute;z-index:9;width:44px;height:44px;margin:-22px 0 0 -22px;border-radius:50%;border:2px solid rgba(255,255,255,.9);opacity:0;pointer-events:none}
+.tapr.on{animation:tap .7s var(--ease)}
+@keyframes tap{0%{opacity:0;transform:scale(.4)}30%{opacity:1}100%{opacity:0;transform:scale(1.4)}}
+.sheet{position:absolute;left:0;right:0;bottom:0;z-index:5;padding:10px 16px 22px;border-radius:26px 26px 0 0;background:#14131B;border-top:1px solid #2A2836;box-shadow:0 -30px 60px rgba(0,0,0,.6);transform:translateY(105%);transition:transform .7s var(--ease)}
+.scr::after{content:"";position:absolute;inset:0;z-index:4;background:rgba(0,0,0,.5);opacity:0;transition:opacity .5s;pointer-events:none}
+.phone[data-s="sheet"] .sheet,.phone[data-s="pick"] .sheet,.phone[data-s="buy"] .sheet{transform:none}
+.phone[data-s="sheet"] .scr::after,.phone[data-s="pick"] .scr::after,.phone[data-s="buy"] .scr::after{opacity:1}
+.sheet .grb{width:40px;height:4px;border-radius:4px;background:#3A3846;margin:0 auto 14px}
+.sheet h5{margin:0;font-family:var(--pf);font-weight:800;font-size:20px;letter-spacing:-.02em}
+.sheet p{margin:4px 0 14px;font-size:13px;color:#9E99AE}
+.opt{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:16px;border:1.5px solid #2A2836;background:#191822;margin-bottom:8px;font-size:14px;transition:border-color .3s,background .3s}
+.opt b{display:block;font-weight:600;white-space:nowrap}
+.opt small{color:#9E99AE;font-size:12px}
+.opt .pr{margin-left:auto;font-weight:700;white-space:nowrap;display:flex;align-items:center;gap:5px}
+.opt .rd{width:18px;height:18px;border-radius:50%;border:1.5px solid #4A4758;flex:none;transition:border .3s,background .3s}
+.opt.on{border-color:var(--mag);background:rgba(214,59,217,.1)}
+.opt.on .rd{border:5px solid var(--mag)}
+.opt .bdg{font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:2px 7px;border-radius:6px;background:var(--mgrad);color:#fff;margin-left:6px;vertical-align:1px}
+.cta{display:flex;justify-content:center;align-items:center;gap:8px;margin-top:12px;height:50px;border-radius:999px;background:var(--mgrad);font-weight:700;font-size:15px;color:#fff;box-shadow:0 12px 30px -8px rgba(214,59,217,.7);transition:transform .3s var(--spring)}
+.phone[data-s="buy"] .cta{transform:scale(.96)}
+.bal{position:absolute;right:16px;top:52px;z-index:6;display:flex;align-items:center;gap:6px;padding:5px 11px;border-radius:999px;background:#1B1A24;border:1px solid #2A2836;font-size:12px;font-weight:700;transition:transform .4s var(--spring)}
+.bal.bump{transform:scale(1.18)}
+.funnel{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:0 0 clamp(20px,1.6vw,36px)}
+.fn{position:relative;padding:clamp(12px,.9vw,20px);border-radius:var(--r-s);background:var(--bg2);border:1px solid var(--line);min-width:0}
+.fn .mono{display:block;margin-bottom:8px;color:var(--acc)}
+.fn b{display:block;font-size:var(--t-b);font-weight:600;line-height:1.2}
+.fn small{display:block;margin-top:6px;font-size:var(--t-s);color:var(--mut);line-height:1.35}
+.fn.pk{border-color:rgba(214,59,217,.5);background:linear-gradient(180deg,rgba(214,59,217,.1),var(--bg2))}
+.fn.pk .mono{color:#F3A6F5}
+.ab{border:1px solid var(--line);border-radius:var(--r-m);overflow:hidden}
+.ab-h,.ab-r{display:grid;grid-template-columns:1.3fr 1fr .9fr;gap:var(--gap);padding:clamp(12px,.9vw,20px) clamp(14px,1.1vw,26px)}
+.ab-h{background:var(--bg2);font-family:var(--m);font-size:var(--t-xs);letter-spacing:.08em;text-transform:uppercase;color:var(--mut)}
+.ab-r{border-top:1px solid var(--line);font-size:var(--t-s);color:var(--fg2);line-height:1.4}
+.ab-r b{color:var(--fg);font-weight:600;display:block;margin-bottom:4px}
+.ab-r span:last-child{color:var(--acc)}
+.ab-r .k{font-family:var(--m);color:var(--mut);margin-right:8px}
+
+/* ── 04 · AI-визуал ── */
+.vx{display:grid;gap:clamp(20px,1.6vw,40px)}
+.cons{display:grid;grid-template-columns:auto minmax(0,1fr);gap:var(--gap);height:clamp(240px,19vw,500px)}
+.ref{position:relative;height:100%;aspect-ratio:3/4;border-radius:var(--r-m);overflow:hidden;border:1px solid rgba(214,59,217,.55);box-shadow:0 0 0 4px rgba(214,59,217,.1)}
+.ref img{width:100%;height:100%;object-fit:cover}
+.ref .lb,.lab{position:absolute;left:10px;top:10px;font-family:var(--m);font-size:clamp(10px,.5vw,12px);letter-spacing:.08em;text-transform:uppercase;padding:5px 9px;border-radius:6px;background:rgba(0,0,0,.6);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.ref .lb{background:var(--mag);color:#fff}
+.mq{position:relative;overflow:hidden;border-radius:var(--r-m);-webkit-mask:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.mq-in{display:flex;gap:clamp(8px,.6vw,14px);width:max-content;height:100%;animation:mq 46s linear infinite}
+.mq figure{margin:0;position:relative;height:100%;aspect-ratio:3/4;border-radius:var(--r-s);overflow:hidden;flex:none}
+.mq img{width:100%;height:100%;object-fit:cover}
+.mq figure span{position:absolute;left:8px;bottom:8px;font-size:clamp(11px,.6vw,14px);font-weight:500;padding:3px 9px;border-radius:999px;background:rgba(0,0,0,.5);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+@keyframes mq{to{transform:translateX(calc(-50% - clamp(4px,.3vw,7px)))}}
+@media (hover:hover){.mq:hover .mq-in{animation-play-state:paused}}
+.cast{display:grid;grid-template-columns:repeat(10,1fr);gap:clamp(6px,.5vw,12px)}
+.cast figure{margin:0;position:relative;border-radius:var(--r-s);overflow:hidden;aspect-ratio:3/4}
+.cast img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+@media (hover:hover){.cast figure:hover img{transform:scale(1.07)}}
+.cast figure span{position:absolute;left:6px;bottom:6px;font-size:clamp(10px,.55vw,13px);padding:2px 7px;border-radius:999px;background:rgba(0,0,0,.55)}
+.row2{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:var(--gap)}
+.box{position:relative;border:1px solid var(--line);border-radius:var(--r-m);background:var(--bg2);padding:clamp(12px,.9vw,20px);display:flex;flex-direction:column;gap:clamp(10px,.8vw,18px);min-width:0}
+.box>.mono{display:flex;justify-content:space-between;gap:12px}
+.pst{display:grid;grid-template-columns:repeat(6,1fr);gap:clamp(6px,.5vw,12px)}
+.pst figure{margin:0;position:relative;aspect-ratio:2/3;border-radius:10px;overflow:hidden;cursor:pointer}
+.pst figure img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
+.pst figure.on{outline:2px solid var(--mag);outline-offset:2px}
+.wide{position:relative;aspect-ratio:16/9;border-radius:var(--r-s);overflow:hidden}
+.wide img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .8s var(--ease),transform 6s linear;transform:scale(1.04)}
+.wide img.on{opacity:1;transform:scale(1)}
+.ico{display:grid;grid-template-columns:repeat(5,1fr);gap:clamp(6px,.6vw,14px);align-items:center;flex:1}
+.ico img{width:100%;animation:flt 5s ease-in-out infinite;animation-delay:calc(var(--k) * -.9s);filter:drop-shadow(0 14px 22px rgba(214,59,217,.35))}
+@keyframes flt{50%{transform:translateY(-8px) rotate(-2deg)}}
+.bf{border-radius:var(--r-s);overflow:hidden;aspect-ratio:4/3}
+.bf img{width:100%;height:100%;object-fit:cover}
+.row3{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--gap)}
+.pipe{list-style:none;margin:0;padding:clamp(28px,2vw,48px) 0 0;display:grid;grid-template-columns:repeat(5,1fr);gap:var(--gap);position:relative}
+.pipe::before,.pipe::after{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:var(--line2)}
+.pipe::after{background:var(--grad);transform-origin:left;transform:scaleX(0);transition:transform 2.4s var(--ease)}
+.pipe.in::after{transform:none}
+.pipe li{position:relative}
+.pipe li::before{content:"";position:absolute;top:calc(-1 * clamp(28px,2vw,48px) - 5px);left:0;width:11px;height:11px;border-radius:50%;background:var(--bg);border:1px solid var(--line2);transition:background .4s,border-color .4s;transition-delay:calc(var(--k) * .45s)}
+.pipe.in li::before{background:var(--acc);border-color:var(--acc)}
+.pipe .mono{display:block;margin-bottom:10px;color:var(--acc)}
+.pipe b{display:block;font-size:var(--t-b);font-weight:600;margin-bottom:6px}
+.pipe p{margin:0;font-size:var(--t-s);color:var(--fg2);line-height:1.45}
+.prm{margin-top:clamp(20px,1.6vw,36px);padding:clamp(14px,1.1vw,26px);border-radius:var(--r-m);background:#0A0B0E;border:1px solid var(--line);font-family:var(--m);font-size:clamp(12px,.66vw,16px);line-height:1.7;color:var(--fg2);overflow-x:auto}
+.prm .k{color:#F3A6F5}.prm .v{color:var(--fg)}.prm .c{color:var(--mut)}
+.prm .cur{display:inline-block;width:.55em;height:1.1em;vertical-align:-.2em;background:var(--acc);animation:blk 1s steps(1) infinite}
+@keyframes blk{50%{opacity:0}}
+
+/* ── 05 · моушн ── */
+.lab3{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap)}
+.tl{border:1px solid var(--line);border-radius:var(--r-m);background:var(--bg2);overflow:hidden;display:flex;flex-direction:column;text-align:left;width:100%}
+.tl .stg{position:relative;aspect-ratio:4/3;display:grid;place-items:center;background:radial-gradient(70% 70% at 50% 40%,rgba(138,59,224,.22),transparent 70%),#0A0A0F;overflow:hidden}
+.tl .inf{padding:clamp(14px,1vw,24px);border-top:1px solid var(--line);display:grid;gap:6px}
+.tl .inf b{font-size:var(--t-b);font-weight:600}
+.tl .inf code{font-family:var(--m);font-size:clamp(10px,.55vw,13px);color:var(--mut);letter-spacing:.02em;line-height:1.5}
+.tl .inf small{font-size:var(--t-s);color:var(--fg2)}
+.rw{display:flex;align-items:center;gap:8px;position:absolute;top:14px;right:14px;padding:6px 12px;border-radius:999px;background:#1B1A24;border:1px solid #2A2836;font-weight:700;font-size:clamp(13px,.75vw,17px);font-variant-numeric:tabular-nums;transition:transform .4s var(--spring)}
+.rw.bump{transform:scale(1.2)}
+.claim{padding:14px 28px;border-radius:999px;background:var(--mgrad);color:#fff;font-weight:700;font-size:clamp(14px,.8vw,18px);box-shadow:0 14px 34px -8px rgba(214,59,217,.7);transition:transform .25s var(--spring)}
+.claim.prs{transform:scale(.92)}
+.claim.dn{background:#1E1D27;color:#9E99AE;box-shadow:none}
+.fly{position:absolute;width:16px;height:16px;left:50%;top:50%;pointer-events:none}
+.ring{width:48%;aspect-ratio:1;position:relative}
+.ring svg{width:100%;height:100%;transform:rotate(-90deg)}
+.ring circle{fill:none;stroke-width:8}
+.ring .bgc{stroke:#22202C}
+.ring .fgc{stroke:url(#rg);stroke-linecap:round;stroke-dasharray:283;stroke-dashoffset:283}
+.ring .lv{position:absolute;inset:0;display:grid;place-items:center;align-content:center;font-family:var(--pf);font-weight:800;line-height:1}
+.ring .lv b{font-size:clamp(28px,2.2vw,56px);letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.ring .lv small{font-family:var(--m);font-weight:400;font-size:clamp(10px,.5vw,12px);color:var(--mut);letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px}
+.lvup{position:absolute;bottom:12%;padding:6px 14px;border-radius:999px;background:var(--mgrad);color:#fff;font-weight:700;font-size:clamp(12px,.7vw,16px);opacity:0;transform:translateY(10px) scale(.8);transition:opacity .4s,transform .5s var(--spring)}
+.lvup.on{opacity:1;transform:none}
+.vc{display:flex;align-items:center;gap:12px;padding:14px 18px;border-radius:22px 22px 22px 8px;background:#1D1B26;width:80%;max-width:340px}
+.vc .pl{width:38px;height:38px;border-radius:50%;background:var(--mgrad);display:grid;place-items:center;flex:none}
+.vc .pl i{width:0;height:0;border-left:11px solid #fff;border-top:7px solid transparent;border-bottom:7px solid transparent;margin-left:3px}
+.wv{flex:1;display:flex;align-items:center;gap:3px;height:34px}
+.wv i{flex:1 0 3px;border-radius:3px;background:#C9A7D9;height:calc(var(--h) * 1%);animation:wv 1.1s ease-in-out infinite;animation-delay:calc(var(--k) * -.08s);transform-origin:center}
+@keyframes wv{50%{transform:scaleY(.35)}}
+.vc small{font-size:12px;color:#9E99AE;font-variant-numeric:tabular-nums}
+.proto{margin-top:clamp(20px,1.6vw,40px);display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap)}
+.pc{padding:clamp(16px,1.2vw,28px);border-radius:var(--r-m);border:1px solid var(--line);background:var(--bg2)}
+.pc b{display:block;font-size:var(--t-h3);font-weight:600;letter-spacing:-.02em;line-height:1.05}
+.pc span{display:block;margin-top:10px;font-size:var(--t-s);color:var(--fg2);line-height:1.45}
+.pc.mine{border:1px solid transparent;background:linear-gradient(var(--bg2),var(--bg2)) padding-box,var(--grad) border-box}
+
+/* ── 06 · контакты ── */
+.end{padding-bottom:clamp(140px,9vw,220px)}
+.end h2{margin:0;font-weight:600;font-size:var(--t-h1);line-height:1;letter-spacing:-.045em;max-width:16em;text-wrap:balance}
+.end .sub{margin:clamp(20px,1.6vw,40px) 0 0;font-size:var(--t-l);color:var(--fg2);max-width:36em}
+.ct{margin-top:clamp(36px,3vw,80px);display:grid;grid-template-columns:repeat(4,1fr);gap:var(--gap)}
+.ct a,.ct button{display:flex;flex-direction:column;gap:clamp(18px,1.6vw,40px);padding:clamp(16px,1.2vw,28px);border-radius:var(--r-m);border:1px solid var(--line);background:var(--bg2);text-align:left;transition:border-color .4s,transform .6s var(--ease),background .4s;min-width:0}
+@media (hover:hover){.ct a:hover,.ct button:hover{border-color:rgba(157,184,255,.5);transform:translateY(-4px);background:#15171C}}
+.ct .mono{display:flex;justify-content:space-between;align-items:center}
+.ct b{font-size:clamp(18px,1.25vw,32px);font-weight:600;letter-spacing:-.02em;line-height:1.1;overflow-wrap:anywhere}
+.ct small{font-size:var(--t-s);color:var(--mut);margin-top:-10px}
+.ct .pr{background:linear-gradient(var(--bg2),var(--bg2)) padding-box,var(--grad) border-box;border-color:transparent}
+.foot{margin-top:clamp(40px,3vw,72px);padding-top:20px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:var(--t-s);color:var(--mut)}
+
+/* ── резюме ── */
+dialog.cvd{width:min(860px,calc(100vw - 32px));max-height:calc(100svh - 48px);padding:0;border:1px solid var(--line2);border-radius:var(--r-l);background:var(--bg2);color:var(--fg);box-shadow:0 40px 120px rgba(0,0,0,.7);overflow:hidden}
+dialog.cvd[open]{display:flex;flex-direction:column;animation:dlg .5s var(--ease)}
+dialog.cvd::backdrop{background:rgba(5,6,8,.7);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+@keyframes dlg{from{opacity:0;transform:translateY(24px) scale(.98)}}
+.cv-h{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:clamp(16px,1.2vw,26px) clamp(20px,1.6vw,36px);border-bottom:1px solid var(--line)}
+.cv-h b{font-size:var(--t-l);font-weight:600}
+.cv-x{width:44px;height:44px;border-radius:50%;border:1px solid var(--line2);display:grid;place-items:center;flex:none}
+.cv-b{overflow-y:auto;padding:clamp(20px,1.6vw,36px);display:grid;gap:clamp(24px,1.8vw,40px);overscroll-behavior:contain}
+.cv-b p{margin:0;color:var(--fg2);font-size:var(--t-b)}
+.cv-b h5{margin:0 0 12px;font-family:var(--m);font-weight:500;font-size:var(--t-xs);letter-spacing:.1em;text-transform:uppercase;color:var(--mut)}
+.job{display:grid;grid-template-columns:clamp(110px,9vw,170px) 1fr;gap:16px;padding:14px 0;border-top:1px solid var(--line)}
+.job .y{font-family:var(--m);font-size:var(--t-xs);color:var(--mut);padding-top:.35em;letter-spacing:.04em}
+.job b{font-weight:600}
+.job b span{font-weight:400;color:var(--mut)}
+.job small{display:block;margin-top:4px;font-size:var(--t-s);color:var(--fg2);line-height:1.45}
+.cv-f{display:flex;gap:10px;flex-wrap:wrap;padding:clamp(14px,1vw,22px) clamp(20px,1.6vw,36px);border-top:1px solid var(--line)}
+.cv-f .lnk{font-size:var(--t-s);padding:10px 18px}
+
+/* ── адаптив ── */
+@media (max-width:1100px){
+  .st-h .mono,.st-h h2{grid-column:1/-1}
+  .st-h .mono{padding:0 0 14px}
+  .st-l,.st-r{grid-column:1/-1;position:static}
+  .h-tx,.fan{grid-column:1/-1}
+  .fan{max-width:520px;width:100%;margin:56px auto 0}
+  .panes{grid-template-columns:1fr 1fr}
+  .panes .prof{display:none}
+  .pw{grid-template-columns:1fr}
+  .lab3,.proto{grid-template-columns:1fr 1fr}
+  .ct{grid-template-columns:1fr 1fr}
+  .cast{grid-template-columns:repeat(5,1fr)}
+}
+@media (max-width:700px){
+  :root{--t-s:15px;--t-xs:12px;--t-b:16px;--t-l:18px;--t-h3:22px;--t-h2:clamp(30px,8.4vw,36px);--t-h1:clamp(34px,9.6vw,44px);--hd:56px}
+  .hd-in{grid-template-columns:1fr;gap:0;height:auto;padding-block:10px 8px}
+  .me{flex-direction:row;align-items:baseline;justify-content:space-between;font-size:15px}
+  .me i{margin:0;font-size:11px}
+  .pg{gap:4px;margin-top:8px}
+  .pg a{padding:6px 0 4px}
+  .pg .lb{display:none}
+  .pg-now{display:block;position:absolute;right:max(var(--pad),env(safe-area-inset-right,0px));top:calc(env(safe-area-inset-top,0px) + 11px);font-size:11px;color:var(--fg)}
+  .me i{display:none}
+  html{scroll-padding-top:84px}
+  .st{padding-block:88px 64px}
+  .st.end{padding-bottom:130px}
+  .hero{min-height:0;padding-top:104px;padding-bottom:72px}
+  .facts{grid-template-columns:1fr 1fr;gap:22px 16px}
+  .h-go .lnk{width:100%;justify-content:center;min-height:52px}
+  .fan{margin-top:40px;max-width:360px}
+  .bub{left:-2%;max-width:78%}
+  .chip-p{right:0}
+  .st-b{row-gap:28px}
+  .st-l{gap:24px}
+  .app{margin-inline:calc(-1 * var(--pad));border-radius:0;border-inline:0}
+  .panes{grid-template-columns:86% 86% 86%;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;min-height:0}
+  .panes::-webkit-scrollbar{display:none}
+  .panes .prof{display:flex}
+  .pane{scroll-snap-align:start;min-height:470px}
+  .pane:first-child{padding-left:var(--pad)}
+  .pane:last-child{padding-right:var(--pad)}
+  .box>.mono span:last-child{display:none}
+  .ds{grid-template-columns:1fr;gap:14px}
+  .btns{justify-content:flex-start}
+  .phone{max-width:320px}
+  .funnel{grid-template-columns:1fr 1fr}
+  .ab-h{display:none}
+  .ab-r{grid-template-columns:1fr;gap:6px}
+  .cons{height:220px;gap:8px}
+  .cast{grid-template-columns:repeat(5,1fr)}
+  .row2,.row3{grid-template-columns:1fr}
+  .pst{grid-template-columns:repeat(6,1fr)}
+  .pipe{grid-template-columns:1fr;padding:0 0 0 28px;gap:22px}
+  .pipe::before,.pipe::after{left:0;top:0;bottom:0;right:auto;width:1px;height:auto}
+  .pipe::after{transform:scaleY(0);transform-origin:top}
+  .pipe li::before{top:.3em;left:-33px}
+  .lab3,.proto{grid-template-columns:1fr}
+  .ct{grid-template-columns:1fr}
+  .ct a,.ct button{gap:14px}
+  .dk{width:calc(100% - 24px);justify-content:space-between}
+  .dk{gap:2px;padding:5px}
+  .dk>a,.dk>button{padding:0 6px;font-size:14px;gap:6px;flex:1 1 auto;justify-content:center;height:44px}
+  .dk svg.i{display:none}
+  .dk .hm{display:none}
+  .job{grid-template-columns:1fr;gap:4px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .js .rv:not(.in){transform:none;opacity:1}
+  .mask>span{transform:none}
+  .js:not(.ready) .fc,.fc{opacity:1}
+}
+</style>
+</head>
+<body>
+<script>document.documentElement.classList.add('js')</script>
+
+<header class="hd">
+  <div class="wrap hd-in">
+    <a class="me" href="#s1">Денис Конобеев<i>Отклик · UI/UX Designer</i></a>
+    <nav class="pg" aria-label="Шаги">
+      <a href="#s1"><span class="bar"><i></i></span><span class="lb"><em>01</em>Кто я</span></a>
+      <a href="#s2"><span class="bar"><i></i></span><span class="lb"><em>02</em>AI-companion</span></a>
+      <a href="#s3"><span class="bar"><i></i></span><span class="lb"><em>03</em>Пейволлы и A/B</span></a>
+      <a href="#s4"><span class="bar"><i></i></span><span class="lb"><em>04</em>AI-визуал</span></a>
+      <a href="#s5"><span class="bar"><i></i></span><span class="lb"><em>05</em>Моушн и код</span></a>
+      <a href="#s6"><span class="bar"><i></i></span><span class="lb"><em>06</em>Контакты</span></a>
+    </nav>
+    <span class="pg-now mono" aria-live="polite">01 · Кто я</span>
+  </div>
+</header>
+
+<main>
+<!-- 01 -->
+<section class="st hero" id="s1">
+  <div class="wrap">
+    <div class="h-tx">
+      <span class="mono">Отклик на вакансию · UI/UX Designer · AI-companion web app</span>
+      <h1>
+        <span class="mask"><span style="--d:.05s">Я уже проектировал</span></span>
+        <span class="mask"><span style="--d:.15s">AI-companion: от каталога</span></span>
+        <span class="mask"><span style="--d:.25s"><em>до пейволла.</em></span></span>
+      </h1>
+      <p class="h-sub rv"><b>Денис Конобеев, Senior Product Designer с 2019 года.</b> Специализируюсь на монетизации: пейволлы, подписки, токены. Последние проекты — AI-продукты, прототипирую сразу в коде.</p>
+      <ul class="facts rv">
+        <li><b>2019</b><span>в продуктовом дизайне</span></li>
+        <li><b>2</b><span>AI-companion продукта, оба под NDA</span></li>
+        <li><b>12</b><span>живых прототипов на сайте вместо картинок</span></li>
+        <li><b class="gt">1</b><span>страница, собранная кодом, — эта</span></li>
+      </ul>
+      <div class="h-go rv">
+        <a class="lnk pri" href="#s2">Смотреть по шагам <span class="ar">→</span></a>
+        <p class="note">6 шагов, около 2 минут. Резюме, портфолио и контакты — в панели снизу на любом шаге.</p>
+      </div>
+    </div>
+    <div class="fan" aria-hidden="true">
+      <div class="fan-in" id="fan">
+        <div class="fc" style="--x:-62%;--y:10%;--r:-14deg;--z:-60px;--d:.2s"><img src="../../assets/lm-c4.webp" alt=""><div class="tg">Vera<small>Mystery</small></div></div>
+        <div class="fc" style="--x:62%;--y:8%;--r:13deg;--z:-60px;--d:.3s"><img src="../../assets/lm-c3.webp" alt=""><div class="tg">Aiko<small>Anime</small></div></div>
+        <div class="fc" style="--x:-32%;--y:0%;--r:-7deg;--z:-20px;--d:.4s"><img src="../../assets/lm-c6.webp" alt=""><div class="tg">Sable<small>Fantasy</small></div></div>
+        <div class="fc" style="--x:32%;--y:1%;--r:7deg;--z:-20px;--d:.5s"><img src="../../assets/lm-c7.webp" alt=""><div class="tg">Nina<small>Realistic</small></div></div>
+        <div class="fc" style="--x:0%;--y:2%;--r:0deg;--z:40px;--d:.6s"><img src="../../assets/lm-c1.webp" alt=""><div class="tg">Mira, 25<small>Online</small></div></div>
+        <div class="chip-p"><span class="gem"></span>Premium</div>
+        <div class="bub" id="bub"><b>Mira</b><span id="bubT">Found the perfect beach for tomorrow. Bring sunscreen.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 -->
+<section class="st" id="s2">
+  <div class="wrap">
+    <div class="st-h"><span class="mono">02 / 06 · Продукт</span><h2>Чат, каталог персонажей, профиль — <span class="gt">уже делал, дважды</span></h2></div>
+    <div class="st-b">
+      <div class="st-l">
+        <div class="blk ask rv"><h4>Кого вы ищете</h4><p>Дизайнер ведёт интерфейсы продукта целиком: чат, каталог персонажей, профиль. Плюс дизайн-система для десктопа и мобильного веба.</p></div>
+        <div class="blk why rv"><h4>Почему это я</h4>
+          <ul>
+            <li><b>Два AI-companion продукта</b> под NDA: каталог персонажей, чат, профиль, короткие драмы, генерация.</li>
+            <li>В последнем был <b>единственным продуктовым дизайнером</b>. Начал с UX-аудита: 8 проблем, 8 решений, 5 гипотез.</li>
+            <li><b>Дизайн-система desktop + mobile web</b>: токены, компоненты профиля и чата, единый набор иконок.</li>
+          </ul>
+        </div>
+        <div class="blk rv"><a class="lnk" href="https://dedesign.online/#lumo" target="_blank" rel="noopener">Открыть кейс Lumo целиком <span class="ar">↗</span></a>
+          <p class="note" style="margin-top:14px">Lumo — переосмысленная версия продукта под NDA: структура и визуал изменены, название вымышленное.</p></div>
+      </div>
+      <div class="st-r rv">
+        <div class="blk"><h4>Живое доказательство · фрагмент Lumo</h4></div>
+        <div class="app" id="app">
+          <div class="app-bar"><i></i><i></i><i></i><span class="u">lumo.app/explore</span><span class="lg">lum<span>o</span></span></div>
+          <div class="panes">
+            <div class="pane">
+              <div class="pane-h"><b>Meet your <em>match</em></b><small>1.2k characters</small></div>
+              <div class="flt"><span class="on">All</span><span>Realistic</span><span>Anime</span><span>Fantasy</span><span>Mystery</span></div>
+              <div class="cat" id="cat">
+                <div class="cc"><img src="../../assets/lm-c4.webp" alt="Vera"><b>Vera<small>28</small></b></div>
+                <div class="cc hot"><img src="../../assets/lm-c1.webp" alt="Mira"><b>Mira<small>25</small></b></div>
+                <div class="cc"><img src="../../assets/lm-c7.webp" alt="Nina"><b>Nina<small>24</small></b></div>
+                <div class="cc"><img src="../../assets/lm-c2.webp" alt="Skye"><b>Skye<small>24</small></b></div>
+                <div class="cc"><img src="../../assets/lm-c9.webp" alt="Hana"><b>Hana<small>27</small></b></div>
+                <div class="cc"><img src="../../assets/lm-c3.webp" alt="Aiko"><b>Aiko<small>26</small></b></div>
+              </div>
+            </div>
+            <div class="pane">
+              <div class="who"><img src="../../assets/lm-c1.webp" alt=""><div><b>Mira</b><small>● online</small></div></div>
+              <div class="chat" id="chat"></div>
+              <div class="inp"><span class="t" id="inpT"></span><span class="snd"></span></div>
+            </div>
+            <div class="pane prof">
+              <div class="ph"><img src="../../assets/lm-m1.webp" alt="Mira"><span class="nm">Mira<small>25</small></span></div>
+              <div class="tags"><span>Curious</span><span>Best friend</span><span>Photography</span><span>Night swims</span></div>
+              <div class="stats"><div><b>14</b><small>days together</small></div><div><b>1.2k</b><small>messages</small></div><div><b>6</b><small>gifts sent</small></div></div>
+              <div class="rel">Relationship · Best friend 62%<div class="br"><i></i></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="ds">
+          <span class="mono">Фрагмент дизайн-системы · одни токены для 390 и 1440</span>
+          <div class="sw"><i style="background:#D63BD9"></i><i style="background:#7E2A86"></i><i style="background:#1D1B26"></i><i style="background:#0A0A0F"></i></div>
+          <div class="sw-t">Aa Manrope<small>H 800 · body Golos 400</small></div>
+          <div class="btns"><span>Default</span><span class="h">Hover</span><span class="g">Secondary</span><span class="d">Disabled</span></div>
+        </div>
+        <div class="flow"><span>Explore</span><i>→</i><span>Chat</span><i>→</i><span>Profile</span><i>→</i><span>Generate</span><i>→</i><span>Rewards</span></div>
+        <p class="cap">Так устроен флоу кейса на сайте: 5 шагов, desktop + mobile, курсор сам проходит сценарий. На телефоне панели листаются вбок.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 -->
+<section class="st" id="s3">
+  <div class="wrap">
+    <div class="st-h"><span class="mono">03 / 06 · Монетизация</span><h2>Пейволл — в момент желания, <span class="gt">а не на входе</span></h2></div>
+    <div class="st-b">
+      <div class="st-l">
+        <div class="blk ask rv"><h4>Кого вы ищете</h4><p>Онбординг, воронки, пейволлы (web2web, web2app). Влияние на конверсию и выручку, A/B-тесты вместе с продактом.</p></div>
+        <div class="blk why rv"><h4>Почему это я</h4>
+          <ul>
+            <li>Моя специализация — <b>момент, когда человек решает заплатить</b>: регистрация, онбординг, пейволл, чекаут, депозит.</li>
+            <li>В AI-companion делал <b>пейволлы mobile и desktop, токены и Premium</b>: разовая покупка на пике интереса, подписка для тех, кто возвращается.</li>
+            <li>Проектирую вместе с бизнес-логикой: сначала метрика, потом экран.</li>
+          </ul>
+        </div>
+        <p class="note rv">Цифр продукта здесь нет: они под NDA, а выдумывать не буду. Справа — логика и гипотезы, которые я бы проверил у вас первыми.</p>
+      </div>
+      <div class="st-r">
+        <div class="pw">
+          <div class="rv">
+            <div class="phone" id="ph" data-s="chat">
+              <div class="scr">
+                <div class="sb"><span>9:41</span><span>●●●</span></div>
+                <div class="who"><img src="../../assets/lm-c1.webp" alt=""><div><b>Mira</b><small>● online</small></div></div>
+                <span class="bal" id="bal"><span class="gem"></span><span id="balN">1,240</span></span>
+                <div class="chat" id="pchat"></div>
+                <div class="sheet">
+                  <div class="grb"></div>
+                  <h5>Unlock Mira’s photo</h5>
+                  <p>She took it at golden hour, just for you.</p>
+                  <div class="opt" id="o1"><span class="rd"></span><div><b>This photo</b><small>One-time unlock</small></div><span class="pr"><span class="gem"></span>40</span></div>
+                  <div class="opt" id="o2"><span class="rd"></span><div><b>Premium<span class="bdg">Best value</span></b><small>All photos, voice, scenes</small></div><span class="pr">/ month</span></div>
+                  <div class="cta">Unlock for <span class="gem"></span>40</div>
+                </div>
+                <span class="tapr" id="tap"></span>
+              </div>
+            </div>
+            <p class="cap" style="text-align:center">Демо: фото от персонажа → пейволл → оплата токенами → награда. Цикл ~12 с.</p>
+          </div>
+          <div class="rv">
+            <div class="blk"><h4>Воронка, как я её строю</h4></div>
+            <div class="funnel">
+              <div class="fn"><span class="mono">01 Guest</span><b>Видит персонажей</b><small>каталог и драмы до регистрации</small></div>
+              <div class="fn"><span class="mono">02 Free</span><b>Первый чат</b><small>лимит сообщений, первая награда</small></div>
+              <div class="fn pk"><span class="mono">03 Пик</span><b>Токены</b><small>разовая покупка: фото, голос, сцена</small></div>
+              <div class="fn"><span class="mono">04 Premium</span><b>Подписка</b><small>для тех, кто возвращается</small></div>
+            </div>
+            <div class="blk"><h4>3 A/B-теста, с которых я бы начал</h4></div>
+            <div class="ab">
+              <div class="ab-h"><span>Гипотеза</span><span>Варианты</span><span>Метрика</span></div>
+              <div class="ab-r"><span><b><span class="k">H1</span>Пейволл после первого личного момента</b>фото или голос продают лучше, чем стена на входе</span><span>A: стена до чата<br>B: пейволл на фото</span><span>конверсия в первую оплату</span></div>
+              <div class="ab-r"><span><b><span class="k">H2</span>Первая покупка — маленькая</b>пакет токенов снимает страх подписки</span><span>A: сразу Premium<br>B: токены, затем Premium</span><span>доля платящих, выручка на платящего за 7 дней</span></div>
+              <div class="ab-r"><span><b><span class="k">H3</span>Выбор персонажа до регистрации</b>сначала эмоция, потом форма</span><span>A: регистрация → каталог<br>B: каталог → регистрация</span><span>регистрация → первое сообщение</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 -->
+<section class="st" id="s4">
+  <div class="wrap">
+    <div class="st-h"><span class="mono">04 / 06 · AI-визуал</span><h2>Не одна удачная картинка, а <span class="mt">серия в одном стиле</span></h2></div>
+    <div class="st-b">
+      <div class="st-l">
+        <div class="blk ask rv"><h4>Кого вы ищете</h4><p>Большая часть графики делается AI. Нужен стабильный результат в одном стиле: персонажи, баннеры, иконки.</p></div>
+        <div class="blk why rv"><h4>Почему это я</h4>
+          <ul>
+            <li><b>Весь визуал кейса Lumo — AI</b>: персонажи, постеры драм, баннеры, 3D-иконки. Около 140 генераций, в прототип прошли 49.</li>
+            <li>Инструменты: <b>Magnific</b> (Nano Banana 2.1, GPT 2.6), <b>Kling</b> для роликов, сборка в Figma и коде.</li>
+            <li>Одна палитра на всё — маджента и фиолет, глянцевый свет. Поэтому разные персонажи выглядят как один продукт.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="st-r vx">
+        <div class="box rv">
+          <span class="mono"><span>Одна героиня · 8 сцен</span><span>референс → серия</span></span>
+          <div class="cons">
+            <div class="ref"><img src="../../assets/lm-c1.webp" alt="Референс персонажа Mira"><span class="lb">Референс</span></div>
+            <div class="mq"><div class="mq-in" id="mq"></div></div>
+          </div>
+          <p class="note">Лицо, возраст и свет держатся от кадра к кадру — так из одного персонажа получаются фотосеты, пресеты генерации и медиа профиля.</p>
+        </div>
+        <div class="box rv">
+          <span class="mono"><span>Каст · 10 персонажей</span><span>4 стиля, одна палитра</span></span>
+          <div class="cast">
+            <figure><img src="../../assets/lm-c1.webp" alt="" loading="lazy"><span>Realistic</span></figure>
+            <figure><img src="../../assets/lm-c3.webp" alt="" loading="lazy"><span>Anime</span></figure>
+            <figure><img src="../../assets/lm-c6.webp" alt="" loading="lazy"><span>Fantasy</span></figure>
+            <figure><img src="../../assets/lm-c4.webp" alt="" loading="lazy"><span>Mystery</span></figure>
+            <figure><img src="../../assets/lm-c7.webp" alt="" loading="lazy"></figure>
+            <figure><img src="../../assets/lm-c8.webp" alt="" loading="lazy"></figure>
+            <figure><img src="../../assets/lm-c2.webp" alt="" loading="lazy"></figure>
+            <figure><img src="../../assets/lm-c9.webp" alt="" loading="lazy"></figure>
+            <figure><img src="../../assets/lm-c5.webp" alt="" loading="lazy"></figure>
+            <figure><img src="../../assets/lm-c10.webp" alt="" loading="lazy"></figure>
+          </div>
+        </div>
+        <div class="row2">
+          <div class="box rv">
+            <span class="mono"><span>Драмы · постер и широкий формат</span><span id="dN">Glass Harbor</span></span>
+            <div class="wide" id="wide"></div>
+            <div class="pst" id="pst"></div>
+          </div>
+          <div class="box rv">
+            <span class="mono"><span>3D-иконки разделов</span><span>5 шт.</span></span>
+            <div class="ico">
+              <img src="../../assets/lm-i1.webp" alt="Фото" style="--k:0" loading="lazy">
+              <img src="../../assets/lm-i2.webp" alt="Серия дней" style="--k:1" loading="lazy">
+              <img src="../../assets/lm-i3.webp" alt="Драмы" style="--k:2" loading="lazy">
+              <img src="../../assets/lm-i4.webp" alt="Чат" style="--k:3" loading="lazy">
+              <img src="../../assets/lm-i5.webp" alt="Подарок" style="--k:4" loading="lazy">
+            </div>
+            <span class="mono" style="margin-top:6px"><span>Акция · Black Friday</span><span>токены и Premium</span></span>
+            <div class="bf"><img src="bf.webp" alt="Black Friday −50% на токены и Premium" loading="lazy"></div>
+          </div>
+        </div>
+        <div class="box rv">
+          <span class="mono"><span>Процесс: как получается стабильный стиль</span></span>
+          <ol class="pipe" id="pipe">
+            <li style="--k:0"><span class="mono">01</span><b>Референсы</b><p>Мудборд, палитра, свет и ракурсы. Фиксирую, что в стиле нельзя.</p></li>
+            <li style="--k:1"><span class="mono">02</span><b>Шаблон промпта</b><p>Одна структура на всю серию: персонаж, сцена, свет, камера, стиль, запреты.</p></li>
+            <li style="--k:2"><span class="mono">03</span><b>Отбор</b><p>Генерирую сериями и отсеиваю: лицо, руки, палитра, читаемость в карточке.</p></li>
+            <li style="--k:3"><span class="mono">04</span><b>Апскейл и ретушь</b><p>Довожу детали и кадрирую под форматы: 3:4, 16:9, квадрат.</p></li>
+            <li style="--k:4"><span class="mono">05</span><b>Figma и код</b><p>Проверяю в макете и в живом прототипе, сжимаю в webp.</p></li>
+          </ol>
+          <div class="prm" id="prm" aria-label="Пример шаблона промпта"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 -->
+<section class="st" id="s5">
+  <div class="wrap">
+    <div class="st-h"><span class="mono">05 / 06 · Моушн и код</span><h2>Прототипирую в Claude Code — <span class="gt">эта страница тоже прототип</span></h2></div>
+    <div class="st-b">
+      <div class="st-l">
+        <div class="blk ask rv"><h4>Кого вы ищете</h4><p>Будет плюсом: моушн-дизайн и прототипы через Codex или Claude Code.</p></div>
+        <div class="blk why rv"><h4>Почему это я</h4>
+          <ul>
+            <li>Прототипирую <b>в коде каждый день</b>: HTML, CSS, JS, React. Флоу проверяется на живом прототипе, который ведёт себя как продукт.</li>
+            <li>Отдаю разработке <b>моушн-спеку</b>: длительности, кривые, состояния — как под карточками с анимациями.</li>
+            <li>Эту страницу собрал в Claude Code: без конструктора и шаблона.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="st-r">
+        <div class="lab3">
+          <button class="tl rv" id="t1" type="button" aria-label="Повторить анимацию награды">
+            <span class="stg"><span class="rw" id="rw"><span class="gem"></span><span id="rwN">1,240</span></span><span class="claim" id="claim">Claim +50</span></span>
+            <span class="inf"><b>Награда: токены летят в баланс</b><small>Клик — повторить</small><code>press 120ms spring · fly 700ms stagger 40ms · count 600ms</code></span>
+          </button>
+          <button class="tl rv" id="t2" type="button" aria-label="Повторить анимацию уровня">
+            <span class="stg"><span class="ring"><svg viewBox="0 0 100 100"><defs><linearGradient id="rg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F06BF2"/><stop offset="1" stop-color="#8A3BE0"/></linearGradient></defs><circle class="bgc" cx="50" cy="50" r="45"/><circle class="fgc" id="fgc" cx="50" cy="50" r="45"/></svg><span class="lv"><small>Level</small><b id="lvN">6</b></span></span><span class="lvup" id="lvup">Level up!</span></span>
+            <span class="inf"><b>Level-up: прогресс и награда</b><small>Клик — повторить</small><code>ring 1200ms ease-out · badge 500ms spring</code></span>
+          </button>
+          <div class="tl rv">
+            <span class="stg"><span class="vc"><span class="pl"><i></i></span><span class="wv" id="wv"></span><small>0:12</small></span></span>
+            <span class="inf"><b>Голосовой ответ персонажа</b><small>Бесконечный цикл, пауза вне экрана</small><code>bars 1100ms ease-in-out · offset 80ms</code></span>
+          </div>
+        </div>
+        <div class="proto">
+          <div class="pc rv"><b>12</b><span>кейсов на dedesign.online — живые прототипы, курсор сам проходит флоу, desktop + mobile.</span></div>
+          <div class="pc rv"><b>3D</b><span>выбор места в кинозале на three.js с пролётом камеры в кресло.</span></div>
+          <div class="pc mine rv"><b>Эта страница</b><span>прогресс по шагам, демо пейволла, моушн — один HTML-файл без фреймворков.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 06 -->
+<section class="st end" id="s6">
+  <div class="wrap">
+    <span class="mono rv" style="display:block;margin-bottom:clamp(20px,1.6vw,40px)">06 / 06 · Контакты</span>
+    <h2 class="rv">Буду рад обсудить детали <span class="gt">лично.</span></h2>
+    <p class="sub rv">Удобнее всего в Telegram. Резюме и портфолио — ниже и в панели снизу.</p>
+    <div class="ct">
+      <a class="pr rv" href="https://t.me/web4life" target="_blank" rel="noopener"><span class="mono">Telegram <span>↗</span></span><b>@web4life</b><small>отвечаю быстро</small></a>
+      <button class="rv" type="button" data-copy="deniskonobeyev@gmail.com"><span class="mono">Email <span>копировать</span></span><b>deniskonobeyev@gmail.com</b></button>
+      <a class="rv" href="https://www.linkedin.com/in/dendesignux" target="_blank" rel="noopener"><span class="mono">LinkedIn <span>↗</span></span><b>dendesignux</b></a>
+      <a class="rv" href="https://dedesign.online/#lumo" target="_blank" rel="noopener"><span class="mono">Портфолио <span>↗</span></span><b>dedesign.online</b><small>12 живых кейсов</small></a>
+    </div>
+    <div class="foot"><span>Денис Конобеев · Senior Product Designer · Remote</span><span>Страница сделана для этой вакансии и не индексируется</span></div>
+  </div>
+</section>
+</main>
+
+<nav class="dk" aria-label="Быстрые ссылки">
+  <button class="cv" type="button" id="cvBtn"><svg class="i" viewBox="0 0 24 24"><path d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z"/></svg>Резюме</button>
+  <a href="https://dedesign.online/#lumo" target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24"><path d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg>Портфолио</a>
+  <a href="https://t.me/web4life" target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24" style="fill:currentColor;stroke:none"><path d="M21.94 4.3a1.1 1.1 0 0 0-1.5-1.2L2.9 9.9c-.98.38-.97 1.77.02 2.13l4.42 1.6 1.7 5.42c.2.66 1.03.87 1.52.38l2.46-2.42 4.6 3.4c.62.46 1.5.12 1.66-.63L21.94 4.3ZM9.6 13.9l8.2-6.9-6.6 7.9-.3 3.1-1.3-4.1Z"/></svg>Telegram</a>
+  <button type="button" data-copy="deniskonobeyev@gmail.com"><svg class="i" viewBox="0 0 24 24"><path d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"/></svg>Email</button>
+</nav>
+<div class="dk-note" id="note" role="status" aria-live="polite"></div>
+
+<dialog class="cvd" id="cv" aria-labelledby="cvT">
+  <div class="cv-h"><b id="cvT">Денис Конобеев · Senior Product Designer (UI/UX)</b><button class="cv-x" type="button" id="cvX" aria-label="Закрыть"><svg class="i" viewBox="0 0 24 24"><path d="M6 18 18 6M6 6l12 12"/></svg></button></div>
+  <div class="cv-b">
+    <p>Продуктовый дизайнер с 2019 года. Специализируюсь на моменте, когда человек решает заплатить: регистрация, онбординг, пейволл, чекаут, депозит. Второе направление — сложные внутренние системы: CRM, дашборды, админки, бэк-офисы. Прототипирую в коде, с AI работаю каждый день.</p>
+    <div><h5>Опыт</h5>
+      <div class="job"><span class="y">2026</span><div><b>Product Designer <span>· Lumo (название изменено по NDA)</span></b><small>AI-персонажи и короткие драмы. Единственный продуктовый дизайнер: UX-аудит (8 проблем, 8 решений, 5 гипотез), пейволлы, каталог, драмы, чат с персонажем, дизайн-система.</small></div></div>
+      <div class="job"><span class="y">2024 — 2026</span><div><b>RnD Designer <span>· GamBit</span></b><small>iGaming: исследования и конкурентный анализ, маркетинговые микросайты, CRM и аналитические панели, модульные дизайн-системы, оптимизация под конверсию и удержание.</small></div></div>
+      <div class="job"><span class="y">2023 — 2024</span><div><b>Product Designer <span>· WISP GAME</span></b><small>Web3-платформа киберспортивных турниров: дашборды, адаптивные веб-приложения, онбординг, Telegram mini-app, NFT и токеномика.</small></div></div>
+      <div class="job"><span class="y">2021 — 2022</span><div><b>Lead UI/UX Designer <span>· WRW Solutions</span></b><small>Сложные админ-панели с картами и диагностикой, кабинет с ролями доступа, общая дизайн-система для нескольких продуктов, вёл младшего дизайнера.</small></div></div>
+      <div class="job"><span class="y">2021 — 2022</span><div><b>UI/UX Designer <span>· K&amp;K TEAM</span></b><small>Платформа онлайн-записи к мастерам красоты: расписание, календарь, статистика, кабинеты клиента и мастера.</small></div></div>
+      <div class="job"><span class="y">2019 — 2021</span><div><b>UI/UX Designer <span>· сеть кинотеатров</span></b><small>Три продукта для крупнейшей сети кинотеатров Беларуси: дашборды, табло расписания, инструменты управления.</small></div></div>
+    </div>
+    <div><h5>Инструменты</h5><p>Figma (библиотеки, токены, дизайн-системы), HTML, CSS, JavaScript, React, Claude Code, Magnific, Kling, Midjourney.</p></div>
+    <div><h5>Языки и образование</h5><p>Русский, польский, английский B2. Kozminski University (менеджмент), IT Academy (дизайн интерфейсов).</p></div>
+  </div>
+  <div class="cv-f">
+    <a class="lnk pri" href="https://t.me/web4life" target="_blank" rel="noopener">Написать в Telegram <span class="ar">↗</span></a>
+    <a class="lnk" href="https://www.linkedin.com/in/dendesignux" target="_blank" rel="noopener">LinkedIn ↗</a>
+    <a class="lnk" href="https://dedesign.online" target="_blank" rel="noopener">dedesign.online ↗</a>
+  </div>
+</dialog>
+
+<script>
+(() => {
+  const A = n => `../../assets/lm-${n}.webp`;
+  const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+  const wait = ms => new Promise(r => setTimeout(r, RM ? Math.min(ms, 60) : ms));
+
+  /* появление героя */
+  setTimeout(() => document.documentElement.classList.add('ready'), 60);
+
+  /* reveal */
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -8% 0px' });
+  $$('.rv,.pipe').forEach(el => io.observe(el));
+
+  /* видимость шагов: старт/пауза демо */
+  const runs = {};
+  const vio = new IntersectionObserver(es => es.forEach(e => {
+    e.target.classList.toggle('vis', e.isIntersecting);
+    const r = runs[e.target.id]; if (r) e.isIntersecting ? r.go() : r.stop();
+  }), { rootMargin: '10% 0px' });
+  $$('.st').forEach(s => vio.observe(s));
+  const loop = (id, fn) => {
+    let tok = 0, on = false;
+    runs[id] = {
+      go() { if (on) return; on = true; const t = ++tok; (async () => { while (on && t === tok) { await fn(() => !on || t !== tok); } })(); },
+      stop() { on = false; tok++; }
+    };
+  };
+
+  /* прогресс по шагам */
+  const secs = $$('.st'), links = $$('.pg a'), now = $('.pg-now');
+  const names = links.map(a => a.querySelector('.lb').textContent.replace(/^\d+/, ''));
+  let cur = -1;
+  const prog = () => {
+    const y = scrollY + innerHeight * .45, end = document.documentElement.scrollHeight - innerHeight;
+    let c = 0;
+    secs.forEach((s, i) => {
+      const top = s.offsetTop, h = s.offsetHeight;
+      let p = Math.min(1, Math.max(0, (y - top) / h));
+      if (scrollY >= end - 4) p = 1;
+      links[i].querySelector('.bar i').style.setProperty('--p', p.toFixed(3));
+      if (y >= top) c = i;
+    });
+    if (scrollY >= end - 4) c = secs.length - 1;
+    if (c !== cur) { cur = c; links.forEach((a, i) => { a.classList.toggle('on', i === c); a.toggleAttribute('aria-current', i === c); }); now.textContent = `0${c + 1} · ${names[c]}`; }
+  };
+  let tk = false;
+  addEventListener('scroll', () => { if (!tk) { tk = true; requestAnimationFrame(() => { prog(); tk = false; }); } }, { passive: true });
+  addEventListener('resize', prog); prog();
+
+  /* веер в hero: наклон за курсором */
+  const fan = $('#fan');
+  if (matchMedia('(hover:hover)').matches && !RM) addEventListener('pointermove', e => {
+    const x = e.clientX / innerWidth - .5, y = e.clientY / innerHeight - .5;
+    fan.style.setProperty('--ry', `${x * 10}deg`); fan.style.setProperty('--rx', `${-y * 8}deg`);
+  }, { passive: true });
+  const bubT = $('#bubT'), bubs = ['Found the perfect beach for tomorrow. Bring sunscreen.', 'The light hits the pier at 6:40 — I checked twice.', 'I saved you a photo from today. Want to see?'];
+  loop('s1', async (dead) => {
+    for (const t of bubs) {
+      await wait(3400); if (dead()) return;
+      bubT.innerHTML = '<span class="ty dots"><i></i><i></i><i></i></span>';
+      await wait(1100); if (dead()) return;
+      bubT.textContent = t;
+    }
+  });
+
+  /* 02 · чат + каталог */
+  const chat = $('#chat'), inpT = $('#inpT'), cards = $$('#cat .cc');
+  const add = (box, html, cls = '') => { const d = document.createElement('div'); d.className = 'msg ' + cls; d.innerHTML = html; box.appendChild(d); while (box.children.length > 6) box.firstElementChild.remove(); return d; };
+  const typeIn = async (el, txt, dead) => { el.textContent = ''; for (const ch of txt) { if (dead()) return; el.textContent += ch; await wait(38); } };
+  const script = [
+    ['', 'Found the perfect beach for tomorrow. The light hits the pier at 6:40.'],
+    ['me', 'You checked the sunset twice?'],
+    ['', 'Light is my whole job. Bring sunscreen and that grin. <em>*packs a spare lens*</em>'],
+    ['me', 'Deal. Send me a preview?'],
+    ['', 'Only if you promise to come. I’ll save the best one for you.']
+  ];
+  loop('s2', async (dead) => {
+    chat.innerHTML = '';
+    for (let i = 0; i < script.length; i++) {
+      const [w, t] = script[i];
+      if (dead()) return;
+      if (w === 'me') { await typeIn(inpT, t, dead); await wait(350); inpT.textContent = ''; add(chat, t, 'me'); await wait(900); }
+      else { const ty = add(chat, '<i></i><i></i><i></i>', 'ty dots'); await wait(1200); ty.remove(); if (dead()) return; add(chat, t); await wait(1400); }
+      cards.forEach((c, k) => c.classList.toggle('hot', k === (i + 1) % cards.length));
+    }
+    await wait(2200);
+  });
+
+  /* 03 · пейволл */
+  const ph = $('#ph'), pchat = $('#pchat'), tap = $('#tap'), balN = $('#balN'), bal = $('#bal'), o1 = $('#o1'), o2 = $('#o2');
+  const tapAt = (el) => { const r = el.getBoundingClientRect(), s = ph.querySelector('.scr').getBoundingClientRect(); tap.style.left = (r.left - s.left + r.width / 2) + 'px'; tap.style.top = (r.top - s.top + r.height / 2) + 'px'; tap.classList.remove('on'); void tap.offsetWidth; tap.classList.add('on'); };
+  const countTo = async (el, from, to, ms) => { const t0 = performance.now(); return new Promise(res => { const f = t => { const k = Math.min(1, (t - t0) / ms), e = 1 - Math.pow(1 - k, 3); el.textContent = Math.round(from + (to - from) * e).toLocaleString('en-US'); k < 1 ? requestAnimationFrame(f) : res(); }; requestAnimationFrame(f); }); };
+  loop('s3', async (dead) => {
+    ph.dataset.s = 'chat'; pchat.innerHTML = ''; balN.textContent = '1,240'; o1.classList.remove('on'); o2.classList.remove('on');
+    await wait(500); if (dead()) return;
+    add(pchat, 'Golden hour at the pier. Took this one for you.'); await wait(1300); if (dead()) return;
+    const lk = document.createElement('div'); lk.className = 'lk';
+    lk.innerHTML = `<img src="${A('m8')}" alt=""><span class="lc"><svg viewBox="0 0 24 24"><path d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z"/></svg><span>Tap to unlock</span></span>`;
+    pchat.appendChild(lk); ph.dataset.s = 'locked'; await wait(1500); if (dead()) return;
+    tapAt(lk); await wait(350); ph.dataset.s = 'sheet'; await wait(1300); if (dead()) return;
+    o2.classList.add('on'); await wait(900); if (dead()) return;
+    o2.classList.remove('on'); tapAt(o1); o1.classList.add('on'); await wait(1100); if (dead()) return;
+    tapAt(ph.querySelector('.cta')); ph.dataset.s = 'buy'; await wait(450); if (dead()) return;
+    ph.dataset.s = 'paid'; bal.classList.add('bump'); await countTo(balN, 1240, 1200, 600); bal.classList.remove('bump');
+    await wait(900); if (dead()) return;
+    ph.dataset.s = 'done'; add(pchat, 'Told you the light was perfect.'); await wait(3000);
+  });
+
+  /* 04 · серия, драмы, промпт */
+  const ms = ['m1','m2','m3','m4','m5','m6','m7','m8'], mn = ['Golden hour','Café','Studio','Neon night','Beach walk','Poolside','Yacht day','Pier'];
+  const one = ms.map((m, i) => `<figure><img src="${A(m)}" alt="Mira — ${mn[i]}" loading="lazy"><span>${mn[i]}</span></figure>`).join('');
+  $('#mq').innerHTML = one + one.replace(/alt="[^"]*"/g, 'alt="" aria-hidden="true"');
+  const dr = [['1','Glass Harbor'],['2','Salt & Honey'],['3','The Ninth Lantern'],['4','Room for Two'],['5','Velvet Static'],['6','The Quiet Heir']];
+  const wide = $('#wide'), pst = $('#pst'), dN = $('#dN');
+  wide.innerHTML = dr.map(([n, t], i) => `<img src="${A('w' + n)}" alt="${t} — широкий баннер" class="${i ? '' : 'on'}" loading="lazy">`).join('');
+  pst.innerHTML = dr.map(([n, t], i) => `<figure class="${i ? '' : 'on'}" data-i="${i}"><img src="${A('d' + n)}" alt="${t} — постер" loading="lazy"></figure>`).join('');
+  let di = 0, dHold = 0;
+  const showD = i => { di = i; $$('#wide img').forEach((im, k) => im.classList.toggle('on', k === i)); $$('#pst figure').forEach((f, k) => f.classList.toggle('on', k === i)); dN.textContent = dr[i][1]; };
+  pst.addEventListener('click', e => { const f = e.target.closest('figure'); if (f) { showD(+f.dataset.i); dHold = Date.now(); } });
+  const prm = $('#prm');
+  const P = [['персонаж', 'Mira, 25, wavy dark hair, light freckles, warm smile'], ['сцена', 'wooden pier at golden hour'], ['свет', 'warm backlight, soft magenta haze'], ['камера', '85mm, waist-up, eye level'], ['стиль', 'glossy editorial, palette #D63BD9 / #7E2A86'], ['запреты', 'no text, no logos, no extra fingers']];
+  const prmHTML = n => '<span class="c">// шаблон промпта — пример структуры</span><br>' + P.slice(0, n).map(([k, v]) => `<span class="k">[${k}]</span> <span class="v">${v}</span>`).join('<br>');
+  loop('s4', async (dead) => {
+    for (let n = 1; n <= P.length; n++) { prm.innerHTML = prmHTML(n) + ' <span class="cur"></span>'; await wait(650); if (dead()) return; }
+    for (let k = 0; k < 6; k++) { await wait(2400); if (dead()) return; if (Date.now() - dHold > 6000) showD((di + 1) % dr.length); }
+  });
+  prm.innerHTML = prmHTML(P.length);
+
+  /* 05 · моушн */
+  const wv = $('#wv'); wv.innerHTML = Array.from({ length: 18 }, (_, k) => `<i style="--k:${k};--h:${30 + Math.round(Math.abs(Math.sin(k * 1.7)) * 70)}"></i>`).join('');
+  const claim = $('#claim'), rw = $('#rw'), rwN = $('#rwN'), stg1 = claim.parentElement;
+  let busy1 = false;
+  const doClaim = async () => {
+    if (busy1) return; busy1 = true;
+    claim.classList.remove('dn'); claim.textContent = 'Claim +50'; rwN.textContent = '1,240';
+    claim.classList.add('prs'); await wait(140); claim.classList.remove('prs');
+    const s = stg1.getBoundingClientRect(), c = claim.getBoundingClientRect(), t = rw.getBoundingClientRect();
+    const sx = c.left - s.left + c.width / 2, sy = c.top - s.top, tx = t.left - s.left + 14, ty = t.top - s.top + t.height / 2;
+    for (let i = 0; i < 9; i++) {
+      const g = document.createElement('span'); g.className = 'fly gem'; g.style.left = sx + 'px'; g.style.top = sy + 'px'; stg1.appendChild(g);
+      const dx = (Math.random() - .5) * 120, dy = -40 - Math.random() * 50;
+      if (RM) { g.remove(); continue; }
+      g.animate([{ transform: 'translate(-50%,-50%) scale(.6)', opacity: 0 }, { transform: `translate(calc(-50% + ${dx}px),calc(-50% + ${dy}px)) scale(1.2)`, opacity: 1, offset: .35 }, { transform: `translate(calc(-50% + ${tx - sx}px),calc(-50% + ${ty - sy}px)) scale(.7)`, opacity: .9 }], { duration: 700, delay: i * 40, easing: 'cubic-bezier(.5,0,.3,1)', fill: 'forwards' }).onfinish = () => g.remove();
+    }
+    await wait(620); rw.classList.add('bump'); await countTo(rwN, 1240, 1290, 600); rw.classList.remove('bump');
+    claim.classList.add('dn'); claim.textContent = 'Claimed ✓'; busy1 = false;
+  };
+  $('#t1').addEventListener('click', doClaim);
+  const fgc = $('#fgc'), lvN = $('#lvN'), lvup = $('#lvup'); let busy2 = false;
+  const doLevel = async () => {
+    if (busy2) return; busy2 = true;
+    lvup.classList.remove('on'); lvN.textContent = '6';
+    fgc.getAnimations().forEach(a => a.cancel());
+    const a = fgc.animate([{ strokeDashoffset: 283 }, { strokeDashoffset: 0 }], { duration: RM ? 1 : 1200, easing: 'cubic-bezier(.2,.7,.1,1)', fill: 'forwards' });
+    await a.finished.catch(() => {});
+    lvN.textContent = '7'; lvup.classList.add('on'); busy2 = false;
+  };
+  $('#t2').addEventListener('click', doLevel);
+  loop('s5', async (dead) => { await wait(700); if (dead()) return; doClaim(); await wait(500); doLevel(); await wait(5200); });
+
+  /* копирование почты */
+  const note = $('#note'); let nt;
+  const say = t => { note.textContent = t; note.classList.add('on'); clearTimeout(nt); nt = setTimeout(() => note.classList.remove('on'), 2000); };
+  $$('[data-copy]').forEach(b => b.addEventListener('click', async () => {
+    const v = b.dataset.copy;
+    try { await navigator.clipboard.writeText(v); say('Почта скопирована'); }
+    catch { location.href = 'mailto:' + v; }
+  }));
+
+  /* резюме */
+  const cv = $('#cv');
+  $('#cvBtn').addEventListener('click', () => cv.showModal());
+  $('#cvX').addEventListener('click', () => cv.close());
+  cv.addEventListener('click', e => { if (e.target === cv) cv.close(); });
+})();
+</script>
+</body>
+</html>
