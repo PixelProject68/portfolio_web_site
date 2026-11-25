@@ -2464,6 +2464,8 @@ html{background:var(--paper)}
 /* mobile profile */
 .lm-m .lm-por{height:470px;border-radius:0 0 28px 28px}
 .lm-m .lm-mpf{top:0}
+.lm-m .lm-mpf::after{content:"";position:absolute;left:0;right:0;top:0;height:48px;z-index:29;background:rgba(13,10,16,.82);backdrop-filter:blur(16px);box-shadow:0 1px 0 var(--ln);opacity:0;transition:opacity .35s;pointer-events:none}
+.lm-m .lm-mpf.scr::after{opacity:1}
 .lm-m .lm-mpf .lm-por{height:518px}
 .lm-m .lm-mpf .lm-por::before{content:"";position:absolute;left:0;right:0;top:0;height:120px;z-index:1;background:linear-gradient(180deg,rgba(8,4,10,.55),transparent)}
 .lm-m .lm-mpf .lm-por .bk,.lm-m .lm-mpf .lm-por .acts{top:62px}
@@ -6459,7 +6461,7 @@ ${S(p+'el',130,100.89,.606,-.796,7,'#fff',.22)}${S(p+'er',390,100.89,-.606,-.796
         if (from){ from.classList.remove('on'); from.getAnimations().forEach(a => a.cancel()); }
         to.style.zIndex = '';
       };
-      c.scroll = async (R, a, y, ms=1100) => { const el = q(R, a), max = Math.max(0, el.offsetHeight - el.parentElement.clientHeight); y = Math.min(y, max); el.style.transform = `translateY(${-y}px)`; await c.w(ms); };
+      c.scroll = async (R, a, y, ms=1100) => { const el = q(R, a), max = Math.max(0, el.offsetHeight - el.parentElement.clientHeight); y = Math.min(y, max); if (a === 'sc-profile') el.closest('.lm-v').classList.toggle('scr', y > 0); el.style.transform = `translateY(${-y}px)`; await c.w(ms); };
       c.type = async (el, text, per=42) => { if (c.fast){ el.textContent = text; return; } for (let i = 1; i <= text.length; i++){ el.textContent = text.slice(0, i); await c.w(per + (text[i-1] === ' ' ? 30 : 0)); } };
       c.count = async (els, from, to, ms) => {
         const f = v => Math.round(v).toLocaleString('en-US');
