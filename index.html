@@ -1172,8 +1172,8 @@ html{background:var(--paper)}
 .ws-ib .d{position:absolute;right:6px;top:6px;width:7px;height:7px;border-radius:50%;background:var(--mg)}
 .ws-bal{height:34px;padding:0 12px;border-radius:99px;background:var(--pn2);display:flex;align-items:center;gap:6px;font-weight:800;font-variant-numeric:tabular-nums}
 .ws-ava{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#2F7BFF,#D63AF9);display:grid;place-items:center;font-weight:800;font-size:12px;box-shadow:0 0 0 2px var(--bg),0 0 0 3.5px var(--bl)}
-.ws-main{position:absolute;left:96px;right:40px;top:80px;bottom:0}
-.ws-v{position:absolute;inset:0;display:none}
+.ws-main{position:absolute;left:96px;right:40px;top:57px;bottom:0;overflow:hidden}
+.ws-v{position:absolute;inset:23px 0 0;display:none;transition:transform 1.1s cubic-bezier(.45,.05,.2,1)}
 .ws-v.on{display:block}
 .ws-fb{display:flex;align-items:center;gap:10px;height:44px}
 .ws-gm{width:44px;height:44px;border-radius:10px;display:grid;place-items:center;font:800 11px/1 "Manrope",var(--f-body);letter-spacing:.04em;background:var(--pn2);box-shadow:inset 0 0 0 1px var(--ln);color:var(--mu)}
@@ -1204,7 +1204,7 @@ html{background:var(--paper)}
 .ws-tm i{display:block;height:4px;margin-bottom:6px;border-radius:2px;background:rgba(255,255,255,.15);overflow:hidden}
 .ws-tm i b{display:block;height:100%;border-radius:2px;background:linear-gradient(90deg,var(--mg),#FF7BD5)}
 /* details */
-.ws-dt{display:grid;grid-template-columns:420px 1fr 268px;grid-template-rows:300px 48px;gap:12px 16px}
+.ws-dt{display:grid;grid-template-columns:420px 1fr 300px;grid-template-rows:262px 48px;gap:12px 16px}
 .ws-hero{position:relative;grid-row:1;border-radius:16px;overflow:hidden;box-shadow:inset 0 0 0 1px var(--ln)}
 .ws-hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .ws-hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,11,30,.4),transparent 30%,rgba(7,11,30,.92))}
@@ -1222,53 +1222,62 @@ html{background:var(--paper)}
 .ws-btn.vt i{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#F2B23E,#E2662B);display:grid;place-items:center;font-style:normal;font-size:11px;color:#1A1203;margin-right:10px}
 .ws-btn.end{background:var(--pn2);color:var(--ye);box-shadow:inset 0 0 0 1px rgba(242,178,62,.4)}
 .ws-btn .ct{font-variant-numeric:tabular-nums}
-.ws-info{grid-column:2;grid-row:1;padding:18px 20px;border-radius:16px;background:var(--pn);box-shadow:inset 0 0 0 1px var(--ln);overflow:hidden}
-.ws-info h5,.ws-prize h5{display:flex;align-items:center;margin:0 0 10px;font-size:17px;font-weight:800}
+.ws-info{grid-column:2;grid-row:1;display:flex;flex-direction:column;padding:18px 20px 20px;border-radius:16px;background:linear-gradient(180deg,rgba(47,123,255,.07),transparent 46%),var(--pn);box-shadow:inset 0 0 0 1px var(--ln);overflow:hidden}
+.ws-info h5,.ws-prize h5{display:flex;align-items:center;height:26px;margin:0 0 10px;font-size:17px;font-weight:800}
 .ws-info h5 a{margin-left:auto;font-size:13px;color:var(--bl);font-weight:700}
 .ws-info p{margin:0 0 10px;color:#B3BBDB;font-size:14px;line-height:1.55}
-.ws-info .kv{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px}
-.ws-info .kv div{padding:10px 12px;border-radius:10px;background:var(--pn2)}
-.ws-info .kv small{display:block;color:var(--mu);font-size:12px}
-.ws-info .kv b{display:block;margin-top:2px;font-size:14px}
-.ws-prize{grid-column:3;grid-row:1;padding:18px 20px;border-radius:16px;background:var(--pn);box-shadow:inset 0 0 0 1px var(--ln)}
-.ws-prize h5 b{margin-left:auto;font-size:20px}
-.ws-pl{display:flex;align-items:center;gap:12px;height:62px;border-bottom:1px dashed var(--ln)}
+.ws-info p{margin:0}
+.ws-info .kv{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:auto}
+.ws-info .kv div{display:grid;grid-template-columns:32px 1fr;column-gap:10px;align-items:center;padding:10px 12px;border-radius:10px;background:var(--pn2);box-shadow:inset 0 0 0 1px rgba(120,150,255,.06)}
+.ws-info .kv i{grid-row:span 2;width:32px;height:32px;border-radius:8px;display:grid;place-items:center;background:rgba(47,123,255,.14);color:#7FA8FF}
+.ws-info .kv i svg.i{width:17px;height:17px;stroke-width:1.6}
+.ws-info .kv small{display:block;color:var(--mu);font-size:12px;line-height:1.3}
+.ws-info .kv b{display:block;font-size:14px;line-height:1.35}
+.ws-prize{grid-column:3;grid-row:1;display:flex;flex-direction:column;padding:18px 20px 12px;border-radius:16px;background:radial-gradient(90% 60% at 100% 0%,rgba(242,178,62,.12),transparent 70%),var(--pn);box-shadow:inset 0 0 0 1px var(--ln)}
+.ws-prize h5 b{margin-left:auto;font-size:22px;letter-spacing:-.01em}
+.ws-pl{flex:1;display:flex;align-items:center;gap:12px;border-bottom:1px dashed var(--ln)}
 .ws-pl:last-of-type{border-bottom:0}
-.ws-pl i{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;font-style:normal;font-weight:800;box-shadow:inset 0 0 0 2.5px currentColor}
-.ws-pl span{font-weight:800;font-size:13px;letter-spacing:.04em}
-.ws-pl b{margin-left:auto;font-size:18px;font-weight:800;color:currentColor}
+.ws-pl svg.md{width:44px;height:44px;flex:none;filter:drop-shadow(0 4px 10px rgba(0,0,0,.35))}
+.ws-pl span{display:flex;flex-direction:column;gap:2px;font-weight:800;font-size:13px;letter-spacing:.04em}
+.ws-pl span small{font-size:11px;font-weight:600;letter-spacing:.02em;color:var(--mu)}
+.ws-pl b{margin-left:auto;font-size:19px;font-weight:800;color:currentColor;font-variant-numeric:tabular-nums}
 .ws-step{grid-column:2/4;grid-row:2;position:relative;display:grid;grid-template-columns:repeat(4,1fr)}
 .ws-step .ln{position:absolute;left:12px;right:12px;top:36px;height:2px;background:var(--ln)}
 .ws-step .ln b{display:block;height:100%;width:0;background:var(--bl);transition:width 1s cubic-bezier(.3,.7,.2,1)}
 .ws-step div{position:relative;font-size:13px;color:var(--mu);font-weight:600;transition:color .4s}
-.ws-step div i{position:absolute;left:0;top:24px;width:26px;height:26px;border-radius:50%;background:var(--bg);box-shadow:inset 0 0 0 2px var(--ln);display:grid;place-items:center;transition:all .4s,visibility 0s}
-.ws-step div i svg{width:14px;height:14px;stroke:#fff;stroke-width:3;opacity:0}
+.ws-step div i{position:absolute;left:0;top:24px;width:26px;height:26px;border-radius:50%;background:var(--bg);box-shadow:inset 0 0 0 2px #26335E;display:grid;place-items:center;color:#fff;transition:background .4s,box-shadow .4s,visibility 0s}
+.ws-step div i svg.i{grid-area:1/1;width:14px;height:14px;stroke:#fff;stroke-width:3;opacity:0;transform:scale(.6);transition:opacity .3s,transform .4s cubic-bezier(.3,1.4,.5,1)}
+.ws-step div i::after{content:"";grid-area:1/1;width:10px;height:10px;border-radius:50%;background:var(--bl);transform:scale(0);transition:transform .4s cubic-bezier(.3,1.4,.5,1)}
 .ws-step div.on{color:var(--tx)}
-.ws-step div.on i{box-shadow:inset 0 0 0 2px var(--bl),0 0 0 5px rgba(47,123,255,.18)}
-.ws-step div.on i::after{content:"";width:8px;height:8px;border-radius:50%;background:var(--bl)}
-.ws-step div.ok i{background:var(--bl);box-shadow:none}
-.ws-step div.ok i svg{opacity:1}
+.ws-step div.on i{background:#0E1A40;box-shadow:inset 0 0 0 2px var(--bl)}
+@media (prefers-reduced-motion:no-preference){.ws-step div.on i{animation:wsPulse 1.8s ease-out infinite}}
+.ws-step div.on i::after{transform:scale(1);box-shadow:0 0 8px rgba(47,123,255,.8)}
+.ws-step div.ok i{background:linear-gradient(135deg,#5C95FF,#2F7BFF);box-shadow:0 0 0 3px rgba(47,123,255,.16)}
+.ws-step div.ok i svg.i{opacity:1;transform:none}
+@keyframes wsPulse{0%{box-shadow:inset 0 0 0 2px var(--bl),0 0 0 0 rgba(47,123,255,.45)}70%{box-shadow:inset 0 0 0 2px var(--bl),0 0 0 9px rgba(47,123,255,0)}100%{box-shadow:inset 0 0 0 2px var(--bl),0 0 0 0 rgba(47,123,255,0)}}
 .ws-step div em{position:absolute;right:16px;top:0;font-style:normal;font-size:11px;color:var(--mu);font-variant-numeric:tabular-nums}
-.ws-tabs{position:relative;display:flex;justify-content:center;gap:56px;height:44px;margin-top:28px}
+.ws-tabs{position:relative;display:flex;justify-content:center;gap:56px;height:44px;margin-top:20px}
 .ws-tabs span{color:#3D5590;font-weight:700;font-size:15px;transition:color .3s}
 .ws-tabs span.on{color:var(--bl)}
 .ws-tabs .ul{position:absolute;top:28px;height:2px;border-radius:2px;background:var(--bl);transition:left .45s cubic-bezier(.3,.7,.2,1),width .45s}
 .ws-area{position:relative;height:510px}
 .ws-pane{position:absolute;inset:0;visibility:hidden}
 .ws-pane.on{visibility:visible}
-.ws-row{display:flex;align-items:center;gap:16px;height:52px;padding:0 20px 0 6px;margin-bottom:8px;border-radius:12px;background:var(--pn);box-shadow:inset 0 0 0 1px var(--ln);transition:box-shadow .4s,background .4s}
+.ws-row{display:flex;align-items:center;gap:16px;height:46px;padding:0 20px 0 6px;margin-bottom:6px;border-radius:12px;background:var(--pn);box-shadow:inset 0 0 0 1px var(--ln);transition:box-shadow .4s,background .4s}
 .ws-row.me{box-shadow:inset 0 0 0 1.5px var(--bl);background:var(--pn2)}
-.ws-tl{width:40px;height:40px;border-radius:10px;display:grid;place-items:center;font:800 14px/1 "Manrope",var(--f-body);color:#fff}
+.ws-tl{flex:none;width:40px;height:40px;border-radius:10px;display:grid;place-items:center;font:800 14px/1 "Manrope",var(--f-body);color:#fff;background-image:linear-gradient(135deg,rgba(255,255,255,.22),rgba(0,0,0,.18));box-shadow:inset 0 0 0 1px rgba(255,255,255,.12)}
 .ws-tn{width:200px;font:800 15px/1 "Manrope",var(--f-body);letter-spacing:.05em;text-transform:uppercase;color:#5D8BFF;font-style:italic}
 .ws-avs{display:flex}
-.ws-avs i{width:30px;height:30px;margin-right:-6px;border-radius:50%;box-shadow:0 0 0 2px var(--pn);display:grid;place-items:center;font-style:normal;font-size:11px;font-weight:800;color:#fff}
+.ws-avs i{width:30px;height:30px;margin-right:-6px;border-radius:50%;overflow:hidden;box-shadow:0 0 0 2px var(--pn);display:block}
+.ws-avs i svg{display:block;width:100%;height:100%}
 .ws-st{margin-left:auto;display:flex;align-items:center;gap:8px;width:240px;color:#C2C9E6}
 .ws-st i{width:8px;height:8px;border-radius:50%;background:var(--ye);transition:background .4s}
 .ws-st.ok i{background:var(--gr)}
 .ws-st.fr i{background:var(--mg)}
 .ws-cn{width:120px;display:flex;align-items:center;gap:8px;color:#C2C9E6}
 .ws-cn b{width:22px;height:15px;border-radius:2px;flex:none}
-.ws-q{display:flex;align-items:center;gap:12px;margin:10px 0 10px;color:var(--mu);font-size:13px}
+.ws-row .ws-tl{width:34px;height:34px;border-radius:9px;font-size:13px}
+.ws-q{display:flex;align-items:center;gap:12px;margin:8px 0 8px;color:var(--mu);font-size:13px}
 .ws-q::after{content:"";flex:1;border-top:1px dashed var(--ln)}
 .ws-row.free{opacity:.5}
 .ws-row.free .ws-tn{color:#2C3B68}
@@ -1294,28 +1303,27 @@ html{background:var(--paper)}
 .ws-log div b{color:var(--tx)}
 .ws-log div .x{color:var(--rd);font-weight:800;margin-left:auto}
 .ws-br{position:relative;height:100%}
-.ws-rh{position:absolute;top:0;width:250px;padding:10px 12px;border-radius:10px 10px 0 0;background:var(--pn);border-bottom:1px solid var(--ln)}
+.ws-rh{position:absolute;top:0;width:276px;padding:10px 14px;border-radius:10px;background:var(--pn);box-shadow:inset 0 0 0 1px var(--ln)}
 .ws-rh b{display:block;font-size:15px}
 .ws-rh small{font-size:11px;letter-spacing:.06em;color:var(--mu);text-transform:uppercase}
-.ws-m{position:absolute;width:250px}
+.ws-m{position:absolute;width:276px}
 .ws-m small{display:block;height:18px;font-size:11px;color:var(--mu);letter-spacing:.06em}
 .ws-mt{display:flex;align-items:center;gap:10px;height:34px;padding:0 12px 0 4px;background:var(--pn);transition:background .5s,opacity .5s}
 .ws-mt:first-of-type{border-radius:9px 9px 0 0}
 .ws-mt:last-of-type{border-radius:0 0 9px 9px;margin-top:2px}
 .ws-mt .ws-tl{width:26px;height:26px;border-radius:7px;font-size:11px}
-.ws-mt span{flex:1;font-weight:700;font-size:13px}
+.ws-mt>span:not(.ws-tl){flex:1;font-weight:700;font-size:13px}
 .ws-mt b{font-variant-numeric:tabular-nums;font-size:14px;min-width:20px;text-align:right}
 .ws-mt.w{background:#13302A}
 .ws-mt.w b{color:var(--gr)}
 .ws-mt.l{opacity:.55}
-.ws-br svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.ws-br>svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
 .ws-br path{fill:none;stroke:var(--ln);stroke-width:2;transition:stroke .5s}
 .ws-br path.on{stroke:var(--gr)}
-.ws-champ{position:absolute;left:860px;top:150px;width:360px;padding:24px;border-radius:18px;background:radial-gradient(120% 100% at 50% 0%,rgba(242,178,62,.18),transparent 70%),var(--pn);box-shadow:inset 0 0 0 1px rgba(242,178,62,.4);text-align:center;opacity:0;transform:translateY(16px) scale(.97);transition:all .7s cubic-bezier(.2,.8,.2,1),visibility 0s}
+.ws-champ{position:absolute;left:1000px;top:178px;width:304px;padding:26px 24px 24px;border-radius:18px;background:radial-gradient(120% 100% at 50% 0%,rgba(242,178,62,.18),transparent 70%),var(--pn);box-shadow:inset 0 0 0 1px rgba(242,178,62,.4);text-align:center;opacity:0;transform:translateY(16px) scale(.97);transition:all .7s cubic-bezier(.2,.8,.2,1),visibility 0s}
 .ws-champ.on{opacity:1;transform:none}
-.ws-champ .cup{width:76px;height:76px;margin:0 auto;border-radius:50%;background:linear-gradient(135deg,#FFE08A,#F2B23E);display:grid;place-items:center;color:#5A3A00;box-shadow:0 0 40px rgba(242,178,62,.45)}
-.ws-champ .cup svg{width:38px;height:38px;stroke-width:2}
-.ws-champ small{display:block;margin-top:14px;color:var(--ye);font-weight:800;letter-spacing:.12em;font-size:11px}
+.ws-champ .ws-tl{width:64px;height:64px;margin:0 auto;border-radius:16px;font-size:24px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.14),0 0 0 4px rgba(242,178,62,.22),0 12px 32px rgba(242,178,62,.25)}
+.ws-champ small{display:block;margin-top:16px;color:var(--ye);font-weight:800;letter-spacing:.12em;font-size:11px}
 .ws-champ h4{margin:6px 0 4px;font-size:26px;font-weight:800;font-style:italic;letter-spacing:.03em}
 .ws-champ p{margin:0;color:#B3BBDB}
 .ws-champ .pr{display:flex;justify-content:center;gap:8px;margin-top:16px}
@@ -4250,12 +4258,22 @@ html{background:var(--paper)}
     cup: svgI('M16.5 18.75h-9m9 0a3 3 0 0 1 3 3h-15a3 3 0 0 1 3-3m9 0v-3.375c0-.621-.503-1.125-1.125-1.125h-.871M7.5 18.75v-3.375c0-.621.504-1.125 1.125-1.125h.872m5.007 0H9.497m5.007 0a7.454 7.454 0 0 1-.982-3.172M9.497 14.25a7.454 7.454 0 0 0 .981-3.172M5.25 4.236c-.982.143-1.954.317-2.916.52A6.003 6.003 0 0 0 7.73 9.728M5.25 4.236V4.5c0 2.108.966 3.99 2.48 5.228M5.25 4.236V2.721C7.456 2.41 9.71 2.25 12 2.25c2.291 0 4.545.16 6.75.47v1.516M7.73 9.728a6.726 6.726 0 0 0 2.748 1.35m8.272-6.842V4.5c0 2.108-.966 3.99-2.48 5.228m2.48-5.492a46.32 46.32 0 0 1 2.916.52 6.003 6.003 0 0 1-5.395 4.972m0 0a6.726 6.726 0 0 1-2.749 1.35m0 0a6.772 6.772 0 0 1-3.044 0'), shop: svgI('M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z'), user: svgI('M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z'),
     bell: svgI('M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0'), users: svgI('M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z'), box: svgI('M20.25 7.5l-.625 10.632a2.25 2.25 0 0 1-2.247 2.118H6.622a2.25 2.25 0 0 1-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z'),
     gift: svgI('M21 11.25v8.25a1.5 1.5 0 0 1-1.5 1.5H5.25a1.5 1.5 0 0 1-1.5-1.5v-8.25M12 4.875A2.625 2.625 0 1 0 9.375 7.5H12m0-2.625V7.5m0-2.625A2.625 2.625 0 1 1 14.625 7.5H12m0 0V21m-8.625-9.75h18c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125h-18c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z'), globe: svgI('M20.893 13.393l-1.135-1.135a2.252 2.252 0 0 1-.421-.585l-1.08-2.16a.414.414 0 0 0-.663-.107.827.827 0 0 1-.812.21l-1.273-.363a.89.89 0 0 0-.738 1.595l.587.39c.59.395.674 1.23.172 1.732l-.2.2c-.212.212-.33.498-.33.796v.41c0 .409-.11.809-.32 1.158l-1.315 2.191a2.11 2.11 0 0 1-1.81 1.025 1.055 1.055 0 0 1-1.055-1.055v-1.172c0-.92-.56-1.747-1.414-2.089l-.655-.261a2.25 2.25 0 0 1-1.383-2.46l.007-.042a2.25 2.25 0 0 1 .29-.787l.09-.15a2.25 2.25 0 0 1 2.37-1.048l1.178.236a1.125 1.125 0 0 0 1.302-.795l.208-.73a1.125 1.125 0 0 0-.578-1.315l-.665-.332-.091.091a2.25 2.25 0 0 1-1.591.659h-.18c-.249 0-.487.1-.662.274a.931.931 0 0 1-1.458-1.137l1.411-2.353a2.25 2.25 0 0 0 .286-.76m11.928 9.869A9 9 0 0 0 8.965 3.525m11.928 9.868A9 9 0 1 1 8.965 3.525'),
+    map: svgI('M9 6.75V15m6-6v8.25m.503 3.498 4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 0 0-1.006 0L3.622 5.689C3.24 5.88 3 6.27 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0Z'), server: svgI('M21.75 17.25v-.228a4.5 4.5 0 0 0-.12-1.03l-2.268-9.64a3.375 3.375 0 0 0-3.285-2.602H7.923a3.375 3.375 0 0 0-3.285 2.602l-2.268 9.64a4.5 4.5 0 0 0-.12 1.03v.228m19.5 0a3 3 0 0 1-3 3H5.25a3 3 0 0 1-3-3m19.5 0a3 3 0 0 0-3-3H5.25a3 3 0 0 0-3 3m16.5 0h.008v.008h-.008v-.008Zm-3 0h.008v.008h-.008v-.008Z'), clock: svgI('M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z'), shield: svgI('M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z'),
     bolt: svgI('M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z'), check: svgI('M4.5 12.75l6 6 9-13.5'), x: svgI('M6 18 18 6M6 6l12 12'), grid: svgI('M3.75 6A2.25 2.25 0 0 1 6 3.75h2.25A2.25 2.25 0 0 1 10.5 6v2.25a2.25 2.25 0 0 1-2.25 2.25H6a2.25 2.25 0 0 1-2.25-2.25V6ZM3.75 15.75A2.25 2.25 0 0 1 6 13.5h2.25a2.25 2.25 0 0 1 2.25 2.25V18a2.25 2.25 0 0 1-2.25 2.25H6A2.25 2.25 0 0 1 3.75 18v-2.25ZM13.5 6a2.25 2.25 0 0 1 2.25-2.25H18A2.25 2.25 0 0 1 20.25 6v2.25A2.25 2.25 0 0 1 18 10.5h-2.25a2.25 2.25 0 0 1-2.25-2.25V6ZM13.5 15.75a2.25 2.25 0 0 1 2.25-2.25H18a2.25 2.25 0 0 1 2.25 2.25V18A2.25 2.25 0 0 1 18 20.25h-2.25A2.25 2.25 0 0 1 13.5 18v-2.25Z'), link: svgI('M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244')
   };
   const WT = [['Nightfall','N','#3B5BDB'],['Iron Owls','IO','#7A5AF8'],['Cobra Mav','CM','#12B886'],['Hydra','H','#E8590C'],['Frostbyte','FB','#1098AD'],['Snipers XD','SX','#D6336C'],['Red Comet','RC','#C92A2A'],['Pale Wolves','PW','#868E96']];
   const WA = ['#4C6EF5','#F76707','#12B886','#AE3EC9','#E64980','#1C7ED6','#FAB005','#2B8A3E','#F03E3E','#7048E8'];
-  const wAvs = (seed, n=5) => `<span class="ws-avs">${Array.from({length:n},(_,i)=>`<i style="background:${WA[(seed*3+i)%WA.length]}">${'AKMRSTVLDE'[(seed+i*7)%10]}</i>`).join('')}</span>`;
-  const wTeam = t => `<span class="ws-tl" style="background:${t[2]}">${t[1]}</span>`;
+  // default player avatars: two-tone gradient disc + one geometric mark, deterministic per seat (no faces, no brands)
+  const WG = ['<circle cx="15" cy="15" r="6.5" fill="none" stroke="#fff" stroke-width="2.6"/>','<path d="M15 8.5 22 21H8z"/>','<path d="M15 7.5 22.5 15 15 22.5 7.5 15z"/>','<circle cx="11" cy="15" r="3.4"/><circle cx="19" cy="15" r="3.4"/>','<path d="M8 17a7 7 0 0 1 14 0z"/>','<path d="M13 8h4v5h5v4h-5v5h-4v-5H8v-4h5z"/>','<path d="M8 12.5 15 18l7-5.5v4.5L15 22.5 8 17z"/>','<rect x="9.5" y="9.5" width="11" height="11" rx="2.5"/>'];
+  const wIdent = n => {
+    const c1 = WA[n % WA.length], c2 = WA[(n * 7 + 3) % WA.length], g = WG[(n * 5 + 2) % WG.length], rot = [0,45,90,180][n % 4];
+    return `<i style="background:linear-gradient(135deg,${c1},${c2})"><svg viewBox="0 0 30 30"><rect width="30" height="30" fill="#070B1E" opacity=".22"/><g fill="#fff" fill-opacity=".92" transform="rotate(${rot} 15 15)">${g}</g></svg></i>`;
+  };
+  const wAvs = (seed, n=5) => `<span class="ws-avs">${Array.from({length:n},(_,i)=>wIdent(seed*5+i+1)).join('')}</span>`;
+  const wTeam = t => `<span class="ws-tl" style="background-color:${t[2]}">${t[1]}</span>`;
+  // prize medals: WISP blue/magenta ribbon + metal disc with the place number
+  let wUid = 0;
+  const wMedal = (n, a, b, ink, u = ++wUid) => `<svg class="md" viewBox="0 0 40 40"><defs><linearGradient id="wmd${u}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${a}"/><stop offset="1" stop-color="${b}"/></linearGradient></defs><path d="M9.5 1h8.5l5 12.5h-8.5z" fill="#2F7BFF"/><path d="M30.5 1H22l-5 12.5h8.5z" fill="#D63AF9"/><circle cx="20" cy="25.5" r="13.5" fill="url(#wmd${u})"/><circle cx="20" cy="25.5" r="10.2" fill="none" stroke="${ink}" stroke-opacity=".25" stroke-width="1.2"/><text x="20" y="30.4" text-anchor="middle" font-family="Manrope,sans-serif" font-weight="800" font-size="13.5" fill="${ink}">${n}</text></svg>`;
   const WM = [['Plaza','plaza'],['Plant','plant'],['Temple','temple'],['Summit','summit'],['Tower','tower'],['Canyon','canyon'],['Canal','canal']];
   function wispHTML(){
     const card = (big, img, pos, game, tags, title, date, tm, tmax, key) => `<div class="ws-card ${big?'big':''}" ${key?`data-a="${key}"`:''}><img src="assets/${img}.webp" alt="" style="object-position:${pos}"><div class="t"><span class="ws-gl">${game}</span>${tags}</div><div class="b"><div><h4>${title}</h4><small>${date}</small></div><span class="ws-tm"><i><b style="width:${tm/tmax*100}%"></b></i>${tm}/${tmax} Teams</span></div></div>`;
@@ -4287,11 +4305,11 @@ html{background:var(--paper)}
             <div class="ws-hero"><img src="assets/ws-k1.webp" alt="" style="object-position:62% 40%"><div class="t"><span class="ws-gl">CS2</span>${tg(WI.gift+'$175')}${tg(WI.globe+'Europe')}${tg('BO1','p')}</div><div class="b"><div><h4>Weekly Cup #14</h4><small>Wed, 21 Oct · <b style="color:#fff">22:00 UTC</b></small></div><span class="ws-tm"><i><b data-a="tmb" style="width:75%;transition:width .8s"></b></i><span data-a="tmn">6/8</span> Teams</span></div></div>
             <div class="ws-acts" data-a="acts"><span class="ws-btn bl press" data-a="join">Join tournament</span></div>
             <div class="ws-info"><h5>Tournament info<a>Rules</a></h5><p>Free to enter. Single elimination, 5v5, every match is BO1. Captains vote on the map before each match.</p>
-              <div class="kv"><div><small>Map pool</small><b>7 maps</b></div><div><small>Servers</small><b>Frankfurt · Warsaw</b></div><div><small>Check-in</small><b>20 sec per team</b></div><div><small>Anti-cheat</small><b>Required</b></div></div></div>
+              <div class="kv"><div><i>${WI.map}</i><small>Map pool</small><b>7 maps</b></div><div><i>${WI.server}</i><small>Servers</small><b>Frankfurt · Warsaw</b></div><div><i>${WI.clock}</i><small>Check-in</small><b>20 sec per team</b></div><div><i>${WI.shield}</i><small>Anti-cheat</small><b>Required</b></div></div></div>
             <div class="ws-prize"><h5>Prize pool<b>$175</b></h5>
-              <div class="ws-pl" style="color:var(--ye)"><i>1</i><span>1ST</span><b>$100</b></div>
-              <div class="ws-pl" style="color:#C9D1EA"><i>2</i><span>2ND</span><b>$50</b></div>
-              <div class="ws-pl" style="color:#E08A4E"><i>3</i><span>3RD</span><b>$25</b></div></div>
+              <div class="ws-pl" style="color:var(--ye)">${wMedal(1,'#FFE9A8','#E9A532','#5A3A00')}<span>1ST<small>Champion</small></span><b>$100</b></div>
+              <div class="ws-pl" style="color:#C9D1EA">${wMedal(2,'#F4F6FF','#9EA9CC','#2A3352')}<span>2ND<small>Runner-up</small></span><b>$50</b></div>
+              <div class="ws-pl" style="color:#E08A4E">${wMedal(3,'#F8CBA2','#C0702F','#4A2205')}<span>3RD<small>Bronze match</small></span><b>$25</b></div></div>
             <div class="ws-step" data-a="step"><span class="ln"><b data-a="sln"></b></span>
               ${['Join','Confirmation','Map voting','Play'].map((s,i)=>`<div data-a="st${i}" style="${i===3?'text-align:right':''}">${s}<i style="${i===3?'left:auto;right:0':''}">${WI.check}</i>${i===1?'<em data-a="stc"></em>':''}</div>`).join('')}</div>
           </div>
@@ -4305,15 +4323,15 @@ html{background:var(--paper)}
             </div>
             <div class="ws-pane" data-p="1">
               <div class="ws-maps">${WM.map((mp,i)=>`<div class="ws-map" data-mp="${i}"><img src="assets/ws-m-${mp[1]}.webp" alt=""><span class="vb"><i></i><i></i></span><b>${mp[0]}</b><span class="bn">BANNED</span></div>`).join('')}</div>
-              <div class="ws-vote"><span class="ws-tl" style="background:${WT[0][2]}">${WT[0][1]}</span><p>Captains ban maps in turns. <b>Nightfall</b> vs <b>Pale Wolves</b>, BO1</p><span class="pk" data-a="pick">Playing on <span data-a="pickn">Summit</span></span></div>
+              <div class="ws-vote">${wTeam(WT[0])}<p>Captains ban maps in turns. <b>Nightfall</b> vs <b>Pale Wolves</b>, BO1</p><span class="pk" data-a="pick">Playing on <span data-a="pickn">Summit</span></span></div>
               <div class="ws-log" data-a="log"></div>
             </div>
             <div class="ws-pane" data-p="2"><div class="ws-br">
-              <div class="ws-rh" style="left:0"><b>Quarterfinals</b><small>4 matches · BO1</small></div><div class="ws-rh" style="left:300px"><b>Semifinals</b><small>2 matches · BO1</small></div><div class="ws-rh" style="left:600px"><b>Final</b><small>1 match · BO3</small></div>
-              <svg viewBox="0 0 1304 510"><path data-l="0" d="M250 112h25v63h25"/><path data-l="1" d="M250 222h25v-47h25"/><path data-l="2" d="M250 332h25v63h25"/><path data-l="3" d="M250 442h25v-47h25"/><path data-l="4" d="M550 175h25v110h25"/><path data-l="5" d="M550 395h25v-110h25"/></svg>
+              <div class="ws-rh" style="left:0"><b>Quarterfinals</b><small>4 matches · BO1</small></div><div class="ws-rh" style="left:330px"><b>Semifinals</b><small>2 matches · BO1</small></div><div class="ws-rh" style="left:660px"><b>Final</b><small>1 match · BO3</small></div>
+              <svg viewBox="0 0 1304 510"><path data-l="0" d="M276 129h27v55h27"/><path data-l="1" d="M276 239h27v-55h27"/><path data-l="2" d="M276 349h27v55h27"/><path data-l="3" d="M276 459h27v-55h27"/><path data-l="4" d="M606 184h27v110h27"/><path data-l="5" d="M606 404h27v-110h27"/><path data-l="6" d="M936 294h64"/></svg>
               ${m(0,76,0,7,'','','MATCH 1','q1')}${m(0,186,3,2,'','','MATCH 2','q2')}${m(0,296,4,1,'','','MATCH 3','q3')}${m(0,406,5,6,'','','MATCH 4','q4')}
-              ${m(300,139,0,2,'','','MATCH 5','s1')}${m(300,359,1,5,'','','MATCH 6','s2')}${m(600,249,0,1,'','','GRAND FINAL','f')}
-              <div class="ws-champ" data-a="champ"><span class="cup">${WI.cup}</span><small>CHAMPION</small><h4>NIGHTFALL</h4><p>Weekly Cup #14 · 2:1 in the final</p><div class="pr"><span class="ws-chip" style="background:rgba(242,178,62,.16);color:var(--ye)">+$100</span><span class="ws-chip">+240 rating</span></div></div>
+              ${m(330,131,0,2,'','','MATCH 5','s1')}${m(330,351,1,5,'','','MATCH 6','s2')}${m(660,241,0,1,'','','GRAND FINAL','f')}
+              <div class="ws-champ" data-a="champ">${wTeam(WT[0])}<small>CHAMPION</small><h4>NIGHTFALL</h4><p>Weekly Cup #14 · 2:1 in the final</p><div class="pr"><span class="ws-chip" style="background:rgba(242,178,62,.16);color:var(--ye)">+$100</span><span class="ws-chip">+240 rating</span></div></div>
             </div></div>
           </div>
         </section>
@@ -4349,7 +4367,7 @@ html{background:var(--paper)}
     const step = i => { for (let j = 0; j < 4; j++){ const s = a('st'+j); s.classList.toggle('ok', j < i); s.classList.toggle('on', j === i); } a('sln').style.width = (i/3*100) + '%'; };
     const rs = (i, cls, txt) => { const e = a('rs'+i); e.className = 'ws-st ' + cls; e.lastElementChild.textContent = txt; e.parentElement.animate([{background:'rgba(53,194,90,.10)'},{background:'var(--pn)'}], {duration:900}); };
     const reset = () => {
-      R.querySelectorAll('.ws-v').forEach(v => { v.classList.toggle('on', v.dataset.v === 'lobby'); v.getAnimations().forEach(x => x.cancel()); });
+      R.querySelectorAll('.ws-v').forEach(v => { v.classList.toggle('on', v.dataset.v === 'lobby'); v.getAnimations().forEach(x => x.cancel()); v.style.transform = ''; });
       R.querySelectorAll('.ws-card').forEach(c => c.classList.remove('hov'));
       a('acts').innerHTML = '<span class="ws-btn bl press" data-a="join">Join tournament</span>';
       a('tmb').style.width = '75%'; a('tmn').textContent = '6/8';
@@ -4414,6 +4432,8 @@ html{background:var(--paper)}
       step(3);
       a('acts').innerHTML = `<span class="ws-btn end">Tournament finished</span>`;
       await tab(2);
+      R.querySelector('.ws-v[data-v="det"]').style.transform = 'translateY(-120px)';
+      await wait(stage, 900);
       // bracket
       const res = [['q1',13,7],['q2',9,13],['q3',6,13],['q4',13,11],['s1',13,10],['s2',13,8],['f',2,1]];
       const lines = {q1:0,q2:1,q3:2,q4:3,s1:4,s2:5};
@@ -4426,6 +4446,7 @@ html{background:var(--paper)}
         if (id in lines) R.querySelector(`.ws-br path[data-l="${lines[id]}"]`).classList.add('on');
       }
       await wait(stage, 300);
+      R.querySelector('.ws-br path[data-l="6"]').classList.add('on');
       a('champ').classList.add('on');
       await wait(stage, 3200);
       await view('lobby');
