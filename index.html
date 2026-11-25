@@ -3046,7 +3046,7 @@ html{background:var(--paper)}
 <template id="tpl-seat">
   <div class="stage sx st-sv" data-engine="seat" role="img" aria-label="mooon seat view on desktop and mobile: pick a seat on the hall map, the camera flies from the plan into the chair, looks around the 3D hall, hops to another seat and returns to the map">
     <span class="sx-glow"></span><span class="sx-grain"></span>
-    <div class="scr desk" data-w="1440" data-h="726"><div class="vp"></div></div>
+    <div class="scr desk" data-w="1440" data-h="900"><div class="vp"></div></div>
     <div class="scr mob" data-w="390" data-h="844"><div class="vp"></div></div>
   </div>
 </template>
@@ -5349,7 +5349,7 @@ html{background:var(--paper)}
     await new Promise(res => { const chk = () => { if (!stage.isConnected) return; stage.classList.contains('is-live') ? res() : setTimeout(chk, 250); }; chk(); });
     const pr = Math.max(.5, Math.min(1.75, (+dW.dataset.k || .6)*Math.min(devicePixelRatio || 1, 2))).toFixed(2);
     if (useD) fD.src = `seat/index.html?pr=${pr}`;
-    fM.src = 'seat/m.html';
+    fM.src = 'seat/m.html?frame';
     const ready = f => new Promise(res => { const chk = () => { if (!stage.isConnected) return; try { const d = f.contentDocument; if (d && d.body && d.body.classList.contains('ready')) return res(d); } catch(e){} setTimeout(chk, 150); }; chk(); });
     const [dd, md] = await Promise.all([useD ? ready(fD) : null, ready(fM)]);
     /* paused off screen, and in the list while the case window covers it */
