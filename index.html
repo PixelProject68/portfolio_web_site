@@ -1300,7 +1300,8 @@ html{background:var(--paper)}
 .ws-side span{width:40px;height:40px;border-radius:10px;display:grid;place-items:center;color:var(--mu)}
 .ws-side span.on{background:var(--pn2);color:var(--tx);box-shadow:inset 0 0 0 1px var(--ln)}
 .ws-top{position:absolute;left:0;right:0;top:0;height:56px;border-bottom:1px solid var(--ln);display:flex;align-items:center;padding:0 24px 0 18px;gap:12px}
-.ws-logo{font:800 22px/1 "Manrope",var(--f-body);letter-spacing:.06em;background:linear-gradient(90deg,#6FA7FF,#2F7BFF);-webkit-background-clip:text;background-clip:text;color:transparent;font-style:italic}
+.ws-logo{display:inline-flex;align-items:center;gap:9px;font:800 21px/1 "Manrope",var(--f-body);letter-spacing:.02em;color:#fff}
+.ws-logo svg{width:28px;height:28px;flex:none}
 .ws-top .r{margin-left:auto;display:flex;align-items:center;gap:10px}
 .ws-steam{display:flex;align-items:center;gap:8px;height:34px;padding:0 6px 0 14px;border-radius:99px;background:var(--pn2);box-shadow:inset 0 0 0 1px var(--ln);font-weight:700;font-size:13px}
 .ws-steam i{width:24px;height:24px;border-radius:50%;background:var(--gr);display:grid;place-items:center;color:#fff}
@@ -1402,11 +1403,12 @@ html{background:var(--paper)}
 .ws-pane.on{visibility:visible}
 .ws-row{display:flex;align-items:center;gap:16px;height:46px;padding:0 20px 0 6px;margin-bottom:6px;border-radius:12px;background:var(--pn);box-shadow:inset 0 0 0 1px var(--ln);transition:box-shadow .4s,background .4s}
 .ws-row.me{box-shadow:inset 0 0 0 1.5px var(--bl);background:var(--pn2)}
-.ws-tl{flex:none;width:40px;height:40px;border-radius:10px;display:grid;place-items:center;font:800 14px/1 "Manrope",var(--f-body);color:#fff;background-image:linear-gradient(135deg,rgba(255,255,255,.22),rgba(0,0,0,.18));box-shadow:inset 0 0 0 1px rgba(255,255,255,.12)}
+.ws-tl{position:relative;display:block;flex:none;width:40px;height:40px;border-radius:10px;overflow:hidden;background:#141B3D;box-shadow:0 0 0 1.5px var(--tc,#3B5BDB)}
+.ws-tl img{display:block;width:100%;height:100%;object-fit:cover}
 .ws-tn{width:200px;font:800 15px/1 "Manrope",var(--f-body);letter-spacing:.05em;text-transform:uppercase;color:#5D8BFF;font-style:italic}
 .ws-avs{display:flex}
 .ws-avs i{width:30px;height:30px;margin-right:-6px;border-radius:50%;overflow:hidden;box-shadow:0 0 0 2px var(--pn);display:block}
-.ws-avs i svg{display:block;width:100%;height:100%}
+.ws-avs i img{display:block;width:100%;height:100%;object-fit:cover}
 .ws-st{margin-left:auto;display:flex;align-items:center;gap:8px;width:240px;color:#C2C9E6}
 .ws-st i{width:8px;height:8px;border-radius:50%;background:var(--ye);transition:background .4s}
 .ws-st.ok i{background:var(--gr)}
@@ -2127,9 +2129,20 @@ html{background:var(--paper)}
 .lm-crow small{display:block;margin-top:6px;font:400 12.5px/1.2 "Geist",var(--f-body);color:var(--mu);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .lm-crow .tm{display:flex;flex-direction:column;align-items:flex-end;gap:6px;font:400 11.5px/1 "Geist",var(--f-body);color:var(--mu2)}
 .lm-crow .n{min-width:19px;height:19px;border-radius:10px;background:var(--grad);color:#fff;font:700 11px/19px "Geist",var(--f-body);text-align:center}
-.lm-promo{position:relative;margin-top:auto;height:220px;border-radius:20px;overflow:hidden;box-shadow:0 0 0 1px rgba(214,59,217,.35),0 18px 40px -16px rgba(214,59,217,.6)}
-.lm-promo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.lm-promo::after{content:"";position:absolute;left:0;right:0;bottom:0;height:46%;background:linear-gradient(180deg,transparent,rgba(16,6,22,.9))}
+/* Black Friday promo: live type on a calm magenta-violet field, cut-out objects float past the card edge and follow the pointer */
+.lm-promo{--px:0;--py:0;position:relative;flex:none;margin-top:auto;height:220px;border-radius:20px;box-shadow:0 0 0 1px rgba(214,59,217,.35),0 18px 40px -16px rgba(214,59,217,.6)}
+.lm-promo .bg{position:absolute;inset:0;border-radius:inherit;overflow:hidden;background:radial-gradient(90% 80% at 88% 8%,rgba(230,80,232,.75),transparent 62%),radial-gradient(70% 60% at 0% 100%,rgba(120,60,255,.35),transparent 70%),linear-gradient(155deg,#521A82,#2A0C42 55%,#18061F)}
+.lm-promo .bg::after{content:"";position:absolute;inset:0;opacity:.22;mix-blend-mode:overlay;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E")}
+.lm-promo .tx0{position:absolute;left:18px;top:18px;z-index:1}
+.lm-promo .bfk{display:inline-flex;align-items:center;height:20px;padding:0 7px;border-radius:6px;background:rgba(255,255,255,.14);box-shadow:inset 0 0 0 1px rgba(255,255,255,.12);font:700 10px/1 "Geist Mono",var(--f-mono);letter-spacing:.14em;color:#fff}
+.lm-promo .pct{display:block;margin-top:8px;font:800 64px/.9 var(--H);letter-spacing:-.05em;color:#fff;text-shadow:0 6px 24px rgba(40,0,60,.45)}
+.lm-promo .sub{display:block;margin-top:6px;font:600 13px/1.2 var(--H);color:rgba(255,255,255,.78)}
+.lm-promo .o{position:absolute;z-index:1;pointer-events:none;filter:drop-shadow(0 12px 14px rgba(24,0,36,.55));translate:calc(var(--px)*var(--d)*1px) calc(var(--py)*var(--d)*1px);transition:translate .5s cubic-bezier(.2,.8,.2,1);animation:lmBob 5s ease-in-out infinite}
+.lm-promo .o.gm{--d:14;width:112px;right:-20px;top:-38px;animation-delay:-1.2s;rotate:10deg}
+.lm-promo .o.cn{--d:8;width:44px;right:80px;top:110px;animation-delay:-3s;animation-duration:6s;rotate:-14deg}
+.lm-promo .o.gf{--d:11;width:74px;right:-12px;top:86px;animation-delay:-2s;animation-duration:5.6s;rotate:-8deg}
+@keyframes lmBob{50%{transform:translateY(-7px)}}
+@media (prefers-reduced-motion:reduce){.lm-promo .o{animation:none}}
 .lm-promo .lm-btn{position:absolute;left:12px;right:12px;bottom:12px;z-index:2;height:42px;font-size:14px;background:rgba(24,10,32,.55);backdrop-filter:blur(12px);box-shadow:inset 0 0 0 1.5px rgba(255,139,240,.8),0 0 24px -4px rgba(214,59,217,.8);justify-content:space-between;padding:0 8px 0 16px}
 .lm-promo .lm-btn .ar{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:var(--grad)}
 .lm-promo .lm-btn .ar svg.i{width:15px;height:15px}
@@ -2484,7 +2497,13 @@ html{background:var(--paper)}
 .lm-m .lm-cc .go{height:40px;font-size:13px}
 /* mobile list + chat */
 .lm-m .lm-cl{position:absolute;left:0;right:0;top:56px;bottom:0;width:auto;padding:0 12px 104px;background:none;box-shadow:none}
-.lm-m .lm-promo{height:168px;margin-top:10px}
+.lm-m .lm-promo{height:180px;margin-top:14px}
+.lm-m .lm-promo .tx0{left:16px;top:14px}
+.lm-m .lm-promo .pct{font-size:48px;margin-top:6px}
+.lm-m .lm-promo .sub{font-size:12px}
+.lm-m .lm-promo .o.gm{width:96px;right:-10px;top:-30px}
+.lm-m .lm-promo .o.cn{width:38px;right:92px;top:86px}
+.lm-m .lm-promo .o.gf{width:62px;right:18px;top:62px}
 .lm-mch{display:flex;align-items:center;gap:12px;height:64px;padding:0 14px 0 8px;border-bottom:1px solid var(--ln)}
 .lm-mch img{width:40px;height:40px;border-radius:50%;object-fit:cover}
 .lm-mch b{display:block;font:700 15.5px/1 var(--H)}
@@ -2574,8 +2593,22 @@ html{background:var(--paper)}
 .lm-steps.go span{cursor:pointer}
 @media (hover:hover){.lm-steps.go span:hover{color:#fff;background:rgba(255,255,255,.12)}}
 .lm-steps.go span:focus-visible{outline:2px solid #D63BD9;outline-offset:2px}
-.case .lm-steps{display:none} /* home card opens the case on click — step tabs only in the case window */
 .sx-narrow .lm-steps{left:50%;top:1.6%;transform:translateX(-50%);gap:4px}
+/* step tabs for every big preview (same look as Lumo's, site blue): click jumps to the step, the bar shows its progress */
+.sx-steps{position:absolute;left:3.5%;top:3.4%;z-index:6;display:flex;gap:.5cqw;font:600 max(10px,.9cqw)/1 "Geist",var(--f-body);color:rgba(255,255,255,.62)}
+.sx-steps span{position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:.5cqw;height:2.4cqw;min-height:24px;padding:0 1.05cqw;border-radius:99px;background:rgba(255,255,255,.07);box-shadow:inset 0 0 0 1px rgba(255,255,255,.1);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);cursor:pointer;transition:background .25s,color .25s}
+.sx-steps span b{font-weight:600;color:rgba(255,255,255,.38)}
+.sx-steps span i{position:absolute;left:0;bottom:0;height:2px;width:0;background:#5C95FF}
+.sx-steps span.on{color:#fff;background:rgba(92,149,255,.16);box-shadow:inset 0 0 0 1px rgba(92,149,255,.5)}
+.sx-steps span.on b{color:#9CCBFF}
+@media (hover:hover){.sx-steps span:hover{color:#fff;background:rgba(255,255,255,.13)}}
+.sx-steps span:focus-visible{outline:2px solid #5C95FF;outline-offset:2px}
+.sx-narrow .sx-steps{left:50%;top:1.6%;transform:translateX(-50%);gap:4px}
+.sx-narrow .sx-steps span b{display:none}
+.kx-steps li{cursor:pointer}
+/* fast-forward to a step: nothing animates, the screens stay hidden until the step starts */
+.sx-ff *,.sx-ff *::before,.sx-ff *::after{transition:none!important;animation-duration:0s!important;animation-delay:0s!important}
+.sx-ff .scr{visibility:hidden!important}
 .sx-narrow .lm-steps span b{display:none}
 
 /* ---------- ЛАВі: last-minute deals marketplace ---------- */
@@ -4102,6 +4135,7 @@ html{background:var(--paper)}
   const EASE = 'cubic-bezier(.2,.8,.2,1)';
   const TEMPO = 0.8;
   const wait = (stage, ms) => new Promise(res => {
+    if (stage.__ff != null){ if (performance.now() - stage.__ffT < 8000) return setTimeout(res, 0); sxFFEnd(stage); }
     let acc = 0, last = performance.now();
     const tick = now => {
       if (!stage.isConnected) return;
@@ -4152,6 +4186,34 @@ html{background:var(--paper)}
   }
   /* press: a quick dip and a soft spring back, like a real click */
   const curPress = cur => cur && cur.firstElementChild && cur.firstElementChild.animate([{transform:'scale(1)'},{transform:'scale(.82)', offset:.3},{transform:'scale(1.04)', offset:.7},{transform:'scale(1)'}], {duration:300, easing:'cubic-bezier(.3,0,.3,1)'});
+  /* ---------- Step tabs: every big preview can jump to a step ----------
+     Engines call sxStep(stage, i) where step i begins. A jump rebuilds the stage and fast-forwards it to step i:
+     waits resolve at once, transitions and Web Animations take no time, the screens stay hidden until step i starts. */
+  const SX_STEPS = {
+    casino:['Sign up','Code','Lobby','Wallet','Buy crypto'],
+    merch:['Dashboard','Turnover','Deposit'],
+    wisp:['Lobby','Join','Map bans','Bracket'],
+    pay:['Bank','Details','Confirm','Done'],
+    lavi:['Feed','Box','Cart','Payment','Ticket'],
+    bipbip:['Home','Search','Station','Booking','Done'],
+    mgift:['E-cards','Theme','Plastic','Envelope']
+  };
+  const SX_DUR = {};
+  function sxFFEnd(stage){
+    if (stage.__ff == null) return;
+    stage.__ff = null; stage.classList.remove('sx-ff'); void stage.offsetWidth;
+  }
+  function sxStep(stage, i){
+    if (stage.__ff != null && i >= stage.__ff) sxFFEnd(stage);
+    const nav = stage.__nav; if (!nav || stage.__ff != null) return;
+    const eng = stage.dataset.engine, now = performance.now(), d = SX_DUR[eng] || (SX_DUR[eng] = []), p = stage.__si;
+    if (p != null && stage.__st0 && (i === p + 1 || (i === 0 && p === nav.length - 1))) d[p] = now - stage.__st0;
+    stage.__si = i; stage.__st0 = now;
+    nav.forEach((s, k) => { s.classList.toggle('on', k === i); s.lastElementChild.getAnimations().forEach(a => a.cancel()); });
+    if (!reduce && nav[i]) nav[i].lastElementChild.animate([{width:'0%'},{width:'100%'}], {duration:d[i] || 9000, easing:'linear', fill:'forwards'});
+  }
+  { const ea = Element.prototype.animate;
+    Element.prototype.animate = function(k, o){ if (this.closest && this.closest('.sx-ff')) o = (o && typeof o === 'object') ? Object.assign({}, o, {duration:0, delay:0, endDelay:0}) : 0; return ea.call(this, k, o); }; }
   function showOnly(layers, layer){
     layers.forEach(l => {
       l.getAnimations().forEach(a => a.cancel());
@@ -4194,8 +4256,9 @@ html{background:var(--paper)}
       if (lay === 'solo'){
         // fit by width, but never taller than the frame: equal margins, nothing cut at the bottom
         const dw = +desk.dataset.w, dh = +desk.dataset.h, m = narrow ? .04 : .05;
-        const k = Math.min(W*(narrow ? .96 : .84)/dw, H*(1 - 2*m)/dh);
-        place(desk, k, dw, dh, (W - dw*k)/2, Math.max(H*m, (H - dh*k)/2), 16);
+        const t = stage.__nav ? Math.max(H*.11, 44) : H*m;   // step tabs sit above the screen
+        const k = Math.min(W*(narrow ? .96 : .84)/dw, (H - t - H*m)/dh);
+        place(desk, k, dw, dh, (W - dw*k)/2, Math.max(t, (H - dh*k)/2 + (t - H*m)/2), 16);
         return;
       }
       if (lay === 'kiosk'){
@@ -4267,6 +4330,7 @@ html{background:var(--paper)}
         await wait(stage, 220);
       },
       async count(els, from, to, ms, fmt){
+        if (stage.__ff != null){ els.forEach(el => el.textContent = fmt(to)); return; }
         const t0 = performance.now();
         await new Promise(res => { const step = now => { const p = Math.min(1, (now - t0)/ms), e = 1 - Math.pow(1-p, 3); els.forEach(el => el.textContent = fmt(from + (to-from)*e)); if (p < 1 && stage.isConnected) requestAnimationFrame(step); else res(); }; requestAnimationFrame(step); });
       }
@@ -4558,6 +4622,7 @@ html{background:var(--paper)}
     for(;;){
       reset();
       await wait(stage, 700);
+      sxStep(stage, 0);
       // 1 open sign up
       await clickBoth('signup', {ms:500});
       [D, M].forEach(r => r.classList.add('dim'));
@@ -4588,6 +4653,7 @@ html{background:var(--paper)}
       both('su').forEach(e => e.classList.remove('on'));
       both('code').forEach(e => e.classList.add('on'));
       await wait(stage, 650);
+      sxStep(stage, 1);
       // 9 code
       const sl = both('slots').map(s => [...s.querySelectorAll('.cs-slot')]);
       await K.click(sl[0][0], sl[1] && sl[1][0], {press:false, ms:450});
@@ -4613,6 +4679,7 @@ html{background:var(--paper)}
       both('head').forEach(h => h.classList.add('in'));
       await K.count(both('bal'), 0, 300, 1000, money);
       await wait(stage, 500);
+      sxStep(stage, 2);
       // 11 glance at the lobby down to the wins block, switch its tabs
       const toEnd = (sc, root, top) => -Math.max(0, sc.offsetHeight - (root.offsetHeight - top) + 40);
       d('scroll').style.transform = `translateY(${toEnd(d('scroll'), D, 72)}px)`;
@@ -4625,6 +4692,7 @@ html{background:var(--paper)}
       }
       d('scroll').style.transform = ''; m('scroll').style.transform = '';
       await wait(stage, 1300);
+      sxStep(stage, 3);
       // 12 wallet
       await clickBoth('deposit');
       [D, M].forEach(r => r.classList.add('dim'));
@@ -4636,6 +4704,7 @@ html{background:var(--paper)}
       both('toast').forEach(e => e.classList.add('on'));
       await wait(stage, 1600);
       both('toast').forEach(e => e.classList.remove('on'));
+      sxStep(stage, 4);
       // 13 buy crypto
       await K.click(d('tBuy'), m('tBuy'), {press:false});
       both('wtabs').forEach(t => t.dataset.i = 1);
@@ -4767,7 +4836,7 @@ html{background:var(--paper)}
     const R = wrap.querySelector('.kk'), K = sxKit(stage, null, R);
     const a = s => R.querySelector(`[data-a="${s}"]`), V = v => R.querySelector(`[data-v="${v}"]`);
     const steps = [...stage.querySelectorAll('.kx-steps li')];
-    const setStep = i => steps.forEach((el,j) => { el.classList.toggle('on', j===i); el.classList.toggle('done', j<i); });
+    const setStep = i => { steps.forEach((el,j) => { el.classList.toggle('on', j===i); el.classList.toggle('done', j<i); }); sxStep(stage, i); };
     let cur = 'cat';
     const go = async (to, dir=1) => {
       const A = V(cur), B = V(to); cur = to;
@@ -4823,6 +4892,7 @@ html{background:var(--paper)}
     for(;;){
       reset(); items = 0; sum = 0;
       await wait(stage, 1400);
+      sxStep(stage, 0);
       // catalog: add three items
       for (const k of ['combo','nachos','mors']){
         const card = R.querySelector(`.kk-p[data-p="${k}"]`);
@@ -5015,20 +5085,24 @@ html{background:var(--paper)}
       await wait(stage, 2600);
       const tb = m('tbank'); tb.classList.add('is-sel'); K.tap(tb); K.ripple(tb);
       await wait(stage, 700);
+      sxStep(stage, 1);
       await swap(M, '.tpm-v', 'det');
       await wait(stage, 1600);
       const cp = m('cp'); K.tap(cp); K.ripple(cp); cp.classList.add('done'); cp.innerHTML = TPI.check; m('toast').classList.add('on');
       await wait(stage, 1800); m('toast').classList.remove('on');
       await wait(stage, 2400);
+      sxStep(stage, 2);
       const pd = m('paid'); K.tap(pd); K.ripple(pd); pd.classList.add('loading');
       await wait(stage, 1000);
       await swap(M, '.tpm-v', 'wait');
       await waitPhase(M);
+      sxStep(stage, 3);
       await swap(M, '.tpm-v', 'done');
       M.querySelector('.tpm-v.on [data-a="ok"]').classList.add('go');
     };
     for(;;){
       reset();
+      sxStep(stage, 0);
       await Promise.all([desk(), mob()]);
       await wait(stage, 3600);
       clear();
@@ -5454,15 +5528,11 @@ html{background:var(--paper)}
     bolt: svgI('M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z'), check: svgI('M4.5 12.75l6 6 9-13.5'), x: svgI('M6 18 18 6M6 6l12 12'), grid: svgI('M3.75 6A2.25 2.25 0 0 1 6 3.75h2.25A2.25 2.25 0 0 1 10.5 6v2.25a2.25 2.25 0 0 1-2.25 2.25H6a2.25 2.25 0 0 1-2.25-2.25V6ZM3.75 15.75A2.25 2.25 0 0 1 6 13.5h2.25a2.25 2.25 0 0 1 2.25 2.25V18a2.25 2.25 0 0 1-2.25 2.25H6A2.25 2.25 0 0 1 3.75 18v-2.25ZM13.5 6a2.25 2.25 0 0 1 2.25-2.25H18A2.25 2.25 0 0 1 20.25 6v2.25A2.25 2.25 0 0 1 18 10.5h-2.25a2.25 2.25 0 0 1-2.25-2.25V6ZM13.5 15.75a2.25 2.25 0 0 1 2.25-2.25H18a2.25 2.25 0 0 1 2.25 2.25V18A2.25 2.25 0 0 1 18 20.25h-2.25A2.25 2.25 0 0 1 13.5 18v-2.25Z'), link: svgI('M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244')
   };
   const WT = [['Nightfall','N','#3B5BDB'],['Iron Owls','IO','#7A5AF8'],['Cobra Mav','CM','#12B886'],['Hydra','H','#E8590C'],['Frostbyte','FB','#1098AD'],['Snipers XD','SX','#D6336C'],['Red Comet','RC','#C92A2A'],['Pale Wolves','PW','#868E96']];
-  const WA = ['#4C6EF5','#F76707','#12B886','#AE3EC9','#E64980','#1C7ED6','#FAB005','#2B8A3E','#F03E3E','#7048E8'];
-  // default player avatars: two-tone gradient disc + one geometric mark, deterministic per seat (no faces, no brands)
-  const WG = ['<circle cx="15" cy="15" r="6.5" fill="none" stroke="#fff" stroke-width="2.6"/>','<path d="M15 8.5 22 21H8z"/>','<path d="M15 7.5 22.5 15 15 22.5 7.5 15z"/>','<circle cx="11" cy="15" r="3.4"/><circle cx="19" cy="15" r="3.4"/>','<path d="M8 17a7 7 0 0 1 14 0z"/>','<path d="M13 8h4v5h5v4h-5v5h-4v-5H8v-4h5z"/>','<path d="M8 12.5 15 18l7-5.5v4.5L15 22.5 8 17z"/>','<rect x="9.5" y="9.5" width="11" height="11" rx="2.5"/>'];
-  const wIdent = n => {
-    const c1 = WA[n % WA.length], c2 = WA[(n * 7 + 3) % WA.length], g = WG[(n * 5 + 2) % WG.length], rot = [0,45,90,180][n % 4];
-    return `<i style="background:linear-gradient(135deg,${c1},${c2})"><svg viewBox="0 0 30 30"><rect width="30" height="30" fill="#070B1E" opacity=".22"/><g fill="#fff" fill-opacity=".92" transform="rotate(${rot} 15 15)">${g}</g></svg></i>`;
-  };
-  const wAvs = (seed, n=5) => `<span class="ws-avs">${Array.from({length:n},(_,i)=>wIdent(seed*5+i+1)).join('')}</span>`;
-  const wTeam = t => `<span class="ws-tl" style="background-color:${t[2]}">${t[1]}</span>`;
+  // generated player portraits (one series): faces 1-8 are the captains = team badges, 9-36 are the other four players of each team
+  const wFace = n => `assets/ws-f${String(n).padStart(2,'0')}.webp`;
+  const wPl = (t, k) => 9 + ((t === 7 ? 6 : t) * 4 + k) % 28;
+  const wAvs = t => `<span class="ws-avs">${[0,1,2,3].map(k => `<i><img src="${wFace(wPl(t,k))}" alt=""></i>`).join('')}</span>`;
+  const wTeam = t => `<span class="ws-tl" style="--tc:${t[2]}"><img src="${wFace(WT.indexOf(t) + 1)}" alt=""></span>`;
   // prize medals: WISP blue/magenta ribbon + metal disc with the place number
   let wUid = 0;
   const wMedal = (n, a, b, ink, u = ++wUid) => `<svg class="md" viewBox="0 0 40 40"><defs><linearGradient id="wmd${u}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${a}"/><stop offset="1" stop-color="${b}"/></linearGradient></defs><path d="M9.5 1h8.5l5 12.5h-8.5z" fill="#2F7BFF"/><path d="M30.5 1H22l-5 12.5h8.5z" fill="#D63AF9"/><circle cx="20" cy="25.5" r="13.5" fill="url(#wmd${u})"/><circle cx="20" cy="25.5" r="10.2" fill="none" stroke="${ink}" stroke-opacity=".25" stroke-width="1.2"/><text x="20" y="30.4" text-anchor="middle" font-family="Manrope,sans-serif" font-weight="800" font-size="13.5" fill="${ink}">${n}</text></svg>`;
@@ -5477,7 +5547,7 @@ html{background:var(--paper)}
     const m = (x, y, a, b, sa, sb, lbl, id) => `<div class="ws-m" style="left:${x}px;top:${y}px" data-m="${id}"><small>${lbl}</small><div class="ws-mt" data-s="a">${wTeam(WT[a])}<span>${WT[a][0]}</span><b>${sa}</b></div><div class="ws-mt" data-s="b">${wTeam(WT[b])}<span>${WT[b][0]}</span><b>${sb}</b></div></div>`;
     return `<div class="ws">
       <aside class="ws-side"><span>${WI.home}</span><span class="on">${WI.pad}</span><span>${WI.cup}</span><span>${WI.shop}</span><span>${WI.user}</span></aside>
-      <header class="ws-top"><span class="ws-logo">WISP</span><div class="r"><span class="ws-bal"><span style="color:var(--mu);font-weight:600">Balance</span> $24.50</span><span class="ws-steam">Steam connected<i>${WI.check}</i></span><span class="ws-ib">${WI.users}</span><span class="ws-ib">${WI.box}</span><span class="ws-ib">${WI.bell}<i class="d"></i></span><span class="ws-ava">DK</span></div></header>
+      <header class="ws-top"><span class="ws-logo"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="13" fill="#2F7BFF"/><path d="M10 15l6.5 19L24 19l7.5 15L38 15" fill="none" stroke="#fff" stroke-width="4.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="24" cy="10.5" r="3.2" fill="#fff"/></svg>WISP</span><div class="r"><span class="ws-bal"><span style="color:var(--mu);font-weight:600">Balance</span> $24.50</span><span class="ws-steam">Steam connected<i>${WI.check}</i></span><span class="ws-ib">${WI.users}</span><span class="ws-ib">${WI.box}</span><span class="ws-ib">${WI.bell}<i class="d"></i></span><span class="ws-ava">DK</span></div></header>
       <main class="ws-main">
         <section class="ws-v on" data-v="lobby">
           <div class="ws-fb"><span class="ws-gm on">CS2</span><span class="ws-gm">DOTA</span><span class="ws-pill pr">${WI.bolt}Prime</span><span class="ws-pill lg">${WI.cup}League</span>
@@ -5578,6 +5648,7 @@ html{background:var(--paper)}
     if (reduce){ reset(); return; }
     for(;;){
       reset();
+      sxStep(stage, 0);
       await wait(stage, 1100);
       const c0 = a('c0');
       const h4 = c0.querySelector('.b h4');
@@ -5586,6 +5657,7 @@ html{background:var(--paper)}
       await click(h4, {press:false, ms:200});
       await view('det');
       await wait(stage, 900);
+      sxStep(stage, 1);
       // join
       await click(a('join'));
       a('acts').innerHTML = '<span class="ws-btn gh press">Leave</span><span class="ws-btn gn press" data-a="ready"><span>Ready to play</span><span class="ct" data-a="rct">00:20</span></span>';
@@ -5606,6 +5678,7 @@ html{background:var(--paper)}
       a('acts').innerHTML = `<span class="ws-btn vt"><span style="display:flex;align-items:center"><i>DK</i>Captain voting</span><span class="ct" data-a="vct">15s</span></span>`;
       await tab(1);
       await wait(stage, 500);
+      sxStep(stage, 2);
       // map bans
       const order = [[0,'Nightfall'],[1,'Pale Wolves'],[2,'Nightfall'],[4,'Pale Wolves'],[5,'Nightfall'],[6,'Pale Wolves']];   // left to right: the cursor sweeps the row instead of zig-zagging, map 3 stays the decider
       let vt = 15;
@@ -5627,6 +5700,7 @@ html{background:var(--paper)}
       await tab(2);
       R.querySelector('.ws-v[data-v="det"]').style.transform = 'translateY(-120px)';
       await wait(stage, 900);
+      sxStep(stage, 3);
       // bracket
       const res = [['q1',13,7],['q2',9,13],['q3',6,13],['q4',13,11],['s1',13,10],['s2',13,8],['f',2,1]];
       const lines = {q1:0,q2:1,q3:2,q4:3,s1:4,s2:5};
@@ -5891,10 +5965,12 @@ html{background:var(--paper)}
     if (reduce){ reset(); setChart('w'); a('k0').textContent = '$228 441'; a('k1').textContent = '$71 887'; a('k2').textContent = '$12 480'; return; }
     for(;;){
       reset();
+      sxStep(stage, 0);
       await wait(stage, 400);
       setChart('w');
       K.count([a('k0')], 0, 228441, 1200, usd); K.count([a('k1')], 0, 71887, 1200, usd); K.count([a('k2')], 0, 12480, 1200, usd);
       await wait(stage, 1600);
+      sxStep(stage, 1);
       // hover peak bar
       const bars = a('bars').querySelectorAll('.mc-bar'), pk = bars[6];
       await K.move(pk.querySelector('i'), 900);
@@ -5907,6 +5983,7 @@ html{background:var(--paper)}
       await click(a('sm'), {press:false});
       seg(a('seg'), 1); setChart('m'); a('ctr').innerHTML = MI.up + '14,6%';
       await wait(stage, 2200);
+      sxStep(stage, 2);
       // deposit
       await click(a('dep'));
       a('ov').classList.add('on'); a('md').classList.add('on');
@@ -6349,14 +6426,17 @@ ${S(p+'el',130,100.89,.606,-.796,7,'#fff',.22)}${S(p+'er',390,100.89,-.606,-.796
     };
     const run = async () => {
       await untilLive();
+      sxStep(stage, 0);
       rot1();                                              // 0 s: the e-card carousel is already turning
       await wait(stage, 420);
+      sxStep(stage, 1);
       await K.click(dq('thm'), null, {ms:620});            // theme switch in the header
       const tv = theme();
       await wait(stage, 380);
       rot1();                                              // keeps turning while the new theme spreads
       await tv;
       await wait(stage, 700);
+      sxStep(stage, 2);
       await K.click(dq('swp'), mq('swp'), {ms:560});       // switch to plastic
       all(s => s.setMode('p'));
       await page(520);                                     // plastic cards page twice
@@ -6365,6 +6445,7 @@ ${S(p+'el',130,100.89,.606,-.796,7,'#fff',.22)}${S(p+'er',390,100.89,-.606,-.796
       await wait(stage, 420);
       await K.click(dq('swe'), mq('swe'), {ms:520});       // back to e-cards
       all(s => s.setMode('e'));
+      sxStep(stage, 3);
       await K.click(dq('next'), mq('next'), {ms:780});     // «Далее»
       all(s => s.setMode('pack'));
       await wait(stage, 640*MG2_SLOW);                     // the disc lands on the envelope card spot
@@ -6440,7 +6521,7 @@ ${S(p+'el',130,100.89,.606,-.796,7,'#fff',.22)}${S(p+'er',390,100.89,-.606,-.796
         <div class="lm-grid">${LM.grid.slice(0, D ? 10 : 4).map(card).join('')}</div><div style="height:${D ? 40 : 110}px"></div></div>`;
     const crow = ([id, n, m, t, u], on) => `<div class="lm-crow${on ? ' on' : ''}" data-a="row-${id}"><img src="${lmImg(id)}" alt=""><div class="tx"><b>${n}</b><small>${m}</small></div><div class="tm">${t}${u ? `<span class="n">${u}</span>` : ''}</div></div>`;
     const sys = `<div class="lm-crow"><span class="sy"><span class="o"></span></span><div class="tx"><b>Lumo<span class="lm-tg">Team</span></b><small>Your weekly bonus is waiting</small></div><div class="tm"><span class="n">1</span></div></div>`;
-    const promo = `<div class="lm-promo"><img src="${lmImg('promo')}" alt="Black Friday: 50% off tokens and Premium"><span class="lm-btn"><span class="tx">Get 50% off</span><span class="tm">${I.clock}23:41:08</span><span class="ar">${I.arrow}</span></span></div>`;
+    const promo = `<div class="lm-promo" role="img" aria-label="Black Friday: 50% off tokens and Premium"><span class="bg"></span><span class="tx0"><span class="bfk">BLACK FRIDAY</span><b class="pct">−50%</b><span class="sub">Tokens &amp; Premium</span></span><img class="o cn" src="${lmImg('bf-coin')}" alt=""><img class="o gf" src="${lmImg('bf-gift')}" alt=""><img class="o gm" src="${lmImg('bf-gem')}" alt=""><span class="lm-btn"><span class="tx">Get 50% off</span><span class="tm">${I.clock}23:41:08</span><span class="ar">${I.arrow}</span></span></div>`;
     const list = on => `${sys}${LM.rows.map((r, i) => crow(r, on && !i)).join('')}${promo}`;
     const msgs = `<div class="lm-msgs" data-a="msgs"><span class="lm-day">Today 18:39</span>
         <div class="lm-b">Found the perfect beach for tomorrow. The light hits the pier at 6:40 — I checked twice.</div>
@@ -6545,7 +6626,6 @@ ${S(p+'el',130,100.89,.606,-.796,7,'#fff',.22)}${S(p+'er',390,100.89,-.606,-.796
     const setNav = i => { playing = i; [...nav.children].forEach((s, k) => { s.classList.toggle('on', k === i); s.lastElementChild.getAnimations().forEach(a => a.cancel()); }); };
     render(); sxFit(stage);
     setTimeout(() => {
-      if (stage.closest('.case')) return; // a card on the home page opens the case on click
       nav.classList.add('go'); nav.setAttribute('role', 'group'); nav.setAttribute('aria-label', 'Jump to a step');
       [...nav.children].forEach(s => { s.setAttribute('role', 'button'); s.tabIndex = 0;
         const go = e => { e.preventDefault(); e.stopPropagation(); start(+s.dataset.s); };
@@ -7033,11 +7113,13 @@ ${S(p+'el',130,100.89,.606,-.796,7,'#fff',.22)}${S(p+'er',390,100.89,-.606,-.796
       await wait(stage, 1800);
       const t = m('mt-oil'); t.classList.add('on'); await tapM(t);
       await wait(stage, 400);
+      sxStep(stage, 1);
       await view(M, 'search');
       await wait(stage, 1100);
       await done(an(m('msc1'), [{transform:'translateY(0)'},{transform:'translateY(-120px)'}], 800));
       await wait(stage, 500);
       await tapM(m('mc0').querySelector('.bb-btn'));
+      sxStep(stage, 2);
       await view(M, 'sto');
       await wait(stage, 500);
     };
@@ -7092,11 +7174,14 @@ ${S(p+'el',130,100.89,.606,-.796,7,'#fff',.22)}${S(p+'er',390,100.89,-.606,-.796
       await tapM(b); b.classList.add('loading');
       await wait(stage, 3000);
       m('mdim').classList.remove('on'); m('sheet').classList.remove('on'); m('mfoot').classList.remove('on');
+      sxStep(stage, 4);
       await view(M, 'done');
       an(m('badge'), [{transform:'scale(.6)', opacity:0},{transform:'scale(1.08)', opacity:1, offset:.6},{transform:'scale(1)', opacity:1}], 520, {fill:'none'});
     };
     for(;;){
+      sxStep(stage, 0);
       await Promise.all([desk(), mob()]);
+      sxStep(stage, 3);
       await Promise.all([desk2(), mob2()]);
       await wait(stage, 3600);
       await Promise.all([D, M].map(R => done(an(R, [{opacity:1},{opacity:0}], 450))));
@@ -7393,6 +7478,7 @@ ${S(p+'el',130,100.89,.606,-.796,7,'#fff',.22)}${S(p+'er',390,100.89,-.606,-.796
       await done(an(m('fsc'), [{transform:'translateY(0)'},{transform:'translateY(-252px)'}], 900, {easing:IO}));
       await wait(stage, 500);
       await tapM(m('c0'));
+      sxStep(stage, 1);
       await view('box');
       await wait(stage, 800);
       an(m('bnav'), [{opacity:0},{opacity:1}], 500, {delay:300*TEMPO});
@@ -7409,12 +7495,14 @@ ${S(p+'el',130,100.89,.606,-.796,7,'#fff',.22)}${S(p+'er',390,100.89,-.606,-.796
       an(sg, [{transform:'scale(1)'},{transform:'scale(1.06)', offset:.4},{transform:'scale(1)'}], 420, {fill:'none'});
       await wait(stage, 900);
       await tapM(m('toCart'));
+      sxStep(stage, 2);
       await view('cart');
       EV.cart.fire();
       await wait(stage, 1200);
       const wk = m('walk'); an(wk, [{background:'transparent'},{background:'#FFF3D9', offset:.4},{background:'transparent'}], 1100, {fill:'none'});
       await wait(stage, 2000);
       await tapM(m('toPay'));
+      sxStep(stage, 3);
       await view('pay');
       await wait(stage, 1000);
       const er = m('mErip'); await tapM(er);
@@ -7438,6 +7526,7 @@ ${S(p+'el',130,100.89,.606,-.796,7,'#fff',.22)}${S(p+'er',390,100.89,-.606,-.796
       holdOn = false;
       await wait(stage, 1100);
       EV.paid.fire();
+      sxStep(stage, 4);
       await view('tk', 'reveal', [50, 90]);
       const b = m('bdg'); if (b) b.classList.add('on');
       await wait(stage, 1700);
@@ -7455,6 +7544,7 @@ ${S(p+'el',130,100.89,.606,-.796,7,'#fff',.22)}${S(p+'er',390,100.89,-.606,-.796
     };
     for(;;){
       const g = ++gen; holdOn = false; hs = 600; EV = beats(); ticker(g);
+      sxStep(stage, 0);
       await Promise.all([desk(), mob()]);
       await wait(stage, 3000);
       await Promise.all([D, M].map(R => done(an(R, [{opacity:1},{opacity:0}], 450))));
@@ -7479,10 +7569,22 @@ ${S(p+'el',130,100.89,.606,-.796,7,'#fff',.22)}${S(p+'er',390,100.89,-.606,-.796
     }
     return !seen || hit > 0;
   }
-  function makeStage(c, restarts=0){
+  function makeStage(c, restarts=0, ff=null){
     const node = $('#'+c.tpl).content.firstElementChild.cloneNode(true);
     if (io) io.observe(node); else node.classList.add('is-live');
     const eng = ENGINES[node.dataset.engine];
+    if (ff != null){ node.__ff = ff; node.__ffT = performance.now(); node.classList.add('sx-ff'); }
+    const jump = i => { if (io) io.unobserve(node); const n = makeStage(c, 0, i); node.replaceWith(n); };
+    const labels = SX_STEPS[node.dataset.engine];
+    if (labels){
+      const nav = document.createElement('div');
+      nav.className = 'sx-steps'; nav.setAttribute('role', 'group'); nav.setAttribute('aria-label', 'Jump to a step');
+      nav.innerHTML = labels.map((t, i) => `<span role="button" tabindex="0" data-s="${i}"><b>${i+1}</b>${t}<i></i></span>`).join('');
+      node.appendChild(nav); node.__nav = [...nav.children];
+    }
+    // tabs (and the kiosk's own step list) jump to a step; on the home page the click must not open the case
+    node.addEventListener('click', e => { const s = e.target.closest('.sx-steps span, .kx-steps li'); if (!s) return; e.preventDefault(); e.stopPropagation(); jump([...s.parentElement.children].indexOf(s)); });
+    node.addEventListener('keydown', e => { const s = e.target.closest('.sx-steps span'); if (s && (e.key === 'Enter' || e.key === ' ')){ e.preventDefault(); e.stopPropagation(); jump(+s.dataset.s); } });
     if (eng) setTimeout(() => { Promise.resolve().then(() => eng(node)).catch(() => { try { sxFit(node); } catch(e){} }); }, 0);
     if (node.dataset.layout === 'solo' && restarts < 3){
       let bad = 0;
@@ -7645,6 +7747,15 @@ ${S(p+'el',130,100.89,.606,-.796,7,'#fff',.22)}${S(p+'er',390,100.89,-.606,-.796
   }
   if (fine) H.addEventListener('mouseleave', () => { hovering = false; ready && place(tgt); });
   addEventListener('resize', () => { heroMin(); setLead(false); ready && place(tgt); });
+
+  /* ---------- Lumo promo: objects lean after the real pointer ---------- */
+  if (fine && !reduce) document.addEventListener('pointermove', e => {
+    const p = e.target.closest && e.target.closest('.lm-promo');
+    document.querySelectorAll('.lm-promo.tilt').forEach(q => { if (q !== p){ q.classList.remove('tilt'); q.style.setProperty('--px', 0); q.style.setProperty('--py', 0); } });
+    if (!p) return;
+    const r = p.getBoundingClientRect();
+    p.classList.add('tilt'); p.style.setProperty('--px', ((e.clientX - r.left)/r.width - .5)*2); p.style.setProperty('--py', ((e.clientY - r.top)/r.height - .5)*2);
+  }, {passive:true});
 
   /* ---------- Copy email ---------- */
   const toast = $('#toast');
