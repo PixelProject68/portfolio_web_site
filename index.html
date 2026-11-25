@@ -6069,7 +6069,7 @@ ${S(p+'el',130,100.89,.606,-.796,7,'#fff',.22)}${S(p+'er',390,100.89,-.606,-.796
     const discs = MG2.discs.map(id => `<div class="mg2-it"><div class="gl"><img src="${mg2Src(id)}" alt=""></div><div class="fc"><img src="${mg2Src(id)}" alt=""></div></div>`).join('');
     const ring = [0,1,2,3,4,5].map(k => { const [id, ink] = MG2.cards[k % 3]; return `<div class="mg2-pc"><div class="w"><img src="${mg2Src(id)}" alt=""><svg viewBox="0 0 117 22" style="fill:${ink}" aria-hidden="true">${logo}</svg></div><i class="shn"></i></div>`; }).join('');
     /* occasion strip: centre chip big, sides step down (prototype geometry) */
-    const CW = D ? [177,156,140,111,90] : [161,140,124,108,108], CH = D ? [40,36,33,26,22] : [38,35,32,28,28], CF = D ? [17,15.5,14.5,11,10] : [15,14,13,12,12], CO = D ? [1,.95,.8,0,0] : [1,.95,.8,.55,.55], CR = D ? [12,12,12,12,12] : [14,13,11,10,10], c0 = D ? 720 : 195, n = MG2.occ.length;
+    const CW = D ? [177,156,116,111,90] : [161,140,124,108,108], CH = D ? [40,36,33,26,22] : [38,35,32,28,28], CF = D ? [17,15.5,14.5,11,10] : [15,14,13,12,12], CO = D ? [1,.95,.8,0,0] : [1,.95,.8,.55,.55], CR = D ? [12,12,12,12,12] : [14,13,11,10,10], c0 = D ? 720 : 195, n = MG2.occ.length;
     const chips = MG2.occ.map((t, i) => {
       let o = ((i - MG2.occOn) % n + n) % n; if (o > n/2) o -= n;
       const a = Math.abs(o), k = Math.min(a, 4); let x;
