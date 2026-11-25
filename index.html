@@ -8,7 +8,7 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://dedesign.online/">
 <meta property="og:title" content="Denis Konobeyev · Senior Product Designer">
-<meta property="og:description" content="Senior Product Designer since 2019: product monetization in iGaming, FinTech and AI, plus complex internal systems. Live prototypes of 12 product cases.">
+<meta property="og:description" content="Senior Product Designer since 2019: product monetization in iGaming, FinTech and AI, plus complex internal systems. Live prototypes of 13 product cases.">
 <meta property="og:image" content="https://dedesign.online/og.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -16,7 +16,7 @@
 <meta name="description" content="Denis Konobeyev, Senior Product Designer since 2019: paywalls, checkouts, deposits and purchases in iGaming, FinTech and AI.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..800&family=Geist:wght@400..600&family=Geist+Mono:wght@400;500&family=Montserrat:wght@600;800&family=IBM+Plex+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Luckiest+Guy&family=Unbounded:wght@600;700&family=Onest:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..800&family=Geist:wght@400..600&family=Geist+Mono:wght@400;500&family=Montserrat:wght@600;800&family=IBM+Plex+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Luckiest+Guy&family=Unbounded:wght@600;700&family=Onest:wght@400;500;600;700;800;900&display=swap">
 <style>
 /* Layout: a designer's canvas — cool paper, graphite ink, one selection-blue used only for "selected" states (hero frame, hovered case). Wide 12-col rhythm tuned for 2560px, stacks on phones. */
 :root{
@@ -2493,6 +2493,299 @@ html{background:var(--paper)}
 .sx-narrow .lm-steps{left:50%;top:1.6%;transform:translateX(-50%);gap:4px}
 .sx-narrow .lm-steps span b{display:none}
 
+/* ---------- ЛАВі: last-minute deals marketplace ---------- */
+.st-lv{--sx-bg:#120D0B;--sx-glow:radial-gradient(50cqw 42cqw at 22% 28%,rgba(232,96,44,.26),transparent 70%),radial-gradient(40cqw 34cqw at 90% 84%,rgba(255,178,30,.12),transparent 70%)}
+.lv{--co:#E8602C;--coi:#B8441A;--cop:#D4521F;--cot:#FDE7DC;--ink:#16110E;--ink2:#5E5550;--ink3:#A0978F;--ink4:#D3CCC4;--inkE:#1C1714;--bg:#F4F2EF;--sf:#FFFFFF;--ln:#E9E4DE;--perf:#DED7CF;--cream:#FFF8F0;--am:#FFB21E;--amt:#FFF3D9;--ami:#8F5B00;--ok:#2E9B5F;--okt:#DFF3E7;
+  --c-bak:#FFD3B0;--c-bea:#FFD1DC;--c-cin:#E3D6FF;--c-tra:#CDE6F7;--c-bre:#FFE49A;--c-lun:#CFE9BE;
+  position:relative;overflow:hidden;background:var(--bg);color:var(--ink);font:500 14px/1.4 "Onest",var(--f-body);-webkit-font-smoothing:antialiased;font-variant-numeric:tabular-nums}
+.lv *{box-sizing:border-box}
+.lv-d{width:1440px;height:900px;background:var(--co)}.lv-m{width:390px;height:844px}
+.lv svg.i{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.lv-logo{position:relative;display:inline-flex;align-items:flex-end;font:900 26px/1 "Onest",var(--f-body);letter-spacing:-.05em;color:currentColor;white-space:nowrap}
+.lv-logo .sp{position:relative;display:inline-block}
+.lv-logo .sp svg{position:absolute;left:50%;top:-.42em;width:.5em;height:.5em;margin-left:-.25em;fill:var(--am)}
+.lv-logo.tw .sp svg{animation:lvTw 1.4s cubic-bezier(.3,1.4,.5,1)}
+@keyframes lvTw{40%{transform:rotate(90deg) scale(1.5)}100%{transform:rotate(180deg) scale(1)}}
+.lv-btn{position:relative;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;gap:8px;height:56px;padding:0 24px;border-radius:18px;background:var(--co);color:#fff;font:800 16px/1.2 "Onest",var(--f-body);letter-spacing:-.01em;white-space:nowrap;box-shadow:0 10px 22px rgba(232,96,44,.34);transition:background .35s,color .35s,box-shadow .35s}
+.lv-btn.dk{background:var(--ink);color:#fff;box-shadow:none}
+.lv-btn.am{background:var(--am);color:var(--ink);box-shadow:none}
+.lv-btn.ol{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 2px var(--ink)}
+.lv-btn.s{height:44px;padding:0 18px;border-radius:14px;font-size:14px}
+.lv-btn.loading>*{opacity:0}
+.lv-btn.loading::after{content:"";position:absolute;left:50%;top:50%;width:22px;height:22px;margin:-11px;border-radius:50%;border:2.5px solid rgba(255,255,255,.35);border-top-color:#fff;animation:lvSpin .8s linear infinite}
+@keyframes lvSpin{to{transform:rotate(360deg)}}
+.lv-pill{display:inline-flex;align-items:center;gap:5px;height:24px;padding:0 9px;border-radius:999px;background:var(--sf);color:var(--ink);font:800 12px/1.3 "Onest",var(--f-body);white-space:nowrap}
+.lv-pill i{width:6px;height:6px;border-radius:50%;background:var(--co)}
+.lv-pill.dc{background:var(--co);color:#fff}
+.lv-pill.am{background:var(--amt);color:var(--ami)}
+.lv-pill.ok{background:var(--okt);color:#1F7445}
+.lv-pill svg.i{width:14px;height:14px;stroke-width:2.2}
+.lv-stk{position:absolute;display:block;filter:drop-shadow(0 7px 9px rgba(22,17,14,.17))}
+.lv-old{color:var(--ink2);text-decoration:line-through;font:600 14px/1.4 "Onest",var(--f-body)}
+.lv-pr{font:900 22px/1 "Onest",var(--f-body);letter-spacing:-.035em}
+.lv-pr small{font:800 14px/1 "Onest",var(--f-body);letter-spacing:-.005em;margin-left:2px}
+
+/* ---------- desktop: landing ---------- */
+.lv-pg{position:absolute;left:0;top:0;width:1440px;will-change:transform}
+.lv-hd{position:absolute;left:0;right:0;top:0;height:84px;z-index:20;display:flex;align-items:center;padding:0 56px;color:var(--ink)}
+.lv-hd nav{display:flex;gap:36px;margin-left:auto;margin-right:32px;font:600 15px/1 "Onest",var(--f-body)}
+.lv-hd nav span{position:relative}
+.lv-hd nav span.hov::after{content:"";position:absolute;left:0;right:0;bottom:-8px;height:2px;border-radius:2px;background:var(--ink)}
+.lv-hero{position:relative;height:900px;overflow:hidden;background:var(--co)}
+.lv-hero .tx{position:absolute;left:56px;top:150px;width:720px}
+.lv-chip{display:inline-flex;align-items:center;gap:8px;height:34px;padding:0 14px;border-radius:999px;background:rgba(22,17,14,.1);font:800 13px/1 "Onest",var(--f-body);letter-spacing:.06em;text-transform:uppercase}
+.lv-chip i{width:8px;height:8px;border-radius:50%;background:var(--am);box-shadow:0 0 0 4px rgba(255,178,30,.3)}
+.lv-hero h1{margin:24px 0 0;font:900 70px/.98 "Onest",var(--f-body);letter-spacing:-.05em;color:var(--ink)}
+.lv-hero h1 em{font-style:normal;color:#fff}
+.lv-hero p{margin:24px 0 0;width:560px;font:500 20px/1.45 "Onest",var(--f-body);color:rgba(22,17,14,.82)}
+.lv-hero .acts{display:flex;gap:12px;margin-top:40px}
+.lv-hero .acts .lv-btn{height:60px;padding:0 28px;font-size:17px}
+.lv-fan{position:absolute;left:720px;top:140px;width:560px;height:620px}
+.lv-oc{position:absolute;width:300px;padding:14px;border-radius:24px;background:var(--sf);box-shadow:0 2px 6px rgba(22,17,14,.08),0 18px 40px rgba(22,17,14,.22)}
+.lv-oc .ph{position:relative;height:150px;border-radius:16px;overflow:hidden}
+.lv-oc .ph .lv-pill{position:absolute;top:10px}
+.lv-oc .ph .lv-pill.l{left:10px}.lv-oc .ph .lv-pill.r{right:10px}
+.lv-oc .k{margin-top:14px;font:800 11px/1.2 "Onest",var(--f-body);letter-spacing:.1em;text-transform:uppercase;color:var(--coi)}
+.lv-oc h4{margin:6px 0 0;font:900 22px/1.18 "Onest",var(--f-body);letter-spacing:-.03em}
+.lv-oc .rw{display:flex;align-items:baseline;gap:8px;margin-top:12px}
+.lv-oc .rw .t{margin-left:auto;display:flex;align-items:center;gap:5px;color:var(--ami);font:700 13px/1 "Onest",var(--f-body)}
+.lv-oc .rw .t svg.i{width:15px;height:15px}
+.lv-band{position:absolute;left:-40px;right:-40px;bottom:40px;height:64px;transform:rotate(-2.4deg);background:var(--ink);color:#fff;overflow:hidden;display:flex;align-items:center}
+.lv-band div{display:flex;gap:28px;white-space:nowrap;font:900 26px/1 "Onest",var(--f-body);letter-spacing:-.03em;animation:lvMq 22s linear infinite}
+.lv-band b{color:var(--am)}
+@keyframes lvMq{to{transform:translateX(-50%)}}
+.lv-how{position:relative;height:640px;background:var(--cream);padding:110px 56px 0}
+.lv-how h2,.lv-wl h2{margin:0;font:900 64px/1 "Onest",var(--f-body);letter-spacing:-.045em}
+.lv-how h2 em{font-style:normal;color:var(--co)}
+.lv-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:56px}
+.lv-howcta{display:flex;align-items:center;gap:20px;margin-top:36px;font:700 16px/1.3 "Onest",var(--f-body);color:var(--ink2)}
+.lv-step{position:relative;height:290px;padding:28px;border-radius:30px;background:var(--sf);box-shadow:0 1px 2px rgba(22,17,14,.04),0 6px 20px rgba(22,17,14,.06);overflow:hidden}
+.lv-step .n{display:grid;place-items:center;width:48px;height:48px;border-radius:14px;background:var(--co);color:#fff;font:900 22px/1 "Onest",var(--f-body)}
+.lv-step h3{margin:24px 0 0;font:900 28px/1.08 "Onest",var(--f-body);letter-spacing:-.035em}
+.lv-step p{margin:12px 0 0;width:300px;font:500 17px/1.48 "Onest",var(--f-body);color:var(--ink2)}
+.lv-step .lv-stk{right:18px;bottom:14px;width:120px;height:120px}
+.lv-wl{position:relative;height:900px;background:var(--ink);color:#fff;padding:120px 56px 0}
+.lv-wl h2 em{font-style:normal;color:var(--co)}
+.lv-wl p.l{margin:20px 0 0;width:560px;font:500 20px/1.48 "Onest",var(--f-body);color:var(--ink3)}
+.lv-wf{position:absolute;left:56px;top:330px;width:620px}
+.lv-seg{display:flex;gap:4px;width:360px;height:48px;padding:4px;border-radius:999px;background:var(--inkE);box-shadow:inset 0 0 0 1px #2C2420}
+.lv-seg span{flex:1;display:grid;place-items:center;border-radius:999px;font:700 14px/1 "Onest",var(--f-body);color:var(--ink3);transition:background .35s,color .35s}
+.lv-seg span.on{background:var(--sf);color:var(--ink)}
+.lv-in{display:flex;gap:12px;margin-top:20px}
+.lv-fld{position:relative;flex:1;display:flex;align-items:center;height:64px;padding:0 22px;border-radius:18px;background:var(--inkE);box-shadow:inset 0 0 0 1.5px #2C2420;font:600 20px/1.2 "Onest",var(--f-body);transition:box-shadow .3s}
+.lv-fld.focus{box-shadow:inset 0 0 0 2px var(--co)}
+.lv-fld .val:empty::before{content:attr(data-ph);color:#6D625C}
+.lv-fld .car{display:none;width:2px;height:24px;margin-left:2px;background:var(--co);animation:lvCar 1s steps(1) infinite}
+.lv-fld.focus .car{display:block}
+@keyframes lvCar{50%{opacity:0}}
+.lv-in .lv-btn{height:64px;padding:0 30px;font-size:17px}
+.lv-wl .fine{margin-top:16px;font:600 14px/1.4 "Onest",var(--f-body);color:#7C716B}
+.lv-wok{position:absolute;left:56px;top:330px;display:flex;align-items:center;gap:20px;opacity:0;pointer-events:none}
+.lv-wok .c{display:grid;place-items:center;width:72px;height:72px;border-radius:50%;background:var(--co)}
+.lv-wok .c svg.i{width:34px;height:34px;stroke-width:2.4;color:#fff}
+.lv-wok b{display:block;font:900 34px/1.04 "Onest",var(--f-body);letter-spacing:-.04em}
+.lv-wok small{display:block;margin-top:8px;font:500 18px/1.4 "Onest",var(--f-body);color:var(--ink3)}
+.lv-wl .lv-stk{width:190px;height:190px}
+
+/* ---------- mobile: app ---------- */
+.lv-sbar{position:absolute;left:0;right:0;top:0;height:50px;z-index:40;display:flex;align-items:center;justify-content:space-between;padding:6px 30px 0 36px;font:700 16px/1 "Onest",var(--f-body);color:var(--ink);pointer-events:none;transition:color .4s}
+.lv-sbar.w{color:#fff}
+.lv-sbar span{display:flex;align-items:flex-end;gap:2px}
+.lv-sbar i{width:3px;border-radius:1px;background:currentColor}
+.lv-sbar i:nth-child(1){height:4px}.lv-sbar i:nth-child(2){height:6px}.lv-sbar i:nth-child(3){height:8px}.lv-sbar i:nth-child(4){height:10px}
+.lv-sbar em{position:relative;width:23px;height:11px;margin-left:6px;border-radius:3px;border:1.5px solid currentColor}
+.lv-sbar em::after{content:"";position:absolute;inset:1.5px 6px 1.5px 1.5px;border-radius:1px;background:currentColor}
+.lv-v{position:absolute;inset:0;display:none;background:var(--bg)}
+.lv-v.on{display:block}
+.lv-cap{position:absolute;left:0;right:0;top:0;height:50px;z-index:11;background:var(--co)}
+.lv-sc{position:absolute;left:0;right:0;top:0;will-change:transform}
+.lv-tab{position:absolute;left:0;right:0;bottom:0;height:86px;z-index:12;display:flex;padding:10px 6px 0;background:var(--sf);box-shadow:0 -1px 0 var(--ln)}
+.lv-tab span{position:relative;flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;font:700 11px/1.2 "Onest",var(--f-body);letter-spacing:.005em;color:var(--ink3)}
+.lv-tab span.on{color:var(--coi)}
+.lv-tab svg.i{width:24px;height:24px}
+.lv-tab b{position:absolute;top:-4px;left:50%;margin-left:6px;min-width:18px;height:18px;padding:0 5px;border-radius:9px;background:var(--co);color:#fff;font:800 11px/18px "Onest",var(--f-body);text-align:center;transform:scale(0)}
+.lv-tab b.on{transform:scale(1);transition:transform .45s cubic-bezier(.3,1.5,.5,1)}
+.lv-feedhd{position:relative;height:208px;padding:62px 20px 0;background:var(--co);border-radius:0 0 30px 30px;color:#fff}
+.lv-feedhd small{display:block;font:600 14px/1.4 "Onest",var(--f-body);color:rgba(255,255,255,.8)}
+.lv-feedhd b{display:flex;align-items:center;gap:4px;font:900 22px/1.18 "Onest",var(--f-body);letter-spacing:-.03em}
+.lv-feedhd b svg.i{width:18px;height:18px;stroke-width:2.4}
+.lv-feedhd .bl{position:absolute;right:20px;top:64px;display:grid;place-items:center;width:44px;height:44px;border-radius:14px;background:rgba(255,255,255,.18)}
+.lv-feedhd .bl::after{content:"";position:absolute;top:10px;right:11px;width:8px;height:8px;border-radius:50%;background:var(--am);box-shadow:0 0 0 2px var(--co)}
+.lv-srch{display:flex;align-items:center;gap:10px;height:52px;margin-top:16px;padding:0 16px;border-radius:18px;background:var(--sf);color:var(--ink2);font:500 16px/1 "Onest",var(--f-body)}
+.lv-srch svg.i{color:var(--ink)}
+.lv-cats{display:flex;justify-content:space-between;padding:20px 20px 0}
+.lv-cat{display:flex;flex-direction:column;align-items:center;gap:7px;font:700 12px/1.3 "Onest",var(--f-body)}
+.lv-cat i{position:relative;display:block;width:62px;height:62px;border-radius:18px}
+.lv-cat img{position:absolute;left:5px;top:5px;width:52px;height:52px}
+.lv-soon{position:relative;margin:24px 20px 0;padding:18px;border-radius:24px;background:var(--ink);color:#fff;overflow:hidden}
+.lv-soon .k{display:flex;align-items:center;gap:6px;font:800 11px/1.2 "Onest",var(--f-body);letter-spacing:.1em;text-transform:uppercase;color:var(--am)}
+.lv-soon .k i{width:6px;height:6px;border-radius:50%;background:var(--am)}
+.lv-soon h4{margin:8px 0 0;font:900 20px/1.2 "Onest",var(--f-body);letter-spacing:-.03em}
+.lv-soon small{display:block;margin-top:4px;font:600 14px/1.4 "Onest",var(--f-body);color:var(--ink3)}
+.lv-soon .bt{display:flex;align-items:flex-end;justify-content:space-between;margin-top:16px}
+.lv-soon .bt small{margin:0;font-size:12px}
+.lv-soon .bt b{display:block;font:900 30px/1 "Onest",var(--f-body);letter-spacing:-.02em;color:var(--am)}
+.lv-soon .bt .lv-btn{height:44px;padding:0 16px;border-radius:14px;font-size:14px}
+.lv-soon .bt .lv-btn.done{background:#2A221E;color:var(--am)}
+.lv-sh{display:flex;align-items:baseline;justify-content:space-between;margin:26px 20px 0}
+.lv-sh h3{margin:0;font:900 22px/1.18 "Onest",var(--f-body);letter-spacing:-.03em}
+.lv-sh small{font:700 14px/1 "Onest",var(--f-body);color:var(--coi)}
+.lv-rail{display:flex;gap:12px;padding:14px 20px 0;width:max-content}
+.lv-card{position:relative;width:256px;padding:10px;border-radius:24px;background:var(--sf);box-shadow:0 1px 2px rgba(22,17,14,.04),0 6px 20px rgba(22,17,14,.06);overflow:hidden}
+.lv-card .ph{position:relative;height:132px;border-radius:16px;overflow:hidden}
+.lv-card .ph .lv-pill{position:absolute;top:10px}
+.lv-card .ph .lv-pill.l{left:10px}.lv-card .ph .lv-pill.r{right:10px}
+.lv-card .bo{padding:12px 6px 4px}
+.lv-card .pn{display:flex;align-items:center;gap:8px;font:600 13px/1.3 "Onest",var(--f-body);color:var(--ink2)}
+.lv-card .pn i{display:grid;place-items:center;width:24px;height:24px;border-radius:7px;color:#fff;font:900 12px/1 "Onest",var(--f-body);font-style:normal}
+.lv-card h4{margin:8px 0 0;font:800 18px/1.28 "Onest",var(--f-body);letter-spacing:-.015em}
+.lv-card .rw{display:flex;align-items:flex-end;justify-content:space-between;margin-top:10px}
+.lv-card .rw .t{font:700 12px/1.3 "Onest",var(--f-body);color:var(--ami)}
+.lv-card .rw .t b{display:block;color:var(--ink);font:900 16px/1.25 "Onest",var(--f-body);letter-spacing:-.015em}
+.lv-card .rw .p{text-align:right}
+.lv-card .rw .p .lv-old{display:block;font-size:13px;line-height:1.2}
+/* box detail */
+.lv-hro{position:relative;height:330px;background:var(--c-bak)}
+.lv-hro .nb{position:absolute;top:58px;display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.92);color:var(--ink)}
+.lv-hro .nb.l{left:20px}.lv-hro .nb.r{right:20px}
+.lv-hro .lv-pill{position:absolute;left:20px;bottom:48px}
+.lv-hro .lv-pill.dc{left:auto;right:20px}
+.lv-sheet{position:relative;margin-top:-30px;padding:22px 20px 140px;border-radius:30px 30px 0 0;background:var(--sf)}
+.lv-pt{display:flex;align-items:center;gap:12px}
+.lv-pt i{display:grid;place-items:center;width:44px;height:44px;border-radius:14px;color:#fff;font:900 20px/1 "Onest",var(--f-body);font-style:normal}
+.lv-pt b{display:block;font:800 16px/1.25 "Onest",var(--f-body);letter-spacing:-.015em}
+.lv-pt small{display:flex;align-items:center;gap:4px;margin-top:2px;font:600 14px/1.4 "Onest",var(--f-body);color:var(--ink2)}
+.lv-pt small svg.i{width:14px;height:14px;fill:var(--am);stroke:var(--am)}
+.lv-pt .lv-btn{margin-left:auto;height:36px;padding:0 14px;border-radius:12px;font-size:13px;background:var(--bg);color:var(--ink);box-shadow:none}
+.lv-sheet h1{margin:20px 0 0;font:900 34px/1.04 "Onest",var(--f-body);letter-spacing:-.04em}
+.lv-sheet p{margin:10px 0 0;font:500 16px/1.48 "Onest",var(--f-body);color:var(--ink2)}
+.lv-win{margin-top:20px;padding:16px;border-radius:18px;background:var(--bg)}
+.lv-win .r{display:flex;justify-content:space-between;font:700 12px/1.3 "Onest",var(--f-body);color:var(--ink2)}
+.lv-win .r b{display:block;margin-top:4px;color:var(--ink);font:900 26px/1 "Onest",var(--f-body);letter-spacing:-.035em}
+.lv-win .r .rt{text-align:right}
+.lv-win .r .rt b{color:var(--coi);font-size:22px}
+.lv-bar{position:relative;height:6px;margin-top:16px;border-radius:3px;background:var(--ln)}
+.lv-bar i{position:absolute;left:0;top:0;bottom:0;width:62%;border-radius:3px;background:var(--co)}
+.lv-bar em{position:absolute;left:30%;top:50%;width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:50%;background:var(--ink);box-shadow:0 0 0 3px var(--sf)}
+.lv-inc{margin-top:22px}
+.lv-inc h3{margin:0;font:900 20px/1.2 "Onest",var(--f-body);letter-spacing:-.03em}
+.lv-inc div{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.lv-inc span{height:34px;padding:0 14px;border-radius:999px;background:var(--bg);font:700 14px/34px "Onest",var(--f-body)}
+.lv-buy{position:absolute;left:0;right:0;bottom:0;z-index:12;display:flex;align-items:center;gap:16px;height:112px;padding:0 20px 24px;background:var(--sf);box-shadow:0 -8px 40px rgba(22,17,14,.08)}
+.lv-buy .p .lv-old{font-size:13px}
+.lv-buy .p .lv-pill{height:20px;margin-left:6px;padding:0 7px;font-size:11px}
+.lv-buy .p .lv-pr{display:block;margin-top:4px;font-size:26px}
+.lv-buy .lv-btn{flex:1}
+.lv-buy .lv-btn svg.i{stroke-width:2.2}
+.lv-dim{position:absolute;inset:0;z-index:30;background:rgba(22,17,14,.48);opacity:0;pointer-events:none;transition:opacity .4s}
+.lv-dim.on{opacity:1}
+.lv-bs{position:absolute;left:0;right:0;bottom:0;z-index:31;padding:10px 20px 34px;border-radius:30px 30px 0 0;background:var(--sf);box-shadow:0 -8px 40px rgba(22,17,14,.16);transform:translateY(105%)}
+.lv-bs .gr{width:40px;height:5px;margin:0 auto;border-radius:3px;background:var(--ln)}
+.lv-bs .hd{display:flex;align-items:center;gap:12px;margin-top:18px}
+.lv-bs .hd .c{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--okt);color:var(--ok)}
+.lv-bs .hd .c svg.i{stroke-width:2.4}
+.lv-bs .hd b{display:block;font:900 22px/1.18 "Onest",var(--f-body);letter-spacing:-.03em}
+.lv-bs .hd small{display:block;margin-top:2px;font:600 14px/1.4 "Onest",var(--f-body);color:var(--ink2)}
+.lv-bs .k{margin-top:22px;font:800 11px/1.2 "Onest",var(--f-body);letter-spacing:.1em;text-transform:uppercase;color:var(--ink2)}
+.lv-sug{display:flex;align-items:center;gap:12px;margin-top:10px;padding:12px;border-radius:18px;background:var(--bg)}
+.lv-sug .ti{position:relative;flex:none;width:56px;height:56px;border-radius:14px;background:var(--c-bea)}
+.lv-sug .ti img{position:absolute;left:6px;top:6px;width:44px;height:44px}
+.lv-sug b{display:block;font:800 15px/1.3 "Onest",var(--f-body)}
+.lv-sug small{display:flex;align-items:center;gap:4px;margin-top:2px;font:600 13px/1.35 "Onest",var(--f-body);color:var(--ink2)}
+.lv-sug small svg.i{width:14px;height:14px}
+.lv-sug .lv-btn{margin-left:auto;height:38px;padding:0 14px;border-radius:12px;font-size:13px;box-shadow:none}
+.lv-sug .lv-btn.done{background:var(--okt);color:#1F7445}
+.lv-bs .two{display:flex;gap:10px;margin-top:20px}
+.lv-bs .two .lv-btn{flex:1}
+.lv-bs .two .lv-btn.gh{background:var(--bg);color:var(--ink);box-shadow:none}
+/* cart and pay */
+.lv-nav{position:relative;height:104px;padding-top:52px;display:flex;align-items:center;justify-content:center;background:var(--bg)}
+.lv-nav .bk{position:absolute;left:12px;top:56px;display:grid;place-items:center;width:44px;height:44px;color:var(--ink)}
+.lv-nav b{font:900 18px/1.2 "Onest",var(--f-body);letter-spacing:-.02em}
+.lv-hold{display:flex;align-items:center;gap:12px;margin:4px 20px 0;padding:14px 16px;border-radius:18px;background:var(--amt);color:var(--ami)}
+.lv-hold svg.i{stroke-width:2}
+.lv-hold b{display:block;color:var(--ink);font:800 15px/1.3 "Onest",var(--f-body)}
+.lv-hold small{display:block;font:600 13px/1.35 "Onest",var(--f-body)}
+.lv-hold em{margin-left:auto;font:900 24px/1 "Onest",var(--f-body);letter-spacing:-.02em;font-style:normal;color:var(--ink)}
+.lv-hold.flash{animation:lvFlash .9s}
+@keyframes lvFlash{30%{background:#FFE2A3;transform:scale(1.02)}}
+.lv-plan{margin:20px 20px 0}
+.lv-plan h3{margin:0;font:900 22px/1.18 "Onest",var(--f-body);letter-spacing:-.03em}
+.lv-plan>small{display:block;margin-top:2px;font:600 14px/1.4 "Onest",var(--f-body);color:var(--ink2)}
+.lv-it{position:relative;display:flex;gap:12px;margin-top:14px;padding:12px;border-radius:20px;background:var(--sf);box-shadow:0 1px 2px rgba(22,17,14,.04),0 6px 20px rgba(22,17,14,.06)}
+.lv-it .tm{flex:none;width:52px;font:900 16px/1.25 "Onest",var(--f-body);letter-spacing:-.015em}
+.lv-it .tm small{display:block;font:700 11px/1.3 "Onest",var(--f-body);letter-spacing:0;color:var(--ink2)}
+.lv-it .ti{position:relative;flex:none;width:52px;height:52px;border-radius:14px}
+.lv-it .ti img{position:absolute;left:5px;top:5px;width:42px;height:42px}
+.lv-it .d b{display:block;font:800 15px/1.3 "Onest",var(--f-body)}
+.lv-it .d small{display:block;margin-top:2px;font:600 13px/1.35 "Onest",var(--f-body);color:var(--ink2)}
+.lv-it .p{margin-left:auto;text-align:right;font:800 14px/1.4 "Onest",var(--f-body)}
+.lv-it .p .lv-old{display:block;font-size:12px;line-height:1.3}
+.lv-walk{display:flex;align-items:center;gap:8px;margin:10px 0 0 30px;padding-left:22px;height:30px;border-left:2px dashed var(--ink4);font:700 12px/1.3 "Onest",var(--f-body);color:var(--ink2)}
+.lv-walk svg.i{width:16px;height:16px}
+.lv-sav{display:flex;align-items:center;justify-content:space-between;margin:16px 20px 0;padding:14px 16px;border-radius:18px;background:var(--okt);color:#1F7445;font:700 14px/1.3 "Onest",var(--f-body)}
+.lv-sav b{font:900 18px/1 "Onest",var(--f-body);letter-spacing:-.02em}
+.lv-tot{position:absolute;left:0;right:0;bottom:0;z-index:12;display:flex;align-items:center;gap:16px;height:112px;padding:0 20px 24px;background:var(--sf);box-shadow:0 -8px 40px rgba(22,17,14,.08)}
+.lv-tot>div{flex:none}.lv-tot .lv-pr,.lv-buy .lv-pr{white-space:nowrap}
+.lv-tot>div>small{display:block;font:600 13px/1.3 "Onest",var(--f-body);color:var(--ink2)}
+.lv-tot .lv-pr{display:block;margin-top:4px;font-size:26px}
+.lv-tot .lv-btn{flex:1}
+.lv-meth{margin:20px 20px 0;border-radius:20px;background:var(--sf);box-shadow:0 1px 2px rgba(22,17,14,.04),0 6px 20px rgba(22,17,14,.06);overflow:hidden}
+.lv-mt{position:relative;overflow:hidden;display:flex;align-items:center;gap:12px;padding:16px;border-top:1px solid var(--ln)}
+.lv-mt:first-child{border-top:0}
+.lv-mt .ic{display:grid;place-items:center;flex:none;width:44px;height:44px;border-radius:12px;background:var(--bg)}
+.lv-mt b{display:block;font:800 16px/1.25 "Onest",var(--f-body)}
+.lv-mt small{display:block;margin-top:2px;font:600 13px/1.35 "Onest",var(--f-body);color:var(--ink2)}
+.lv-mt .rd{margin-left:auto;flex:none;width:24px;height:24px;border-radius:50%;box-shadow:inset 0 0 0 2px var(--ink4);transition:box-shadow .3s}
+.lv-mt.on .rd{box-shadow:inset 0 0 0 7px var(--co)}
+.lv-mt .nt{display:block;max-height:0;overflow:hidden;color:var(--ami);font:700 13px/1.35 "Onest",var(--f-body);transition:max-height .5s,margin .5s}
+.lv-mt.on .nt{max-height:40px;margin-top:6px}
+.lv-sum{margin:18px 20px 0;padding:4px 16px;border-radius:20px;background:var(--sf)}
+.lv-sum div{display:flex;justify-content:space-between;padding:12px 0;border-top:1px solid var(--ln);font:600 14px/1.4 "Onest",var(--f-body);color:var(--ink2)}
+.lv-sum div:first-child{border-top:0}
+.lv-sum b{color:var(--ink);font:800 14px/1.4 "Onest",var(--f-body)}
+.lv-sum div.s b{color:#1F7445}
+.lv-sec{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:18px;font:600 13px/1.3 "Onest",var(--f-body);color:var(--ink2)}
+.lv-sec svg.i{width:15px;height:15px}
+.lv-fail{display:flex;gap:10px;margin:14px 20px 0;padding:12px 14px;border-radius:16px;background:#FBE3E7;color:#9E1B32;font:700 13px/1.4 "Onest",var(--f-body);max-height:0;padding-top:0;padding-bottom:0;opacity:0;overflow:hidden;transition:max-height .5s,opacity .4s,padding .5s}
+/* ticket */
+.lv-v.tk{background:var(--co)}
+.lv-tkh{padding:62px 20px 0;color:#fff}
+.lv-tkh .top{display:flex;align-items:center;justify-content:space-between;font:800 15px/1.2 "Onest",var(--f-body)}
+.lv-tkh .top i{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.2)}
+.lv-tkh h1{margin:18px 0 0;font:900 34px/1.04 "Onest",var(--f-body);letter-spacing:-.04em}
+.lv-tkh small{display:block;margin-top:6px;font:600 15px/1.4 "Onest",var(--f-body);color:rgba(255,255,255,.86)}
+.lv-tkt{position:relative;margin:18px 20px 0;border-radius:24px;background:var(--sf)}
+.lv-tkt .a{padding:16px 16px 18px}
+.lv-tkt .a .lv-pt i{width:40px;height:40px;font-size:18px}
+.lv-tkt .a .lv-pill{margin-left:auto}
+.lv-tkt .lv-ws{display:flex;align-items:flex-end;justify-content:space-between;margin-top:16px;font:700 11px/1.2 "Onest",var(--f-body);letter-spacing:.1em;text-transform:uppercase;color:var(--ink2)}
+.lv-tkt .lv-ws b{display:block;margin-top:4px;color:var(--ink);font:900 30px/1 "Onest",var(--f-body);letter-spacing:-.02em}
+.lv-tkt .lv-ws .lv-wr{text-align:right}
+.lv-tkt .lv-ws .lv-wm{flex:1;height:2px;margin:0 14px 12px;background:repeating-linear-gradient(90deg,var(--ink4) 0 6px,transparent 6px 11px)}
+.lv-tkt .cut{position:relative;height:0;border-top:2px dashed var(--perf);margin:0 18px}
+.lv-tkt .cut::before,.lv-tkt .cut::after{content:"";position:absolute;top:-13px;width:24px;height:24px;border-radius:50%;background:var(--co)}
+.lv-tkt .cut::before{left:-31px}.lv-tkt .cut::after{right:-31px}
+.lv-tkt .b{padding:18px 16px 20px;text-align:center;transition:opacity .5s,filter .5s}
+.lv-tkt .qr{width:150px;height:150px;margin:0 auto}
+.lv-tkt .qr svg{display:block;width:100%;height:100%}
+.lv-tkt .cd{margin-top:12px;font:900 28px/1 "Onest",var(--f-body);letter-spacing:.06em}
+.lv-tkt .b small{display:block;margin-top:6px;font:600 13px/1.35 "Onest",var(--f-body);color:var(--ink2)}
+.lv-tkt.used .b{opacity:.25;filter:grayscale(1)}
+.lv-sw{position:relative;margin:16px 20px 0;height:60px;border-radius:999px;background:var(--ink);color:#fff;overflow:hidden}
+.lv-sw .tx{position:absolute;inset:0;display:grid;place-items:center;padding-left:40px;font:800 15px/1.2 "Onest",var(--f-body);color:rgba(255,255,255,.86)}
+.lv-sw .fl{position:absolute;left:0;top:0;bottom:0;width:60px;border-radius:999px;background:var(--ok);opacity:0}
+.lv-sw .kn{position:absolute;left:4px;top:4px;display:grid;place-items:center;width:52px;height:52px;border-radius:50%;background:var(--co);color:#fff;will-change:transform}
+.lv-sw .kn svg.i{stroke-width:2.4}
+.lv-sw.ok{background:var(--ok)}
+.lv-sw.ok .kn{background:#fff;color:var(--ok)}
+.lv-tkf{margin-top:12px;text-align:center;font:600 13px/1.35 "Onest",var(--f-body);color:rgba(255,255,255,.86)}
+.lv-got{position:absolute;left:20px;right:20px;bottom:30px;z-index:5;padding:18px;border-radius:24px;background:var(--ink);color:#fff;display:flex;align-items:center;gap:14px;opacity:0;transform:translateY(20px)}
+.lv-got .c{display:grid;place-items:center;flex:none;width:48px;height:48px;border-radius:50%;background:var(--ok)}
+.lv-got .c svg.i{stroke-width:2.6;width:24px;height:24px}
+.lv-got b{display:block;font:900 20px/1.2 "Onest",var(--f-body);letter-spacing:-.03em}
+.lv-got small{display:block;margin-top:2px;font:600 14px/1.4 "Onest",var(--f-body);color:var(--ink3)}
+.lv-got small em{font-style:normal;color:var(--am)}
 /* ---------- bipbip: car service booking ---------- */
 .st-bb{--sx-bg:#0F1012;--sx-glow:radial-gradient(48cqw 40cqw at 24% 30%,rgba(255,176,32,.20),transparent 70%),radial-gradient(40cqw 34cqw at 88% 82%,rgba(255,176,32,.10),transparent 70%)}
 .bb{--bg:#F4F2ED;--sf:#FFFFFF;--sf2:#F8F7F3;--sf3:#F1EFE9;--sunk:#ECE9E2;--ln:#E7E3DA;--ln2:#D6D1C6;--tx:#141518;--tx2:#5E6168;--tx3:#8A8D94;--sig:#FFB020;--acc:#8A5600;--wbg:#FFF1D1;--asph:#141518;--asph3:#2A2C31;--star:#E59A00;--ok:#1F8F4E;--okbg:#E3F4EA;
@@ -2880,7 +3173,7 @@ html{background:var(--paper)}
   <section class="wrap sec" id="work" aria-labelledby="workH">
     <div class="sec-head">
       <h2 id="workH" data-t="workH">Selected work</h2>
-      <span class="mono" data-t="workMeta">12 case studies</span>
+      <span class="mono" data-t="workMeta">13 case studies</span>
     </div>
     <div class="cases" id="cases"></div>
   </section>
@@ -2999,6 +3292,14 @@ html{background:var(--paper)}
   </div>
 </template>
 
+<template id="tpl-lavi">
+  <div class="stage sx st-lv" data-engine="lavi" role="img" aria-label="LAVi last-minute deals on desktop and mobile: the landing explains how it works and takes a waitlist signup; in the app a bakery box is caught, held for 10 minutes, a beauty slot joins the evening plan, ERIP payment extends the hold to 20 minutes, and pickup is a swipe on the ticket">
+    <span class="sx-glow"></span><span class="sx-grain"></span>
+    <div class="scr desk" data-w="1440" data-h="900"><div class="vp"></div></div>
+    <div class="scr mob" data-w="390" data-h="844"><div class="vp"></div></div>
+  </div>
+</template>
+
 <template id="tpl-bipbip">
   <div class="stage sx st-bb" data-engine="bipbip" role="img" aria-label="bipbip car service booking on desktop and mobile: search a service, open a service station, add services, pick a live time slot, confirm by SMS code">
     <span class="sx-glow"></span><span class="sx-grain"></span>
@@ -3074,7 +3375,7 @@ html{background:var(--paper)}
       m2k:"Domains", m2v:"iGaming, FinTech, AI",
       m3k:"Method", m3v:"Figma and AI Tools, then HTML and React Prototypes",
       m4k:"Working", m4v:"Remote, GMT+3, Async-Friendly",
-      workH:"Selected work", workMeta:"12 case studies",
+      workH:"Selected work", workMeta:"13 case studies",
       labMeta:"Motion & AI",
       labIntro:"Motion and AI-assisted visuals I make alongside product work: paywall promos, series posters, interface animations and pitch concepts. Every piece says what I did and what the model did.",
       keyMe:"My work", keyAi:"Generated by a model", me:"Me", ai:"AI", slot:"slot", slotHere:"Loop goes here",
@@ -3112,7 +3413,7 @@ html{background:var(--paper)}
       m2k:"Сферы", m2v:"Финтех, кино, подписочные приложения",
       m3k:"Метод", m3v:"Figma и AI-инструменты, затем прототипы на HTML и React",
       m4k:"Формат", m4v:"Удалённо, GMT+3, асинхронно",
-      workH:"Избранные работы", workMeta:"12 кейсов",
+      workH:"Избранные работы", workMeta:"13 кейсов",
       labMeta:"Моушен и AI",
       labIntro:"Моушен и визуал с помощью AI, который я делаю вместе с продуктовой работой: промо пейволлов, постеры сериалов, анимации интерфейсов и концепты для питчей. У каждой работы указано, что сделал я, а что модель.",
       keyMe:"Моя работа", keyAi:"Сгенерировано моделью", me:"Я", ai:"AI", slot:"слот", slotHere:"Здесь будет ролик",
@@ -3325,6 +3626,22 @@ html{background:var(--paper)}
           ["Change seats inside 3D", "The mini map lets people compare seats without going back to the plan and pick one right there."]
         ]
       },
+      {
+        eyebrow:"LAVi · Last-minute marketplace · 2026",
+        title:"Catch what the city is about to lose",
+        summary:"A mobile marketplace of last-minute deals in Minsk: end-of-day food boxes, cancelled beauty slots, cinema seats before the show and last-minute tours. Every offer has a timer, and the booking is held while the guest pays.",
+        tags:["Checkout", "Marketplace", "Mobile app"],
+        facts:[["Role", "Sole product designer: UX, UI, design system"], ["Scope", "60+ screens, 6 verticals, landing"], ["Platform", "Mobile app (iPhone), web landing"], ["Year", "2026"]],
+        context:"A Minsk startup came with an idea: cafés, bakeries, beauty masters, cinemas and travel agencies lose money every evening on what stays unsold. They needed a product that sells it at a discount in the last hour.",
+        challenge:"Make a deadline discount feel safe to pay for. The guest has minutes, not days: the price, the pickup window and the hold all run on timers, and paying must never cost them the booking.",
+        did:["Shaped the product: one feed for six verticals, ordered by urgency: starting soon, burning now, nearby", "Designed the catch-to-pickup flow: offer card, cart as an evening plan, payment by card, ERIP or Apple Pay, a ticket with one code", "Designed every payment edge case: failed payment, the hold running out, sold-out items, late arrival, refunds", "Built the design system in Figma: tokens, 25 type styles, 20+ components with variants, stickers instead of partner photos", "Designed bookings, help, a tour booking with a deposit, and a desktop and mobile landing", "Prototyped the app in HTML, working with Claude"],
+        decisions:[
+          ["A 10-minute hold, not a race", "Catch puts the item in the cart and holds it for 10 minutes. One timer runs through the cart and payment, so nobody loses a box while typing a card number."],
+          ["ERIP buys more time", "Paying through ERIP takes longer, so choosing it extends the hold to 20 minutes. If the money arrives after the booking is gone, the refund is automatic."],
+          ["The cart is an evening plan", "Bookings line up by time with the walk between them, and the savings are visible before paying."],
+          ["Pickup is a swipe in front of the cashier", "The guest confirms pickup on their own phone while the cashier watches. Before the window opens the swipe is locked, after it closes Help takes over."]
+        ]
+      },
     ],
     ru:[
       {
@@ -3507,6 +3824,22 @@ html{background:var(--paper)}
           ["Пересесть внутри 3D","Мини-схема позволяет сравнить места, не возвращаясь к схеме, и сразу выбрать одно."]
         ]
       },
+      {
+        eyebrow:"ЛАВі · Маркетплейс · 2026",
+        title:"Лови то, что городу пришлось бы выбросить",
+        summary:"Мобильный маркетплейс горящих предложений Минска: еда к закрытию, окошки у мастеров после отмен, кресла перед сеансом и горящие туры. У каждого предложения есть таймер, а бронь держится, пока гость платит.",
+        tags:["Оплата", "Маркетплейс", "Мобильное приложение"],
+        facts:[["Роль", "Продуктовый дизайнер: UX, UI, дизайн-система"], ["Объём", "60+ экранов, 6 направлений, лендинг"], ["Платформа", "Мобильное приложение (iPhone), веб-лендинг"], ["Год", "2026"]],
+        context:"Минский стартап пришёл с идеей: кафе, пекарни, мастера, кинотеатры и турагентства каждый вечер теряют деньги на том, что не продали. Нужен был продукт, который продаёт это со скидкой в последний час.",
+        challenge:"Сделать так, чтобы за скидку со сроком было спокойно платить. У гостя минуты, а не дни: цена, окно получения и бронь идут по таймерам, и оплата не должна стоить ему брони.",
+        did:["Собрал продукт: одна лента на шесть направлений, по срочности — скоро в продаже, горит сейчас, рядом", "Спроектировал путь от «Поймать» до получения: карточка, корзина как план вечера, оплата картой, через ЕРИП или Apple Pay, билет с одним кодом", "Продумал все крайние случаи оплаты: неудачный платёж, конец удержания, разобранный бокс, опоздание, возвраты", "Собрал дизайн-систему в Figma: токены, 25 текстовых стилей, 20+ компонентов с вариантами, стикеры вместо фото партнёров", "Спроектировал брони, помощь, бронь тура с предоплатой, лендинг для десктопа и мобилки", "Собрал HTML-прототип приложения вместе с Claude"],
+        decisions:[
+          ["Удержание 10 минут, а не гонка", "«Поймать» кладёт в корзину и держит бронь 10 минут. Один таймер идёт через корзину и оплату, и бокс не уходит, пока гость вводит карту."],
+          ["ЕРИП даёт больше времени", "Оплата через ЕРИП дольше, поэтому при её выборе удержание продлевается до 20 минут. Если деньги пришли, когда бронь уже ушла, возврат автоматический."],
+          ["Корзина — это план вечера", "Брони стоят по времени, между ними путь пешком, экономия видна до оплаты."],
+          ["Получение — свайп на глазах у кассира", "Гость подтверждает получение на своём телефоне при кассире. До начала окна свайп закрыт, после конца — помогает «Помощь»."]
+        ]
+      },
     ]
   };
   const CASE_BASE = [
@@ -3521,9 +3854,10 @@ html{background:var(--paper)}
     {id:"dao", tpl:"tpl-dao", frame:"DAOLama / NFT → Loan → Wallet"},
     {id:"merch", tpl:"tpl-merch", frame:"TrxPay Merchant / Dashboard → Deposit"},
     {id:"bipbip", tpl:"tpl-bipbip", frame:"bipbip / Search → Service station → Booking"},
-    {id:"seat", tpl:"tpl-seat", frame:"mooon / Seat view in 3D / Desktop + Mobile"}
+    {id:"seat", tpl:"tpl-seat", frame:"mooon / Seat view in 3D / Desktop + Mobile"},
+    {id:"lavi", tpl:"tpl-lavi", frame:"LAVi / Feed → Box → Cart → Pay → Ticket"}
   ];
-  const ORDER = ["lumo","casino","seat","gateway","merch","mooon","portal","gift","kiosk","bipbip","wisp","dao"];
+  const ORDER = ["lumo","casino","seat","gateway","merch","mooon","portal","gift","kiosk","lavi","bipbip","wisp","dao"];
 
   /* Lab — add pieces to LAB. src: compressed mp4 (2–5 MB), muted loop. r: "9:16" or "16:9".
      Text fields take {en, ru}: {r:"9:16", src:"lab/promo.mp4", title:{en,ru}, task:{en,ru}, mine:{en,ru}, ai:{en,ru}, tools:["Kling","Figma"]} */
@@ -6445,6 +6779,265 @@ ${S(p+'el',130,100.89,.606,-.796,7,'#fff',.22)}${S(p+'er',390,100.89,-.606,-.796
     }
   };
 
+  /* ---------- ЛАВі: landing + catch → cart → pay → ticket ---------- */
+  const LVI = (() => {
+    const p = {
+      search:'M21 21l-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z', cv:'M19.5 8.25l-7.5 7.5-7.5-7.5', l:'M15.75 19.5 8.25 12l7.5-7.5',
+      x:'M6 18 18 6M6 6l12 12', ok:'M4.5 12.75l6 6 9-13.5', arr:'M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3', clock:'M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z',
+      bell:'M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0',
+      fire:'M15.362 5.214A8.252 8.252 0 0 1 12 21 8.25 8.25 0 0 1 6.038 7.047 8.287 8.287 0 0 0 9 9.601a8.983 8.983 0 0 1 3.361-6.867 8.21 8.21 0 0 0 3 2.48Z M12 18a3.75 3.75 0 0 0 .495-7.468 5.99 5.99 0 0 0-1.925 3.547 5.975 5.975 0 0 1-2.133-1.001A3.75 3.75 0 0 0 12 18Z',
+      card:'M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 0 0 2.25-2.25V6.75A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25v10.5A2.25 2.25 0 0 0 4.5 19.5Z',
+      ticket:'M16.5 6v.75m0 3v.75m0 3v.75m0 3V18m-9-5.25h5.25M7.5 15h3M3.375 5.25c-.621 0-1.125.504-1.125 1.125v3.026a2.999 2.999 0 0 1 0 5.198v3.026c0 .621.504 1.125 1.125 1.125h17.25c.621 0 1.125-.504 1.125-1.125v-3.026a2.999 2.999 0 0 1 0-5.198V6.375c0-.621-.504-1.125-1.125-1.125H3.375Z',
+      user:'M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z',
+      map:'M9 6.75V15m6-6v8.25m.503 3.498 4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 0 0-1.006 0L3.622 5.689C3.24 5.88 3 6.27 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0Z',
+      grid:'M3.75 6A2.25 2.25 0 0 1 6 3.75h2.25A2.25 2.25 0 0 1 10.5 6v2.25a2.25 2.25 0 0 1-2.25 2.25H6a2.25 2.25 0 0 1-2.25-2.25V6ZM3.75 15.75A2.25 2.25 0 0 1 6 13.5h2.25a2.25 2.25 0 0 1 2.25 2.25V18a2.25 2.25 0 0 1-2.25 2.25H6A2.25 2.25 0 0 1 3.75 18v-2.25ZM13.5 6a2.25 2.25 0 0 1 2.25-2.25H18A2.25 2.25 0 0 1 20.25 6v2.25A2.25 2.25 0 0 1 18 10.5h-2.25a2.25 2.25 0 0 1-2.25-2.25V6ZM13.5 15.75a2.25 2.25 0 0 1 2.25-2.25H18a2.25 2.25 0 0 1 2.25 2.25V18A2.25 2.25 0 0 1 18 20.25h-2.25A2.25 2.25 0 0 1 13.5 18v-2.25Z',
+      heart:'M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z',
+      share:'M9 8.25H7.5a2.25 2.25 0 0 0-2.25 2.25v9a2.25 2.25 0 0 0 2.25 2.25h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25H15m0-3-3-3m0 0-3 3m3-3V15',
+      lock:'M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z',
+      bank:'M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0 0 12 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75Z',
+      phone:'M10.5 1.5H8.25A2.25 2.25 0 0 0 6 3.75v16.5a2.25 2.25 0 0 0 2.25 2.25h7.5A2.25 2.25 0 0 0 18 20.25V3.75a2.25 2.25 0 0 0-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3',
+      help:'M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z',
+      star:'M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z'
+    };
+    const o = {}; for (const k in p) o[k] = `<svg class="i" viewBox="0 0 24 24"><path d="${p[k]}"/></svg>`; return o;
+  })();
+  const lvS = n => `assets/lv-${n}.png`;
+  const lvStk = (n, x, y, s, r=0) => `<img class="lv-stk" src="${lvS(n)}" alt="" style="left:${x}px;top:${y}px;width:${s}px;height:${s}px;transform:rotate(${r}deg)">`;
+  const lvT = s => { s = Math.max(0, s); return Math.floor(s/60) + ':' + String(s%60).padStart(2,'0'); };
+  function lvHTML(dev){
+    const I = LVI, D = dev === 'd';
+    const logo = `<span class="lv-logo" data-a="logo">ЛАВ<span class="sp">ı<svg viewBox="0 0 24 24"><path d="M12 0C12.6 6.6 17.4 11.4 24 12 17.4 12.6 12.6 17.4 12 24 11.4 17.4 6.6 12.6 0 12 6.6 11.4 11.4 6.6 12 0Z"/></svg></span></span>`;
+    if (D){
+      const oc = (x, y, r, bg, st, kick, t, np, op, sec, pill) => `<div class="lv-oc" style="left:${x}px;top:${y}px;transform:rotate(${r}deg)">
+        <div class="ph" style="background:var(${bg})">${st}<span class="lv-pill l"><i></i>${pill}</span></div>
+        <div class="k">${kick}</div><h4>${t}</h4>
+        <div class="rw"><span class="lv-pr">${np}<small>р.</small></span><span class="lv-old">${op} р.</span><span class="t">${I.clock}ещё <span data-t="${sec}">${lvT(sec)}</span></span></div></div>`;
+      const band = ('Люби ловить <b>✦</b> ЛАВі <b>✦</b> Еда <b>✦</b> Красота <b>✦</b> Кино <b>✦</b> Досуг <b>✦</b> Туры <b>✦</b> ').repeat(4);
+      const step = (n, h, p, s) => `<div class="lv-step" data-a="st${n}"><div class="n">${n}</div><h3>${h}</h3><p>${p}</p><img class="lv-stk" src="${lvS(s)}" alt=""></div>`;
+      return `<div class="lv lv-d">
+        <header class="lv-hd" data-a="hd">${logo}<nav><span data-a="nHow">Как это работает</span><span>Что поймать</span><span>Бизнесу</span><span>Вопросы</span></nav><span class="lv-btn dk s" data-a="hFirst"><span>Хочу первым</span>${I.arr}</span></header>
+        <div class="lv-pg" data-a="pg">
+          <section class="lv-hero">
+            <div class="tx"><span class="lv-chip"><i></i>Скоро в Минске</span>
+              <h1>Горящие предложения города — <em>в одном приложении</em></h1>
+              <p>Еда к закрытию, отменённые записи у мастеров, кресла перед сеансом и горящие туры — со скидкой и таймером.</p>
+              <div class="acts"><span class="lv-btn dk"><span>Хочу первым</span>${I.arr}</span><span class="lv-btn ol"><span>Стать партнёром</span></span></div></div>
+            <div class="lv-fan">
+              ${oc(250, 0, 5, '--c-bea', lvStk('polish', 92, 18, 116, 8), 'Окошки у мастеров', 'Маникюр после отмены', '33', '55', 3160, 'Освободилось 12 мин назад')}
+              ${oc(0, 96, -6, '--c-bak', lvStk('croissant', 40, 22, 104, -10) + lvStk('donut', 150, 30, 96, 12), 'Еда к закрытию', 'Бокс из пекарни', '6,50', '18', 2292, 'Осталось 3')}
+              ${oc(214, 318, -2, '--c-cin', lvStk('popcorn', 96, 16, 118, 6), 'Кино за 27 мин до сеанса', 'Кресло перед сеансом', '8', '16', 1625, 'Сеанс в 21:40')}
+              ${lvStk('suitcase', 470, 250, 96, 14)}${lvStk('bowling', -10, 500, 84, -12)}
+            </div>
+            <div class="lv-band"><div>${band}${band}</div></div>
+          </section>
+          <section class="lv-how"><h2>Три касания — <em>и готово</em></h2>
+            <div class="lv-steps">
+              ${step(1, 'Видишь горящее рядом', 'Лента и карта: цена, скидка и сколько осталось времени.', 'loaf')}
+              ${step(2, 'Ловишь и платишь', 'Картой или через ЕРИП прямо в приложении — бокс, окошко или кресло сразу твои.', 'popcorn')}
+              ${step(3, 'Приходишь по коду', 'В кафе, у мастера или на входе в зал. Без звонков и переписок.', 'palm')}
+            </div><div class="lv-howcta"><span class="lv-btn" data-a="hFirst2"><span>Хочу первым</span>${I.arr}</span><span>Запуск в Минске — скоро</span></div></section>
+          <section class="lv-wl"><h2>Запуск в Минске — <em>скоро</em></h2>
+            <p class="l">Оставь контакт — позовём первыми. Без спама, напишем только о запуске.</p>
+            <div class="lv-wf" data-a="wf"><div class="lv-seg"><span class="on" data-a="sg0">Хочу ловить</span><span data-a="sg1">У меня бизнес</span></div>
+              <div class="lv-in"><div class="lv-fld" data-a="em"><span class="val" data-ph="Почта"></span><i class="car"></i></div><span class="lv-btn" data-a="go"><span>Хочу первым</span></span></div>
+              <div class="fine">Только письмо о запуске. Отписаться — в один клик.</div></div>
+            <div class="lv-wok" data-a="wok"><span class="c">${I.ok}</span><div><b>Готово — позовём первыми</b><small>Напишем на mail@example.com, как только откроемся в Минске</small></div></div>
+            ${lvStk('croissant', 1060, 150, 190, -12)}${lvStk('suitcase', 1200, 380, 160, 10)}${lvStk('popcorn', 960, 470, 170, 6)}
+          </section>
+        </div>
+        <span class="sx-cur" style="transform:translate(1180px,760px)"><svg viewBox="0 0 22 22"><path d="M2 2l7.5 18 2.6-7.4L19.5 10z" fill="#fff" stroke="#0B0B12" stroke-width="1.4" stroke-linejoin="round"/></svg></span>
+      </div>`;
+    }
+    const tabs = on => `<nav class="lv-tab">${[['grid','Лента'],['map','Карта'],['ticket','Брони'],['user','Профиль']].map((t,k)=>`<span class="${k===on?'on':''}">${I[t[0]]}${t[1]}${k===2?'<b data-a="bdg">1</b>':''}</span>`).join('')}</nav>`;
+    const cat = (n, t, bg) => `<span class="lv-cat"><i style="background:var(${bg})"><img src="${lvS(n)}" alt=""></i>${t}</span>`;
+    const card = (a, bg, st, l, r, pi, pc, pn, t, tm, np, op) => `<div class="lv-card" data-a="${a}"><div class="ph" style="background:var(${bg})">${st}<span class="lv-pill l"><i></i>${l}</span><span class="lv-pill dc r">${r}</span></div>
+      <div class="bo"><div class="pn"><i style="background:${pc}">${pi}</i>${pn}</div><h4>${t}</h4>
+      <div class="rw"><span class="t">Забрать<b>${tm}</b></span><span class="p"><span class="lv-old">${op} р.</span><span class="lv-pr">${np}<small>р.</small></span></span></div></div></div>`;
+    const hold = `<span data-h>10:00</span>`;
+    return `<div class="lv lv-m"><div class="lv-sbar w" data-a="sbar"><b>19:41</b><span><i></i><i></i><i></i><i></i><em></em></span></div>
+      <section class="lv-v on" data-v="feed"><span class="lv-cap"></span><div class="lv-sc" data-a="fsc">
+        <div class="lv-feedhd"><small>Забрать рядом с</small><b>ул. Немига, 12${I.cv}</b><span class="bl">${I.bell}</span>
+          <div class="lv-srch">${I.search}Кофейня, мастер или фильм</div></div>
+        <div class="lv-cats">${cat('croissant','Еда','--c-bak')}${cat('polish','Красота','--c-bea')}${cat('popcorn','Кино','--c-cin')}${cat('suitcase','Туры','--c-tra')}${cat('bowling','Досуг','--c-bre')}</div>
+        <div class="lv-soon"><div class="k"><i></i>Скоро в продаже</div><h4>«Мякиш» выставит 6 боксов</h4><small>Пекарня · 1,2 км</small>
+          <div class="bt"><div><small>Старт в 20:30, через</small><b data-t="2922">48:42</b></div><span class="lv-btn am" data-a="rem">${I.bell}<span>Напомнить</span></span></div></div>
+        <div class="lv-sh"><h3>Горит прямо сейчас</h3><small>Все 48</small></div>
+        <div class="lv-rail">
+          ${card('c0', '--c-bak', lvStk('loaf', 16, 22, 96, -8) + lvStk('croissant', 112, 18, 92, 10) + lvStk('donut', 182, 52, 66, -6), 'Осталось 3', '−67%', 'К', '#3B2416', 'Корица · 450 м', 'Бокс выпечки', '19:30–20:00', '7,90', '24')}
+          ${card('c1', '--c-bea', lvStk('polish', 84, 16, 100, 6), 'Окошко', '−40%', 'Л', '#2F4B3A', 'Студия «Лак» · 600 м', 'Маникюр с покрытием', '21:00', '33', '55')}
+        </div><div style="height:140px"></div></div>
+        ${tabs(0)}</section>
+      <section class="lv-v" data-v="box"><span class="lv-cap" style="background:var(--c-bak)"></span><div class="lv-sc" data-a="bsc">
+        <div class="lv-hro"><span class="nb l">${I.l}</span><span class="nb r">${I.heart}</span>
+          ${lvStk('loaf', 30, 104, 150, -10)}${lvStk('croissant', 160, 84, 150, 8)}${lvStk('donut', 280, 150, 96, -6)}
+          <span class="lv-pill"><i></i>Осталось 3 из 6</span><span class="lv-pill dc">−67%</span></div>
+        <div class="lv-sheet"><div class="lv-pt"><i style="background:#3B2416">К</i><div><b>Корица</b><small>Пекарня · ${I.star}4,8 · 312 оценок</small></div><span class="lv-btn">Место</span></div>
+          <h1>Бокс выпечки</h1><p>Сюрприз из сегодняшней витрины: 3–5 позиций от 600 г. Точный состав зависит от того, что осталось к вечеру.</p>
+          <div class="lv-win"><div class="r"><span>Забрать сегодня<b>19:30–20:00</b></span><span class="rt">Окно открыто<b>ещё 19 мин</b></span></div><div class="lv-bar"><i></i><em></em></div></div>
+          <div class="lv-inc"><h3>Что обычно внутри</h3><div><span>Круассаны</span><span>Хлеб</span><span>Пончики</span><span>Слойки</span></div></div>
+        </div></div>
+        <div class="lv-buy"><div class="p"><span class="lv-old">24 р.</span><span class="lv-pill dc">−67%</span><span class="lv-pr">7,90<small>р.</small></span></div><span class="lv-btn" data-a="catch"><span>Поймать бокс</span>${I.arr}</span></div>
+        <div class="lv-dim" data-a="dim"></div>
+        <div class="lv-bs" data-a="bs"><div class="gr"></div>
+          <div class="hd"><span class="c">${I.ok}</span><div><b>Добавлено в корзину</b><small>Держим бронь ещё ${hold}</small></div></div>
+          <div class="k">Успеешь по пути</div>
+          <div class="lv-sug"><span class="ti"><img src="${lvS('polish')}" alt=""></span><div><b>Маникюр в 21:00</b><small>${I.map}600 м · 33 р. · −40%</small></div><span class="lv-btn s" data-a="sug"><span>Поймать</span></span></div>
+          <div class="two"><span class="lv-btn gh">Ещё горящее</span><span class="lv-btn" data-a="toCart"><span>В корзину</span></span></div></div>
+      </section>
+      <section class="lv-v" data-v="cart"><div class="lv-nav"><span class="bk">${I.l}</span><b>Корзина</b></div>
+        <div class="lv-hold" data-a="hold1">${I.clock}<div><b>Держим брони</b><small>Оплати, пока таймер идёт</small></div><em data-h>10:00</em></div>
+        <div class="lv-plan"><h3>План вечера</h3><small>Сегодня · 2 брони</small>
+          <div class="lv-it"><span class="tm">19:30<small>до 20:00</small></span><span class="ti" style="background:var(--c-bak)"><img src="${lvS('croissant')}" alt=""></span><div class="d"><b>Бокс выпечки</b><small>Корица · 450 м</small></div><span class="p"><span class="lv-old">24 р.</span>7,90 р.</span></div>
+          <div class="lv-walk">${I.map}8 мин пешком · запас 1 ч</div>
+          <div class="lv-it"><span class="tm">21:00<small>до 22:30</small></span><span class="ti" style="background:var(--c-bea)"><img src="${lvS('polish')}" alt=""></span><div class="d"><b>Маникюр</b><small>Студия «Лак» · 600 м</small></div><span class="p"><span class="lv-old">55 р.</span>33 р.</span></div></div>
+        <div class="lv-sav">Экономия за вечер<b>38,10 р.</b></div>
+        <div class="lv-tot"><div><small>Итого</small><span class="lv-pr">40,90<small>р.</small></span></div><span class="lv-btn" data-a="toPay"><span>К оплате</span>${I.arr}</span></div></section>
+      <section class="lv-v" data-v="pay"><div class="lv-nav"><span class="bk">${I.l}</span><b>Оплата</b></div>
+        <div class="lv-hold" data-a="hold2">${I.clock}<div><b>Держим брони</b><small data-a="holdN">Оплати, пока таймер идёт</small></div><em data-h>10:00</em></div>
+        <div class="lv-meth">
+          <div class="lv-mt on" data-a="mCard"><span class="ic">${I.card}</span><div><b>Карта •• 4242</b><small>Сохранена в приложении</small></div><span class="rd"></span></div>
+          <div class="lv-mt" data-a="mErip"><span class="ic">${I.bank}</span><div><b>ЕРИП</b><small>Через банк или кассу</small><span class="nt">Держим бронь 20 минут, пока идёт оплата</span></div><span class="rd"></span></div>
+          <div class="lv-mt"><span class="ic">${I.phone}</span><div><b>Apple Pay</b><small>Одним касанием</small></div><span class="rd"></span></div></div>
+        <div class="lv-sum"><div>Бокс выпечки · Корица<b>7,90 р.</b></div><div>Маникюр · Студия «Лак»<b>33 р.</b></div><div class="s">Экономия<b>−38,10 р.</b></div></div>
+        <div class="lv-sec">${I.lock}Защищённая оплата</div>
+        <div class="lv-tot"><div><small>2 брони</small><span class="lv-pr">40,90<small>р.</small></span></div><span class="lv-btn" data-a="pay"><span data-a="payT">Оплатить картой</span></span></div></section>
+      <section class="lv-v tk" data-v="tk"><div class="lv-tkh"><div class="top"><i>${I.x}</i>Заказ ЛВ-4827<i>${I.help}</i></div><h1 data-a="tkH">Бокс твой!</h1><small>Выдача до 20:00 · покажи код на кассе</small></div>
+        <div class="lv-tkt" data-a="tkt"><div class="a"><div class="lv-pt"><i style="background:#3B2416">К</i><div><b>Корица</b><small>Бокс выпечки · 7,90 р.</small></div><span class="lv-pill ok">${I.ok}Оплачено</span></div>
+          <div class="lv-ws"><span>Выдача с<b>19:30</b></span><span class="lv-wm"></span><span class="lv-wr">до<b>20:00</b></span></div></div>
+          <div class="cut"></div><div class="b"><div class="qr">${csQR()}</div><div class="cd">ЛВ-4827</div><small>Код один на заказ</small></div></div>
+        <div class="lv-sw" data-a="sw"><span class="fl" data-a="swf"></span><span class="tx" data-a="swt">Смахни, когда получишь бокс</span><span class="kn" data-a="kn">${I.arr}</span></div>
+        <div class="lv-tkf" data-a="tkf">Свайп — при кассире, отменить его нельзя</div>
+        <div class="lv-got" data-a="got"><span class="c">${I.ok}</span><div><b>Получено</b><small>Экономия за вечер — <em>38,10 р.</em></small></div></div></section>
+      <span class="sx-tap"></span></div>`;
+  }
+  ENGINES.lavi = async stage => {
+    const dW = stage.querySelector('.scr.desk'), mW = stage.querySelector('.scr.mob');
+    const render = () => { dW.firstElementChild.innerHTML = lvHTML('d'); mW.firstElementChild.innerHTML = lvHTML('m'); };
+    render(); sxFit(stage);
+    let D, M, K, gen = 0, hs = 600;
+    const bind = () => { D = dW.querySelector('.lv'); M = mW.querySelector('.lv'); K = sxKit(stage, D, M); };
+    bind();
+    if (reduce) return;
+    const E = 'cubic-bezier(.2,.8,.2,1)', IO = 'cubic-bezier(.65,0,.25,1)';
+    const an = (el, kf, ms, o={}) => el.animate(kf, Object.assign({duration:ms*TEMPO, easing:E, fill:'forwards'}, o));
+    const q = (R, s) => R.querySelector(`[data-a="${s}"]`);
+    const d = s => q(D, s), m = s => q(M, s);
+    /* live timers: offer countdowns tick every second; the cart hold ticks from the moment the box is caught */
+    let holdOn = false;
+    const ticker = async g => {
+      while (g === gen && stage.isConnected){
+        await wait(stage, 1000/TEMPO); if (g !== gen) return;
+        [D, M].forEach(R => R.querySelectorAll('[data-t]').forEach(el => { const s = +el.dataset.t - 1; el.dataset.t = s; el.textContent = lvT(s); }));
+        if (holdOn){ hs--; M.querySelectorAll('[data-h]').forEach(el => el.textContent = lvT(hs)); }
+      }
+    };
+    const setHold = s => { hs = s; M.querySelectorAll('[data-h]').forEach(el => el.textContent = lvT(hs)); };
+    const view = async (to, how='push') => {
+      const A = M.querySelector('.lv-v.on'), B = M.querySelector(`.lv-v[data-v="${to}"]`);
+      B.classList.add('on'); B.style.zIndex = 3;
+      m('sbar').classList.toggle('w', to === 'feed' || to === 'tk');
+      if (how === 'push'){
+        an(A, [{transform:'translateX(0)', filter:'brightness(1)'},{transform:'translateX(-30%)', filter:'brightness(.6)'}], 640, {fill:'none'});
+        await done(an(B, [{transform:'translateX(100%)'},{transform:'translateX(0)'}], 640, {fill:'none'}));
+      } else {
+        await done(an(B, [{opacity:0, transform:'translateY(24px)'},{opacity:1, transform:'none'}], 560, {fill:'none'}));
+      }
+      A.classList.remove('on'); B.style.zIndex = '';
+    };
+    const tapM = async el => { K.tap(el); K.ripple(el); await wait(stage, 220); };
+    const typeIn = async (el, t, sp=60) => { const v = el.querySelector('.val'); for (const ch of t){ v.textContent += ch; await wait(stage, sp*(.6+Math.random()*.8)); } };
+    const scrollPg = (y, ms=1100) => done(an(d('pg'), [{transform:getComputedStyle(d('pg')).transform}, {transform:`translateY(${-y}px)`}], ms, {easing:IO}));
+    const desk = async () => {
+      await wait(stage, 900);
+      const lg = d('logo'); lg.classList.add('tw'); setTimeout(() => lg.classList.remove('tw'), 1500);
+      await wait(stage, 1500);
+      await K.move(d('nHow'), 720); d('nHow').classList.add('hov');
+      await wait(stage, 300);
+      await K.click(d('nHow'), null, {press:false, ms:200});
+      d('hd').style.background = '#FFF8F0'; d('hd').style.boxShadow = '0 1px 0 #E9E4DE';
+      await scrollPg(900);
+      d('nHow').classList.remove('hov');
+      [1,2,3].forEach(n => an(d('st'+n), [{opacity:0, transform:'translateY(26px)'},{opacity:1, transform:'none'}], 620, {delay:(n-1)*140*TEMPO, fill:'backwards'}));
+      await wait(stage, 1200);
+      const s2 = d('st2'); await K.move(s2, 700);
+      an(s2, [{transform:'none'},{transform:'translateY(-6px)'}], 400);
+      await wait(stage, 1700);
+      an(s2, [{transform:'translateY(-6px)'},{transform:'none'}], 300);
+      await K.click(d('hFirst2'), null, {ms:720});
+      await scrollPg(1540, 1200);
+      await wait(stage, 500);
+      await K.click(d('em'), null, {press:false, ms:700});
+      d('em').classList.add('focus');
+      await typeIn(d('em'), 'mail@example.com', 70);
+      await wait(stage, 300);
+      d('em').classList.remove('focus');
+      await K.click(d('go'), null, {ms:600}); d('go').classList.add('loading');
+      await wait(stage, 1000);
+      await done(an(d('wf'), [{opacity:1},{opacity:0, transform:'translateY(-10px)'}], 360));
+      const ok = d('wok'); an(ok, [{opacity:0, transform:'translateY(16px)'},{opacity:1, transform:'none'}], 560);
+      an(ok.firstElementChild, [{transform:'scale(0)'},{transform:'scale(1.15)', offset:.6},{transform:'scale(1)'}], 560, {easing:'cubic-bezier(.3,1.5,.5,1)', fill:'none'});
+      await K.move(null, 0);
+    };
+    const mob = async () => {
+      await wait(stage, 1600);
+      const r = m('rem'); await tapM(r);
+      r.classList.add('done'); r.querySelector('span:not(.rp)').textContent = 'Напомним';
+      await wait(stage, 800);
+      await done(an(m('fsc'), [{transform:'translateY(0)'},{transform:'translateY(-252px)'}], 900, {easing:IO}));
+      await wait(stage, 500);
+      await tapM(m('c0'));
+      await view('box');
+      await wait(stage, 900);
+      await done(an(m('bsc'), [{transform:'translateY(0)'},{transform:'translateY(-150px)'}], 900, {easing:IO}));
+      await wait(stage, 700);
+      await tapM(m('catch'));
+      holdOn = true; setHold(600);
+      m('dim').classList.add('on');
+      await done(an(m('bs'), [{transform:'translateY(105%)'},{transform:'translateY(0)'}], 560));
+      await wait(stage, 1400);
+      const sg = m('sug'); await tapM(sg);
+      sg.classList.add('done'); sg.firstElementChild.textContent = 'В корзине';
+      an(sg, [{transform:'scale(1)'},{transform:'scale(1.06)', offset:.4},{transform:'scale(1)'}], 420, {fill:'none'});
+      await wait(stage, 900);
+      await tapM(m('toCart'));
+      await view('cart');
+      await wait(stage, 1700);
+      await tapM(m('toPay'));
+      await view('pay');
+      await wait(stage, 1000);
+      const er = m('mErip'); await tapM(er);
+      m('mCard').classList.remove('on'); er.classList.add('on');
+      m('payT').textContent = 'Оплатить через ЕРИП';
+      await wait(stage, 500);
+      setHold(1194); m('holdN').textContent = 'ЕРИП: держим до 20 минут';
+      m('hold2').classList.remove('flash'); void m('hold2').offsetWidth; m('hold2').classList.add('flash');
+      await wait(stage, 1700);
+      const p = m('pay'); await tapM(p); p.classList.add('loading');
+      await wait(stage, 1400);
+      holdOn = false;
+      await view('tk', 'fade');
+      const b = m('bdg'); if (b) b.classList.add('on');
+      await wait(stage, 1600);
+      /* swipe in front of the cashier */
+      const kn = m('kn'), sw = m('sw'), dx = sw.offsetWidth - kn.offsetWidth - 8;
+      await tapM(kn);
+      an(m('swt'), [{opacity:1},{opacity:0}], 500);
+      an(m('swf'), [{opacity:0, width:'60px'},{opacity:.35, width:sw.offsetWidth + 'px'}], 900, {easing:IO});
+      await done(an(kn, [{transform:'translateX(0)'},{transform:`translateX(${dx}px)`}], 900, {easing:IO}));
+      sw.classList.add('ok'); kn.innerHTML = LVI.ok; m('swt').textContent = 'Получено'; an(m('swt'), [{opacity:0},{opacity:1}], 300);
+      m('tkt').classList.add('used'); m('tkH').textContent = 'Приятного вечера!';
+      an(m('tkf'), [{opacity:1},{opacity:0}], 300);
+      const g = m('got'); an(g, [{opacity:0, transform:'translateY(20px)'},{opacity:1, transform:'none'}], 560);
+    };
+    for(;;){
+      const g = ++gen; holdOn = false; hs = 600; ticker(g);
+      await Promise.all([desk(), mob()]);
+      await wait(stage, 3600);
+      await Promise.all([D, M].map(R => done(an(R, [{opacity:1},{opacity:0}], 450))));
+      render(); bind();
+      await Promise.all([D, M].map(R => done(an(R, [{opacity:0},{opacity:1}], 450, {fill:'none'}))));
+    }
+  };
   /* Solo screens: the frame must never stay empty. If the screen is not painted
      (zero size, stuck at opacity 0, engine error), restart the stage from its first screen. */
   function soloPainted(node){
