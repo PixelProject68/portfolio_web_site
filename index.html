@@ -228,7 +228,7 @@ html{background:var(--paper)}
 .channel b{font-weight:500;font-size:var(--t-b)}
 .channel .arr{color:var(--ink-3);transition:transform .25s var(--ease),color .2s}
 .channel:hover .arr{color:var(--select);transform:translate(2px,-2px)}
-.contact p{margin-top:clamp(18px,1.6vw,40px);color:var(--ink-2);max-width:52ch}
+.contact p{margin-top:clamp(18px,1.6vw,40px);color:var(--ink-2);max-width:none;text-wrap:balance}
 .foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-block:24px 32px;border-top:1px solid var(--line)}
 .toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);background:var(--ink);color:var(--paper);font-size:var(--t-s);padding:10px 16px;border-radius:99px;opacity:0;transition:opacity .2s,transform .3s var(--ease);pointer-events:none;z-index:200}
 .toast.on{opacity:1;transform:translate(-50%,0)}
@@ -4467,7 +4467,7 @@ html{background:var(--paper)}
         <div class="dl-lab" style="margin-top:34px">Срок</div>
         <div class="dl-terms" data-a="terms"><span>7 дней</span><span class="on">14 дней</span><span>30 дней</span><span>60 дней</span></div>
         <div class="dl-sum"><div><span>Ставка</span><b data-a="rate">2,1% за 14 дней</b></div><div><span>Вернуть до</span><b data-a="due">30 октября 2026</b></div><div><span>Комиссия сервиса</span><b style="color:var(--gr)">0 TON</b></div><div class="big"><span>К возврату</span><b data-a="back">19,30 TON</b></div></div>
-        <div class="dl-how"><h5>Как это работает</h5><ol><li><i>1</i><span><b>NFT блокируется в смарт-контракте</b><small>Он остаётся вашим, но его нельзя продать до возврата займа</small></span></li><li><i>2</i><span><b>TON приходят на кошелёк сразу</b><small>Без проверок и ожидания, комиссия сервиса — 0 TON</small></span></li><li><i>3</i><span><b>Вернёте займ — NFT разблокируется</b><small>Досрочно можно в любой момент, ставка пересчитается</small></span></li></ol></div>
+        <div class="dl-how"><h5>Как это работает</h5><ol><li><i>1</i><span><b>NFT блокируется в смарт-контракте</b><small>Остаётся вашим, но продать до возврата займа нельзя</small></span></li><li><i>2</i><span><b>TON приходят на кошелёк сразу</b><small>Без проверок и ожидания, комиссия сервиса — 0 TON</small></span></li><li><i>3</i><span><b>Вернёте займ — NFT разблокируется</b><small>Досрочно можно в любой момент, ставка пересчитается</small></span></li></ol></div>
         <span class="dl-go press" data-a="get"><span>Получить <span data-a="getv">18,90</span> TON</span><i class="sp"></i></span>
       </aside>
       <div class="dl-wm" data-a="wm"><div class="dl-ask"><span class="wl">${DI.ton}</span><h4>Подтвердите в кошельке</h4><p>Смарт-контракт DAOLama примет NFT в залог</p>
