@@ -112,24 +112,18 @@ svg.i.is{fill:currentColor;stroke:none}
 .h-go{display:flex;align-items:center;gap:clamp(16px,1.4vw,32px);flex-wrap:wrap;margin-top:clamp(32px,2.8vw,72px)}
 .h-go .note{max-width:24em}
 .fan{grid-column:7/13;position:relative;height:clamp(440px,min(calc(100svh - var(--hd) - 150px),46vw),1120px);perspective:1800px;touch-action:pan-y;user-select:none;-webkit-user-select:none}
-.fan-in{position:absolute;inset:7% 0 22%;transform:rotateY(var(--ry,0deg)) rotateX(var(--rx,0deg));transition:transform .8s var(--ease)}
+.fan-in{position:absolute;inset:3% 0 22%;transform:rotateY(var(--ry,0deg)) rotateX(var(--rx,0deg));transition:transform .8s var(--ease)}
 .fc{position:absolute;height:100%;aspect-ratio:3/4;left:50%;top:0;padding:0;border-radius:var(--r-l);overflow:hidden;cursor:pointer;background:#111;box-shadow:0 30px 70px rgba(0,0,0,.55),0 0 0 1px rgba(255,255,255,.12);transform:perspective(1400px) translateX(-50%) translateX(var(--x)) translateY(var(--y)) translateY(var(--hy,0px)) rotate(var(--r)) translateZ(var(--z)) rotateX(var(--tx,0deg)) rotateY(var(--ty,0deg)) scale(var(--sc,1)) scale(var(--ps,1));z-index:var(--zi);opacity:0;transition:transform .8s cubic-bezier(.22,1.12,.36,1),opacity .8s var(--ease),filter .45s,box-shadow .45s;transition-delay:var(--d,0s);filter:brightness(var(--br,1)) saturate(var(--sa,1));text-align:left;color:#fff;-webkit-tap-highlight-color:transparent}
 .fc.tilt{transition:transform .18s ease-out,opacity .8s,filter .45s,box-shadow .45s}
 .fc:active{--ps:.97}
-@media (hover:hover){.fc:not(.c0):hover{--hy:-20px!important;--br:1!important;--sa:1!important;box-shadow:0 40px 80px rgba(0,0,0,.6),0 0 0 1.5px rgba(240,107,242,.7),0 0 40px -6px rgba(214,59,217,.6)}}
+@media (hover:hover){.fc.c0:hover{box-shadow:0 46px 100px rgba(0,0,0,.65),0 0 0 1px rgba(255,255,255,.2),0 0 70px -6px rgba(214,59,217,.6)}.fc:not(.c0):hover{--hy:-20px!important;--br:1!important;--sa:1!important;box-shadow:0 40px 80px rgba(0,0,0,.6),0 0 0 1.5px rgba(240,107,242,.7),0 0 40px -6px rgba(214,59,217,.6)}}
 .ready .fc{opacity:1}
 .js:not(.ready) .fc{transform:translateX(-50%) translateY(40px)}
 .fc img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
 .fc::after{content:"";position:absolute;inset:38% 0 0;background:linear-gradient(180deg,transparent,rgba(10,6,16,.55) 35%,rgba(10,6,16,.94));pointer-events:none}
-/* зеркальная рамка карточек */
-.fc{border:clamp(1.5px,.12vw,2.5px) solid transparent;background:linear-gradient(#111,#111) padding-box,linear-gradient(140deg,#FFFFFF 0%,#F6C9F2 14%,rgba(160,110,170,.35) 30%,#FFE6FB 46%,rgba(120,80,140,.3) 62%,#F9D2F5 78%,#FFFFFF 100%) border-box}
-.fc img{position:absolute;inset:0;border-radius:calc(var(--r-l) - 2px)}
-.fc::before{content:"";position:absolute;inset:0;z-index:1;border-radius:inherit;pointer-events:none;background:linear-gradient(118deg,rgba(255,255,255,.22) 0%,rgba(255,255,255,.04) 22%,transparent 40%,transparent 72%,rgba(255,255,255,.07) 100%);box-shadow:inset 0 1px 0 rgba(255,255,255,.45),inset 0 0 0 1px rgba(255,255,255,.08)}
-.fc .shn{position:absolute;inset:0;z-index:1;overflow:hidden;border-radius:inherit;pointer-events:none}
-.fc .shn::after{content:"";position:absolute;top:-30%;bottom:-30%;left:-70%;width:45%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.28),transparent);transform:skewX(-18deg);transition:left 1.1s cubic-bezier(.2,.7,.1,1)}
-@media (hover:hover){.fc:hover .shn::after{left:130%}}
-.fc.c0 .shn::after{animation:shnc 5s ease-in-out infinite}
-@keyframes shnc{0%,62%{left:-70%}100%{left:130%}}
+/* тонкая металлическая рамка, как на аффилиатке */
+.fc{border:1px solid transparent;background:linear-gradient(#111,#111) padding-box,linear-gradient(180deg,rgba(255,255,255,.42) 0%,rgba(255,255,255,.1) 30%,rgba(255,255,255,.06) 60%,rgba(255,214,196,.55) 100%) border-box}
+.fc img{position:absolute;inset:0;border-radius:calc(var(--r-l) - 1px)}
 .fc.c0{box-shadow:0 40px 90px rgba(0,0,0,.6),0 0 0 1px rgba(255,255,255,.14),0 0 60px -10px rgba(214,59,217,.45)}
 .fc-top,.fc-bt{position:absolute;z-index:2;left:clamp(12px,1.1vw,22px);right:clamp(12px,1.1vw,22px)}
 .fc-top{top:clamp(12px,1.1vw,22px);display:flex;justify-content:space-between;gap:6px}
@@ -143,14 +137,6 @@ svg.i.is{fill:currentColor;stroke:none}
 .pill.pr{background:var(--mgrad);color:#fff;box-shadow:0 8px 20px -6px rgba(214,59,217,.8),inset 0 1px 0 rgba(255,255,255,.35)}
 .pill.nw{background:linear-gradient(135deg,#9CCBFF,#5C95FF);color:#0B0D12}
 .pill i.on{width:7px;height:7px;border-radius:50%;background:#3DD08F;box-shadow:0 0 0 3px rgba(61,208,143,.22)}
-.fan-nav{position:absolute;top:0;left:50%;transform:translateX(-50%);z-index:8;display:flex;align-items:center;gap:clamp(10px,.8vw,16px)}
-.fnb{width:clamp(34px,2.2vw,44px);height:clamp(34px,2.2vw,44px);border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.05);box-shadow:inset 0 0 0 1px rgba(255,255,255,.14);color:var(--fg);transition:background .3s,box-shadow .3s,transform .4s cubic-bezier(.3,1.5,.5,1)}
-.fnb svg{width:45%;height:45%;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-@media (hover:hover){.fnb:hover{background:rgba(214,59,217,.18);box-shadow:inset 0 0 0 1px rgba(240,107,242,.7)}}
-.fnb:active{transform:scale(.9)}
-.fdots{display:flex;gap:6px}
-.fdots button{width:8px;height:8px;border-radius:4px;background:rgba(255,255,255,.22);transition:width .45s cubic-bezier(.3,1.3,.5,1),background .3s}
-.fdots button.on{width:26px;background:var(--mgrad)}
 .duo{position:absolute;left:12%;right:12%;bottom:0;display:flex;flex-direction:column;justify-content:flex-end;gap:clamp(8px,.6vw,12px);z-index:6}
 .duo::before{content:"";position:absolute;inset:-60% -18% -30%;z-index:-1;background:radial-gradient(55% 60% at 50% 62%,rgba(8,6,12,.92),rgba(8,6,12,.55) 55%,transparent 75%);pointer-events:none}
 .dm{display:flex;align-items:flex-end;gap:10px}
@@ -168,7 +154,7 @@ svg.i.is{fill:currentColor;stroke:none}
 .dots i:nth-child(2){animation-delay:.15s}.dots i:nth-child(3){animation-delay:.3s}
 @keyframes dot{0%,60%,100%{opacity:.3;transform:none}30%{opacity:1;transform:translateY(-3px)}}
 .gem{display:inline-block;width:1.15em;height:1em;vertical-align:-.14em;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 28'%3E%3Cg stroke='%23fff' stroke-opacity='.5' stroke-width='.6' stroke-linejoin='round'%3E%3Cpath d='M1 10 9 2l2 8z' fill='%23F59BF0'/%3E%3Cpath d='M9 2h7l-5 8z' fill='%23FFE3FD'/%3E%3Cpath d='M16 2h7l-2 8z' fill='%23FBC5F8'/%3E%3Cpath d='M16 2l5 8H11z' fill='%23F5ACF2'/%3E%3Cpath d='M23 2l8 8h-10z' fill='%23D65CDA'/%3E%3Cpath d='M1 10h10l5 17z' fill='%23C23FCF'/%3E%3Cpath d='M11 10h10l-5 17z' fill='%23EC86EE'/%3E%3Cpath d='M21 10h10L16 27z' fill='%237A289A'/%3E%3C/g%3E%3Cpath d='M26 1.2l.6 1.7 1.7.6-1.7.6-.6 1.7-.6-1.7-1.7-.6 1.7-.6z' fill='%23fff'/%3E%3C/svg%3E") center/contain no-repeat;filter:drop-shadow(0 0 .25em rgba(240,107,242,.55))}
-.chip-p{position:absolute;z-index:5;right:-2%;top:6%;display:flex;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;background:var(--mgrad);color:#fff;font-weight:600;font-size:var(--t-s);box-shadow:0 16px 40px -8px rgba(214,59,217,.6);transform:translateZ(120px);animation:bob 4s ease-in-out infinite}
+.chip-p{pointer-events:none;position:absolute;z-index:5;right:-2%;top:6%;display:flex;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;background:var(--mgrad);color:#fff;font-weight:600;font-size:var(--t-s);box-shadow:0 16px 40px -8px rgba(214,59,217,.6);transform:translateZ(120px);animation:bob 4s ease-in-out infinite}
 @keyframes bob{50%{translate:0 -8px}}
 
 /* ── окно продукта (02) ── */
@@ -255,9 +241,6 @@ svg.i.is{fill:currentColor;stroke:none}
 .bfc .tmr svg.i{width:1.1em;height:1.1em}
 .bfc .tmr b{font-weight:600;font-variant-numeric:tabular-nums}
 .bfc .go{position:absolute;left:10px;right:10px;bottom:10px;display:flex;align-items:center;justify-content:space-between;height:clamp(40px,2.6vw,50px);padding:0 6px 0 14px;border-radius:999px;background:rgba(24,10,32,.55);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:inset 0 0 0 1.5px rgba(255,139,240,.8),0 0 24px -4px rgba(214,59,217,.8);font-family:var(--pf);font-weight:700;font-size:clamp(11px,.7vw,15px);color:#fff}
-.bfc .go .gt2{display:grid;line-height:1.15}
-.bfc .go .gt2 em{font-style:normal;font-family:var(--m);font-weight:400;font-size:.74em;letter-spacing:.04em;color:#F3C7F4}
-.bfc .go .gt2 b{font-weight:500;font-variant-numeric:tabular-nums}
 .bfc .go i{width:clamp(24px,1.6vw,32px);height:clamp(24px,1.6vw,32px);border-radius:50%;display:grid;place-items:center;background:var(--mgrad)}
 .bfc .go svg.i{width:55%;height:55%}
 .pf{padding:0;gap:clamp(12px,.9vw,16px);overflow:hidden}
@@ -652,11 +635,11 @@ dialog.cvd::backdrop{background:rgba(5,6,8,.7);backdrop-filter:blur(6px);-webkit
       <p class="h-sub rv"><b>Денис, Senior Product Designer с 2019 года.</b> Специализируюсь на монетизации: пейволлы, подписки, токены. Последние проекты — AI-продукты, прототипирую сразу в коде.</p>
       <div class="h-go rv">
         <a class="lnk pri" href="#s2">Смотреть по шагам <span class="ar">→</span></a>
-        <p class="note">5 шагов, около 2 минут. Резюме, портфолио и контакты — в панели снизу на любом шаге.</p>
+        <p class="note">5 шагов, около 2 минут. Контакты — в конце страницы.</p>
       </div>
     </div>
     <div class="fan">
-      <div class="fan-nav"><button class="fnb" id="fPrev" type="button" aria-label="Предыдущий персонаж"><svg viewBox="0 0 24 24"><path d="M15.75 19.5 8.25 12l7.5-7.5"/></svg></button><span class="fdots" id="fDots"></span><button class="fnb" id="fNext" type="button" aria-label="Следующий персонаж"><svg viewBox="0 0 24 24"><path d="m8.25 4.5 7.5 7.5-7.5 7.5"/></svg></button></div>
+      
       <div class="fan-in" id="fan"></div>
       <div class="chip-p" aria-hidden="true"><span class="gem"></span>Premium</div>
       <div class="duo" id="duo" aria-live="off">
@@ -690,7 +673,7 @@ dialog.cvd::backdrop{background:rgba(5,6,8,.7);backdrop-filter:blur(6px);-webkit
             <div class="pane chl">
               <div class="chh"><b>Chats</b><span class="rb"><svg class="i is" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M10.5 3.75a6.75 6.75 0 1 0 0 13.5 6.75 6.75 0 0 0 0-13.5ZM2.25 10.5a8.25 8.25 0 1 1 14.59 5.28l4.69 4.69a.75.75 0 1 1-1.06 1.06l-4.69-4.69A8.25 8.25 0 0 1 2.25 10.5Z" clip-rule="evenodd"/></svg></span></div>
               <div class="crs"><div class="cr"><span class="sy"><i></i></span><div class="tx"><b>Lumo<em>Team</em></b><small>Your weekly bonus is waiting</small></div><div class="tm"><span class="n">1</span></div></div><div class="cr on"><img src="img/c1.webp" alt=""><div class="tx"><b>Mira</b><small id="miraPrev">Light is my whole job. Bring s…</small></div><div class="tm">18:42</div></div><div class="cr"><img src="img/c2.webp" alt=""><div class="tx"><b>Skye</b><small>Streaming tonight. Come say hi?</small></div><div class="tm">17:10<span class="n">2</span></div></div><div class="cr"><img src="img/c4.webp" alt=""><div class="tx"><b>Vera</b><small>The case is open again.</small></div><div class="tm">Tue</div></div><div class="cr"><img src="img/c10.webp" alt=""><div class="tx"><b>Clara</b><small>Sunrise class at six. You in?</small></div><div class="tm">Mon</div></div></div>
-              <div class="bfc"><img src="../assets/lm-promo.webp" alt="Black Friday: −50% на токены и Premium"><span class="go"><span class="gt2">Get 50% off<em><b class="bft">23:41:08</b> left</em></span><i><svg class="i is" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12.97 3.97a.75.75 0 0 1 1.06 0l7.5 7.5a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 1 1-1.06-1.06l6.22-6.22H3a.75.75 0 0 1 0-1.5h16.19l-6.22-6.22a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd"/></svg></i></span></div>
+              <div class="bfc"><img src="../assets/lm-promo.webp" alt="Black Friday: −50% на токены и Premium"><span class="go">Get 50% off now<i><svg class="i is" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12.97 3.97a.75.75 0 0 1 1.06 0l7.5 7.5a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 1 1-1.06-1.06l6.22-6.22H3a.75.75 0 0 1 0-1.5h16.19l-6.22-6.22a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd"/></svg></i></span></div>
             </div>
             <div class="pane cv">
               <div class="cvh"><img src="img/c1.webp" alt=""><div><b>Mira</b><small><i></i>online · replies in seconds</small></div><span class="rb"><svg class="i is" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M1.5 4.5a3 3 0 0 1 3-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 0 1-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 0 0 6.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 0 1 1.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 0 1-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5Z" clip-rule="evenodd"/></svg></span><span class="rb"><svg class="i is" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M4.5 12a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm6 0a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm6 0a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Z" clip-rule="evenodd"/></svg></span></div>
@@ -758,7 +741,7 @@ dialog.cvd::backdrop{background:rgba(5,6,8,.7);backdrop-filter:blur(6px);-webkit
             <div class="pst" id="pst"></div>
           </div>
           <div class="box rv">
-            <span class="mono"><span>3D-иконки разделов</span><span>5 шт.</span></span>
+            <span class="mono"><span>3D-иконки разделов</span></span>
             <div class="ico">
               <img src="../assets/lm-i1.webp" alt="Фото" style="--k:0" loading="lazy">
               <img src="../assets/lm-i2.webp" alt="Серия дней" style="--k:1" loading="lazy">
@@ -868,7 +851,7 @@ dialog.cvd::backdrop{background:rgba(5,6,8,.7);backdrop-filter:blur(6px);-webkit
   <div class="wrap">
     <span class="mono rv" style="display:block;margin-bottom:clamp(20px,1.6vw,40px)">05 / 05 · Контакты</span>
     <h2 class="rv">Буду рад обсудить детали <span class="gt">лично.</span></h2>
-    <p class="sub rv">Удобнее всего в Telegram. Резюме и портфолио — ниже и в панели снизу.</p>
+    <p class="sub rv">Удобнее всего в Telegram. Портфолио — ниже.</p>
     <div class="ct">
       <a class="pr rv" href="https://t.me/web4life" target="_blank" rel="noopener"><span class="mono">Telegram <span>↗</span></span><b>@web4life</b><small>отвечаю быстро</small></a>
       <button class="rv" type="button" data-copy="deniskonobeyev@gmail.com"><span class="mono">Email <span>копировать</span></span><b>deniskonobeyev@gmail.com</b></button>
@@ -880,12 +863,6 @@ dialog.cvd::backdrop{background:rgba(5,6,8,.7);backdrop-filter:blur(6px);-webkit
 </section>
 </main>
 
-<nav class="dk" aria-label="Быстрые ссылки">
-  <button class="cv" type="button" id="cvBtn"><svg class="i" viewBox="0 0 24 24"><path d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z"/></svg>Резюме</button>
-  <a href="https://dedesign.online/#lumo" target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24"><path d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg>Портфолио</a>
-  <a href="https://t.me/web4life" target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24" style="fill:currentColor;stroke:none"><path d="M21.94 4.3a1.1 1.1 0 0 0-1.5-1.2L2.9 9.9c-.98.38-.97 1.77.02 2.13l4.42 1.6 1.7 5.42c.2.66 1.03.87 1.52.38l2.46-2.42 4.6 3.4c.62.46 1.5.12 1.66-.63L21.94 4.3ZM9.6 13.9l8.2-6.9-6.6 7.9-.3 3.1-1.3-4.1Z"/></svg>Telegram</a>
-  <button type="button" data-copy="deniskonobeyev@gmail.com"><svg class="i" viewBox="0 0 24 24"><path d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"/></svg>Email</button>
-</nav>
 <div class="dk-note" id="note" role="status" aria-live="polite"></div>
 
 <dialog class="cvd" id="cv" aria-labelledby="cvT">
@@ -977,7 +954,7 @@ dialog.cvd::backdrop{background:rgba(5,6,8,.7);backdrop-filter:blur(6px);-webkit
   /* слот: x%, y%, поворот, z, масштаб, z-index, яркость, насыщенность */
   const SLOT = { '-2': [-66, 8, -12, -80, .84, 1, .74, .88], '-1': [-36, 3, -6, -30, .92, 3, .88, .96], '0': [0, 0, 0, 40, 1, 5, 1, 1], '1': [36, 3, 6, -30, .92, 3, .88, .96], '2': [66, 8, 12, -80, .84, 1, .74, .88] };
   fan.innerHTML = CH.map((c, i) => `<button class="fc" type="button" data-i="${i}" aria-label="${c.n}: вывести в центр" style="--d:${.15 + i * .08}s">
-      <img src="${A(c.id)}" alt=""><span class="shn"></span>
+      <img src="${A(c.id)}" alt="">
       <span class="fc-top"><span class="pill gl"><i class="on"></i>Online</span><span class="pill ${c.top[0]}">${c.top[0] === 'pr' ? '<span class="gem"></span>' : ''}${c.top[1]}</span></span>
       <span class="fc-bt"><b>${c.n}${c.a ? `<small>${c.a}</small>` : ''}</b><span class="fc-d">${c.d}</span><span class="fc-tg">${c.tg.map(t => `<span class="pill gl">${t}</span>`).join('')}</span></span>
     </button>`).join('');
@@ -990,10 +967,8 @@ dialog.cvd::backdrop{background:rgba(5,6,8,.7);backdrop-filter:blur(6px);-webkit
     el.classList.toggle('c0', slots[i] === 0); el.setAttribute('aria-pressed', slots[i] === 0);
   });
   place();
-  const fanW = fan.parentElement, fDots = $('#fDots');
-  fDots.innerHTML = CH.map((c, i) => `<button type="button" aria-label="${c.n}"></button>`).join('');
-  const dots = [...fDots.children];
-  const syncDots = () => dots.forEach((d, i) => d.classList.toggle('on', i === heroI));
+  const fanW = fan.parentElement;
+  const syncDots = () => {};
   const shift = sh => {
     if (!sh) return;
     fcs.forEach(f => { f.style.setProperty('--d', '0s'); f.style.removeProperty('--tx'); f.style.removeProperty('--ty'); f.classList.remove('tilt'); });
@@ -1004,10 +979,7 @@ dialog.cvd::backdrop{background:rgba(5,6,8,.7);backdrop-filter:blur(6px);-webkit
   const goTo = i => shift(slots[i]);
   syncDots();
   /* клик по любой карточке выводит её в центр; стрелки и точки — явное управление */
-  fcs.forEach((el, i) => el.addEventListener('click', () => { if (swMoved) return; goTo(i); }));
-  $('#fPrev').addEventListener('click', () => shift(-1));
-  $('#fNext').addEventListener('click', () => shift(1));
-  dots.forEach((d, i) => d.addEventListener('click', () => goTo(i)));
+  fcs.forEach((el, i) => el.addEventListener('click', () => { if (swMoved) return; if (slots[i] === 0) { if (!RM) el.animate([{ scale: 1 }, { scale: .97, offset: .35 }, { scale: 1 }], { duration: 420, easing: 'cubic-bezier(.3,1.4,.5,1)' }); return; } goTo(i); }));
   fan.addEventListener('keydown', e => { if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') { e.preventDefault(); shift(e.key === 'ArrowRight' ? 1 : -1); fcs[heroI].focus(); } });
   /* свайп — только пальцем на тач-экране */
   let swX = null, swMoved = false;
@@ -1087,7 +1059,7 @@ dialog.cvd::backdrop{background:rgba(5,6,8,.7);backdrop-filter:blur(6px);-webkit
 
   /* 04 · серия, драмы, акция */
   const ms = ['m2','m3','m4','m7','m8'], mn = ['Mirror selfie','Lazy morning','Club night','Yacht day','Sunset balcony'];
-  const one = ms.map((m, i) => `<figure><img src="${A(m)}" alt="Mira — ${mn[i]}" loading="lazy"><span>${mn[i]}</span></figure>`).join('');
+  const one = ms.map((m, i) => `<figure><img src="${A(m)}" alt="Mira — ${mn[i]}" decoding="async"><span>${mn[i]}</span></figure>`).join('');
   $('#mq').innerHTML = one + one.replace(/alt="[^"]*"/g, 'alt="" aria-hidden="true"');
   const dr = [['1','Glass Harbor'],['2','Salt & Honey'],['3','The Ninth Lantern'],['4','Room for Two'],['5','Velvet Static'],['6','The Quiet Heir']];
   const wide = $('#wide'), pst = $('#pst'), dN = $('#dN');
@@ -1300,7 +1272,6 @@ dialog.cvd::backdrop{background:rgba(5,6,8,.7);backdrop-filter:blur(6px);-webkit
 
   /* резюме */
   const cv = $('#cv');
-  $('#cvBtn').addEventListener('click', () => cv.showModal());
   $('#cvX').addEventListener('click', () => cv.close());
   cv.addEventListener('click', e => { if (e.target === cv) cv.close(); });
 })();
