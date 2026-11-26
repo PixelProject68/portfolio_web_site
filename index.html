@@ -2593,6 +2593,37 @@ html{background:var(--paper)}
 .lm-steps.go span{cursor:pointer}
 @media (hover:hover){.lm-steps.go span:hover{color:#fff;background:rgba(255,255,255,.12)}}
 .lm-steps.go span:focus-visible{outline:2px solid #D63BD9;outline-offset:2px}
+/* Lumo: accent diet. Magenta only for the main action and "where I am"; the rest soft grey and glass */
+.st-lm{--sx-glow:radial-gradient(46cqw 36cqw at 18% 14%,rgba(214,59,217,.13),transparent 70%),radial-gradient(40cqw 34cqw at 92% 86%,rgba(112,64,255,.12),transparent 70%)}
+.lm{--soft:#B8B0BE;--nt:rgba(255,255,255,.07);background:radial-gradient(900px 500px at 50% -120px,rgba(214,59,217,.07),transparent 70%),var(--bg)}
+.lm-btn{box-shadow:0 8px 22px -12px rgba(214,59,217,.7),inset 0 1px 0 rgba(255,255,255,.3),inset 0 -2px 0 rgba(0,0,0,.15)}
+.lm-ni.on,.lm-tab span.on{box-shadow:0 4px 14px -8px rgba(214,59,217,.7),inset 0 1px 0 rgba(255,255,255,.3)}
+.lm-sh h3 em,.lm-ct em{background:none;-webkit-background-clip:border-box;background-clip:border-box;color:var(--soft)}
+.lm-new{background:rgba(255,255,255,.16);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:inset 0 0 0 1px rgba(255,255,255,.18);color:#fff}
+.lm-tok{background:var(--s1);border:1px solid var(--ln2)}
+.lm-fc .cap em,.lm-wdr .tx em,.lm-lvc .ltp em{color:var(--soft)}
+.lm-dr .pl,.lm-soon .ic,.lm-ofp .ar{background:rgba(255,255,255,.14);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.lm-crow b .lm-tg{background:var(--nt);color:var(--mu)}
+.lm-b.me{background:#4A2752}
+.lm-b.me::before{background:#4A2752}
+.lm-in .tl span svg.i,.lm-tgs span svg.i,.lm-ask span svg.i,.lm-strip .lk i.p svg.i,.lm-q .ac .ok svg.i{color:var(--soft)}
+.lm-prop .ib,.lm-perk div span,.lm-earn div span{background:var(--nt);color:var(--soft)}
+.lm-ofp.hov{background:rgba(255,255,255,.06)}
+.lm-por{box-shadow:0 30px 60px -30px rgba(0,0,0,.8)}
+.lm-rel .hd span{color:var(--mu)}
+.lm-st b{background:none;-webkit-background-clip:border-box;background-clip:border-box;color:var(--tx)}
+.lm-set.all{box-shadow:0 0 0 1px rgba(255,255,255,.28),0 18px 40px -18px rgba(0,0,0,.7)}
+.lm-set.all .lk{background:rgba(255,255,255,.16)}
+.lm-pst[data-r="0"] b{color:#fff}
+.lm-gi.ok{box-shadow:0 0 0 1px rgba(255,255,255,.3),0 20px 40px -18px rgba(0,0,0,.8)}
+.lm-lvn{filter:drop-shadow(0 10px 30px rgba(214,59,217,.3))}
+.lm-xp .br i{box-shadow:0 0 10px rgba(214,59,217,.45)}
+.lm-nxt div em{color:var(--mu)}
+.lm-trk .nd.d{background:rgba(255,255,255,.14);color:#fff}
+.lm-q .ic .mk{background:#fff;color:#120D16}
+.lm-q .pb .br i{background:rgba(255,255,255,.45)}
+.lm-q .rwd{color:var(--tx)}
+.lm-q.won .ic{background:var(--nt)}
 .sx-narrow .lm-steps{left:50%;top:1.6%;transform:translateX(-50%);gap:4px}
 /* step tabs for every big preview (same look as Lumo's, site blue): click jumps to the step, the bar shows its progress */
 .sx-steps{position:absolute;left:3.5%;top:3.4%;z-index:6;display:flex;gap:.5cqw;font:600 max(10px,.9cqw)/1 "Geist",var(--f-body);color:rgba(255,255,255,.62)}
