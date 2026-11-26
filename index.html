@@ -2620,6 +2620,10 @@ html{background:var(--paper)}
 .lm-xp .br i{box-shadow:0 0 10px rgba(214,59,217,.45)}
 .lm-nxt div em{color:var(--mu)}
 .lm-trk .nd.d{background:var(--mg);color:#fff}
+/* Lumo carousels: long soft glide; the tapped card dips under the finger */
+.lm-fc,.lm-pst{transition:transform 1.05s cubic-bezier(.22,.9,.24,1),filter 1.05s cubic-bezier(.22,.9,.24,1),opacity .9s,box-shadow .9s}
+.lm-fc img,.lm-pst img{transition:transform .55s cubic-bezier(.3,1.4,.5,1)}
+.lm-fc.prs img,.lm-pst.prs img{transform:scale(.93);transition-duration:.16s}
 .lm-q .ic .mk{background:#fff;color:#120D16}
 .lm-q .pb .br i{background:rgba(255,255,255,.45)}
 .lm-q .rwd{color:var(--tx)}
@@ -6646,6 +6650,13 @@ ${S(p+'el',130,100.89,.606,-.796,7,'#fff',.22)}${S(p+'er',390,100.89,-.606,-.796
     const ABORT = {};
     const q = (R, s) => R.querySelector(`[data-a="${s}"]`), qa = (R, s) => [...R.querySelectorAll(`[data-a="${s}"]`)];
     const render = () => { dW.firstElementChild.innerHTML = lmHTML('d'); mW.firstElementChild.innerHTML = lmHTML('m'); D = dW.querySelector('.lm'); M = mW.querySelector('.lm'); K = sxKit(stage, D, M); [D, M].forEach(R => { flowSet(R, 'flow', '.lm-fc', 0); flowSet(R, 'pflow', '.lm-pst', 3); }); };
+    /* tap a side card of a carousel: the card dips under the finger and glides to the centre */
+    const flowTap = async (c, R, a, sel, r, ms, mob) => {
+      const el = q(R, a).querySelector(`${sel}[data-r="${r}"]`); if (!el) return;
+      if (mob) await c.tap(el, ms); else await c.click(el, ms);
+      el.classList.add('prs'); setTimeout(() => el.classList.remove('prs'), 200*TEMPO);
+      flowSet(R, a, sel, +el.dataset.i);
+    };
     function flowSet(R, a, sel, idx){
       const box = q(R, a); if (!box) return;
       const cards = [...box.querySelectorAll(sel)], n = cards.length, half = Math.floor(n/2);
@@ -6780,8 +6791,9 @@ ${S(p+'el',130,100.89,.606,-.796,7,'#fff',.22)}${S(p+'er',390,100.89,-.606,-.796
     const explore = async c => {
       const d = async () => {
         await c.w(900);
-        await c.click(q(D, 'fr'), 800); flowSet(D, 'flow', '.lm-fc', 1); await c.w(1700);
-        await c.click(q(D, 'fr'), 400); flowSet(D, 'flow', '.lm-fc', 2); await c.w(1300);
+        await flowTap(c, D, 'flow', '.lm-fc', 1, 800); await c.w(1250);
+        await flowTap(c, D, 'flow', '.lm-fc', 1, 450); await c.w(1250);
+        await flowTap(c, D, 'flow', '.lm-fc', -1, 550); await c.w(1300);
         // straight down from the banner to the dramas: no detour to the header
         const w = q(D, 'dr-1'); const wb = w.querySelector('.lm-btn'); await c.move(wb, 900); wb.classList.add('hov'); await c.w(900); wb.classList.remove('hov');
         const s = q(D, 'dr-3'); await c.move(s, 650); expand(D, s); await c.w(1500);
@@ -6793,8 +6805,9 @@ ${S(p+'el',130,100.89,.606,-.796,7,'#fff',.22)}${S(p+'er',390,100.89,-.606,-.796
       };
       const m = async () => {
         await c.w(1300);
-        await c.tap(q(M, 'flow'), 0); flowSet(M, 'flow', '.lm-fc', 1); await c.w(2000);
-        flowSet(M, 'flow', '.lm-fc', 2); await c.w(1800);
+        await flowTap(c, M, 'flow', '.lm-fc', 1, 0, true); await c.w(1250);
+        await flowTap(c, M, 'flow', '.lm-fc', 1, 200, true); await c.w(1250);
+        await flowTap(c, M, 'flow', '.lm-fc', -1, 200, true); await c.w(900);
         const row = q(M, 'row'); await c.tap(row.children[2], 200); expand(M, row.children[2]); row.style.transform = 'translateX(-200px)'; await c.w(1900);
         await c.scroll(M, 'sc-explore', 560, 1100); await c.w(900);
         await c.tap(q(M, 'cc-c1').querySelector('.go'), 600);
@@ -6854,17 +6867,10 @@ ${S(p+'el',130,100.89,.606,-.796,7,'#fff',.22)}${S(p+'er',390,100.89,-.606,-.796
       const pick = R => { flowSet(R, 'pflow', '.lm-pst', 1); q(R, 'pname').textContent = 'Golden Hour'; q(R, 'pimg').src = lmImg('m1'); const ch = q(R, 'pchip'); ch.classList.remove('flash'); void ch.offsetWidth; ch.classList.add('flash'); };
       const d = async () => {
         await c.view(D, 'gen'); await c.w(700);
-        const pf = q(D, 'pflow'), cen = q(D, 'pst-m4'), p = K.pt(D, cen);
-        await c.moveXY(p.x, p.y, 800); pf.classList.add('tilt');
-        for (const [dx, ty, tx] of [[-230, 7, -2], [230, -7, 2], [0, 0, 0]]){ pf.style.setProperty('--ty', ty + 'deg'); pf.style.setProperty('--tx', tx + 'deg'); const nb = dx < 0 ? q(D, 'pst-m3') : dx > 0 ? q(D, 'pst-m5') : null; [q(D, 'pst-m3'), q(D, 'pst-m5')].forEach(e => hov(e, e === nb)); await c.moveXY(p.x + dx, p.y + (dx ? 10 : 0), 650); }
-        hov(q(D, 'pst-m3'), false); hov(q(D, 'pst-m5'), false);
-        // grab and swipe right: the carousel runs two cards with momentum
-        const cur = D.querySelector('.sx-cur'); if (cur && !c.fast) cur.firstElementChild.style.transform = 'scale(.85)';
-        pf.classList.add('drag');
-        const sw = c.moveXY(p.x + 340, p.y, 700, 'cubic-bezier(.3,0,.2,1)');
-        await c.w(230); flowSet(D, 'pflow', '.lm-pst', 2); await c.w(260); flowSet(D, 'pflow', '.lm-pst', 1); await sw;
-        if (cur) cur.firstElementChild.style.transform = '';
-        pf.classList.remove('drag', 'tilt'); pf.style.removeProperty('--ty'); pf.style.removeProperty('--tx');
+        // tap side cards: one to the right, a long jump back two, one more to «Golden Hour»
+        await flowTap(c, D, 'pflow', '.lm-pst', 1, 800); await c.w(1150);
+        await flowTap(c, D, 'pflow', '.lm-pst', -2, 500); await c.w(1250);
+        await flowTap(c, D, 'pflow', '.lm-pst', -1, 450); await c.w(450);
         pick(D); await c.w(1100);
         const gin = q(D, 'gin'); await c.click(gin.querySelector('.f'), 700); gin.classList.add('foc');
         await c.type(q(D, 'ginT'), 'coral swimsuit, wind in her hair, sunset pier', 38);
@@ -6873,7 +6879,8 @@ ${S(p+'el',130,100.89,.606,-.796,7,'#fff',.22)}${S(p+'er',390,100.89,-.606,-.796
       };
       const m = async () => {
         await c.view(M, 'gen', 'push'); await c.w(1500);
-        await c.tap(q(M, 'pst-m4'), 200); flowSet(M, 'pflow', '.lm-pst', 2); await c.w(320); flowSet(M, 'pflow', '.lm-pst', 1); await c.w(500); pick(M); await c.w(1300);
+        await flowTap(c, M, 'pflow', '.lm-pst', -1, 200, true); await c.w(1150);
+        await flowTap(c, M, 'pflow', '.lm-pst', -1, 200, true); await c.w(500); pick(M); await c.w(1300);
         await c.tap(q(M, 'gin'), 300); q(M, 'gin').classList.add('foc');
         await c.type(q(M, 'ginT'), 'coral swimsuit, sunset pier', 46);
         q(M, 'gin').classList.remove('foc');
